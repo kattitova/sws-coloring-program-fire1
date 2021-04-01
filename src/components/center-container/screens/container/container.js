@@ -1,4 +1,6 @@
-import { onHoverElement, outHoverElement, getAllDetailsByDataId } from "../../../functions";
+import {
+  onHoverElement, outHoverElement, getAllDetailsByDataId, handlerClickDetails,
+} from "../../../functions";
 import create from "../../../create";
 import { letters } from "../../split-buttons";
 
@@ -16,37 +18,15 @@ function setContainerColor(details, dataTarget) {
   }
 }
 
-// функция обработки кликов по кнопкам Apply to All, Clear All
-function addApplyClear() {
+// функция обработки кликов по кнопкам Apply to All
+function addApplyAll() {
   const container = document.querySelector(".right-container__template-panel.container");
-  const screens = document.querySelectorAll(".constructor__schema");
-
-  function handlerClick(color) {
-    screens.forEach((screen) => {
-      const details = screen.querySelectorAll("path");
-      details.forEach((item) => {
-        const id = item.getAttribute("data-id");
-        if (id !== null) {
-          item.setAttribute("data-color", color);
-          const formItem = form.querySelector(`[data-target="${id}"]`);
-          formItem.setAttribute("value", color);
-          formItem.textContent = color;
-        }
-      });
-    });
-  }
-
   const buttonApply = container.querySelector(".template-panel__button-apply");
   buttonApply.addEventListener("click", () => {
     const color = localStorage.getItem("color");
     if (color !== null) {
-      handlerClick(color);
+      handlerClickDetails(color);
     }
-  });
-
-  const buttonClear = container.querySelector(".template-panel__button-clear");
-  buttonClear.addEventListener("click", () => {
-    handlerClick("NULL");
   });
 }
 
@@ -179,7 +159,7 @@ export default function getContainerElements() {
   shematicsItemEvents(container);
   schematicsTitleEvents(container);
   checkSplitActivity(container);
-  addApplyClear();
+  addApplyAll();
 }
 
 export { setContainerColor };

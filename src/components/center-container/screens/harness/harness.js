@@ -20,28 +20,6 @@ function setHarnessColor() {
   }
 }
 
-// функция обработки кликов по кнопки Clear All
-function addClear() {
-  const harnessScreen = document.querySelector(".right-container__template-panel.container");
-
-  function handlerClick(color) {
-    for (let i = 14; i < 18; i += 3) {
-      const formItem = form.querySelector(`[data-target="area-${i}"]`);
-      formItem.setAttribute("value", color);
-      formItem.textContent = color;
-    }
-    const arrDetails = document.querySelectorAll("[data-id=\"harness\"] path");
-    arrDetails.forEach((det) => {
-      det.setAttribute("data-color", color);
-    });
-  }
-
-  const buttonClear = harnessScreen.querySelector(".template-panel__button-clear");
-  buttonClear.addEventListener("click", () => {
-    handlerClick("NULL");
-  });
-}
-
 // функция навешивает события на пункты листа Schematics (hover, click)
 function shematicsItemEvents(container, harness) {
   const shematicsItems = container.querySelectorAll(".schematics__list-item");
@@ -113,5 +91,4 @@ export default function getHarnessElements() {
 
   shematicsItemEvents(harnessScreen, harness);
   schematicsTitleEvents(harnessScreen, harness);
-  addClear();
 }

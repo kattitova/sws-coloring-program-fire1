@@ -6,14 +6,92 @@ import getHarnessElements from "./center-container/screens/harness/harness";
 import getBindingPinstripesElements from "./center-container/screens/bind_pinstripes/bind_pinstripes";
 import getLogosElements from "./center-container/screens/logos/logos";
 
-export default function funcInit() {
-  tabsClick();
-  posClick();
-  getContainerElements();
-  splitButtonsClick();
-  getHarnessElements();
-  getBindingPinstripesElements();
-  getLogosElements();
+const form = document.querySelector(".form-constructor");
+
+// применение цвета или очистка к подвесной
+function handlerClickHarness(color) {
+  for (let i = 14; i < 18; i += 3) {
+    const formItem = form.querySelector(`[data-target="area-${i}"]`);
+    formItem.setAttribute("value", color);
+    formItem.textContent = color;
+  }
+  const arrDetails = document.querySelectorAll("[data-id=\"harness\"] path");
+  arrDetails.forEach((det) => {
+    det.setAttribute("data-color", color);
+  });
+}
+
+// применение цвета или очистка к деталям ранца
+function handlerClickDetails(color) {
+  const screens = document.querySelectorAll(".constructor__schema");
+  screens.forEach((screen) => {
+    const details = screen.querySelectorAll("path");
+    details.forEach((item) => {
+      const id = item.getAttribute("data-id");
+      if (id !== null && id.indexOf("pinstripes") === -1) {
+        item.setAttribute("data-color", color);
+        const formItem = form.querySelector(`[data-target="${id}"]`);
+        formItem.setAttribute("value", color);
+        formItem.textContent = color;
+      }
+    });
+  });
+}
+
+// сбравывает кнопки Окантовка и Лучи в неактивное положение
+// сбрасывает цвета окантовки и лучей
+function handlerClickBP() {
+  // сброс активности кнопок включателей лучей и окантовки
+  const switcherButtons = document.querySelectorAll(".position__pb-switch button");
+  switcherButtons.forEach((but) => {
+    if (but.classList.contains("active")) but.click();
+  });
+
+  // сброс цветов лучей
+  const pinstripesAll = document.querySelectorAll(".constructor__item [data-id=\"pinstripes\"]");
+  pinstripesAll.forEach((pinstripes) => {
+    const pins = pinstripes.querySelectorAll(".schema__element");
+    pins.forEach((pin) => {
+      pin.setAttribute("data-color", "NULL");
+      const dataId = pin.getAttribute("data-id");
+      const formItem = form.querySelector(`[data-target="${dataId}"]`);
+      formItem.setAttribute("value", "NULL");
+      formItem.textContent = "NULL";
+    });
+  });
+
+  // сброс цвета окантовки
+  const bindingAll = document.querySelectorAll(".constructor__item [data-id=\"binding\"]");
+  bindingAll.forEach((binding) => {
+    const pathAll = binding.querySelectorAll("path");
+    pathAll.forEach((path) => {
+      path.setAttribute("data-color", "NULL");
+    });
+  });
+  const formItem = form.querySelector("[data-target=\"binding\"]");
+  formItem.setAttribute("value", "NULL");
+  formItem.textContent = "NULL";
+}
+
+// функция обработки кликов по кнопки Clear All
+// в зависимости от того, на каком экране она нажата
+function clearAll() {
+  const buttonClear = document.querySelector(".template-panel__button-clear");
+  buttonClear.addEventListener("click", () => {
+    const cls = buttonClear.className.split(" ");
+    switch (cls[1]) {
+      case "container":
+        handlerClickDetails("NULL");
+        break;
+      case "harness":
+        handlerClickHarness("NULL");
+        break;
+      case "binding_pinstripes":
+        handlerClickBP();
+        break;
+      default: break;
+    }
+  });
 }
 
 function onHoverElement(elem) {
@@ -28,8 +106,20 @@ function getAllDetailsByDataId(id) {
   return document.querySelectorAll(`.schema__element[data-id="${id}"]`);
 }
 
+export default function funcInit() {
+  tabsClick();
+  posClick();
+  getContainerElements();
+  splitButtonsClick();
+  getHarnessElements();
+  getBindingPinstripesElements();
+  getLogosElements();
+  clearAll();
+}
+
 export {
   onHoverElement,
   outHoverElement,
   getAllDetailsByDataId,
+  handlerClickDetails,
 };

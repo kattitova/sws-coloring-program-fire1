@@ -41,7 +41,7 @@ export default class RightContainer {
     buttonApplayAll.textContent = "Apply to all areas";
     divTemplatePanel.appendChild(buttonApplayAll);
 
-    const buttonClearAll = create("button", "template-panel__button-clear");
+    const buttonClearAll = create("button", ...["template-panel__button-clear", "container"]);
     buttonClearAll.setAttribute("data-lang", "clear_all");
     buttonClearAll.textContent = "Clear all colors";
     divTemplatePanel.appendChild(buttonClearAll);

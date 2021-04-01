@@ -55,21 +55,6 @@ function switcherButtonsClick() {
   });
 }
 
-// функция клик по кнопке Очистить все
-// сбравывает кнопки Окантовка и Лучи в неактивное положение
-// сбрасывает цвета окантовки и лучей
-function clearAll() {
-  const panel = document.querySelector(".right-container__template-panel");
-  const button = panel.querySelector(".template-panel__button-clear");
-  const switcherButtons = document.querySelectorAll(".position__pb-switch button");
-  button.addEventListener("click", () => {
-    switcherButtons.forEach((but) => {
-      but.classList.remove("active");
-      but.classList.add("no-active");
-    });
-  });
-}
-
 export default function getBindingPinstripesElements() {
   const bpScreen = document.querySelector(".constructor__item.binding_pinstripes");
   // добавляем в id камуфляжных текстур отличительный идентификатор binding_pinstripes,
@@ -84,5 +69,4 @@ export default function getBindingPinstripesElements() {
   });
 
   switcherButtonsClick();
-  clearAll();
 }

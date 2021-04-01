@@ -20,6 +20,10 @@ export default function tabsClick() {
     templatePanel.classList.remove(activeTab.className.split(" ")[1]);
     templatePanel.classList.add(tabs[1]);
 
+    const clearButton = document.querySelector(".template-panel__button-clear");
+    clearButton.classList.remove(activeTab.className.split(" ")[1]);
+    clearButton.classList.add(tabs[1]);
+
     setActive(e.target);
   });
 }

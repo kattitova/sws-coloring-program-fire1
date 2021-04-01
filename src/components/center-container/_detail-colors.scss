@@ -1,0 +1,416 @@
+.constructor__schema--img .schema__element,
+.schema__element path {
+  &[data-color="wht"] {
+    fill: #fff !important;
+  }
+
+  &[data-color="blk"] {
+    fill: #000 !important;
+  }
+
+  &[data-color="dg"] {
+    fill: #565656 !important;
+  }
+
+  &[data-color="sil"] {
+    fill: #b5b5b5 !important;
+  }
+
+  &[data-color="nbl"] {
+    fill: #1a237e !important;
+  }
+
+  &[data-color="rbl"] {
+    fill: #0d47a1 !important;
+  }
+
+  &[data-color="lbl"] {
+    fill: #0091ea !important;
+  }
+
+  &[data-color="red"] {
+    fill: #d82601 !important;
+  }
+
+  &[data-color="org"] {
+    fill: #ff6101 !important;
+  }
+
+  &[data-color="yel"] {
+    fill: #ffe603 !important;
+  }
+
+  &[data-color="gld"] {
+    fill: #ffc324 !important;
+  }
+
+  &[data-color="grn"] {
+    fill: #388e3c !important;
+  }
+
+  &[data-color="pnk"] {
+    fill: #ff4081 !important;
+  }
+
+  &[data-color="brd"] {
+    fill: #b72f0f !important;
+  }
+
+  &[data-color="brn"] {
+    fill: #624339 !important;
+  }
+
+  &[data-color="prp"] {
+    fill: #7b1fa2 !important;
+  }
+
+  &[data-color="neonPnk"] {
+    fill: #ff1744 !important;
+  }
+
+  &[data-color="neonYel"] {
+    fill: #ffff03 !important;
+  }
+
+  &[data-color="neonOrg"] {
+    fill: #ffa902 !important;
+  }
+
+  &[data-color="neonGrn"] {
+    fill: #6bff06 !important;
+  }
+}
+
+[data-id="pinstripes"] {
+  .schema__element {
+    &[data-color="wht"] {
+      fill: none !important;
+      stroke: #fff !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="blk"] {
+      fill: none !important;
+      stroke: #000 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="dg"] {
+      fill: none !important;
+      stroke: #565656 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="sil"] {
+      fill: none !important;
+      stroke: #b5b5b5 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="nbl"] {
+      fill: none !important;
+      stroke: #1a237e !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="rbl"] {
+      fill: none !important;
+      stroke: #0d47a1 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="lbl"] {
+      fill: none !important;
+      stroke: #0091ea !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="red"] {
+      fill: none !important;
+      stroke: #d82601 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="org"] {
+      fill: none !important;
+      stroke: #ff6101 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="yel"] {
+      fill: none !important;
+      stroke: #ffe603 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="gld"] {
+      fill: none !important;
+      stroke: #ffc324 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="grn"] {
+      fill: none !important;
+      stroke: #388e3c !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="pnk"] {
+      fill: none !important;
+      stroke: #ff4081 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="brd"] {
+      fill: none !important;
+      stroke: #b72f0f !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="brn"] {
+      fill: none !important;
+      stroke: #624339 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="prp"] {
+      fill: none !important;
+      stroke: #7b1fa2 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="neonPnk"] {
+      fill: none !important;
+      stroke: #ff1744 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="neonYel"] {
+      fill: none !important;
+      stroke: #ffff03 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="neonOrg"] {
+      fill: none !important;
+      stroke: #ffa902 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="neonGrn"] {
+      fill: none !important;
+      stroke: #6bff06 !important;
+      stroke-width: 2px;
+    }
+
+    &[data-color="def"] {
+      display: none;
+    }
+  }
+}
+
+.schema__isometric {
+  .schema__element {
+    &[data-color="CamoW"] {
+      fill: url("#camow-isometric") !important;
+    }
+
+    &[data-color="CamoD"] {
+      fill: url("#camod-isometric") !important;
+    }
+
+    &[data-color="Multicam"] {
+      fill: url("#multicam-isometric") !important;
+    }
+
+    &[data-color="MulticamBl"] {
+      fill: url("#multicambl-isometric") !important;
+    }
+  }
+}
+
+.schema__front {
+  .schema__element {
+    &[data-color="CamoW"] {
+      fill: url("#camow-front") !important;
+    }
+
+    &[data-color="CamoD"] {
+      fill: url("#camod-front") !important;
+    }
+
+    &[data-color="Multicam"] {
+      fill: url("#multicam-front") !important;
+    }
+
+    &[data-color="MulticamBl"] {
+      fill: url("#multicambl-front") !important;
+    }
+  }
+}
+
+.schema__back {
+  .schema__element {
+    &[data-color="CamoW"] {
+      fill: url("#camow-back") !important;
+    }
+
+    &[data-color="CamoD"] {
+      fill: url("#camod-back") !important;
+    }
+
+    &[data-color="Multicam"] {
+      fill: url("#multicam-back") !important;
+    }
+
+    &[data-color="MulticamBl"] {
+      fill: url("#multicambl-back") !important;
+    }
+  }
+}
+
+.schema__side {
+  .schema__element {
+    &[data-color="CamoW"] {
+      fill: url("#camow-side") !important;
+    }
+
+    &[data-color="CamoD"] {
+      fill: url("#camod-side") !important;
+    }
+
+    &[data-color="Multicam"] {
+      fill: url("#multicam-side") !important;
+    }
+
+    &[data-color="MulticamBl"] {
+      fill: url("#multicambl-side") !important;
+    }
+  }
+}
+
+.constructor__item.harness {
+  .schema__back {
+    .schema__element {
+      &[data-color="CamoW"] {
+        fill: url("#camow-back-harness") !important;
+      }
+
+      &[data-color="CamoD"] {
+        fill: url("#camod-back-harness") !important;
+      }
+
+      &[data-color="Multicam"] {
+        fill: url("#multicam-back-harness") !important;
+      }
+
+      &[data-color="MulticamBl"] {
+        fill: url("#multicambl-back-harness") !important;
+      }
+    }
+  }
+}
+
+.constructor__item.binding_pinstripes {
+  .schema__front {
+    .schema__element {
+      &[data-color="CamoW"] {
+        fill: url("#camow-front-binding_pinstripes") !important;
+      }
+
+      &[data-color="CamoD"] {
+        fill: url("#camod-front-binding_pinstripes") !important;
+      }
+
+      &[data-color="Multicam"] {
+        fill: url("#multicam-front-binding_pinstripes") !important;
+      }
+
+      &[data-color="MulticamBl"] {
+        fill: url("#multicambl-front-binding_pinstripes") !important;
+      }
+    }
+  }
+
+  .schema__back {
+    .schema__element {
+      &[data-color="CamoW"] {
+        fill: url("#camow-back-binding_pinstripes") !important;
+      }
+
+      &[data-color="CamoD"] {
+        fill: url("#camod-back-binding_pinstripes") !important;
+      }
+
+      &[data-color="Multicam"] {
+        fill: url("#multicam-back-binding_pinstripes") !important;
+      }
+
+      &[data-color="MulticamBl"] {
+        fill: url("#multicambl-back-binding_pinstripes") !important;
+      }
+    }
+  }
+}
+
+.constructor__item.logos {
+  .schema__front {
+    .schema__element {
+      &[data-color="CamoW"] {
+        fill: url("#camow-front-logos") !important;
+      }
+
+      &[data-color="CamoD"] {
+        fill: url("#camod-front-logos") !important;
+      }
+
+      &[data-color="Multicam"] {
+        fill: url("#multicam-front-logos") !important;
+      }
+
+      &[data-color="MulticamBl"] {
+        fill: url("#multicambl-front-logos") !important;
+      }
+    }
+  }
+
+  .schema__back {
+    .schema__element {
+      &[data-color="CamoW"] {
+        fill: url("#camow-back-logos") !important;
+      }
+
+      &[data-color="CamoD"] {
+        fill: url("#camod-back-logos") !important;
+      }
+
+      &[data-color="Multicam"] {
+        fill: url("#multicam-back-logos") !important;
+      }
+
+      &[data-color="MulticamBl"] {
+        fill: url("#multicambl-back-logos") !important;
+      }
+    }
+  }
+
+  .schema__side {
+    .schema__element {
+      &[data-color="CamoW"] {
+        fill: url("#camow-side-logos") !important;
+      }
+
+      &[data-color="CamoD"] {
+        fill: url("#camod-side-logos") !important;
+      }
+
+      &[data-color="Multicam"] {
+        fill: url("#multicam-side-logos") !important;
+      }
+
+      &[data-color="MulticamBl"] {
+        fill: url("#multicambl-side-logos") !important;
+      }
+    }
+  }
+}

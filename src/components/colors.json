@@ -1,0 +1,72 @@
+[
+  {
+    "wht": {
+      "wht":"White",
+      "harness":"no"
+    }, 
+    "blk": {
+      "blk":"Black", 
+      "harness":"yes"
+    },
+    "dg": {
+      "dg":"Dark Grey",
+      "harness":"yes"
+    },
+    "sil": {
+      "sil":"Silver",
+      "harness":"yes"
+    },
+    "nbl": {
+      "nbl":"Navy Blue",
+      "harness":"yes"
+    },
+    "rbl": {
+      "rbl":"Royal Blue",
+      "harness":"yes"
+    },
+    "lbl": {
+      "lbl":"Light Blue",
+      "harness":"no"
+    },
+    "red": {
+      "red":"Red",
+      "harness":"yes"
+    },
+    "org": {
+      "org":"Orange",
+      "harness":"no"
+    },
+    "yel": {
+      "yel":"Yellow",
+      "harness":"yes"
+    },
+    "gld": {
+      "gld":"Gold",
+      "harness":"no"
+    },
+    "grn": {
+      "grn":"Green",
+      "harness":"no"
+    },
+    "pnk": {
+      "pnk":"Pink",
+      "harness":"no"
+    },
+    "brd": {
+      "brd":"Burgundy",
+      "harness":"no"
+    },
+    "brn": {
+      "brn":"Brown",
+      "harness":"no"
+    },
+    "prp": {
+      "prp":"Purple",
+      "harness":"no"
+    },
+    "def": {
+      "def":"Null",
+      "harness":"yes"
+    }
+  }
+]

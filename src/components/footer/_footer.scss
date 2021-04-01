@@ -1,0 +1,34 @@
+.footer {
+  @include flex(center, center, column);
+
+  .footer-text {
+    @include flex;
+    max-width: 1300px;
+
+    div {
+      align-items: center;
+      color: #fff;
+      display: flex;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 14px;
+      margin-bottom: 26px;
+      margin-left: 40px;
+      margin-right: 40px;
+      width: 50%;
+
+      &::before {
+        @include font-awesome;
+        color: rgb(255, 208, 0);
+        content: "\f071";
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .copyright {
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+  }
+}

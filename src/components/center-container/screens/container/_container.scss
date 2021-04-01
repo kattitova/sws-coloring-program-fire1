@@ -1,0 +1,22 @@
+.constructor__schema--img {
+  position: relative;
+
+  .schema__element {
+    position: relative;
+    stroke: #9ab7cd;
+    stroke-width: 1;
+    z-index: 1;
+
+    &.hover {
+      cursor: pointer;
+      fill: #9ab7cd;
+      stroke: #fff;
+      stroke-width: 2;
+      z-index: 2;
+    }
+
+    &.no-active {
+      pointer-events: none;
+    }
+  }
+}

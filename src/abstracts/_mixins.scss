@@ -1,0 +1,33 @@
+@mixin size($w: auto, $h: auto) {
+  height: $h;
+  width: $w;
+}
+
+@mixin flex($jc: center, $ai: center, $fd: row, $d: flex) {
+  align-items: $ai;
+  display: $d;
+  flex-direction: $fd;
+  justify-content: $jc;
+}
+
+@mixin font-awesome($size: 15px) {
+  font-family: "Font Awesome 5 Free";
+  font-size: $size;
+  font-weight: 900;
+}
+
+@mixin button-hover {
+  background: #12334b;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@mixin link-hover {
+  color: #192837;
+  opacity: 1;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

@@ -1,0 +1,105 @@
+.constructor__item {
+  &.binding_pinstripes {
+    .constructor__position {
+      @include flex(space-between, flex-start, column);
+    }
+  }
+}
+
+.center-container__constructor .constructor__item {
+  &.binding_pinstripes {
+    grid-template-areas: "position schema";
+    grid-template-columns: 64px 1fr;
+  }
+}
+
+.position__pb-switch button:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.position__pb-switch button {
+  padding: 0 20px;
+  width: 170px;
+}
+
+.position__pb-switch button {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    #246595;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+  color: rgba(255, 255, 255, 0.75);
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  height: 32px;
+  letter-spacing: 0.1em;
+  padding: 0 24px;
+  position: relative;
+  text-align: left;
+  text-transform: uppercase;
+  width: 168px;
+}
+
+.position__pb-switch {
+  button::after,
+  button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.2s;
+  }
+
+  button::before {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    height: 8px;
+    right: 10px;
+    width: 20px;
+  }
+
+  button::after {
+    background: #192837;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px rgb(0 0 0 / 24%), 0 0 2px rgb(0 0 0 / 12%);
+    height: 12px;
+    right: 18px;
+    width: 12px;
+  }
+
+  button.active::before {
+    background: #4caf50;
+  }
+
+  button.active::after {
+    right: 10px;
+  }
+}
+
+[data-id="binding"].active {
+  path {
+    stroke: #fff;
+    stroke-width: 2px;
+  }
+}
+
+[data-id="pinstripes"].active {
+  path,
+  .schema__element {
+    display: block;
+    stroke: #9ab7cd;
+    stroke-width: 3px;
+  }
+}
+
+[data-id="pinstripes"].active:hover {
+  cursor: pointer;
+}
+
+[data-id="pinstripes"].no-active {
+  path,
+  .schema__element {
+    stroke: none;
+  }
+}

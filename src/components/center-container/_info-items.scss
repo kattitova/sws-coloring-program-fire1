@@ -1,0 +1,505 @@
+.constructor__schema {
+  .info-item {
+    &::before {
+      background: #fff;
+      content: "";
+      height: 1px;
+      position: absolute;
+    }
+  }
+
+  &.isometric {
+    .info-item {
+      &[data-id="area-1"] {
+        right: 16%;
+        top: 20%;
+
+        &::before {
+          bottom: -13px;
+          left: -68px;
+          transform: rotate(-24deg);
+          width: 65px;
+        }
+      }
+
+      &[data-id="area-2"] {
+        right: 12%;
+        top: 30%;
+
+        &::before {
+          bottom: -19px;
+          left: -96px;
+          transform: rotate(-24deg);
+          width: 93px;
+        }
+      }
+
+      &[data-id="area-2a"] {
+        left: 25%;
+        top: 55%;
+
+        &::before {
+          bottom: 40px;
+          left: 18px;
+          transform: rotate(-24deg);
+          width: 140px;
+        }
+      }
+
+      &[data-id="area-2b"] {
+        right: 10%;
+        top: 40%;
+
+        &::before {
+          bottom: -19px;
+          left: -96px;
+          transform: rotate(-24deg);
+          width: 93px;
+        }
+      }
+
+      &[data-id="area-2c"] {
+        right: 12%;
+        top: 30%;
+
+        &::before {
+          bottom: -15px;
+          left: -83px;
+          transform: rotate(-24deg);
+          width: 80px;
+        }
+      }
+
+      &[data-id="area-3"] {
+        right: 10%;
+        top: 55%;
+
+        &::before {
+          bottom: -15px;
+          left: -88px;
+          transform: rotate(-24deg);
+          width: 85px;
+        }
+      }
+
+      &[data-id="area-4"] {
+        left: 23%;
+        top: 80%;
+
+        &::before {
+          bottom: 40px;
+          left: 18px;
+          transform: rotate(-24deg);
+          width: 140px;
+        }
+      }
+
+      &[data-id="area-5"] {
+        left: 23%;
+        top: 40%;
+
+        &::before {
+          bottom: 24px;
+          left: 20px;
+          transform: rotate(-24deg);
+          width: 58px;
+        }
+      }
+
+      &[data-id="area-6"] {
+        right: 22%;
+        top: 10%;
+
+        &::before {
+          bottom: -19px;
+          left: -96px;
+          transform: rotate(-24deg);
+          width: 93px;
+        }
+      }
+
+      &[data-id="area-6d"] {
+        left: 23%;
+        top: 30%;
+
+        &::before {
+          bottom: 38px;
+          left: 17px;
+          transform: rotate(-24deg);
+          width: 126px;
+        }
+      }
+
+      &[data-id="area-6e"] {
+        right: 22%;
+        top: 10%;
+
+        &::before {
+          bottom: -19px;
+          left: -96px;
+          transform: rotate(-24deg);
+          width: 93px;
+        }
+      }
+
+      &[data-id="area-6f"] {
+        right: 25%;
+        top: 5%;
+
+        &::before {
+          bottom: -14px;
+          left: -82px;
+          transform: rotate(-24deg);
+          width: 78px;
+        }
+      }
+
+      &[data-id="area-7"] {
+        left: 35%;
+        top: 0;
+
+        &::before {
+          bottom: -11px;
+          left: 18px;
+          transform: rotate(26deg);
+          width: 49px;
+        }
+      }
+
+      &[data-id="area-8"] {
+        left: 23%;
+        top: 89%;
+
+        &::before {
+          bottom: 25px;
+          left: 20px;
+          transform: rotate(-24deg);
+          width: 65px;
+        }
+      }
+
+      &[data-id="area-9"] {
+        left: 23%;
+        top: 48%;
+
+        &::before {
+          bottom: 39px;
+          left: 18px;
+          transform: rotate(-24deg);
+          width: 129px;
+        }
+      }
+    }
+  }
+
+  &.front {
+    .info-item {
+      &[data-id="area-1"] {
+        right: 20%;
+        top: 23%;
+
+        &::before {
+          bottom: 7px;
+          left: -84px;
+          transform: rotate(0deg);
+          width: 77px;
+        }
+      }
+
+      &[data-id="area-2"] {
+        right: 15%;
+        top: 63%;
+
+        &::before {
+          bottom: 22px;
+          left: -152px;
+          transform: rotate(10deg);
+          width: 146px;
+        }
+      }
+
+      &[data-id="area-2a"] {
+        left: 17%;
+        top: 55%;
+
+        &::before {
+          bottom: 8px;
+          left: 23px;
+          transform: rotate(0deg);
+          width: 95px;
+        }
+      }
+
+      &[data-id="area-2b"] {
+        right: 15%;
+        top: 63%;
+
+        &::before {
+          bottom: 22px;
+          left: -152px;
+          transform: rotate(10deg);
+          width: 146px;
+        }
+      }
+
+      &[data-id="area-2c"] {
+        right: 16%;
+        top: 46%;
+
+        &::before {
+          bottom: 7px;
+          left: -144px;
+          transform: rotate(0);
+          width: 137px;
+        }
+      }
+
+      &[data-id="area-3"] {
+        right: 16%;
+        top: 80%;
+
+        &::before {
+          bottom: 21px;
+          left: -143px;
+          transform: rotate(10deg);
+          width: 136px;
+        }
+      }
+
+      &[data-id="area-4"] {
+        left: 16%;
+        top: 80%;
+
+        &::before {
+          bottom: 26px;
+          left: 18px;
+          transform: rotate(-24deg);
+          width: 78px;
+        }
+      }
+
+      &[data-id="area-5"] {
+        left: 20%;
+        top: 20%;
+
+        &::before {
+          bottom: 7px;
+          left: 23px;
+          transform: rotate(0deg);
+          width: 50px;
+        }
+      }
+
+      &[data-id="area-6"] {
+        right: 17%;
+        top: 36%;
+
+        &::before {
+          bottom: 21px;
+          left: -143px;
+          transform: rotate(10deg);
+          width: 136px;
+        }
+      }
+
+      &[data-id="area-6d"] {
+        left: 16%;
+        top: 28%;
+
+        &::before {
+          bottom: 7px;
+          left: 25px;
+          transform: rotate(0deg);
+          width: 120px;
+        }
+      }
+
+      &[data-id="area-6e"] {
+        right: 17%;
+        top: 36%;
+
+        &::before {
+          bottom: 21px;
+          left: -143px;
+          transform: rotate(10deg);
+          width: 136px;
+        }
+      }
+
+      &[data-id="area-6f"] {
+        right: 19%;
+        top: 11%;
+
+        &::before {
+          bottom: -20px;
+          left: -114px;
+          transform: rotate(-24deg);
+          width: 113px;
+        }
+      }
+
+      &[data-id="area-7"] {
+        left: 48%;
+        top: 0;
+
+        &::before {
+          bottom: -32px;
+          left: -16px;
+          transform: rotate(90deg);
+          width: 49px;
+        }
+      }
+
+      &[data-id="area-9"] {
+        left: 17%;
+        top: 37%;
+
+        &::before {
+          bottom: 8px;
+          left: 23px;
+          transform: rotate(0deg);
+          width: 91px;
+        }
+      }
+    }
+  }
+
+  &.back {
+    .info-item {
+      &[data-id="area-5"] {
+        left: 47%;
+        top: 3%;
+
+        &::before {
+          bottom: 0;
+          left: -55px;
+          transform: rotate(-10deg);
+          width: 49px;
+        }
+
+        &::after {
+          background: #fff;
+          bottom: 0;
+          content: "";
+          height: 1px;
+          left: 21px;
+          position: absolute;
+          transform: rotate(10deg);
+          width: 49px;
+        }
+      }
+
+      &[data-id="area-7"] {
+        left: 17%;
+        top: 11%;
+
+        &::before {
+          bottom: 7px;
+          left: 23px;
+          transform: rotate(0deg);
+          width: 50px;
+        }
+      }
+
+      &[data-id="area-10"] {
+        left: 14%;
+        top: 60%;
+
+        &::before {
+          bottom: 8px;
+          left: 23px;
+          transform: rotate(0deg);
+          width: 60px;
+        }
+      }
+
+      &[data-id="area-11"] {
+        left: 16%;
+        top: 41%;
+
+        &::before {
+          bottom: 7px;
+          left: 25px;
+          transform: rotate(0deg);
+          width: 65px;
+        }
+      }
+
+      &[data-id="area-12"] {
+        right: 17%;
+        top: 23%;
+
+        &::before {
+          bottom: 6px;
+          left: -84px;
+          transform: rotate(0deg);
+          width: 77px;
+        }
+      }
+
+      &[data-id="area-13"] {
+        right: 19%;
+        top: 11%;
+
+        &::before {
+          bottom: -28px;
+          left: -149px;
+          transform: rotate(-24deg);
+          width: 151px;
+        }
+      }
+
+      &[data-id="area-14"] {
+        right: 19%;
+        top: 30%;
+
+        &::before {
+          bottom: 6px;
+          left: -84px;
+          transform: rotate(0deg);
+          width: 77px;
+        }
+      }
+
+      &[data-id="area-17"] {
+        right: 19%;
+        top: 6%;
+
+        &::before {
+          bottom: 7px;
+          left: -75px;
+          transform: rotate(0deg);
+          width: 68px;
+        }
+      }
+    }
+  }
+
+  &.side {
+    .info-item {
+      &[data-id="area-4"] {
+        left: 18%;
+        top: 60%;
+
+        &::before {
+          bottom: 8px;
+          left: 23px;
+          transform: rotate(0deg);
+          width: 60px;
+        }
+      }
+
+      &[data-id="area-5"] {
+        left: 26%;
+        top: 30%;
+
+        &::before {
+          bottom: 7px;
+          left: 25px;
+          transform: rotate(0deg);
+          width: 65px;
+        }
+      }
+    }
+  }
+}

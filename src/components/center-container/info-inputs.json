@@ -1,0 +1,57 @@
+[
+  {
+    "title": "step 1: information",
+    "parts": [
+      {
+        "title": "DEALER INFORMATION",
+        "button": "CHOOSE A DEALER",
+        "input": "dealer",
+        "clear-button": "x"
+      },
+      {
+        "title": "CUSTOMER INFORMATION",
+        "inputs": ["Full name", "Phone", "Email", "Address", "How many jumps", "Previous container"]
+      }
+    ]
+  },
+  {
+    "title": "step 2: sizes",
+    "parts": [
+      {
+        "title": "CUSTOMER MEASUREMENTS",
+        "check-box": [
+          {
+            "label": "Measurement Units",
+            "radio": ["Cm/Kg", "Inch/Lb"],
+            "select": "solo"
+          },
+          {
+            "label": "Sex",
+            "radio": ["Male", "Female"],
+            "select": "solo"
+          }
+        ],
+        "inputs": ["Height", "Weight", "Chest", "Belly", "Torso", "Legstrap", "Thigh", "Size A", "Inseam"]
+      },
+      {
+        "check-box": [
+          {
+            "label": "Harness",
+            "radio": ["Normal", "Loose", "Tight"],
+            "select": "solo"
+          },
+          {
+            "label": "Container",
+            "radio": ["Normal", "Loose", "Tight"],
+            "select": "solo"
+          }
+        ],
+        "inputs": ["Main canopy", "Reserve canopy"]
+      }
+    ]
+  },
+  {
+    "title": "step 3: options",
+    "parts": []
+  }
+]

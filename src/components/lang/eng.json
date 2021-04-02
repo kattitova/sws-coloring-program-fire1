@@ -42,6 +42,17 @@
   "split_design":"split design",
   "panel":"panel",
   "pinstripes":"pinstripes",
-  "binding":"binding"
+  "binding":"binding",
+  "contact_msg":"Contact SWS Company for any of Your support needs",
+  "contact_phone":"Phone:",
+  "title-info": "step 1: information",
+  "order_form": "order form",
+  "title-sizes": "step 2: sizes",
+  "title-options": "step 3: options",
+  "full_name": "Fuul name", 
+  "phone": "phone",
+  "address": "Address", 
+  "how_many_jumps": "How many jumps", 
+  "previous_container": "Previous container"
   }
 ]

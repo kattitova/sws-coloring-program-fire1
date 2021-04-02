@@ -4,6 +4,8 @@ import getIsometric from "./screens/container/container-isometric";
 import getFront from "./screens/container/container-front";
 import getBack from "./screens/container/container-back";
 import getSide from "./screens/container/container-side";
+import infoJSON from "./info-inputs.json";
+import genInputs from "./get-inputs";
 
 // объект с пунктами меню, для каждого пункта описаны виды,
 // и функция, которая выводит каждую схему ранца
@@ -147,6 +149,18 @@ export default class CenterContainer {
           position.appendChild(switcherBlock);
         }
         screen.appendChild(position);
+      }
+
+      if (i === "information") {
+        screen.appendChild(genInputs(infoJSON[0], "info"));
+      }
+
+      if (i === "sizes") {
+        screen.appendChild(genInputs(infoJSON[1], "sizes"));
+      }
+
+      if (i === "options") {
+        screen.appendChild(genInputs(infoJSON[2], "options"));
       }
 
       divConstructor.appendChild(screen);

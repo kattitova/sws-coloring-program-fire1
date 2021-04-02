@@ -383,3 +383,51 @@
     }
   }
 }
+
+.right-container__contact-panel {
+  display: none;
+}
+
+.right-container__template-panel.information,
+.right-container__template-panel.sizes,
+.right-container__template-panel.options {
+  .right-container__color-panel,
+  .template-panel__button-apply,
+  .template-panel__button-clear {
+    display: none;
+  }
+
+  .right-container__contact-panel {
+    @include flex(center, center, column);
+    background: #1b4c70;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+    margin-bottom: 16px;
+    overflow: hidden;
+
+    .contact-panel__title {
+      @include flex;
+      background: #12334b;
+      font-size: 12px;
+      font-weight: 500;
+      height: 48px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      width: 100%;
+    }
+
+    .contact-panel__info-wrapper {
+      font-size: 12px;
+      line-height: 14px;
+      padding: 16px 10px;
+
+      .contact-panel__info {
+        margin-bottom: 20px;
+      }
+
+      .contact-panel__phone {
+        margin-top: 20px;
+      }
+    }
+  }
+}

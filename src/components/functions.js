@@ -94,6 +94,19 @@ function clearAll() {
   });
 }
 
+// передаем информацию из input-ов на страницах Info, Sizes в Form-constructor
+function getInputValue() {
+  const inputs = document.querySelectorAll(".data-row__input");
+  inputs.forEach((inp) => {
+    const val = inp.getAttribute("data-val");
+    const formItem = form.querySelector(`[data-target="${val}"]`);
+    inp.addEventListener("input", (e) => {
+      formItem.setAttribute("value", e.target.value);
+      formItem.textContent = e.target.value;
+    });
+  });
+}
+
 function onHoverElement(elem) {
   elem.classList.add("hover");
 }
@@ -115,6 +128,7 @@ export default function funcInit() {
   getBindingPinstripesElements();
   getLogosElements();
   clearAll();
+  getInputValue();
 }
 
 export {

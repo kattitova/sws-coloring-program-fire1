@@ -50,10 +50,27 @@ function getSplitButton(form) {
   }
 }
 
+function getInfoSizeInputs(form) {
+  createFormInput(form, ["preview-value", "info"], "Info/Dealer", "dealer");
+  const infoPages = document.querySelectorAll(".constructor__data-block");
+  infoPages.forEach((info) => {
+    const lbs = info.querySelectorAll(".data-row__label");
+    const pageName = info.parentElement.parentElement.className.split("-")[0];
+    lbs.forEach((label) => {
+      if (label.parentElement.className !== "constructor__data-check") {
+        const val = label.getAttribute("data-lang");
+        const txt = label.textContent;
+        createFormInput(form, ["preview-value", pageName], `${pageName[0].toUpperCase()}${pageName.slice(1)}/${txt}`, val);
+      }
+    });
+  });
+}
+
 export default function getFormConstructor() {
   const form = document.querySelector(".form-constructor");
   getDetailColors(form);
   getPinstrips(form);
   getBinding(form);
   getSplitButton(form);
+  getInfoSizeInputs(form);
 }

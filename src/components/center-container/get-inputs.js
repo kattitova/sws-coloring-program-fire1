@@ -28,6 +28,7 @@ export default function genInputs(obj, cls) {
       switch (item) {
         case "title":
           elem = create("div", `data-row__${item}`);
+          elem.setAttribute("data-val", block[item].toLowerCase().replaceAll(" ", "_"));
           elem.textContent = block[item];
           dataBlock.appendChild(elem);
           break;
@@ -35,6 +36,7 @@ export default function genInputs(obj, cls) {
         case "button":
         case "clear-button":
           elem = create("button", `data-row__${item}`);
+          elem.setAttribute("data-val", block[item].toLowerCase().replaceAll(" ", "_"));
           elem.textContent = block[item];
           dataBlock.appendChild(elem);
           break;
@@ -74,6 +76,7 @@ export default function genInputs(obj, cls) {
             rowCheks.setAttribute("data-val", val);
             check.radio.forEach((radio) => {
               const checkBlock = create("div", "constructor__data-check");
+              checkBlock.setAttribute("select", check.select);
               const inp = create("input", "data-row__radio");
               const id = `${val}-${radio.toLowerCase()}`;
               inp.setAttribute("id", id);

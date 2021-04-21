@@ -52,6 +52,89 @@
   },
   {
     "title": "step 3: options",
-    "parts": []
+    "parts": [
+      {
+        "title": "Harness",
+        "check-box": [
+          {
+            "label": "Metal",
+            "radio": ["Cad", "Black", "SS"],
+            "select": "solo"
+          },
+          {
+            "label": "3-rings",
+            "radio": ["Mini", "Big"],
+            "select": "solo"
+          },
+          {
+            "label": "Harness type",
+            "radio": ["2Rings", "4Rings", "Adjustable"],
+            "select": "solo"
+          },
+          {
+            "label": "Chest strap",
+            "radio": ["Narrow", "Wide"],
+            "select": "solo"
+          },
+          {
+            "label": "Legstrap buckles",
+            "radio": ["Thread Thru", "B12"],
+            "select": "solo"
+          },
+          {
+            "label": "Risers",
+            "radio": ["Narrow", "Wide"],
+            "select": "solo"
+          },
+          {
+            "label": "Swoop options",
+            "radio": ["Additional Ring", "Dive Loops", "Low Profile Risers"],
+            "select": "multi"
+          },
+          {
+            "label": "Riser length",
+            "radio": ["500mm", "550mm", "600mm"],
+            "select": "solo"
+          }
+        ]
+      },
+      {
+        "title": "Container and backpad",
+        "check-box": [
+          {
+            "label": "Main container",
+            "radio": ["Standard", "Wingmode"],
+            "select": "solo"
+          },
+          {
+            "label": "3-rings",
+            "radio": ["Parapack", "Spacer Foam"],
+            "select": "solo"
+          },
+          {
+            "label": "Harness type",
+            "radio": ["Standard", "Cut-In"],
+            "select": "solo"
+          },
+          {
+            "label": "Chest strap",
+            "radio": ["Standard", "Narrow"],
+            "select": "solo"
+          }
+        ]
+      },
+      {
+        "title": "Reserve deployment"
+      },
+      {
+        "title": "Main deployment"
+      },
+      {
+        "title": "Additional options"
+      },
+      {
+        "title": "Special instructions"
+      }
+    ]
   }
 ]

@@ -1,4 +1,5 @@
 import create from "../create";
+import getOptionsNav from "./options-nav";
 
 export default function genInputs(obj, cls) {
   const divWrapper = create("div", `${cls}-wrapper`);
@@ -20,9 +21,10 @@ export default function genInputs(obj, cls) {
 
   // формируем заголовки и инпуты для ввода
   const divInputsWrapper = create("div", "constructor__data-wrapper");
-  obj.parts.forEach((block) => {
+  obj.parts.forEach((block, i) => {
     const dataBlockCls = block.title ? block.title.toLowerCase().replaceAll(" ", "-") : "no-title";
     const dataBlock = create("div", ...["constructor__data-block", dataBlockCls]);
+    if (cls === "options" && i === 0) dataBlock.classList.add("active");
     Object.keys(block).forEach((item) => {
       let elem;
       switch (item) {
@@ -87,6 +89,7 @@ export default function genInputs(obj, cls) {
               const span = create("span", "data-row__name");
               span.setAttribute("data-lang", radio.toLowerCase());
               span.textContent = radio;
+              // TODO if cls==="options" add span with price
 
               checkBlock.appendChild(inp);
               radioLabel.appendChild(span);
@@ -105,6 +108,7 @@ export default function genInputs(obj, cls) {
 
     divInputsWrapper.appendChild(dataBlock);
   });
+  if (cls === "options") divInputsWrapper.appendChild(getOptionsNav(obj.parts));
   divWrapper.appendChild(divInputsWrapper);
   return divWrapper;
 }

@@ -46,6 +46,8 @@ export default class RightContainer {
     buttonClearAll.textContent = "Clear all colors";
     divTemplatePanel.appendChild(buttonClearAll);
 
+    divTemplatePanel.appendChild(RightContainer.panelContactUs());
+
     return divTemplatePanel;
   }
 
@@ -192,5 +194,38 @@ export default class RightContainer {
       formItem.setAttribute("value", color);
       formItem.textContent = color;
     }
+  }
+
+  static panelContactUs() {
+    const divContactUsPanel = create("div", "right-container__contact-panel");
+
+    const divTitle = create("div", "contact-panel__title");
+    divTitle.setAttribute("data-lang", "contact_us");
+    divTitle.textContent = "contact us";
+    divContactUsPanel.appendChild(divTitle);
+
+    const divInfoWrapper = create("div", "contact-panel__info-wrapper");
+    const divInfo = create("div", "contact-panel__info");
+    divInfo.setAttribute("data-lang", "contact_msg");
+    divInfo.textContent = "Contact SWS Company for any of Your support needs";
+    divInfoWrapper.appendChild(divInfo);
+
+    const divEmail = create("div", "contact-panel__email");
+    divEmail.textContent = "Email:";
+    divInfoWrapper.appendChild(divEmail);
+    const spanEmail = create("span", "contact-panel__email");
+    spanEmail.textContent = "info@sws.aero";
+    divInfoWrapper.appendChild(spanEmail);
+
+    const divPhone = create("div", "contact-panel__phone");
+    divPhone.setAttribute("data-lang", "contact_phone");
+    divPhone.textContent = "Phone:";
+    divInfoWrapper.appendChild(divPhone);
+    const spanPhone = create("span", "contact-panel__phone");
+    spanPhone.textContent = "+38 (067) 404 00 16";
+    divInfoWrapper.appendChild(spanPhone);
+
+    divContactUsPanel.appendChild(divInfoWrapper);
+    return divContactUsPanel;
   }
 }

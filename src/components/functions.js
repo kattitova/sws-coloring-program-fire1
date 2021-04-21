@@ -94,6 +94,66 @@ function clearAll() {
   });
 }
 
+// передаем информацию из input-ов на страницах Info, Sizes в Form-constructor
+function getInputValue() {
+  const inputs = document.querySelectorAll(".data-row__input");
+  inputs.forEach((inp) => {
+    const val = inp.getAttribute("data-val");
+    const formItem = form.querySelector(`[data-target="${val}"]`);
+    inp.addEventListener("input", (e) => {
+      formItem.setAttribute("value", e.target.value);
+      formItem.textContent = e.target.value;
+    });
+  });
+
+  // вешаем на кнопку Choose a dealer страница Info
+  // открытие модального окна с выбором дилеров
+  const findDealerLink = document.querySelector("[data-val=\"choose_a_dealer\"]");
+  findDealerLink.addEventListener("click", () => {
+    const modal = document.querySelector(".modal-dealer");
+    modal.classList.toggle("open");
+  });
+
+  // очистка инпута Дилер по клику на кнопку Х
+  const button = document.querySelector(".data-row__clear-button");
+  button.addEventListener(("click"), () => {
+    const input = document.querySelector(".data-row__input[data-val=\"dealer\"]");
+    input.textContent = "";
+    input.value = "";
+    const formInput = document.querySelector(".preview-value[data-target=\"dealer\"]");
+    formInput.textContent = "";
+    formInput.value = "NULL";
+  });
+}
+
+// передаем информацию из checkbox-ов в Form-constructor
+// проверка checkbox-ов на мульти/соло выбор
+function getCheksValue() {
+  const rowCheks = document.querySelectorAll(".constructor__data-row-checks");
+  rowCheks.forEach((row) => {
+    const val = row.getAttribute("data-val");
+    row.addEventListener("click", (e) => {
+      const select = row.getAttribute("select");
+      const ipts = row.querySelectorAll("input");
+      if (select === "solo") {
+        ipts.forEach((input) => {
+          // eslint-disable-next-line no-param-reassign
+          input.checked = false;
+        });
+        e.target.checked = true;
+        const { id } = e.target;
+        const formItem = form.querySelector(`[data-target="${val}"]`);
+        if (id !== "") {
+          formItem.setAttribute("value", id);
+          formItem.textContent = e.target.getAttribute("data-text");
+        }
+      } else {
+        // TODO если multy выбор
+      }
+    });
+  });
+}
+
 function onHoverElement(elem) {
   elem.classList.add("hover");
 }
@@ -115,6 +175,8 @@ export default function funcInit() {
   getBindingPinstripesElements();
   getLogosElements();
   clearAll();
+  getInputValue();
+  getCheksValue();
 }
 
 export {

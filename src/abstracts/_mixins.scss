@@ -3,9 +3,9 @@
   width: $w;
 }
 
-@mixin flex($jc: center, $ai: center, $fd: row, $d: flex) {
+@mixin flex($jc: center, $ai: center, $fd: row) {
   align-items: $ai;
-  display: $d;
+  display: flex;
   flex-direction: $fd;
   justify-content: $jc;
 }

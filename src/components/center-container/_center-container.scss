@@ -460,3 +460,224 @@
     margin-bottom: 16px !important;
   }
 }
+
+.center-container__constructor .constructor__item.information.active,
+.center-container__constructor .constructor__item.sizes.active,
+.center-container__constructor .constructor__item.options.active {
+  @include flex;
+  padding: 0;
+
+  .info-wrapper,
+  .sizes-wrapper,
+  .options-wrapper {
+    width: 100%;
+  }
+
+  .constructor__title {
+    @include flex(space-between);
+    background: rgba(38, 60, 82, 0.4);
+    font-size: 12px;
+    font-weight: 700;
+    height: 48px;
+    letter-spacing: 0.1em;
+    padding: 0 24px;
+    position: relative;
+    text-transform: uppercase;
+    width: 100%;
+  }
+}
+
+.data-row__input {
+  background: #ccd3db;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+  color: #263c52;
+  display: block;
+  height: 32px;
+  outline: none;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.center-container__constructor .constructor__item.information {
+  .constructor__data-wrapper {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 32px 24px;
+
+    .constructor__data-block {
+      .data-row__title {
+        font-weight: 500;
+        min-width: 175px;
+        text-transform: uppercase;
+      }
+
+      &.dealer-information {
+        @include flex(space-between, center);
+        margin-bottom: 34px;
+        width: 100%;
+
+        .data-row__input[data-val="dealer"] {
+          pointer-events: none;
+        }
+
+        button:hover {
+          background: #12334b;
+          color: rgba(255, 255, 255, 0.75);
+        }
+
+        button {
+          @include flex;
+          background: #1b4c70;
+          border: 0;
+          border-radius: 4px;
+          box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+          font-size: 11px;
+          font-weight: 500;
+          height: 32px;
+          margin: 0 10px;
+          padding: 0 10px;
+          position: relative;
+          text-align: left;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      &.customer-information {
+        display: grid;
+        grid-gap: 0 60px;
+        grid-template-columns: 0.8fr 1fr;
+
+        .data-row__title {
+          grid-column: span 2;
+        }
+
+        .constructor__data-row {
+          align-items: center;
+          display: grid;
+          grid-column: span 2;
+          grid-template-columns: 175px 1fr;
+          margin: 16px 0;
+        }
+
+        .constructor__data-row:last-child {
+          grid-column: 2;
+        }
+
+        .constructor__data-row:nth-last-child(2) {
+          grid-column: 1;
+        }
+      }
+    }
+  }
+}
+
+.center-container__constructor .constructor__item.sizes {
+  .constructor__data-wrapper {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 32px 24px;
+  }
+
+  .constructor__data-block {
+    display: grid;
+    grid-gap: 0 60px;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+
+    .data-row__title {
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .constructor__data-row {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      margin-bottom: 17px;
+
+      &:nth-last-child(2),
+      &:nth-last-child(1) {
+        grid-template-columns: 120px 1fr;
+      }
+    }
+
+    .constructor__data-row-checks {
+      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+
+      &[data-val="measurement_units"] {
+        justify-items: end;
+        width: 90%;
+      }
+    }
+
+    .data-row__label {
+      white-space: nowrap;
+    }
+
+    &.customer-measurements {
+      margin-bottom: 32px;
+
+      .constructor__data-row-checks {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .constructor__data-row {
+        grid-template-columns: 70px 1fr;
+      }
+    }
+  }
+}
+
+.constructor__data-row-checks {
+  .data-row__radio {
+    display: none;
+
+    &:checked + label:after {
+      opacity: 1;
+    }
+  }
+
+  .data-row__label {
+    @include flex(flex-start);
+    cursor: pointer;
+    font-size: 10px;
+    min-height: 16px;
+    padding: 0 0 0 28px;
+    position: relative;
+
+    &::before {
+      left: 0;
+      width: 16px;
+      height: 16px;
+      background: #ccd3db;
+      border: 2px solid #436683;
+      box-sizing: border-box;
+      box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+      border-radius: 4px;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.2s;
+    }
+
+    &::after {
+      left: 4px;
+      width: 8px;
+      height: 8px;
+      background: #7d8fa2;
+      border-radius: 50%;
+      opacity: 0;
+    }
+  }
+}

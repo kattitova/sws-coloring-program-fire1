@@ -74,12 +74,13 @@ export default function genInputs(obj, cls) {
 
             const rowCheks = create("div", "constructor__data-row-checks");
             rowCheks.setAttribute("data-val", val);
+            rowCheks.setAttribute("select", check.select);
             check.radio.forEach((radio) => {
               const checkBlock = create("div", "constructor__data-check");
-              checkBlock.setAttribute("select", check.select);
               const inp = create("input", "data-row__radio");
               const id = `${val}-${radio.toLowerCase()}`;
               inp.setAttribute("id", id);
+              inp.setAttribute("data-text", radio);
               inp.setAttribute("type", "radio");
               const radioLabel = create("label", "data-row__label");
               radioLabel.setAttribute("for", id);

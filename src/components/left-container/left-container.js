@@ -74,6 +74,10 @@ export default class LeftContainer {
     findDealerLink.setAttribute("data-lang", "find_dealer");
     findDealerLink.setAttribute("href", "#");
     findDealerLink.textContent = "Find a Dealer";
+    findDealerLink.addEventListener("click", () => {
+      const modal = document.querySelector(".modal-dealer");
+      modal.classList.toggle("open");
+    });
     findDealer.appendChild(findDealerLink);
     linkList.appendChild(findDealer);
 

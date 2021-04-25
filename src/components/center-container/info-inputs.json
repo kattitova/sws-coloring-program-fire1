@@ -124,16 +124,83 @@
         ]
       },
       {
-        "title": "Reserve deployment"
+        "title": "Reserve deployment",
+        "check-box": [
+          {
+            "label": "Cutaway handle",
+            "radio": ["Red", "Choose Color"],
+            "select": "solo"
+          },
+          {
+            "label": "Reserve handle",
+            "radio": ["D-Ring", "Soft Handle"],
+            "select": "solo"
+          },
+          {
+            "label": "RSL",
+            "radio": ["No", "Brass", "SS"],
+            "select": "solo"
+          },
+          {
+            "label": "DRD",
+            "radio": ["No", "Brass", "SS"],
+            "select": "solo"
+          }
+        ]
       },
       {
-        "title": "Main deployment"
+        "title": "Main deployment",
+        "check-box": [
+          {
+            "label": "Main deployment handle",
+            "radio": ["Pod", "Hackey", "Hackey-Pod", "Tube", "Choose Color"],
+            "select": "solo"
+          },
+          {
+            "label": "Main PC",
+            "radio": ["Zp", "F-111", "Student", "Choose Color"],
+            "select": "solo"
+          },
+          {
+            "label": "Bridle",
+            "radio": ["2m", "Wingmode 3m", "Student"],
+            "select": "solo"
+          },
+          {
+            "label": "Main Dbag",
+            "radio": ["Standard", "Lazy Bag"],
+            "select": "solo"
+          }
+        ]
       },
       {
-        "title": "Additional options"
+        "title": "Additional options",
+        "check-box": [
+          {
+            "label": "Hook-knife",
+            "radio": ["Plastic", "Metal"],
+            "select": "multi"
+          },
+          {
+            "label": "Main parts kit",
+            "radio": ["Risers, D-Bag, Bridle, PC"],
+            "select": "multi"
+          },
+          {
+            "label": "Reserve parts kit",
+            "radio": ["D-Bag + Bridle, Reserve PC, Cutaway Handle, Reserve D-Ring"],
+            "select": "multi"
+          },
+          {
+            "label": "Assemble at SWS",
+            "radio": ["Yes"],
+            "select": "multi"
+          }
+        ]
       },
       {
-        "title": "Special instructions"
+        "title": "Special instructions",
+        "textarea": "Write your instructions here"
       }
     ]
   }

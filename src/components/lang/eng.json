@@ -45,7 +45,7 @@
   "binding":"binding",
   "contact_msg":"Contact SWS Company for any of Your support needs",
   "contact_phone":"Phone:",
-  "title-info": "step 1: information",
+  "title_info": "step 1: information",
   "order_form": "order form",
   "dealer_information": "DEALER INFORMATION",
   "choose_a_dealer": "CHOOSE A DEALER",
@@ -55,7 +55,7 @@
   "address": "Address", 
   "how_many_jumps": "How many jumps", 
   "previous_container": "Previous container",
-  "title-sizes": "step 2: sizes",
+  "title_sizes": "step 2: sizes",
   "customer_measurements": "CUSTOMER MEASUREMENTS",
   "measurement_units": "Measurement Units",
   "cm/kg":"Cm/Kg", 
@@ -77,7 +77,7 @@
   "tight":"Tight",
   "main_canopy":"Main canopy", 
   "reserve_canopy":"Reserve canopy",
-  "title-options": "step 3: options",
+  "title_options": "step 3: options",
   "choose_options": "choose options"
   }
 ]

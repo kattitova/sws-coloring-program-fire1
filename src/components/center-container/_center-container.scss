@@ -513,7 +513,7 @@
         text-transform: uppercase;
       }
 
-      &.dealer-information {
+      &.dealer_information {
         @include flex(space-between, center);
         margin-bottom: 34px;
         width: 100%;
@@ -545,7 +545,7 @@
         }
       }
 
-      &.customer-information {
+      &.customer_information {
         display: grid;
         grid-gap: 0 60px;
         grid-template-columns: 0.8fr 1fr;
@@ -596,11 +596,15 @@
       align-items: center;
       display: grid;
       grid-template-columns: 70px 1fr;
-      margin-bottom: 17px;
+      margin-bottom: 22px;
+    }
 
-      &:nth-last-child(2),
-      &:nth-last-child(1) {
-        grid-template-columns: 120px 1fr;
+    &.no-title {
+      .constructor__data-row {
+        &:nth-last-child(2),
+        &:nth-last-child(1) {
+          grid-template-columns: 120px 1fr;
+        }
       }
     }
 
@@ -611,6 +615,7 @@
       width: 100%;
 
       &[data-val="measurement_units"] {
+        grid-template-columns: repeat(2, 1fr);
         justify-items: end;
         width: 90%;
       }
@@ -638,7 +643,7 @@
   .data-row__radio {
     display: none;
 
-    &:checked + label:after {
+    &:checked + label::after {
       opacity: 1;
     }
   }
@@ -652,14 +657,14 @@
     position: relative;
 
     &::before {
-      left: 0;
-      width: 16px;
-      height: 16px;
       background: #ccd3db;
       border: 2px solid #436683;
-      box-sizing: border-box;
-      box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
       border-radius: 4px;
+      box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+      box-sizing: border-box;
+      height: 16px;
+      left: 0;
+      width: 16px;
     }
 
     &::after,
@@ -672,12 +677,12 @@
     }
 
     &::after {
-      left: 4px;
-      width: 8px;
-      height: 8px;
       background: #7d8fa2;
       border-radius: 50%;
+      height: 8px;
+      left: 4px;
       opacity: 0;
+      width: 8px;
     }
   }
 }

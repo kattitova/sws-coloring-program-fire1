@@ -7,7 +7,7 @@ export default function genInputs(obj, cls) {
   // выводим заголовок формы Step1, Step2, Step3
   const divTitle = create("div", "constructor__title");
   const divSubTitle = create("div", "constructor__sub-title");
-  divSubTitle.setAttribute("data-lang", `title-${cls}`);
+  divSubTitle.setAttribute("data-lang", `title_${cls}`);
   divSubTitle.textContent = obj.title;
   divTitle.appendChild(divSubTitle);
 
@@ -22,7 +22,7 @@ export default function genInputs(obj, cls) {
   // формируем заголовки и инпуты для ввода
   const divInputsWrapper = create("div", "constructor__data-wrapper");
   obj.parts.forEach((block, i) => {
-    const dataBlockCls = block.title ? block.title.toLowerCase().replaceAll(" ", "-") : "no-title";
+    const dataBlockCls = block.title ? block.title.toLowerCase().replaceAll(" ", "_") : "no-title";
     const dataBlock = create("div", ...["constructor__data-block", dataBlockCls]);
     if (cls === "options" && i === 0) dataBlock.classList.add("active");
     Object.keys(block).forEach((item) => {
@@ -80,14 +80,15 @@ export default function genInputs(obj, cls) {
             check.radio.forEach((radio) => {
               const checkBlock = create("div", "constructor__data-check");
               const inp = create("input", "data-row__radio");
-              const id = `${val}-${radio.toLowerCase()}`;
+              const txt = radio.toLowerCase().replace(/[ +,-][_]*/g, "_").replace(/_{1,}/g, "_");
+              const id = `${val}-${txt}`;
               inp.setAttribute("id", id);
-              inp.setAttribute("data-text", radio);
+              inp.setAttribute("data-text", txt);
               inp.setAttribute("type", "radio");
               const radioLabel = create("label", "data-row__label");
               radioLabel.setAttribute("for", id);
               const span = create("span", "data-row__name");
-              span.setAttribute("data-lang", radio.toLowerCase());
+              span.setAttribute("data-lang", txt);
               span.textContent = radio;
               // TODO if cls==="options" add span with price
 
@@ -100,6 +101,13 @@ export default function genInputs(obj, cls) {
 
             dataBlock.appendChild(row);
           });
+          break;
+
+        case "textarea":
+          elem = create("textarea", `data-row__${item}`);
+          elem.setAttribute("data-val", block.title.toLowerCase().replaceAll(" ", "_"));
+          elem.setAttribute("placeholder", block[item]);
+          dataBlock.appendChild(elem);
           break;
 
         default: break;

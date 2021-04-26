@@ -129,29 +129,44 @@ function getInputValue() {
 // передаем информацию из checkbox-ов в Form-constructor
 // проверка checkbox-ов на мульти/соло выбор
 function getCheksValue() {
-  const rowCheks = document.querySelectorAll(".constructor__data-row-checks");
-  rowCheks.forEach((row) => {
-    const val = row.getAttribute("data-val");
-    row.addEventListener("click", (e) => {
-      const select = row.getAttribute("select");
-      const ipts = row.querySelectorAll("input");
-      if (select === "solo") {
-        ipts.forEach((input) => {
-          // eslint-disable-next-line no-param-reassign
-          input.checked = false;
-        });
-        e.target.checked = true;
-        const { id } = e.target;
-        const formItem = form.querySelector(`[data-target="${val}"]`);
-        if (id !== "") {
-          formItem.setAttribute("value", id);
-          formItem.textContent = e.target.getAttribute("data-text");
+  const items = document.querySelectorAll(".constructor__item");
+  items.forEach((item) => {
+    const title = item.className.split(" ")[1];
+    const rowCheks = item.querySelectorAll(".constructor__data-row-checks");
+    rowCheks.forEach((row) => {
+      const val = row.getAttribute("data-val");
+      row.addEventListener("click", (e) => {
+        const select = row.getAttribute("select");
+        const ipts = row.querySelectorAll("input");
+        switch (select) {
+        case "solo": {
+          ipts.forEach((input) => {
+            // eslint-disable-next-line no-param-reassign
+            input.checked = false;
+          });
+          e.target.checked = true;
+          const { id } = e.target;
+          const formItem = form.querySelector(`.${title}[data-target="${val}"]`);
+          if (id !== "") {
+            formItem.setAttribute("value", id);
+            formItem.textContent = e.target.getAttribute("data-text");
+          }
+          break;
+        } 
+        case "multi": {
+          // TODO если multy выбор
+          break;
         }
-      } else {
-        // TODO если multy выбор
-      }
+        case "add": {
+          // TODO если опцию можно выбрать, а можно и не выбирать
+          break;
+        }
+        default: break;
+        }
+      });
     });
   });
+  
 }
 
 function onHoverElement(elem) {
@@ -164,6 +179,10 @@ function outHoverElement(elem) {
 
 function getAllDetailsByDataId(id) {
   return document.querySelectorAll(`.schema__element[data-id="${id}"]`);
+}
+
+function toCapitalizedCase(str) {
+  return `${str[0].toUpperCase()}${str.slice(1)}`;
 }
 
 export default function funcInit() {
@@ -184,4 +203,5 @@ export {
   outHoverElement,
   getAllDetailsByDataId,
   handlerClickDetails,
+  toCapitalizedCase,
 };

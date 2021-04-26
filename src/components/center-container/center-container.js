@@ -152,7 +152,7 @@ export default class CenterContainer {
       }
 
       if (i === "information") {
-        screen.appendChild(genInputs(infoJSON[0], "info"));
+        screen.appendChild(genInputs(infoJSON[0], "information"));
       }
 
       if (i === "sizes") {

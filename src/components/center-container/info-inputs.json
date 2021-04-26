@@ -107,17 +107,17 @@
             "select": "solo"
           },
           {
-            "label": "3-rings",
+            "label": "Backpad",
             "radio": ["Parapack", "Spacer Foam"],
             "select": "solo"
           },
           {
-            "label": "Harness type",
+            "label": "Laterals",
             "radio": ["Standard", "Cut-In"],
             "select": "solo"
           },
           {
-            "label": "Chest strap",
+            "label": "Legstrap",
             "radio": ["Standard", "Narrow"],
             "select": "solo"
           }
@@ -179,22 +179,22 @@
           {
             "label": "Hook-knife",
             "radio": ["Plastic", "Metal"],
-            "select": "multi"
+            "select": "add"
           },
           {
             "label": "Main parts kit",
             "radio": ["Risers, D-Bag, Bridle, PC"],
-            "select": "multi"
+            "select": "add"
           },
           {
             "label": "Reserve parts kit",
             "radio": ["D-Bag + Bridle, Reserve PC, Cutaway Handle, Reserve D-Ring"],
-            "select": "multi"
+            "select": "add"
           },
           {
             "label": "Assemble at SWS",
             "radio": ["Yes"],
-            "select": "multi"
+            "select": "add"
           }
         ]
       },

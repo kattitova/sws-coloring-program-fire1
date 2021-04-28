@@ -1,6 +1,27 @@
 import create from "../create";
 import getOptionsNav from "./options-nav";
 
+function addCheckbox(type, radio, val, parrent) {
+  const checkBlock = create("div", "constructor__data-check");
+  const inp = create("input", "data-row__radio");
+  const txt = radio.toLowerCase().replace(/[ +,-][_]*/g, "_").replace(/_{1,}/g, "_");
+  const id = `${val}-${txt}`;
+  inp.setAttribute("id", id);
+  inp.setAttribute("data-text", txt);
+  inp.setAttribute("type", type);
+  const radioLabel = create("label", "data-row__label");
+  radioLabel.setAttribute("for", id);
+  const span = create("span", "data-row__name");
+  span.setAttribute("data-lang", txt);
+  span.textContent = radio;
+  // TODO if cls==="options" add span with price
+
+  checkBlock.appendChild(inp);
+  radioLabel.appendChild(span);
+  checkBlock.appendChild(radioLabel);
+  parrent.appendChild(checkBlock);
+}
+
 export default function genInputs(obj, cls) {
   const divWrapper = create("div", `${cls}-wrapper`);
 
@@ -77,26 +98,16 @@ export default function genInputs(obj, cls) {
             const rowCheks = create("div", "constructor__data-row-checks");
             rowCheks.setAttribute("data-val", val);
             rowCheks.setAttribute("select", check.select);
-            check.radio.forEach((radio) => {
-              const checkBlock = create("div", "constructor__data-check");
-              const inp = create("input", "data-row__radio");
-              const txt = radio.toLowerCase().replace(/[ +,-][_]*/g, "_").replace(/_{1,}/g, "_");
-              const id = `${val}-${txt}`;
-              inp.setAttribute("id", id);
-              inp.setAttribute("data-text", txt);
-              inp.setAttribute("type", "radio");
-              const radioLabel = create("label", "data-row__label");
-              radioLabel.setAttribute("for", id);
-              const span = create("span", "data-row__name");
-              span.setAttribute("data-lang", txt);
-              span.textContent = radio;
-              // TODO if cls==="options" add span with price
-
-              checkBlock.appendChild(inp);
-              radioLabel.appendChild(span);
-              checkBlock.appendChild(radioLabel);
-              rowCheks.appendChild(checkBlock);
-            });
+            if (check.radio) {
+              check.radio.forEach((radio) => {
+                addCheckbox("radio", radio, val, rowCheks);
+              });
+            }
+            if (check.checkbox) {
+              check.checkbox.forEach((radio) => {
+                addCheckbox("checkbox", radio, val, rowCheks);
+              });
+            }
             row.appendChild(rowCheks);
 
             dataBlock.appendChild(row);

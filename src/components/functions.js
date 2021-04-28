@@ -106,6 +106,15 @@ function getInputValue() {
     });
   });
 
+  // Передаем информацию из поля Специальные инструкции в Form-constructor
+  const textarea = document.querySelector(".data-row__textarea");
+  textarea.addEventListener("input", (e) => {
+    const val = textarea.getAttribute("data-val");
+    const formItem = form.querySelector(`[data-target="${val}"]`);
+    formItem.setAttribute("value", e.target.value);
+    formItem.textContent = e.target.value;
+  });
+
   // вешаем на кнопку Choose a dealer страница Info
   // открытие модального окна с выбором дилеров
   const findDealerLink = document.querySelector("[data-val=\"choose_a_dealer\"]");
@@ -135,38 +144,72 @@ function getCheksValue() {
     const rowCheks = item.querySelectorAll(".constructor__data-row-checks");
     rowCheks.forEach((row) => {
       const val = row.getAttribute("data-val");
+      let text;
       row.addEventListener("click", (e) => {
         const select = row.getAttribute("select");
         const ipts = row.querySelectorAll("input");
+        const { id } = e.target;
+        if (e.target.textContent !== "") text = e.target.textContent;
+        const formItem = form.querySelector(`.${title}[data-target="${val}"]`);
         switch (select) {
-        case "solo": {
-          ipts.forEach((input) => {
+          case "solo": {
+            ipts.forEach((input) => {
             // eslint-disable-next-line no-param-reassign
-            input.checked = false;
-          });
-          e.target.checked = true;
-          const { id } = e.target;
-          const formItem = form.querySelector(`.${title}[data-target="${val}"]`);
-          if (id !== "") {
-            formItem.setAttribute("value", id);
-            formItem.textContent = e.target.getAttribute("data-text");
+              input.checked = false;
+            });
+            e.target.checked = true;
+
+            if (id !== "") {
+              formItem.setAttribute("value", e.target.getAttribute("data-text"));
+              formItem.textContent = text;
+            }
+            break;
           }
-          break;
-        } 
-        case "multi": {
-          // TODO если multy выбор
-          break;
-        }
-        case "add": {
-          // TODO если опцию можно выбрать, а можно и не выбирать
-          break;
-        }
-        default: break;
+          case "multi": {
+          // если multy выбор
+            let formValue = "";
+            let formText = "";
+            const br = "<br>";
+            if (id !== "") {
+              ipts.forEach((input) => {
+                if (input.checked) {
+                  formValue += `${input.getAttribute("data-text")}+`;
+                  const label = input.nextElementSibling.querySelector(".data-row__name").textContent;
+                  formText += `${label}${br}`;
+                }
+              });
+              formItem.setAttribute("value", formValue.substring(0, formValue.length - 1));
+              formItem.textContent = formText.substring(0, formText.length - br.length);
+            }
+            break;
+          }
+          case "add": {
+          // если опцию можно выбрать, а можно и не выбирать
+            if (ipts.length > 1) {
+              if (e.target.checked) {
+                ipts.forEach((input) => {
+                  // eslint-disable-next-line no-param-reassign
+                  input.checked = false;
+                });
+                e.target.checked = true;
+              }
+            }
+            if (id !== "") {
+              if (e.target.checked) {
+                formItem.setAttribute("value", e.target.getAttribute("data-text"));
+                formItem.textContent = text;
+              } else {
+                formItem.setAttribute("value", "NULL");
+                formItem.textContent = e.target.getAttribute("");
+              }
+            }
+            break;
+          }
+          default: break;
         }
       });
     });
   });
-  
 }
 
 function onHoverElement(elem) {

@@ -72,23 +72,13 @@ function getInfoSizeOptionsInputs() {
       }
     });
   });
+  createFormInput(["preview-value", "options"], "Special Instructions/Text", "special_instructions");
 }
-
-function getOptionsInputs() {
-  const optionsPage = document.querySelector(".constructor__item.options");
-  const blocks = optionsPage.querySelectorAll(".constructor__data-block");
-  blocks.forEach((block) => {
-    const title = block.className.split(" ")[1];
-  });
-}
-
 
 export default function getFormConstructor() {
-  
   getDetailColors();
   getPinstrips();
   getBinding();
   getSplitButton();
   getInfoSizeOptionsInputs();
-  // getOptionsInputs();
 }

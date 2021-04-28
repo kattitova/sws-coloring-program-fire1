@@ -88,7 +88,7 @@
           },
           {
             "label": "Swoop options",
-            "radio": ["Additional Ring", "Dive Loops", "Low Profile Risers"],
+            "checkbox": ["Additional Ring", "Dive Loops", "Low Profile Risers"],
             "select": "multi"
           },
           {
@@ -178,22 +178,22 @@
         "check-box": [
           {
             "label": "Hook-knife",
-            "radio": ["Plastic", "Metal"],
+            "checkbox": ["Plastic", "Metal"],
             "select": "add"
           },
           {
             "label": "Main parts kit",
-            "radio": ["Risers, D-Bag, Bridle, PC"],
+            "checkbox": ["Risers, D-Bag, Bridle, PC"],
             "select": "add"
           },
           {
             "label": "Reserve parts kit",
-            "radio": ["D-Bag + Bridle, Reserve PC, Cutaway Handle, Reserve D-Ring"],
+            "checkbox": ["D-Bag + Bridle, Reserve PC, Cutaway Handle, Reserve D-Ring"],
             "select": "add"
           },
           {
             "label": "Assemble at SWS",
-            "radio": ["Yes"],
+            "checkbox": ["Yes"],
             "select": "add"
           }
         ]

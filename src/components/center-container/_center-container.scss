@@ -649,7 +649,7 @@
   }
 
   .data-row__label {
-    @include flex(flex-start);
+    @include flex(center, flex-start, column);
     cursor: pointer;
     font-size: 10px;
     min-height: 16px;

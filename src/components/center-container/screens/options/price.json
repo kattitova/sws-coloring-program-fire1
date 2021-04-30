@@ -1,0 +1,101 @@
+[
+  {"harness": [
+    {
+      "metal": 
+      [
+        {
+          "cad":"0",
+          "black":"$175",
+          "ss": "$175"
+        }
+      ]
+    },
+    {
+      "3-rings": 
+      [
+        {
+          "mini":"0",
+          "big":"0"
+        }
+      ]
+    }
+  ]}
+]
+// {
+// "Harness_Metal_Cad": ["price1","0"],
+// "Harness_Metal_Black": ["price2","$175"],
+// "Harness_Metall_SS": ["price3","$175"],
+// "Harness_3Rings_Mini": ["price4","0"],
+// "Harness_3Rings_Larg": ["price5","0"],
+// "Harness_HarnessType_2Rings": ["price6","0"],
+// "Harness_HarnessType_4Rings_Cad": ["price7","$125"],
+// "Harness_HarnessType_4Rings_Black": ["price8","$225"],
+// "Harness_HarnessType_4Rings_SS": ["price9","$225"],
+// "Harness_HarnessType_Adj": ["price10","$200"],
+// "Harness_ChestStrap_Narrow": ["price11","0"],
+// "Harness_ChestStrap_Wide": ["price12","0"],
+// "Harness_Legstrap_ThreadTgru": ["price13","0"],
+// "Harness_Legstrap_B12": ["price14","$50"],
+// "Harness_Risers_Narrow": ["price15","0"],
+// "Harness_Risers_Wide": ["price16","0"],
+// "Harness_Swoop_Opt_AddRing": ["price17","$25"],
+// "Harness_Swoop_Opt_DiveLoops": ["price18","$25"],
+// "Harness_Swoop_Opt_LowProfileRises": ["price19","$25"],
+// "Harness_RisersLength_500mm": ["price20","0"],
+// "Harness_RisersLength_550mm": ["price21","0"],
+// "Harness_RisersLength_600mm": ["price22","0"],
+// "ContainerBackpad_MainContainer_Standart": ["price23","0"],
+// "ContainerBackpad_MainContainer_Wingmod": ["price24","0"],
+// "ContainerBackpad_Backpad_Standart": ["price25","0"],
+// "ContainerBackpad_Backpad_Spacerfoam": ["price26","$125"],
+// "ContainerBackpad_Laterals_Standart": ["price27","0"],
+// "ContainerBackpad_Laterals_CutIn": ["price28","0"],
+// "ContainerBackpad_Legstrap_Standart": ["price29","0"],
+// "ContainerBackpad_Legstrap_Narrow": ["price30","0"],
+// "ReserveDeployment_CutawayHandle_Red": ["price31","0"],
+// "ReserveDeployment_CutawayHandle_ChooseColor": ["price32","$25"],
+// "ReserveDeployment_ReserveHandle_DRing": ["price33","0"],
+// "ReserveDeployment_ReserveHandle_SoftHandle": ["price34","$25"],
+// "ReserveDeployment_RSL_No": ["price35","0"],
+// "ReserveDeployment_RSL_Brass": ["price36","$50"],
+// "ReserveDeployment_RSL_SS": ["price37","$70"],
+// "ReserveDeployment_DRD_No": ["price38","0"],
+// "ReserveDeployment_DRD_Brass": ["price39","$170"],
+// "ReserveDeployment_DRD_SS": ["price40","$190"],
+// "MainDeployment_Pod": ["price41","0"],
+// "MainDeployment_Hackey": ["price42","0"],
+// "MainDeployment_HackeyPod": ["price43","0"],
+// "MainDeployment_Tube": ["price44","0"],
+// "MainDeployment_ChooseColor": ["price45","0"],
+// "MainDeployment_MainPC_Zp": ["price46","0"],
+// "MainDeployment_MainPC_F111": ["price47","0"],
+// "MainDeployment_MainPC_Stud": ["price48","0"],
+// "MainDeployment_MainPC_ChooseColor": ["price49","$25"],
+// "MainDeployment_Bridle_2m": ["price50","0"],
+// "MainDeployment_Bridle_Wingmod3m": ["price51","0"],
+// "MainDeployment_Bridle_Stud": ["price52","0"],
+// "MainDeployment_MainDBag_Standart": ["price53","0"],
+// "MainDeployment_MainDBag_LazyBag": ["price54","$30"],
+// "MainDeployment_MainDBag_DirectBag": ["price75","$15"],
+// "AdditionalOptions_HookKnife_Plastic": ["price55","$25"],
+// "AdditionalOptions_HookKnife_Metal": ["price56","$50"],
+// "AdditionalOptions_MainPartsKit": ["price57","$175"],
+// "AdditionalOptions_ReservePartsKit": ["price58","$225"],
+// "AdditionalOptions_AssembleAtSWS": ["price59","$50"],
+// "StudentsOptions_ReservePCoverWindow": ["price60","$50"],
+// "StudentsOptions_AADwindow": ["price61","$30"],
+// "StudentsOptions_InfoPocet": ["price62","$20"],
+// "StudentsOptions_DeployableMainPCPocet": ["price63","$60"],
+// "StudentsOptions_StaticLine": ["price64","$30"],
+// "StudentsOptions_Ripcord": ["price65","$30"],
+// "StudentsOptions_Ripcord2sides": ["price66","$50"],
+// "StudentsOptions_StringLoadedMainPC": ["price67","$70"],
+// "Fire2": ["price0","1500"],
+// "Pinstripes": ["price68","$30"],
+// "ColorCamo": ["price69","$60"],
+// "EmbroideryText": ["price70","$30"],
+// "EmbroideryImg": ["price71","$50"],
+// "ChangeColor": ["price72","$50"],
+// "ChangeTrimTape": ["price73","$50"],
+// "SplitDesign": ["price74","$50"]
+// }

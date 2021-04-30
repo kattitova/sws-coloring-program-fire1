@@ -4,7 +4,7 @@ import getIsometric from "./screens/container/container-isometric";
 import getFront from "./screens/container/container-front";
 import getBack from "./screens/container/container-back";
 import getSide from "./screens/container/container-side";
-import infoJSON from "./info-inputs.json";
+import infoJSON from "./info.json";
 import genInputs from "./get-inputs";
 
 // объект с пунктами меню, для каждого пункта описаны виды,
@@ -102,7 +102,7 @@ export default class CenterContainer {
                 tip.appendChild(tipText);
                 tip.appendChild(document.createTextNode(" - "));
                 const price = create("span");
-                price.setAttribute("data-id", "price74");
+                price.setAttribute("data-id", "split_design");
                 tip.appendChild(price);
 
                 splitButtons.appendChild(tip);
@@ -129,7 +129,7 @@ export default class CenterContainer {
           pinstrapButton.appendChild(pinB);
 
           const pinSpan = create("span");
-          pinSpan.setAttribute("data-id", "price68");
+          pinSpan.setAttribute("data-id", "pinstripes");
 
           pinstrapButton.appendChild(pinSpan);
           switcherBlock.appendChild(pinstrapButton);

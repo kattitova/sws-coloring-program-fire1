@@ -2,6 +2,7 @@ import create from "../create";
 import colors from "../colors.json";
 import camo from "../camo.json";
 import neon from "../neon.json";
+import getCalculatorPanel from "./calculator";
 
 // класс отрисовки правой панели
 export default class RightContainer {
@@ -47,6 +48,7 @@ export default class RightContainer {
     divTemplatePanel.appendChild(buttonClearAll);
 
     divTemplatePanel.appendChild(RightContainer.panelContactUs());
+    divTemplatePanel.appendChild(getCalculatorPanel());
 
     return divTemplatePanel;
   }
@@ -140,7 +142,7 @@ export default class RightContainer {
     tip.appendChild(tipTitle);
     tip.appendChild(document.createTextNode(" - "));
     const tipPrice = create("span");
-    tipPrice.setAttribute("data-id", "price69");
+    tipPrice.setAttribute("data-id", "camo");
     tip.appendChild(tipPrice);
     pickBlockCamo.appendChild(tip);
 

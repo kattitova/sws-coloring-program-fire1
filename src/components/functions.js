@@ -5,6 +5,8 @@ import splitButtonsClick from "./center-container/split-buttons";
 import getHarnessElements from "./center-container/screens/harness/harness";
 import getBindingPinstripesElements from "./center-container/screens/bind_pinstripes/bind_pinstripes";
 import getLogosElements from "./center-container/screens/logos/logos";
+import json from "./center-container/info.json";
+import { addCalcBlock, checkAddedOption } from "./right-container/calculator";
 
 const form = document.querySelector(".form-constructor");
 
@@ -139,6 +141,7 @@ function getInputValue() {
 // проверка checkbox-ов на мульти/соло выбор
 function getCheksValue() {
   const items = document.querySelectorAll(".constructor__item");
+  const invoisList = document.querySelector(".calc-panel__invoice");
   items.forEach((item) => {
     const title = item.className.split(" ")[1];
     const rowCheks = item.querySelectorAll(".constructor__data-row-checks");
@@ -150,6 +153,7 @@ function getCheksValue() {
         const ipts = row.querySelectorAll("input");
         const { id } = e.target;
         if (e.target.textContent !== "") text = e.target.textContent;
+        const [name, price] = text.split("$");
         const formItem = form.querySelector(`.${title}[data-target="${val}"]`);
         switch (select) {
           case "solo": {
@@ -161,7 +165,13 @@ function getCheksValue() {
 
             if (id !== "") {
               formItem.setAttribute("value", e.target.getAttribute("data-text"));
-              formItem.textContent = text;
+              if (price !== undefined) {
+                formItem.textContent = name;
+                addCalcBlock(invoisList, val, price, name, select);
+              } else {
+                formItem.textContent = text;
+                checkAddedOption(select, val, price, name);
+              }
             }
             break;
           }
@@ -172,16 +182,26 @@ function getCheksValue() {
             const br = "<br>";
             if (id !== "") {
               ipts.forEach((input) => {
+                const label = input.nextElementSibling.querySelector(".data-row__name").textContent;
                 if (input.checked) {
                   formValue += `${input.getAttribute("data-text")}+`;
-                  const label = input.nextElementSibling.querySelector(".data-row__name").textContent;
                   formText += `${label}${br}`;
-                }
+                  addCalcBlock(invoisList, val, price, label, select);
+                } else checkAddedOption(select, val, price, label, true);
               });
               formItem.setAttribute("value", formValue.substring(0, formValue.length - 1));
               formItem.textContent = formText.substring(0, formText.length - br.length);
             }
             break;
+
+            // formItem.setAttribute("value", e.target.getAttribute("data-text"));
+              // if (price !== undefined) {
+              //   formItem.textContent = name;
+              //   addCalcBlock(invoisList, val, price, name, select);
+              // } else {
+              //   formItem.textContent = text;
+              //   checkAddedOption(select, val, price, name);
+              // }
           }
           case "add": {
           // если опцию можно выбрать, а можно и не выбирать
@@ -198,9 +218,17 @@ function getCheksValue() {
               if (e.target.checked) {
                 formItem.setAttribute("value", e.target.getAttribute("data-text"));
                 formItem.textContent = text;
+                if (price !== undefined) {
+                  formItem.textContent = name;
+                  addCalcBlock(invoisList, val, price, name, select);
+                } else {
+                  formItem.textContent = text;
+                  checkAddedOption(select, val, price, name);
+                }
               } else {
                 formItem.setAttribute("value", "NULL");
                 formItem.textContent = e.target.getAttribute("");
+                checkAddedOption(select, val, price, name, true);
               }
             }
             break;
@@ -209,6 +237,15 @@ function getCheksValue() {
         }
       });
     });
+  });
+}
+
+// расставляем цены на опции, которые не входят в лист Опции
+function setAddPrice() {
+  const price = json[3].parts[0];
+  Object.keys(price).forEach((option) => {
+    const span = document.querySelector(`span[data-id="${option}"]`);
+    if (span) span.textContent = price[option];
   });
 }
 
@@ -239,6 +276,7 @@ export default function funcInit() {
   clearAll();
   getInputValue();
   getCheksValue();
+  setAddPrice();
 }
 
 export {

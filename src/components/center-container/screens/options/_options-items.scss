@@ -29,11 +29,16 @@
       grid-template-columns: 110px auto;
 
       &:not(:last-child) {
-        margin-bottom: 32px;
+        margin-bottom: 27px;
       }
 
       .data-row__label {
         font-weight: 500;
+      }
+
+      .data-row__price {
+        color: #263c52;
+        font-weight: 700;
       }
     }
 

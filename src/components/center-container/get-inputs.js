@@ -1,7 +1,8 @@
 import create from "../create";
-import getOptionsNav from "./options-nav";
+import getOptionsNav from "./screens/options/options-nav";
+// import price from "./screens/options/price.json";
 
-function addCheckbox(type, radio, val, parrent) {
+function addCheckbox(type, radio, val, parrent, price) {
   const checkBlock = create("div", "constructor__data-check");
   const inp = create("input", "data-row__radio");
   const txt = radio.toLowerCase().replace(/[ +,-][_]*/g, "_").replace(/_{1,}/g, "_");
@@ -14,10 +15,15 @@ function addCheckbox(type, radio, val, parrent) {
   const span = create("span", "data-row__name");
   span.setAttribute("data-lang", txt);
   span.textContent = radio;
-  // TODO if cls==="options" add span with price
 
   checkBlock.appendChild(inp);
   radioLabel.appendChild(span);
+  // TODO if cls==="options" add span with price
+  if (price) {
+    const priceSpan = create("span", "data-row__price");
+    priceSpan.textContent = price;
+    radioLabel.appendChild(priceSpan);
+  }
   checkBlock.appendChild(radioLabel);
   parrent.appendChild(checkBlock);
 }
@@ -46,12 +52,14 @@ export default function genInputs(obj, cls) {
     const dataBlockCls = block.title ? block.title.toLowerCase().replaceAll(" ", "_") : "no-title";
     const dataBlock = create("div", ...["constructor__data-block", dataBlockCls]);
     if (cls === "options" && i === 0) dataBlock.classList.add("active");
+    let title;
     Object.keys(block).forEach((item) => {
       let elem;
       switch (item) {
         case "title":
+          title = block[item].toLowerCase().replaceAll(" ", "_");
           elem = create("div", `data-row__${item}`);
-          elem.setAttribute("data-val", block[item].toLowerCase().replaceAll(" ", "_"));
+          elem.setAttribute("data-val", title);
           elem.textContent = block[item];
           dataBlock.appendChild(elem);
           break;
@@ -99,13 +107,16 @@ export default function genInputs(obj, cls) {
             rowCheks.setAttribute("data-val", val);
             rowCheks.setAttribute("select", check.select);
             if (check.radio) {
-              check.radio.forEach((radio) => {
-                addCheckbox("radio", radio, val, rowCheks);
+              check.radio.forEach((radio, ind) => {
+                if (check.price) {
+                  addCheckbox("radio", radio, val, rowCheks, check.price[ind]);
+                } else addCheckbox("radio", radio, val, rowCheks);
               });
             }
             if (check.checkbox) {
-              check.checkbox.forEach((radio) => {
-                addCheckbox("checkbox", radio, val, rowCheks);
+              check.checkbox.forEach((radio, ind) => {
+                if (check.price) addCheckbox("checkbox", radio, val, rowCheks, check.price[ind]);
+                else addCheckbox("checkbox", radio, val, rowCheks);
               });
             }
             row.appendChild(rowCheks);

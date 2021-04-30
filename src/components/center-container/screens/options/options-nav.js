@@ -1,4 +1,4 @@
-import create from "../create";
+import create from "../../../create";
 
 function setActiveOptionsPage(nameTitle) {
   const blocks = document.querySelectorAll(".constructor__data-block");

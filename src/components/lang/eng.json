@@ -78,6 +78,8 @@
   "main_canopy":"Main canopy", 
   "reserve_canopy":"Reserve canopy",
   "title_options": "step 3: options",
-  "choose_options": "choose options"
+  "choose_options": "choose options",
+  "calc": "calculation",
+  "total": "Total $"
   }
 ]

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import tabsClick from "./left-container/tabs-item";
 import posClick from "./center-container/pos-item";
 import getContainerElements from "./center-container/screens/container/container";
@@ -148,93 +149,103 @@ function getCheksValue() {
     rowCheks.forEach((row) => {
       const val = row.getAttribute("data-val");
       let text;
-      row.addEventListener("click", (e) => {
-        const select = row.getAttribute("select");
-        const ipts = row.querySelectorAll("input");
-        const { id } = e.target;
-        if (e.target.textContent !== "") text = e.target.textContent;
-        const [name, price] = text.split("$");
-        const formItem = form.querySelector(`.${title}[data-target="${val}"]`);
-        switch (select) {
-          case "solo": {
-            ipts.forEach((input) => {
-            // eslint-disable-next-line no-param-reassign
-              input.checked = false;
-            });
-            e.target.checked = true;
 
-            if (id !== "") {
-              formItem.setAttribute("value", e.target.getAttribute("data-text"));
-              if (price !== undefined) {
-                formItem.textContent = name;
-                addCalcBlock(invoisList, val, price, name, select);
-              } else {
-                formItem.textContent = text;
-                checkAddedOption(select, val, price, name);
-              }
-            }
-            break;
-          }
-          case "multi": {
-          // если multy выбор
-            let formValue = "";
-            let formText = "";
-            const br = "<br>";
-            if (id !== "") {
-              ipts.forEach((input) => {
-                const label = input.nextElementSibling.querySelector(".data-row__name").textContent;
-                if (input.checked) {
-                  formValue += `${input.getAttribute("data-text")}+`;
-                  formText += `${label}${br}`;
-                  addCalcBlock(invoisList, val, price, label, select);
-                } else checkAddedOption(select, val, price, label, true);
-              });
-              formItem.setAttribute("value", formValue.substring(0, formValue.length - 1));
-              formItem.textContent = formText.substring(0, formText.length - br.length);
-            }
-            break;
+      const labels = row.querySelectorAll(".data-row__label");
+      labels.forEach((label) => {
+        label.addEventListener("click", () => {
+          const rowChecks = label.parentElement.parentElement;
+          const select = rowChecks.getAttribute("select");
+          const ipts = rowChecks.querySelectorAll("input");
+          const checkedInput = label.previousSibling;
+          text = label.textContent;
+          const [name, price] = text.split("$");
+          const formItem = form.querySelector(`.${title}[data-target="${val}"]`);
 
-            // formItem.setAttribute("value", e.target.getAttribute("data-text"));
-              // if (price !== undefined) {
-              //   formItem.textContent = name;
-              //   addCalcBlock(invoisList, val, price, name, select);
-              // } else {
-              //   formItem.textContent = text;
-              //   checkAddedOption(select, val, price, name);
-              // }
-          }
-          case "add": {
-          // если опцию можно выбрать, а можно и не выбирать
-            if (ipts.length > 1) {
-              if (e.target.checked) {
-                ipts.forEach((input) => {
-                  // eslint-disable-next-line no-param-reassign
-                  input.checked = false;
-                });
-                e.target.checked = true;
-              }
-            }
-            if (id !== "") {
-              if (e.target.checked) {
-                formItem.setAttribute("value", e.target.getAttribute("data-text"));
-                formItem.textContent = text;
+          switch (select) {
+            case "solo": {
+              checkedInput.addEventListener("change", () => {
+                let countCheckbox = 0;
+                if (checkedInput.getAttribute("type") === "radio") {
+                  ipts.forEach((input) => {
+                    if (input.getAttribute("type") === "radio") {
+                      input.checked = false;
+                    } else countCheckbox += 1;
+                  });
+                  checkedInput.checked = true;
+                }
+
+                formItem.setAttribute("value", checkedInput.getAttribute("data-text"));
                 if (price !== undefined) {
                   formItem.textContent = name;
-                  addCalcBlock(invoisList, val, price, name, select);
+                  if (checkedInput.getAttribute("type") !== "radio" && !checkedInput.checked) {
+                    checkAddedOption(select, val, price, name, true);
+                  } else addCalcBlock(invoisList, val, price, name, select);
                 } else {
-                  formItem.textContent = text;
-                  checkAddedOption(select, val, price, name);
+                  formItem.textContent = text.replace("Standart", "");
+                  if (countCheckbox > 0) checkAddedOption(select, val, price, name, false);
+                  else checkAddedOption(select, val, price, name, true);
                 }
-              } else {
-                formItem.setAttribute("value", "NULL");
-                formItem.textContent = e.target.getAttribute("");
-                checkAddedOption(select, val, price, name, true);
-              }
+              });
+              break;
             }
-            break;
+            case "multi": {
+              // если multy выбор
+              let formValue = "";
+              let formText = "";
+              const br = "<br>";
+              let count = 0;
+              checkedInput.addEventListener("change", () => {
+                ipts.forEach((input) => {
+                  const subtitle = input.nextElementSibling.querySelector(".data-row__name").textContent;
+                  if (input.checked) {
+                    formValue += `${input.getAttribute("data-text")}+`;
+                    formText += `${subtitle}${br}`;
+                    count += 1;
+                  }
+                });
+                if (count === 0) formValue = "NULL ";
+                formItem.setAttribute("value", formValue.substring(0, formValue.length - 1));
+                formItem.textContent = formText.substring(0, formText.length - br.length);
+
+                const subtitle = label.querySelector(".data-row__name").textContent;
+                if (checkedInput.checked) {
+                  addCalcBlock(invoisList, val, price, subtitle, select);
+                } else checkAddedOption(select, val, price, subtitle, true);
+              });
+              break;
+            }
+            case "add": {
+              // если опцию можно выбрать, а можно и не выбирать
+              checkedInput.addEventListener("change", () => {
+                if (ipts.length > 1) {
+                  if (checkedInput.checked) {
+                    ipts.forEach((input) => {
+                      input.checked = false;
+                    });
+                    checkedInput.checked = true;
+                  }
+                }
+                if (checkedInput.checked) {
+                  formItem.setAttribute("value", checkedInput.getAttribute("data-text"));
+                  formItem.textContent = text;
+                  if (price !== undefined) {
+                    formItem.textContent = name;
+                    addCalcBlock(invoisList, val, price, name, select);
+                  } else {
+                    formItem.textContent = text;
+                    checkAddedOption(select, val, price, name);
+                  }
+                } else {
+                  formItem.setAttribute("value", "NULL");
+                  formItem.textContent = "";
+                  checkAddedOption(select, val, price, name, true);
+                }
+              });
+              break;
+            }
+            default: break;
           }
-          default: break;
-        }
+        });
       });
     });
   });

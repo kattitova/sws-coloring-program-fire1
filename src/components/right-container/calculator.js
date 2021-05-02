@@ -17,6 +17,7 @@ function sumTotal() {
 
 // функция проверки добавлена уже опция или нет
 function checkAddedOption(select, title, value, subtitle, remote) {
+  console.log(select, title, value, subtitle, remote);
   const calcBlocks = document.querySelectorAll(".invoice__calc-block");
   let flag = true;
   // if (select === "solo" || select === "add") {
@@ -30,18 +31,21 @@ function checkAddedOption(select, title, value, subtitle, remote) {
         const newSub = subtitle.toLowerCase().replace(/[ +,-][_]*/g, "_").replace(/_{1,}/g, "_");
         // не работает, нужна другая логика для мульти
         if (select === "multi") {
-          console.log(sub.getAttribute("data-lang"), newSub);
           if (sub.getAttribute("data-lang") !== newSub) {
             flag = true;
-          } else if (remote) block.remove();
+            // calcBlocks.forEach((item) => {
+            //   const subPrev = item.querySelector("b");
+            //   if (subPrev === sub) flag = false;
+            // });
+          } else if (remote) {
+            block.remove();
+          }
         } else if (sub.getAttribute("data-lang") !== newSub) {
           sub.textContent = subtitle;
           sub.setAttribute("data-lang", newSub);
           option.nextElementSibling.textContent = value;
         } else if (remote) block.remove();
-      } else {
-        block.remove();
-      }
+      } else if (remote) block.remove();
     }
   });
   // }

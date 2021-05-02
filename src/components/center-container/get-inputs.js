@@ -108,9 +108,14 @@ export default function genInputs(obj, cls) {
             rowCheks.setAttribute("select", check.select);
             if (check.radio) {
               check.radio.forEach((radio, ind) => {
+                let type;
+                if (radio === "Choose Color") {
+                  if (val === "main_deployment_handle" || val === "main_pc") type = "checkbox";
+                  else type = "radio";
+                } else type = "radio";
                 if (check.price) {
-                  addCheckbox("radio", radio, val, rowCheks, check.price[ind]);
-                } else addCheckbox("radio", radio, val, rowCheks);
+                  addCheckbox(type, radio, val, rowCheks, check.price[ind]);
+                } else addCheckbox(type, radio, val, rowCheks);
               });
             }
             if (check.checkbox) {

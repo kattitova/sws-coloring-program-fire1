@@ -643,6 +643,12 @@
   .data-row__radio {
     display: none;
 
+    &.disabled,
+    &.disabled + label {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
     &:checked + label::after {
       opacity: 1;
     }

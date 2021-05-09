@@ -34,6 +34,11 @@
 
       .data-row__label {
         font-weight: 500;
+
+        b {
+          color: #263c52;
+          font-weight: 700;
+        }
       }
 
       .data-row__price {
@@ -182,6 +187,34 @@
         background: #39833c;
         color: rgba(255, 255, 255, 0.75);
       }
+    }
+  }
+}
+
+.options-wrapper {
+  position: relative;
+
+  .opitons__colors {
+    background: #246595;
+    box-shadow: 0 12px 16px rgb(42 59 76 / 50%);
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 144px;
+
+    &.active {
+      display: block;
+    }
+
+    &.cutaway_handle {
+      .red {
+        display: none;
+      }
+    }
+
+    .pick-block__title {
+      display: none;
     }
   }
 }

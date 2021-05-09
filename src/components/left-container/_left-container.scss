@@ -77,6 +77,10 @@
   &.active {
     @include button-hover;
   }
+
+  &.active {
+    pointer-events: none;
+  }
 }
 
 .left-container__link-list {

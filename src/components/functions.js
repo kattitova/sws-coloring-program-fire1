@@ -6,10 +6,12 @@ import splitButtonsClick from "./center-container/split-buttons";
 import getHarnessElements from "./center-container/screens/harness/harness";
 import getBindingPinstripesElements from "./center-container/screens/bind_pinstripes/bind_pinstripes";
 import getLogosElements from "./center-container/screens/logos/logos";
+import getTooltipColor from "./center-container/screens/options/options";
 import json from "./center-container/info.json";
 import { addCalcBlock, checkAddedOption } from "./right-container/calculator";
 
 const form = document.querySelector(".form-constructor");
+const priceList = json[3].parts[0];
 
 // применение цвета или очистка к подвесной
 function handlerClickHarness(color) {
@@ -161,9 +163,9 @@ function getCheksValue() {
           const [name, price] = text.split("$");
           const formItem = form.querySelector(`.${title}[data-target="${val}"]`);
 
-          switch (select) {
-            case "solo": {
-              checkedInput.addEventListener("change", () => {
+          checkedInput.addEventListener("change", () => {
+            switch (select) {
+              case "solo": {
                 let countCheckbox = 0;
                 if (checkedInput.getAttribute("type") === "radio") {
                   ipts.forEach((input) => {
@@ -178,23 +180,25 @@ function getCheksValue() {
                 if (price !== undefined) {
                   formItem.textContent = name;
                   if (checkedInput.getAttribute("type") !== "radio" && !checkedInput.checked) {
-                    checkAddedOption(select, val, price, name, true);
+                    checkAddedOption(invoisList, select, val, price, name, true);
                   } else addCalcBlock(invoisList, val, price, name, select);
                 } else {
                   formItem.textContent = text.replace("Standart", "");
-                  if (countCheckbox > 0) checkAddedOption(select, val, price, name, false);
-                  else checkAddedOption(select, val, price, name, true);
+                  if (countCheckbox > 0) {
+                    checkAddedOption(invoisList, select, val, price, name, false);
+                  } else {
+                    checkAddedOption(invoisList, select, val, price, name, true);
+                  }
                 }
-              });
-              break;
-            }
-            case "multi": {
-              // если multy выбор
-              let formValue = "";
-              let formText = "";
-              const br = "<br>";
-              let count = 0;
-              checkedInput.addEventListener("change", () => {
+
+                break;
+              }
+              case "multi": {
+                // если multy выбор
+                let formValue = "";
+                let formText = "";
+                const br = "<br>";
+                let count = 0;
                 ipts.forEach((input) => {
                   const subtitle = input.nextElementSibling.querySelector(".data-row__name").textContent;
                   if (input.checked) {
@@ -210,13 +214,11 @@ function getCheksValue() {
                 const subtitle = label.querySelector(".data-row__name").textContent;
                 if (checkedInput.checked) {
                   addCalcBlock(invoisList, val, price, subtitle, select);
-                } else checkAddedOption(select, val, price, subtitle, true);
-              });
-              break;
-            }
-            case "add": {
-              // если опцию можно выбрать, а можно и не выбирать
-              checkedInput.addEventListener("change", () => {
+                } else checkAddedOption(invoisList, select, val, price, subtitle, true);
+                break;
+              }
+              case "add": {
+                // если опцию можно выбрать, а можно и не выбирать
                 if (ipts.length > 1) {
                   if (checkedInput.checked) {
                     ipts.forEach((input) => {
@@ -233,30 +235,58 @@ function getCheksValue() {
                     addCalcBlock(invoisList, val, price, name, select);
                   } else {
                     formItem.textContent = text;
-                    checkAddedOption(select, val, price, name);
+                    checkAddedOption(invoisList, select, val, price, name);
                   }
                 } else {
                   formItem.setAttribute("value", "NULL");
                   formItem.textContent = "";
-                  checkAddedOption(select, val, price, name, true);
+                  checkAddedOption(invoisList, select, val, price, name, true);
                 }
-              });
-              break;
+                break;
+              }
+              default: break;
             }
-            default: break;
-          }
+          });
         });
       });
     });
   });
 }
 
+// обработка отдельной логики опций
+// 1.Выбор черного или стального металла => изменение стоимости опции 4Rings
+function changeMetal() {
+  const metals = document.querySelectorAll(".constructor__data-row-checks[data-val=\"metal\"] input");
+  metals.forEach((metal) => {
+    const { id } = metal;
+    metal.addEventListener("change", () => {
+      const opt4rings = document.querySelector(".data-row__label[for=\"harness_type-4rings\"] .data-row__price");
+      let optCost;
+      if (id === "metal-black" || id === "metal-ss") {
+        optCost = priceList[`4rings_${id.split("-")[1]}`];
+      }
+      if (id === "metal-cad") {
+        // eslint-disable-next-line prefer-destructuring
+        optCost = json[2].parts[0]["check-box"][2].price[1];
+      }
+      opt4rings.textContent = optCost;
+
+      const calcPos = document.querySelector(".calc-block__title[data-name=\"harness_type\"]");
+      if (calcPos) {
+        const subtitle = calcPos.querySelector("b[data-lang=\"4rings\"]");
+        if (subtitle) {
+          calcPos.nextElementSibling.textContent = optCost.replace("$", "");
+        }
+      }
+    });
+  });
+}
+
 // расставляем цены на опции, которые не входят в лист Опции
 function setAddPrice() {
-  const price = json[3].parts[0];
-  Object.keys(price).forEach((option) => {
+  Object.keys(priceList).forEach((option) => {
     const span = document.querySelector(`span[data-id="${option}"]`);
-    if (span) span.textContent = price[option];
+    if (span) span.textContent = priceList[option];
   });
 }
 
@@ -284,10 +314,12 @@ export default function funcInit() {
   getHarnessElements();
   getBindingPinstripesElements();
   getLogosElements();
+  getTooltipColor();
   clearAll();
   getInputValue();
   getCheksValue();
   setAddPrice();
+  changeMetal();
 }
 
 export {

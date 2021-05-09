@@ -71,7 +71,7 @@
           {
             "label": "Harness type",
             "radio": ["2Rings", "4Rings", "Adjustable"],
-            "price": ["Standart", "$125", "$225"],
+            "price": ["Standart", "$125", "$200"],
             "select": "solo"
           },
           {
@@ -239,7 +239,9 @@
         "embroidery_img": "$50",
         "change_color": "$50",
         "change_trim_tape": "$50",
-        "split_design": "$50"
+        "split_design": "$50",
+        "4rings_black": "$225",
+        "4rings_ss": "$225"
       }
     ]
   }

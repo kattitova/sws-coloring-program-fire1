@@ -167,11 +167,12 @@ function getCheksValue() {
             switch (select) {
               case "solo": {
                 let countCheckbox = 0;
-                if (checkedInput.getAttribute("type") === "radio") {
-                  ipts.forEach((input) => {
-                    if (input.getAttribute("type") === "radio") {
-                      input.checked = false;
-                    } else countCheckbox += 1;
+                if (checkedInput.getAttribute("data-text") !== "choose_color") {
+                  ipts.forEach((input, ind) => {
+                    if (ind === ipts.length - 1 && ind > 2) {
+                    // if (input.getAttribute("type") === "radio") {
+                      countCheckbox += 1;
+                    } else input.checked = false;
                   });
                   checkedInput.checked = true;
                 }

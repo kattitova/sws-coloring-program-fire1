@@ -86,6 +86,10 @@ export default class LeftContainer {
     contactUsLink.setAttribute("data-lang", "contact_us");
     contactUsLink.setAttribute("href", "#");
     contactUsLink.textContent = "Contact Us";
+    contactUsLink.addEventListener("click", () => {
+      const modal = document.querySelector(".modal-contact");
+      modal.classList.toggle("open");
+    });
     contactUs.appendChild(contactUsLink);
     linkList.appendChild(contactUs);
 

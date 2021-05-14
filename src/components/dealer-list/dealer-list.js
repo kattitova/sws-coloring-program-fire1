@@ -50,7 +50,6 @@ function getDealerItem(country) {
     const button = create("button", "dealer-item-choose");
     button.textContent = "choose a dealer";
     button.setAttribute("data-lang", "choose_a_dealer");
-    // TODO set chosed dealer to info dealer input
     button.addEventListener(("click"), () => {
       const input = document.querySelector(".data-row__input[data-val=\"dealer\"]");
       input.textContent = dealer.name;

@@ -80,6 +80,7 @@
   "title_options": "step 3: options",
   "choose_options": "choose options",
   "calc": "calculation",
-  "total": "Total $"
+  "total": "Total $",
+  "message": "Message"
   }
 ]

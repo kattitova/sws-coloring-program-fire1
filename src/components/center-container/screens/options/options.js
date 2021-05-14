@@ -7,6 +7,7 @@ import { removeBlock } from "../../../right-container/calculator";
 let activeColorOpt;
 
 function openTooltipColor(optionsColors, parent) {
+  optionsColors.className = "opitons__colors";
   const [title, subtitle] = parent.previousSibling.id.split("-");
   optionsColors.classList.add("active", title, subtitle);
   optionsColors.style.top = `${parent.offsetTop}px`;
@@ -18,6 +19,8 @@ export default function getTooltipColor() {
   const options = document.querySelector(".options-wrapper");
   const optionsColors = create("div", "opitons__colors");
   optionsColors.append(RightContainer.getPickBlock());
+  optionsColors.append(RightContainer.getPickBlockCamo());
+  optionsColors.append(RightContainer.getPickBlockNeon());
   options.append(optionsColors);
 
   // Решить как скрывать палитру при клике по всему остальному
@@ -43,7 +46,17 @@ export default function getTooltipColor() {
     openTooltipColor(optionsColors, reserveHandle);
   });
 
-  const buttons = optionsColors.querySelectorAll(".pick-block__colors button");
+  const mainDeployment = document.querySelector("[for=\"main_deployment_handle-choose_color\"]");
+  mainDeployment.addEventListener("click", () => {
+    openTooltipColor(optionsColors, mainDeployment);
+  });
+
+  const mainPC = document.querySelector("[for=\"main_pc-choose_color\"]");
+  mainPC.addEventListener("click", () => {
+    openTooltipColor(optionsColors, mainPC);
+  });
+
+  const buttons = optionsColors.querySelectorAll("button");
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const [, , title, subtitle] = optionsColors.className.split(" ");
@@ -58,6 +71,7 @@ export default function getTooltipColor() {
           setColor.textContent = toCapitalizedCase(color);
           parent.append(setColor);
         }
+        parent.previousSibling.checked = true;
       } else {
         parent.previousSibling.checked = false;
         if (getColor) getColor.textContent = "";

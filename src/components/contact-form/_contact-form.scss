@@ -1,0 +1,82 @@
+.modal-contact {
+  display: none;
+
+  &.open {
+    @include flex;
+    padding: 80px 20px;
+  }
+}
+
+.contact-form {
+  background: #246595;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+  font-size: 12px;
+  height: 100%;
+  line-height: 1.4;
+  margin: 0 auto;
+  max-width: 400px;
+  overflow: hidden;
+  position: relative;
+  width: 400px;
+
+  .modal-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .constructor__data-row {
+    margin-bottom: 16px;
+  }
+
+  .data-row__label {
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  .data-row__textarea {
+    @include size(100%, 180px);
+    background: #ccd3db;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+    color: #263c52;
+    font-size: 12px;
+    padding: 16px;
+    resize: none;
+  }
+
+  .btn {
+    align-self: center;
+    background: #4caf50;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    min-height: 48px;
+    padding: 0 60px 0 16px;
+    position: relative;
+    text-align: left;
+    text-transform: uppercase;
+    width: 246px;
+
+    &::after {
+      background: url("./images/arrow-right.svg") center no-repeat;
+      background-size: cover;
+      content: "";
+      height: 8px;
+      opacity: 0.5;
+      position: absolute;
+      right: 16px;
+      top: calc(50% - 4px);
+      width: 27px;
+    }
+
+    &:hover {
+      background: #39833c;
+      color: rgba(255, 255, 255, 0.75);
+    }
+  }
+}

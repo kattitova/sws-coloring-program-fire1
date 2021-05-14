@@ -199,9 +199,10 @@
     box-shadow: 0 12px 16px rgb(42 59 76 / 50%);
     display: none;
     left: 0;
+    padding: 5px;
     position: absolute;
     top: 0;
-    width: 144px;
+    width: 154px;
 
     &.active {
       display: block;
@@ -213,7 +214,37 @@
       }
     }
 
-    .pick-block__title {
+    &.main_deployment_handle {
+      .def {
+        display: none;
+      }
+    }
+
+    &.main_pc {
+      .colors-palette__camo-block,
+      .colors-palette__neon-block {
+        display: none;
+      }
+
+      .dg,
+      .lbl,
+      .gld,
+      .grn,
+      .pnk,
+      .brd,
+      .brn,
+      .prp {
+        display: none;
+      }
+    }
+
+    .pick-block__title,
+    .camo-block__title,
+    .neon-block__title {
+      font-size: 10px;
+    }
+
+    button[data-container="no"] {
       display: none;
     }
   }

@@ -12,6 +12,16 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 module.exports = {
   mode: "development",
 
+  // resolve: {
+  //   fallback: {
+  //     fs: false,
+  //     crypto: false,
+  //     stream: false,
+  //     util: false,
+  //     path: false,
+  //   },
+  // },
+
   devServer: {
     historyApiFallback: true,
     contentBase: path.resolve(__dirname, "./public"),
@@ -56,7 +66,6 @@ module.exports = {
       new CssMinimizerPlugin(),
     ],
   },
-
   module: {
     rules: [
       // JavaScript

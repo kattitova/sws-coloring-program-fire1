@@ -25,6 +25,34 @@
     flex-direction: column;
   }
 
+  .modal-message {
+    display: none;
+  }
+
+  &.submited {
+    .invalid,
+    input:invalid,
+    textarea:invalid {
+      border: 2px solid #f33838;
+    }
+  }
+
+  &.sent {
+    .modal-container {
+      display: none;
+    }
+
+    .modal-message {
+      align-items: center;
+      display: flex;
+      font-size: 14px;
+      font-weight: 500;
+      height: calc(100% - 48px);
+      padding: 0 40px 20px;
+      text-align: center;
+    }
+  }
+
   .constructor__data-row {
     margin-bottom: 16px;
   }
@@ -41,7 +69,7 @@
     border-radius: 4px;
     box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
     color: #263c52;
-    font-size: 12px;
+    font-size: 13px;
     padding: 16px;
     resize: none;
   }

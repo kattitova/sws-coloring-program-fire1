@@ -9,6 +9,7 @@ import getLogosElements from "./center-container/screens/logos/logos";
 import getTooltipColor from "./center-container/screens/options/options";
 import json from "./center-container/info.json";
 import { addCalcBlock, checkAddedOption } from "./right-container/calculator";
+// import saveOrders from "./save-orders/save-orders";
 
 const form = document.querySelector(".form-constructor");
 const priceList = json[3].parts[0];
@@ -307,6 +308,21 @@ function toCapitalizedCase(str) {
   return `${str[0].toUpperCase()}${str.slice(1)}`;
 }
 
+function isValid(type, str) {
+  if (/^\s*$/.test(str)) return false;
+  let reg;
+  switch (type) {
+    case "tel": {
+      reg = /^(\+)?(\(\d{2,3}\) ?\d|\d)(([ -]?\d)|( ?\(\d{2,3}\) ?)){5,12}\d$/;
+      break;
+    }
+    case "email": reg = /^\S+@\S+\.\S+$/; break;
+    case "number": reg = /^[0-9]$/; break;
+    default: return true;
+  }
+  return reg.test(str);
+}
+
 export default function funcInit() {
   tabsClick();
   posClick();
@@ -321,6 +337,8 @@ export default function funcInit() {
   getCheksValue();
   setAddPrice();
   changeMetal();
+  // Temp
+  // saveOrders();
 }
 
 export {
@@ -329,4 +347,5 @@ export {
   getAllDetailsByDataId,
   handlerClickDetails,
   toCapitalizedCase,
+  isValid,
 };

@@ -25,7 +25,7 @@ async function sendContactMail(data) {
   mes += "</table>";
 
   const result = await transporter.sendMail({
-    from: fromName,
+    from: `"${fromName}" <${adminEmail}>`,
     to: adminEmail,
     // bcc: copyEmail, // hidden email copy
     subject: "Contact Form Message",

@@ -41,35 +41,35 @@ function addBlock(parrent, title, value, subtitle) {
 }
 
 // функция проверки добавлена уже опция или нет
-function checkAddedOption(parrent, select, title, value, subtitle, remote) {
+function checkAddedOption(parrent, select, title, value, subtitle, remove) {
   const calcBlocks = document.querySelectorAll(".invoice__calc-block");
   let flag = true;
   // if (select === "solo" || select === "add") {
   calcBlocks.forEach((block) => {
     const option = block.querySelector(".calc-block__title");
     const newSub = subtitle.toLowerCase().replace(/[ +,-][_]*/g, "_").replace(/_{1,}/g, "_");
+    const sub = option.querySelector("b");
     if (option.getAttribute("data-name") === title) {
       flag = false;
       // доп проверкa subtitle
       if (value !== undefined) {
-        const sub = option.querySelector("b");
         // логика для мульти
         if (select === "multi") {
           if (sub.getAttribute("data-lang") !== newSub) {
             flag = true;
-          } else if (remote) {
+          } else if (remove) {
             block.remove();
           }
         } else if (sub.getAttribute("data-lang") !== newSub) {
           sub.textContent = subtitle;
           sub.setAttribute("data-lang", newSub);
           option.nextElementSibling.textContent = value;
-        } else if (remote) block.remove();
-      } else if (remote) block.remove();
+        } else if (remove) block.remove();
+      } else if (remove) block.remove();
     }
 
     // обработка отдельной логики опций
-    // 1.Выбор черного или стального металла + опции 4 Кольца =>
+    // Выбор черного или стального металла + опции 4 Кольца =>
     // изменение видимости опции Металл в панеле Калькулятора
     if (title === "metal" && value !== undefined) {
       const calcPos = document.querySelector(".calc-block__title[data-name=\"harness_type\"]");
@@ -200,4 +200,5 @@ export {
   addCalcBlock,
   checkAddedOption,
   removeBlock,
+  sumTotal,
 };

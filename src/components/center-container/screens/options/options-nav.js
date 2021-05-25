@@ -54,11 +54,10 @@ export default function getOptionsNav(options) {
     optTitle.setAttribute("data-lang", nameTitle);
 
     optTitle.addEventListener("click", () => {
-      // const blocks = document.querySelectorAll(".constructor__data-block");
-      // blocks.forEach((block) => {
-      //   block.classList.remove("active");
-      //   if (block.className.split(" ")[1] === nameTitle) block.classList.add("active");
-      // });
+      // закрываем дополнительную палитру цветов для опций при переходе между подэкранами опций
+      const colorPalette = document.querySelector(".opitons__colors");
+      colorPalette.className = "opitons__colors";
+
       setActiveOptionsPage(nameTitle);
       Array.from(optList.children).forEach((div) => {
         // ???????????????????????????

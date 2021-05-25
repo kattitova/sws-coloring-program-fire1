@@ -60,6 +60,7 @@ export default function genInputs(obj, cls) {
           title = block[item].toLowerCase().replaceAll(" ", "_");
           elem = create("div", `data-row__${item}`);
           elem.setAttribute("data-val", title);
+          elem.setAttribute("data-lang", title);
           elem.textContent = block[item];
           dataBlock.appendChild(elem);
           break;
@@ -128,6 +129,7 @@ export default function genInputs(obj, cls) {
         case "textarea":
           elem = create("textarea", `data-row__${item}`);
           elem.setAttribute("data-val", block.title.toLowerCase().replaceAll(" ", "_"));
+          elem.setAttribute("data-lang", `${block.title.toLowerCase().replaceAll(" ", "_")}_placeholder`);
           elem.setAttribute("placeholder", block[item]);
           dataBlock.appendChild(elem);
           break;

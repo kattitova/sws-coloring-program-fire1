@@ -23,10 +23,7 @@ export default function getTooltipColor() {
   optionsColors.append(RightContainer.getPickBlockNeon());
   options.append(optionsColors);
 
-  // Решить как скрывать палитру при клике по всему остальному
   options.addEventListener("click", (e) => {
-    console.log(activeColorOpt, e.target);
-
     const { id } = e.target;
     if (id === "cutaway_handle-red" && activeColorOpt === "cutaway_handle") {
       optionsColors.className = "opitons__colors";

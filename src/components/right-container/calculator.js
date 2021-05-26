@@ -60,10 +60,12 @@ function checkAddedOption(parrent, select, title, value, subtitle, remove) {
           } else if (remove) {
             block.remove();
           }
-        } else if (sub.getAttribute("data-lang") !== newSub) {
-          sub.textContent = subtitle;
-          sub.setAttribute("data-lang", newSub);
-          option.nextElementSibling.textContent = value;
+        } else if (subtitle !== "") {
+          if (sub.getAttribute("data-lang") !== newSub) {
+            sub.textContent = subtitle;
+            sub.setAttribute("data-lang", newSub);
+            option.nextElementSibling.textContent = value;
+          }
         } else if (remove) block.remove();
       } else if (remove) block.remove();
     }
@@ -189,9 +191,11 @@ function removeBlock(title, subtitle) {
     const blockTitle = block.querySelector(".calc-block__title");
     if (blockTitle.getAttribute("data-name") === title) {
       const blockSubtitle = blockTitle.querySelector("b");
-      if (blockSubtitle.getAttribute("data-lang") === subtitle) {
-        block.remove();
-      }
+      if (blockSubtitle) {
+        if (blockSubtitle.getAttribute("data-lang") === subtitle) {
+          block.remove();
+        }
+      } else block.remove();
     }
   });
 }

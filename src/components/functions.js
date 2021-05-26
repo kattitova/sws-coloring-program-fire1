@@ -8,7 +8,8 @@ import getBindingPinstripesElements from "./center-container/screens/bind_pinstr
 import getLogosElements from "./center-container/screens/logos/logos";
 import getTooltipColor from "./center-container/screens/options/options";
 import json from "./center-container/info.json";
-import { addCalcBlock, checkAddedOption, sumTotal } from "./right-container/calculator";
+import { addCalcBlock, checkAddedOption } from "./right-container/calculator";
+import { specOptionsInit } from "./center-container/screens/options/spec-options";
 // import saveOrders from "./save-orders/save-orders";
 
 const form = document.querySelector(".form-constructor");
@@ -260,182 +261,13 @@ function getCheksValue() {
   });
 }
 
-// обработка отдельной логики опций
-// 1.Выбор черного или стального металла => изменение стоимости опции 4Rings
-function changeMetal() {
-  const metals = document.querySelectorAll(".constructor__data-row-checks[data-val=\"metal\"] input");
-  metals.forEach((metal) => {
-    const { id } = metal;
-    metal.addEventListener("change", () => {
-      const opt4rings = document.querySelector(".data-row__label[for=\"harness_type-4rings\"] .data-row__price");
-      let optCost;
-      if (id === "metal-black" || id === "metal-ss") {
-        optCost = priceList[`4rings_${id.split("-")[1]}`];
-      }
-      if (id === "metal-cad") {
-        // eslint-disable-next-line prefer-destructuring
-        optCost = json[2].parts[0]["check-box"][2].price[1];
-      }
-      opt4rings.textContent = optCost;
-
-      const calcPos = document.querySelector(".calc-block__title[data-name=\"harness_type\"]");
-      if (calcPos) {
-        const subtitle = calcPos.querySelector("b[data-lang=\"4rings\"]");
-        if (subtitle) {
-          calcPos.nextElementSibling.textContent = optCost.replace("$", "");
-        }
-      }
-    });
-  });
-}
-
-const getPartsPrice = (options, name) => {
-  const mainParts = options.querySelector(`.constructor__data-row-checks[data-val="${name}"] label`);
-  const mainPartsPriceTxt = mainParts.querySelector(".data-row__price");
-  return parseInt(mainPartsPriceTxt.textContent.replace("$", ""), 10);
-};
-
-const setPartsPrice = (options, calc, newPrice, name) => {
-  const mainParts = options.querySelector(`.constructor__data-row-checks[data-val="${name}"] label`);
-  const mainPartsPriceTxt = mainParts.querySelector(".data-row__price");
-  mainPartsPriceTxt.textContent = `$${newPrice}`;
-  const mainPartsCalc = calc.querySelector(`[data-name="${name}"]`);
-  if (mainPartsCalc) {
-    mainPartsCalc.nextElementSibling.textContent = newPrice;
-  }
-};
-
-// 2. Изменение стоимости комплекта запасных частей ОП в зависимости от выбранных опций:
-// свуп СК, камера LazyBag, цвет медузы ОП
-// изменения вносятся как в стоимость самой опции, так и в панель калькуляции, если опция выбрана
-function MainPartsChangePrice() {
-  const name = "main_parts_kit";
-  const calc = document.querySelector(".calc-panel__invoice");
-  const options = document.querySelector(".options-wrapper");
-  const swoopOptions = options.querySelectorAll(".constructor__data-row-checks[data-val=\"swoop_options\"] input");
-  let newPrice;
-  let mainPartsPrice;
-  let price;
-  // обработка свуп СК
-  swoopOptions.forEach((opt) => {
-    opt.addEventListener("change", () => {
-      mainPartsPrice = getPartsPrice(options, name);
-      price = opt.nextElementSibling.querySelector(".data-row__price").textContent.replace("$", "");
-      if (opt.checked) {
-        newPrice = mainPartsPrice + parseInt(price, 10);
-      } else {
-        newPrice = mainPartsPrice - parseInt(price, 10);
-      }
-      setPartsPrice(options, calc, newPrice, name);
-    });
-  });
-
-  // обработка LazyBag
-  const mainDbag = options.querySelectorAll(".constructor__data-row-checks[data-val=\"main_dbag\"] input");
-  let flagMainDbag = false;
-  mainDbag.forEach((opt) => {
-    opt.addEventListener("change", () => {
-      price = options.querySelector("label[for=\"main_dbag-lazy_bag\"] .data-row__price").textContent.replace("$", "");
-      const data = opt.getAttribute("data-text");
-      mainPartsPrice = getPartsPrice(options, name);
-      if (data === "lazy_bag") {
-        newPrice = mainPartsPrice + parseInt(price, 10);
-        flagMainDbag = true;
-      } else if (flagMainDbag) {
-        newPrice = mainPartsPrice - parseInt(price, 10);
-      }
-      setPartsPrice(options, calc, newPrice, name);
-    });
-  });
-
-  // обработка цвета медузы ОП
-  const mainPcColor = options.querySelector("input[id=\"main_pc-choose_color\"]");
-  let flagMainPcColor = false;
-  mainPcColor.addEventListener("click", () => {
-    let globalFlag = true;
-    const palette = document.querySelector(".opitons__colors.main_pc");
-    const colors = palette.querySelectorAll(".pick-block__colors button");
-    price = options.querySelector("label[for=\"main_pc-choose_color\"] .data-row__price").textContent.replace("$", "");
-    mainPartsPrice = getPartsPrice(options, name);
-    colors.forEach((color) => {
-      color.addEventListener("click", () => {
-        if (globalFlag) {
-          const data = color.getAttribute("data-color");
-          if (data !== "def") {
-            if (!flagMainPcColor) {
-              newPrice = mainPartsPrice + parseInt(price, 10);
-              flagMainPcColor = true;
-            } else newPrice = mainPartsPrice;
-          } else if (flagMainPcColor) {
-            newPrice = mainPartsPrice - parseInt(price, 10);
-            flagMainPcColor = false;
-          }
-          setPartsPrice(options, calc, newPrice, name);
-          setTimeout(sumTotal, 500);
-          globalFlag = false;
-        }
-      });
-    });
-  });
-}
-// -------------------
-
-// 4. Изменение стоимости комплекта запасных частей ЗП в зависимости от выбранных опций:
-// цвет подушки отцепки, подушка запаски
-// изменения вносятся как в стоимость самой опции, так и в панель калькуляции, если опция выбрана
-function ReservePartsChangePrice() {
-  const name = "reserve_parts_kit";
-  const calc = document.querySelector(".calc-panel__invoice");
-  const options = document.querySelector(".options-wrapper");
-  let price;
-  let mainPartsPrice;
-  let newPrice;
-
-  function func(val, color, standart) {
-    const flag = {
-      cutaway_handle: false,
-      reserve_handle: false,
-    };
-    const item = options.querySelector(`.constructor__data-row-checks[data-val="${val}"]`);
-    const inputs = item.querySelectorAll("input");
-    inputs.forEach((inp) => {
-      inp.addEventListener("change", () => {
-        price = options.querySelector("label[for=\"main_pc-choose_color\"] .data-row__price").textContent.replace("$", "");
-        mainPartsPrice = getPartsPrice(options, name);
-        const data = inp.getAttribute("data-text");
-        switch (data) {
-          case color:
-            if (!flag[val]) {
-              newPrice = mainPartsPrice + parseInt(price, 10);
-              flag[val] = true;
-            } else newPrice = mainPartsPrice;
-            break;
-          case standart:
-            if (flag[val]) {
-              newPrice = mainPartsPrice - parseInt(price, 10);
-              flag[val] = false;
-            }
-            break;
-          default: break;
-        }
-        setPartsPrice(options, calc, newPrice, name);
-        setTimeout(sumTotal, 500);
-      });
-    });
-  }
-
-  // обработка цвета подушки отцепки
-  func("cutaway_handle", "choose_color", "red");
-  // обработка цвета подушки запаски
-  func("reserve_handle", "soft_handle", "d_ring");
-}
-// -----------------
-
 // расставляем цены на опции, которые не входят в лист Опции
 function setAddPrice() {
   Object.keys(priceList).forEach((option) => {
-    const span = document.querySelector(`span[data-id="${option}"]`);
-    if (span) span.textContent = priceList[option];
+    const spans = document.querySelectorAll(`span[data-id="${option}"]`);
+    spans.forEach((span) => {
+      if (span) span.textContent = priceList[option];
+    });
   });
 }
 
@@ -483,9 +315,7 @@ export default function funcInit() {
   getInputValue();
   getCheksValue();
   setAddPrice();
-  changeMetal();
-  MainPartsChangePrice();
-  ReservePartsChangePrice();
+  specOptionsInit();
   // Temp
   // saveOrders();
 }

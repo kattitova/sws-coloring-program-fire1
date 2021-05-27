@@ -1,0 +1,27 @@
+[
+  {
+    "title": "fire",
+    "cont": "img",
+    "tip": "*Available on Left/Right Sidewall"
+  },
+  {
+    "title": "sws",
+    "cont": "img",
+    "tip": "*Not available on Front panels"
+  },
+  {
+    "title": "xlogo",
+    "cont": "img",
+    "tip": "*Available on Central detail"
+  },
+  {
+    "title": "custom_text",
+    "cont": "Custom Text",
+    "price": "$30"
+  },
+  {
+    "title": "custom_logo",
+    "cont": "Custom Logo",
+    "price": "$50"
+  }
+]

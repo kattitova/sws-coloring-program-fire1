@@ -3,6 +3,7 @@ import colors from "../colors.json";
 import camo from "../camo.json";
 import neon from "../neon.json";
 import getCalculatorPanel from "./calculator";
+import { getLogoPanel } from "./logo-panel";
 
 // класс отрисовки правой панели
 export default class RightContainer {
@@ -34,6 +35,8 @@ export default class RightContainer {
   // добавление блока - выбора цветов, текстур + кнопки Применить ко всем, Очистить все
   static getTemplatePanel() {
     const divTemplatePanel = create("div", ...["right-container__template-panel", "container"]);
+
+    divTemplatePanel.appendChild(getLogoPanel());
 
     divTemplatePanel.appendChild(RightContainer.getColorPanel());
 

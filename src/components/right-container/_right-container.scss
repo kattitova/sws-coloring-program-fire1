@@ -76,13 +76,15 @@
     margin-right: 10px;
   }
 
-  .right-container__color-panel {
+  .right-container__color-panel,
+  .right-container__logo-panel {
     background: #1b4c70;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(42, 59, 76, 0.5);
     overflow: hidden;
 
-    .color-panel__title {
+    .color-panel__title,
+    .logo-panel__title {
       @include flex;
       background: #12334b;
       font-size: 12px;
@@ -101,6 +103,10 @@
       opacity: 0.25;
       padding: 10px;
       text-align: center;
+    }
+
+    .logo-panel__logos-palette {
+      padding: 10px 16px 16px;
     }
 
     .color-panel__colors-palette {
@@ -267,6 +273,10 @@
 }
 
 .right-container__template-panel {
+  .right-container__logo-panel {
+    display: none;
+  }
+
   &.binding_pinstripes,
   &.logos {
     .colors-palette__camo-block,
@@ -276,8 +286,19 @@
   }
 
   &.logos {
+    .right-container__logo-panel {
+      display: flex;
+      flex-direction: column;
+    }
+
     .template-panel__button-clear {
       display: none;
+    }
+
+    .right-container__color-panel {
+      .color-panel__footer {
+        display: none;
+      }
     }
   }
 }

@@ -1,0 +1,55 @@
+.logos-palette__logo-item {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  button {
+    @include flex;
+    background: 0 0;
+    border: 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    padding: 0 0 0 20px;
+    position: relative;
+    width: 100%;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 1px);
+      transform: translateY(-50%);
+      transition: 0.2s;
+    }
+
+    &::before {
+      @include size(12px, 12px);
+      background: #ccd3db;
+      border: 2px solid #7d8fa2;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+      left: 0;
+    }
+
+    &::after {
+      background: #7d8fa2;
+      border-radius: 50%;
+      height: 8px;
+      left: 4px;
+      opacity: 0;
+      width: 8px;
+    }
+
+    &.checked::after {
+      opacity: 1;
+    }
+
+    span {
+      padding-left: 5px;
+    }
+  }
+}

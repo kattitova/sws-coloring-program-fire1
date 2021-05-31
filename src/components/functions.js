@@ -303,13 +303,13 @@ function isValid(type, str) {
 }
 
 export default function funcInit() {
-  tabsClick();
-  posClick();
   getContainerElements();
   splitButtonsClick();
   getHarnessElements();
   getBindingPinstripesElements();
   getLogosElements();
+  tabsClick();
+  posClick();
   getTooltipColor();
   clearAll();
   getInputValue();

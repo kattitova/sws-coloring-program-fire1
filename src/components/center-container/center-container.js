@@ -13,20 +13,20 @@ const objPositionTabs = {
   container: {
     isometric: getIsometric,
     front: getFront,
-    back: getBack, // change on getBack
-    side: getSide, // change on getSide
+    back: getBack,
+    side: getSide,
   },
   harness: {
-    back: getBack, // change on getBackHarness
+    back: getBack,
   },
   binding_pinstripes: {
-    front: getFront, // change on FrontBP
-    back: getBack, // change on getBackBP
+    front: getFront,
+    back: getBack,
   },
   logos: {
-    front: getFront, // change on FrontLogos
-    back: getBack, // change on getBackLogos
-    side: getSide, // change on getSideLogos
+    front: getFront,
+    back: getBack,
+    side: getSide,
   },
 };
 
@@ -109,6 +109,48 @@ export default class CenterContainer {
                 panel.appendChild(splitButtons);
               }
             }
+            screen.appendChild(panel);
+          }
+
+          // добавляем info для вышивок только для раздела logos
+          if (i === "logos") {
+            const arr = [
+              {
+                title: "custom_text",
+                msg: "Select container panel and enter your text here:",
+                textarea: "all text should be placed inside this figure and should be horizontal center aligned",
+              },
+              {
+                title: "custom_logo",
+                msg: "Please contact your dealer for details.",
+              },
+            ];
+            arr.forEach((itemLogo) => {
+              const block = create("div", "panel__block");
+              block.setAttribute("data-id", itemLogo.title);
+
+              const label = create("div", "panel__block--label");
+              label.setAttribute("data-lang", `${itemLogo.title}_msg`);
+              label.textContent = itemLogo.msg;
+              block.appendChild(label);
+
+              if (itemLogo.textarea) {
+                const textarea = create("textarea", "panel__block--text");
+                textarea.setAttribute("placeholder", itemLogo.textarea);
+                textarea.setAttribute("data-lang", `${itemLogo.title}_placeholder`);
+                block.appendChild(textarea);
+              }
+
+              panel.appendChild(block);
+            });
+
+            // общая информация на панели для логотипов
+            const logoInfo = create("div", "panel__info");
+            logoInfo.setAttribute("data-lang", "logos_info");
+            logoInfo.textContent = `Color logos in one or two colors.
+            Use the default logo colors,
+            or create your own color scheme.`;
+            panel.appendChild(logoInfo);
 
             screen.appendChild(panel);
           }

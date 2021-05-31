@@ -17,6 +17,11 @@
     position: relative;
     width: 100%;
 
+    &.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
     &::after,
     &::before {
       content: "";
@@ -51,5 +56,49 @@
     span {
       padding-left: 5px;
     }
+  }
+}
+
+.constructor__panel {
+  position: relative;
+
+  .panel__block {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    &--label {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 14px;
+      margin-bottom: 10px;
+    }
+
+    &--text {
+      background: #9ab7cd;
+      border: 0;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+      display: block;
+      font-size: 12px;
+      height: 80px;
+      line-height: 14px;
+      padding: 5px 8px;
+      resize: none;
+      width: 100%;
+    }
+  }
+
+  .panel__info {
+    bottom: 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    width: 200px !important;
   }
 }

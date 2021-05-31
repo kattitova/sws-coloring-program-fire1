@@ -1,7 +1,29 @@
 import create from "../create";
 import logos from "./logos.json";
 
+function unCheckedAllLogos(palette, panels) {
+  const constructor = document.querySelector(".constructor__item.logos");
+  const tabs = constructor.querySelectorAll(".tabs-list__position-item");
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const buttons = palette.querySelectorAll("button");
+      buttons.forEach((button) => {
+        button.classList.remove("checked");
+      });
+      panels.forEach((panel) => {
+        const blocks = panel.querySelectorAll(".panel__block");
+        blocks.forEach((block) => {
+          block.classList.remove("active");
+        });
+      });
+    });
+  });
+}
+
 function getLogoPanel() {
+  const constructor = document.querySelector(".constructor__item.logos");
+  const panels = constructor.querySelectorAll(".constructor__panel");
+
   const divLogoPanel = create("div", "right-container__logo-panel");
 
   const divLogoPanelTitle = create("div", "logo-panel__title");
@@ -22,6 +44,28 @@ function getLogoPanel() {
         }
       });
       logoButton.classList.toggle("checked");
+      if (data === "custom_text" || data === "custom_logo") {
+        panels.forEach((panel) => {
+          if (panel.classList.contains("active")) {
+            const blocks = panel.querySelectorAll(".panel__block");
+            blocks.forEach((block) => {
+              if (logoButton.classList.contains("checked")) {
+                if (block.getAttribute("data-id") === data) block.classList.add("active");
+                else block.classList.remove("active");
+              } else if (block.getAttribute("data-id") === data) block.classList.remove("active");
+            });
+          }
+        });
+      } else {
+        panels.forEach((panel) => {
+          if (panel.classList.contains("active")) {
+            const blocks = panel.querySelectorAll(".panel__block");
+            blocks.forEach((block) => {
+              block.classList.remove("active");
+            });
+          }
+        });
+      }
     });
     let tip;
     Object.keys(logo).forEach((key) => {
@@ -56,6 +100,10 @@ function getLogoPanel() {
           logoButton.appendChild(span);
           break;
         }
+        case "area": {
+          logoButton.className = logo.area;
+          break;
+        }
         default: break;
       }
     });
@@ -64,6 +112,8 @@ function getLogoPanel() {
     divLogoPalette.appendChild(divLogoItem);
   });
   divLogoPanel.appendChild(divLogoPalette);
+
+  unCheckedAllLogos(divLogoPalette, panels);
 
   return divLogoPanel;
 }

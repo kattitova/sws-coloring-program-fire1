@@ -1,0 +1,151 @@
+.center-container__constructor.logos {
+  height: 545px;
+}
+
+.constructor__logos {
+  @include size(100%, 100%);
+  display: none;
+  pointer-events: none;
+  position: absolute;
+
+  &.active {
+    display: block;
+  }
+
+  .logos__area {
+    display: none;
+    position: absolute;
+
+    &.checked {
+      @include flex(center, center, column);
+    }
+
+    div {
+      display: none;
+
+      &.checked {
+        display: block;
+      }
+    }
+
+    .logo__custom_logo {
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  &.isometric {
+    .logos__area {
+      &[data-logo="left-side"] {
+        @include size(92px, 60px);
+        bottom: 100px;
+        left: 82px;
+        transform: rotate(82deg);
+
+        svg {
+          @include size(120%, 120%);
+        }
+      }
+
+      &[data-logo="central-detail"] {
+        @include size(48px, 86px);
+        left: 208px;
+        top: 142px;
+        transform: rotate(-16deg);
+
+        svg {
+          @include size(120%, 120%);
+        }
+
+        .logo__custom_logo {
+          padding-right: 10px;
+          transform: rotate(-10deg);
+        }
+      }
+    }
+  }
+
+  &.front {
+    .logos__area {
+      &[data-logo="central-detail"] {
+        left: 49%;
+        top: 195px;
+        transform: translateX(-50%);
+
+        svg {
+          @include size(120%, 120%);
+        }
+      }
+    }
+  }
+
+  &.back {
+    .logos__area {
+      &[data-logo="rc-right"] {
+        left: 47px;
+        top: 86px;
+
+        svg {
+          @include size(40%, 40%);
+        }
+      }
+
+      &[data-logo="rc-left"] {
+        left: 185px;
+        top: 86px;
+
+        svg {
+          @include size(45%, 45%);
+        }
+      }
+    }
+  }
+
+  &.side {
+    .logos__area {
+      &[data-logo="left-side"] {
+        bottom: 61px;
+        left: 56px;
+        transform: rotate(-91deg);
+
+        svg {
+          @include size(120%, 120%);
+        }
+      }
+
+      &[data-logo="right-side"] {
+        display: none;
+      }
+    }
+  }
+}
+
+.constructor__item.logos {
+  .constructor__schema--img.left {
+    .logos__area[data-logo="right-side"] {
+      display: none;
+    }
+  }
+
+  .constructor__schema--img.right {
+    transform: scaleX(-1);
+
+    .logos__area[data-logo="left-side"] {
+      display: none;
+    }
+
+    .logos__area[data-logo="right-side"] {
+      bottom: 161px;
+      display: block;
+      left: 56px;
+      transform: rotate(-91deg);
+
+      svg {
+        @include size(120%, 120%);
+      }
+    }
+  }
+}

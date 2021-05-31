@@ -19,9 +19,11 @@
     grid-template-areas: "position schema panel";
     grid-template-columns: 64px 1fr 168px;
     padding: 32px 16px 32px 38px;
+    position: relative;
 
     &.active {
       display: grid;
+      height: 100%;
     }
 
     .constructor__position {

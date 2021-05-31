@@ -132,13 +132,13 @@ H80.8h-2.657l16.632,94.773h13.582h6.692h6.594h13.582l16.633-94.773H149.2z"/>
 115.049,177.672 121.643,177.672 129.076,177.672 114.86,82.9 "/>
 <polygon data-id="area-6f" class="schema__element hidden" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" points="151.857,82.9 149.199,82.9 121.643,82.9 
 115.049,82.9 114.86,82.9 129.076,177.672 135.225,177.672 "/>
-<path data-id="area-2" class="schema__element" fill="#5782A3" stroke="#9AB7CD" stroke-width="2" stroke-miterlimit="10" d="M141.818,176.667h-6.594h-13.582h-6.594
+<path data-id="area-2" data-logo="central-detail" class="schema__element logo-area" fill="#5782A3" stroke="#9AB7CD" stroke-width="2" stroke-miterlimit="10" d="M141.818,176.667h-6.594h-13.582h-6.594
 h-6.594h-13.68h-6.594c0,0-27.557,66.064-29.132,69.899c9.448,15.238,19.093,34.114,27.655,43.748h5.216h15.55h7.578h7.578h15.55
 h5.216c8.465-9.634,18.109-28.412,27.558-43.552C168.588,241.356,141.818,176.667,141.818,176.667z"/>
 <path data-id="area-2a" class="schema__element hidden" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M94.683,177.672h-6.594c0,0-3.324,7.97-7.729,18.531
 c-8.278,19.852-20.375,48.864-21.402,51.367c3.486,5.622,6.998,11.739,10.473,17.705c4.972,8.535,9.867,16.753,14.498,22.772
 l16.038-110.377L94.683,177.672L94.683,177.672z"/>
-<path data-id="area-2b" class="schema__element hidden" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M121.55,177.672h-6.594h-6.594h-8.396L83.929,288.049
+<path data-id="area-2b" data-logo="central" class="schema__element hidden logo-area" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M121.55,177.672h-6.594h-6.594h-8.396L83.929,288.049
 c0.905,1.176,1.8,2.277,2.684,3.271h5.217h15.549h7.578h7.578h15.551h5.215c0.631-0.717,1.27-1.499,1.911-2.312l-16.178-111.336
 H121.55z"/>
 <path data-id="area-2c" class="schema__element hidden" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M149.829,197.24

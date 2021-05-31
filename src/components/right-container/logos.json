@@ -2,26 +2,31 @@
   {
     "title": "fire",
     "cont": "img",
-    "tip": "*Available on Left/Right Sidewall"
+    "tip": "*Available on Left/Right Sidewall",
+    "area": "left-side right-side rc-left"
   },
   {
     "title": "sws",
     "cont": "img",
-    "tip": "*Not available on Front panels"
+    "tip": "*Not available on Front panels",
+    "area": "rc-right"
   },
   {
     "title": "xlogo",
     "cont": "img",
-    "tip": "*Available on Central detail"
+    "tip": "*Available on Central detail",
+    "area": "central-detail"
   },
   {
     "title": "custom_text",
     "cont": "Custom Text",
-    "price": "$30"
+    "price": "$30",
+    "area": "left-side right-side rc-left rc-right central-detail"
   },
   {
     "title": "custom_logo",
     "cont": "Custom Logo",
-    "price": "$50"
+    "price": "$50",
+    "area": "left-side right-side rc-left rc-right central-detail"
   }
 ]

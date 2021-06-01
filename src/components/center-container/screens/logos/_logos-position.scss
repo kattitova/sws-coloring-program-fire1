@@ -35,6 +35,18 @@
       text-align: center;
       text-transform: uppercase;
     }
+
+    .logo__custom_text {
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 10px;
+      max-height: 100%;
+      overflow: hidden;
+      padding: 0 5px;
+      text-align: center;
+      text-transform: uppercase;
+      word-wrap: break-word;
+    }
   }
 
   &.isometric {
@@ -60,7 +72,8 @@
           @include size(120%, 120%);
         }
 
-        .logo__custom_logo {
+        .logo__custom_logo,
+        .logo__custom_text {
           padding-right: 10px;
           transform: rotate(-10deg);
         }
@@ -71,8 +84,9 @@
   &.front {
     .logos__area {
       &[data-logo="central-detail"] {
+        @include size(62px, 113px);
         left: 49%;
-        top: 195px;
+        top: 176px;
         transform: translateX(-50%);
 
         svg {
@@ -84,21 +98,29 @@
 
   &.back {
     .logos__area {
+      .logo__custom_logo,
+      .logo__custom_text {
+        font-size: 7px;
+      }
+
       &[data-logo="rc-right"] {
-        left: 47px;
-        top: 86px;
+        @include size(32px, 39px);
+        left: 50px;
+        top: 76px;
 
         svg {
-          @include size(40%, 40%);
+          @include size(110%, 110%);
+          padding-right: 2px;
         }
       }
 
       &[data-logo="rc-left"] {
-        left: 185px;
-        top: 86px;
+        @include size(32px, 39px);
+        left: 186px;
+        top: 76px;
 
         svg {
-          @include size(45%, 45%);
+          @include size(110%, 110%);
         }
       }
     }
@@ -107,8 +129,9 @@
   &.side {
     .logos__area {
       &[data-logo="left-side"] {
-        bottom: 61px;
-        left: 56px;
+        @include size(150px, 67px);
+        bottom: 58px;
+        left: 17px;
         transform: rotate(-91deg);
 
         svg {
@@ -124,27 +147,81 @@
 }
 
 .constructor__item.logos {
-  .constructor__schema--img.left {
-    .logos__area[data-logo="right-side"] {
-      display: none;
+  .schema__element.logo-area {
+    stroke: #4dfbc6;
+    stroke-width: 2px;
+
+    &.disabled {
+      pointer-events: none;
+      stroke: #9ab7cd;
+      stroke-width: 1px;
     }
   }
 
-  .constructor__schema--img.right {
-    transform: scaleX(-1);
+  .constructor__schema.side {
+    flex-direction: column;
 
-    .logos__area[data-logo="left-side"] {
-      display: none;
+    .constructor__schema--img {
+      .hidden {
+        display: none;
+      }
     }
 
-    .logos__area[data-logo="right-side"] {
-      bottom: 161px;
-      display: block;
-      left: 56px;
-      transform: rotate(-91deg);
+    .constructor__schema--img.left {
+      .logos__area[data-logo="right-side"] {
+        display: none;
+      }
+    }
 
-      svg {
-        @include size(120%, 120%);
+    .constructor__schema--img.right {
+      transform: scaleX(-1);
+
+      .logos__area[data-logo="left-side"] {
+        display: none;
+      }
+
+      .logos__area[data-logo="right-side"] {
+        @include size(150px, 67px);
+        bottom: 58px;
+        display: flex;
+        left: 17px;
+        transform: rotate(-91deg) scaleX(-1);
+
+        svg {
+          @include size(120%, 120%);
+        }
+      }
+    }
+
+    .constructor__rotate {
+      background: #526a83;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+      display: flex;
+      justify-content: space-between;
+      margin: 20px auto 0;
+      overflow: hidden;
+      width: 65px;
+
+      button {
+        @include flex;
+        background: #9ab7cd;
+        border: 0;
+        color: #1b4c70;
+        height: 24px;
+        padding: 0;
+        width: calc(50% - 0.5px);
+
+        &.right {
+          i {
+            transform: scaleX(-1);
+          }
+        }
+
+        &.disabled {
+          opacity: 0.5;
+          pointer-events: none;
+        }
       }
     }
   }

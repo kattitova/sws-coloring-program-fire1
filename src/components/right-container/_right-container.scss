@@ -296,6 +296,10 @@
     }
 
     .right-container__color-panel {
+      .pick-block__colors button.def {
+        display: none;
+      }
+
       .color-panel__footer {
         display: none;
       }

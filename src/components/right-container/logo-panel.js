@@ -8,7 +8,7 @@ function unCheckedAllLogos(palette, panels) {
     tab.addEventListener("click", () => {
       const buttons = palette.querySelectorAll("button");
       buttons.forEach((button) => {
-        button.classList.remove("checked");
+        button.classList.remove("checked", "disabled");
       });
       panels.forEach((panel) => {
         const blocks = panel.querySelectorAll(".panel__block");

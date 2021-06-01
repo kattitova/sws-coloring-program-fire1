@@ -1,83 +1,104 @@
+$white: #fff !important;
+$black: #000 !important;
+$dark-grey: #565656 !important;
+$silver: #b5b5b5 !important;
+$navy-blue: #1a237e !important;
+$royal-blue: #0d47a1 !important;
+$light-blue: #0091ea !important;
+$red: #d82601 !important;
+$orange: #ff6101 !important;
+$yellow: #ffe603 !important;
+$gold: #ffc324 !important;
+$green: #388e3c !important;
+$pink: #ff4081 !important;
+$bardo: #b72f0f !important;
+$brown: #624339 !important;
+$purple: #7b1fa2 !important;
+$neon-pink: #ff1744 !important;
+$neon-yellow: #ffff03 !important;
+$neon-orange: #ffa902 !important;
+$neon-green: #6bff06 !important;
+
 .constructor__schema--img .schema__element,
 .schema__element path {
   &[data-color="wht"] {
-    fill: #fff !important;
+    fill: $white;
   }
 
   &[data-color="blk"] {
-    fill: #000 !important;
+    fill: $black;
   }
 
   &[data-color="dg"] {
-    fill: #565656 !important;
+    fill: $dark-grey;
   }
 
   &[data-color="sil"] {
-    fill: #b5b5b5 !important;
+    fill: $silver;
   }
 
   &[data-color="nbl"] {
-    fill: #1a237e !important;
+    fill: $navy-blue;
   }
 
   &[data-color="rbl"] {
-    fill: #0d47a1 !important;
+    fill: $royal-blue;
   }
 
   &[data-color="lbl"] {
-    fill: #0091ea !important;
+    fill: $light-blue;
   }
 
   &[data-color="red"] {
-    fill: #d82601 !important;
+    fill: $red;
   }
 
   &[data-color="org"] {
-    fill: #ff6101 !important;
+    fill: $orange;
   }
 
   &[data-color="yel"] {
-    fill: #ffe603 !important;
+    fill: $yellow;
   }
 
   &[data-color="gld"] {
-    fill: #ffc324 !important;
+    fill: $gold;
   }
 
   &[data-color="grn"] {
-    fill: #388e3c !important;
+    fill: $green;
   }
 
   &[data-color="pnk"] {
-    fill: #ff4081 !important;
+    fill: $pink;
   }
 
   &[data-color="brd"] {
-    fill: #b72f0f !important;
+    fill: $bardo;
   }
 
   &[data-color="brn"] {
-    fill: #624339 !important;
+    fill: $brown;
   }
 
   &[data-color="prp"] {
-    fill: #7b1fa2 !important;
+    fill: $purple;
   }
 
   &[data-color="neonPnk"] {
-    fill: #ff1744 !important;
+    fill: $neon-pink;
   }
 
   &[data-color="neonYel"] {
-    fill: #ffff03 !important;
+    fill: $neon-yellow;
   }
 
   &[data-color="neonOrg"] {
-    fill: #ffa902 !important;
+    fill: $neon-orange;
   }
 
   &[data-color="neonGrn"] {
-    fill: #6bff06 !important;
+    fill: $neon-green;
   }
 }
 
@@ -85,121 +106,121 @@
   .schema__element {
     &[data-color="wht"] {
       fill: none !important;
-      stroke: #fff !important;
+      stroke: $white;
       stroke-width: 2px;
     }
 
     &[data-color="blk"] {
       fill: none !important;
-      stroke: #000 !important;
+      stroke: $black;
       stroke-width: 2px;
     }
 
     &[data-color="dg"] {
       fill: none !important;
-      stroke: #565656 !important;
+      stroke: $dark-grey;
       stroke-width: 2px;
     }
 
     &[data-color="sil"] {
       fill: none !important;
-      stroke: #b5b5b5 !important;
+      stroke: $silver;
       stroke-width: 2px;
     }
 
     &[data-color="nbl"] {
       fill: none !important;
-      stroke: #1a237e !important;
+      stroke: $navy-blue;
       stroke-width: 2px;
     }
 
     &[data-color="rbl"] {
       fill: none !important;
-      stroke: #0d47a1 !important;
+      stroke: $royal-blue;
       stroke-width: 2px;
     }
 
     &[data-color="lbl"] {
       fill: none !important;
-      stroke: #0091ea !important;
+      stroke: $light-blue;
       stroke-width: 2px;
     }
 
     &[data-color="red"] {
       fill: none !important;
-      stroke: #d82601 !important;
+      stroke: $red;
       stroke-width: 2px;
     }
 
     &[data-color="org"] {
       fill: none !important;
-      stroke: #ff6101 !important;
+      stroke: $orange;
       stroke-width: 2px;
     }
 
     &[data-color="yel"] {
       fill: none !important;
-      stroke: #ffe603 !important;
+      stroke: $yellow;
       stroke-width: 2px;
     }
 
     &[data-color="gld"] {
       fill: none !important;
-      stroke: #ffc324 !important;
+      stroke: $gold;
       stroke-width: 2px;
     }
 
     &[data-color="grn"] {
       fill: none !important;
-      stroke: #388e3c !important;
+      stroke: $green;
       stroke-width: 2px;
     }
 
     &[data-color="pnk"] {
       fill: none !important;
-      stroke: #ff4081 !important;
+      stroke: $pink;
       stroke-width: 2px;
     }
 
     &[data-color="brd"] {
       fill: none !important;
-      stroke: #b72f0f !important;
+      stroke: $bardo;
       stroke-width: 2px;
     }
 
     &[data-color="brn"] {
       fill: none !important;
-      stroke: #624339 !important;
+      stroke: $brown;
       stroke-width: 2px;
     }
 
     &[data-color="prp"] {
       fill: none !important;
-      stroke: #7b1fa2 !important;
+      stroke: $purple;
       stroke-width: 2px;
     }
 
     &[data-color="neonPnk"] {
       fill: none !important;
-      stroke: #ff1744 !important;
+      stroke: $neon-pink;
       stroke-width: 2px;
     }
 
     &[data-color="neonYel"] {
       fill: none !important;
-      stroke: #ffff03 !important;
+      stroke: $neon-yellow;
       stroke-width: 2px;
     }
 
     &[data-color="neonOrg"] {
       fill: none !important;
-      stroke: #ffa902 !important;
+      stroke: $neon-orange;
       stroke-width: 2px;
     }
 
     &[data-color="neonGrn"] {
       fill: none !important;
-      stroke: #6bff06 !important;
+      stroke: $neon-green;
       stroke-width: 2px;
     }
 
@@ -410,6 +431,210 @@
 
       &[data-color="MulticamBl"] {
         fill: url("#multicambl-side-logos") !important;
+      }
+    }
+  }
+}
+
+.constructor__logos {
+  .logos__area {
+    &[data-color="wht"] {
+      div {
+        color: $white;
+      }
+
+      path {
+        fill: $white;
+      }
+    }
+
+    &[data-color="blk"] {
+      div {
+        color: $black;
+      }
+
+      path {
+        fill: $black;
+      }
+    }
+
+    &[data-color="dg"] {
+      div {
+        color: $dark-grey;
+      }
+
+      path {
+        fill: $dark-grey;
+      }
+    }
+
+    &[data-color="sil"] {
+      div {
+        color: $silver;
+      }
+
+      path {
+        fill: $silver;
+      }
+    }
+
+    &[data-color="nbl"] {
+      div {
+        color: $navy-blue;
+      }
+
+      path {
+        fill: $navy-blue;
+      }
+    }
+
+    &[data-color="rbl"] {
+      div {
+        color: $royal-blue;
+      }
+
+      path {
+        fill: $royal-blue;
+      }
+    }
+
+    &[data-color="lbl"] {
+      div {
+        color: $light-blue;
+      }
+
+      path {
+        fill: $light-blue;
+      }
+    }
+
+    &[data-color="red"] {
+      div {
+        color: $red;
+      }
+
+      path {
+        fill: $red;
+      }
+    }
+
+    &[data-color="org"] {
+      div {
+        color: $orange;
+      }
+
+      path {
+        fill: $orange;
+      }
+    }
+
+    &[data-color="yel"] {
+      div {
+        color: $yellow;
+      }
+
+      path {
+        fill: $yellow;
+      }
+    }
+
+    &[data-color="gld"] {
+      div {
+        color: $gold;
+      }
+
+      path {
+        fill: $gold;
+      }
+    }
+
+    &[data-color="grn"] {
+      div {
+        color: $green;
+      }
+
+      path {
+        fill: $green;
+      }
+    }
+
+    &[data-color="pnk"] {
+      div {
+        color: $pink;
+      }
+
+      path {
+        fill: $pink;
+      }
+    }
+
+    &[data-color="brd"] {
+      div {
+        color: $bardo;
+      }
+
+      path {
+        fill: $bardo;
+      }
+    }
+
+    &[data-color="brn"] {
+      div {
+        color: $brown;
+      }
+
+      path {
+        fill: $brown;
+      }
+    }
+
+    &[data-color="prp"] {
+      div {
+        color: $purple;
+      }
+
+      path {
+        fill: $purple;
+      }
+    }
+
+    &[data-color="neonPnk"] {
+      div {
+        color: $neon-pink;
+      }
+
+      path {
+        fill: $neon-pink;
+      }
+    }
+
+    &[data-color="neonYel"] {
+      div {
+        color: $neon-yellow;
+      }
+
+      path {
+        fill: $neon-yellow;
+      }
+    }
+
+    &[data-color="neonOrg"] {
+      div {
+        color: $neon-orange;
+      }
+
+      path {
+        fill: $neon-orange;
+      }
+    }
+
+    &[data-color="neonGrn"] {
+      div {
+        color: $neon-green;
+      }
+
+      path {
+        fill: $neon-green;
       }
     }
   }

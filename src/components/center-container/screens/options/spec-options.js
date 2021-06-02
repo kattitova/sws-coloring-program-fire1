@@ -285,6 +285,43 @@ function addCamoToCalc() {
     }, 500);
   });
 }
+// ----------------
+
+// 7. Добавление в панель калькуляции Custom Logo, Custom Text
+function addLogoToCalc() {
+  function func() {
+    const form = document.querySelector(".form-constructor");
+    const calc = document.querySelector(".calc-panel__invoice");
+
+    const calcBlocks = calc.querySelectorAll(".invoice__calc-block");
+    calcBlocks.forEach((block) => {
+      const title = block.querySelector(".calc-block__title");
+      const titleName = title.getAttribute("data-name");
+      if (titleName === "custom_logo") Calc.removeBlock("custom_logo", "");
+      if (titleName === "custom_text") Calc.removeBlock("custom_text", "");
+    });
+
+    const allLogo = form.querySelectorAll(".preview-value.logo");
+    allLogo.forEach((logo) => {
+      const val = logo.value;
+      if (val === "custom_logo" || val === "custom_text") {
+        const palette = document.querySelector(".logo-panel__logos-palette");
+        const price = palette.querySelector(`span[data-id="${val}"]`).textContent.replace("$", "");
+        Calc.addCalcBlock(calc, val, price, "", "multi");
+      }
+    });
+  }
+
+  const optionsTab = document.querySelector(".tabs-list__tabs-item.options");
+  optionsTab.addEventListener("click", () => {
+    func();
+  });
+
+  const previewButton = document.querySelector(".main-buttons__preview");
+  previewButton.addEventListener("click", () => {
+    func();
+  });
+}
 
 function specOptionsInit() {
   changeMetal();
@@ -292,6 +329,7 @@ function specOptionsInit() {
   ReservePartsChangePrice();
   addSwitchOptionsToCalc();
   addCamoToCalc();
+  addLogoToCalc();
 }
 
 export {

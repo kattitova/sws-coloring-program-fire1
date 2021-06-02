@@ -8,6 +8,7 @@ import { getCustomText } from "./custom_text";
 
 // активация выбранного логотипа на детали
 function addLogoChecked(data, value) {
+  const form = document.querySelector(".form-constructor");
   const allLogoAreas = document.querySelectorAll(`.logos__area[data-logo="${data}"]`);
   allLogoAreas.forEach((area) => {
     area.classList.add("checked");
@@ -21,29 +22,58 @@ function addLogoChecked(data, value) {
       logo.classList.add("checked");
     });
   });
+  const input = form.querySelector(`input[data-target="${data}"]`);
+  input.value = value;
+  input.textContent = Func.toCapitalizedCase(value.replace("_", " "));
+  if (value !== "custom_text") input.setAttribute("data-text", "");
+}
+
+// получаем активную деталь и применяем к ней цвет или текст к выбранному логотипу
+function getActiveArea(value, attrib) {
+  const form = document.querySelector(".form-constructor");
+  const constructor = document.querySelector(".constructor__item.logos");
+  const activeScheme = constructor.querySelector(".constructor__schema.active");
+  const activeDetail = activeScheme.querySelector(".schema__element.logo-area.active");
+  if (activeDetail) {
+    const data = activeDetail.getAttribute("data-logo");
+    const logoArea = activeScheme.querySelector(`.logos__area[data-logo="${data}"]`);
+    if (logoArea.classList.contains("checked")) {
+      const allLogoAreas = document.querySelectorAll(`.logos__area[data-logo="${data}"]`);
+      allLogoAreas.forEach((area) => {
+        if (attrib === "color") {
+          area.setAttribute("data-color", value);
+        }
+        if (attrib === "text") {
+          const customText = area.querySelector(".logo__custom_text");
+          customText.textContent = value;
+        }
+      });
+      const input = form.querySelector(`input[data-target="${data}"]`);
+      input.setAttribute(`data-${attrib}`, value);
+    }
+  }
 }
 
 // выбор цвета логотипов
 function coloringLogos() {
   const palette = document.querySelector(".right-container__color-panel");
   const allColors = palette.querySelectorAll("button");
-  const constructor = document.querySelector(".constructor__item.logos");
   allColors.forEach((color) => {
     color.addEventListener("click", () => {
       if (palette.parentElement.classList.contains("logos")) {
-        const activeScheme = constructor.querySelector(".constructor__schema.active");
-        const activeDetail = activeScheme.querySelector(".schema__element.logo-area.active");
-        if (activeDetail) {
-          const data = activeDetail.getAttribute("data-logo");
-          const logoArea = activeScheme.querySelector(`.logos__area[data-logo="${data}"]`);
-          if (logoArea.classList.contains("checked")) {
-            const allLogoAreas = document.querySelectorAll(`.logos__area[data-logo="${data}"]`);
-            allLogoAreas.forEach((area) => {
-              area.setAttribute("data-color", color.getAttribute("data-color"));
-            });
-          }
-        }
+        getActiveArea(color.getAttribute("data-color"), "color");
       }
+    });
+  });
+}
+
+// считываем данные(текст) для логотипа Custon Text
+function getCustomTextValue() {
+  const constructor = document.querySelector(".constructor__item.logos");
+  const allTextarea = constructor.querySelectorAll(".panel__block--text");
+  allTextarea.forEach((textarea) => {
+    textarea.addEventListener("input", () => {
+      getActiveArea(textarea.value, "text");
     });
   });
 }
@@ -59,11 +89,14 @@ function setLogoAreasActions() {
       elem.addEventListener("mouseover", () => {
         Func.onHoverElement(elem);
       });
+
       elem.addEventListener("mouseout", () => {
         Func.outHoverElement(elem);
       });
+
       elem.addEventListener("click", () => {
         const data = elem.getAttribute("data-logo");
+        const schema = elem.parentElement.className.baseVal.replace("schema__", "");
 
         elements.forEach((el) => {
           el.classList.remove("active");
@@ -71,8 +104,10 @@ function setLogoAreasActions() {
         elem.classList.add("active");
 
         logoButtons.forEach((button) => {
-          if (!button.classList.contains(data)) button.classList.add("disabled");
-          else {
+          if (!button.classList.contains(data)) {
+            button.classList.add("disabled");
+            button.classList.remove("checked");
+          } else {
             button.classList.remove("disabled");
             if (button.classList.contains("checked")) {
               const value = button.getAttribute("data-val");
@@ -89,6 +124,29 @@ function setLogoAreasActions() {
               const val = logo.className.split(" ")[0].replace("logo__", "");
               const logoButton = document.querySelector(`.logo-panel__logos-palette button[data-val="${val}"]`);
               logoButton.classList.add("checked");
+
+              // сбросить текст в textarea или применить свой, если выбран custom_text
+              const panel = constructor.querySelector(`.constructor__panel.${schema}`);
+              if (val === "custom_text") {
+                const textarea = panel.querySelector(".panel__block--text");
+                if (logo.textContent !== "" && logo.textContent !== "CUSTOM TEXT") {
+                  textarea.value = logo.textContent;
+                } else textarea.value = "";
+              } else {
+                const allCustomText = document.querySelectorAll(`.logos__area[data-logo="${data}"] .logo__custom_text`);
+                allCustomText.forEach((text) => {
+                  // eslint-disable-next-line no-param-reassign
+                  text.textContent = "CUSTOM TEXT";
+                });
+              }
+              if (val === "custom_text" || val === "custom_logo") {
+                const allPanelBlock = panel.querySelectorAll(".panel__block");
+                allPanelBlock.forEach((block) => {
+                  if (block.getAttribute("data-id") === val) {
+                    block.classList.add("active");
+                  } else block.classList.remove("active");
+                });
+              }
             }
           });
         }
@@ -96,9 +154,9 @@ function setLogoAreasActions() {
     }
   });
 
+  // обработка нажатий на кнопки логотипов в панели
   logoButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      // if (button.classList.contains("checked")) {
       const schema = constructor.querySelector(".constructor__schema.active");
       const details = schema.querySelectorAll(".schema__element");
       details.forEach((det) => {
@@ -109,15 +167,18 @@ function setLogoAreasActions() {
           if (det.classList.contains("active")) {
             if (button.classList.contains(data)) {
               addLogoChecked(data, value);
+
+              if (value !== "custom_text") {
+                const allCustomText = document.querySelectorAll(`.logos__area[data-logo="${data}"] .logo__custom_text`);
+                allCustomText.forEach((text) => {
+                  // eslint-disable-next-line no-param-reassign
+                  text.textContent = "CUSTOM TEXT";
+                });
+              }
             }
-          } else if (data !== null) {
-            if (!button.classList.contains(data)) {
-              det.classList.add("disabled");
-            } else det.classList.remove("disabled");
           }
         } else if (det.classList.contains("active")) {
           // отменяем логотип с детали
-          console.log(data);
           const logoArea = schema.querySelector(`.logos__area[data-logo="${data}"]`);
           if (logoArea.classList.contains("checked")) {
             const allLogoAreas = document.querySelectorAll(`.logos__area[data-logo="${data}"]`);
@@ -125,15 +186,24 @@ function setLogoAreasActions() {
               area.classList.remove("checked");
               area.setAttribute("data-value", "");
               area.setAttribute("data-color", "");
+              if (value === "custom_text") {
+                const text = area.querySelector(`.logo__${value}`);
+                text.textContent = "CUSTOM TEXT";
+              }
               const logos = area.children;
               Array.from(logos).forEach((logo) => {
                 logo.classList.remove("checked");
               });
             });
+            const form = document.querySelector(".form-constructor");
+            const input = form.querySelector(`input[data-target="${data}"]`);
+            input.value = "NULL";
+            input.textContent = "";
+            input.setAttribute("data-color", "");
+            input.setAttribute("data-text", "");
           }
         }
       });
-      // }
     });
   });
 }
@@ -241,4 +311,5 @@ export default function getLogosElements() {
 
   setLogoAreasActions();
   coloringLogos();
+  getCustomTextValue();
 }

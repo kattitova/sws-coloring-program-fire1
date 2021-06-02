@@ -53,6 +53,13 @@ function getSplitButton() {
   }
 }
 
+function getEmbroidery() {
+  const logoPos = ["left-side", "right-side", "rc-left", "rc-right", "central-detail"];
+  logoPos.forEach((pos) => {
+    createFormInput(["preview-value", "logo"], `Embroidery/${toCapitalizedCase(pos.replace("-", " "))}`, pos);
+  });
+}
+
 function getInfoSizeOptionsInputs() {
   createFormInput(["preview-value", "info"], "Info/Dealer", "dealer");
   const infoPages = document.querySelectorAll(".constructor__data-block");
@@ -80,5 +87,6 @@ export default function getFormConstructor() {
   getPinstrips();
   getBinding();
   getSplitButton();
+  getEmbroidery();
   getInfoSizeOptionsInputs();
 }

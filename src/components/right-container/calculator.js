@@ -55,11 +55,13 @@ function checkAddedOption(parrent, select, title, value, subtitle, remove) {
       if (value !== undefined) {
         // логика для мульти
         if (select === "multi") {
-          if (sub.getAttribute("data-lang") !== newSub) {
-            flag = true;
-          } else if (remove) {
-            block.remove();
-          }
+          if (sub !== null) {
+            if (sub.getAttribute("data-lang") !== newSub) {
+              flag = true;
+            } else if (remove) {
+              block.remove();
+            }
+          } else flag = true;
         } else if (subtitle !== "") {
           if (sub.getAttribute("data-lang") !== newSub) {
             sub.textContent = subtitle;

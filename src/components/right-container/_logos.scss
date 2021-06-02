@@ -1,3 +1,14 @@
+.logo-panel__logos-palette {
+  text-align: center;
+
+  .logos-palette__text {
+    color: #4dfbc6;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+}
+
 .logos-palette__logo-item {
   display: flex;
   flex-direction: column;

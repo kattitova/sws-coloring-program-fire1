@@ -8,7 +8,8 @@ function unCheckedAllLogos(palette, panels) {
     tab.addEventListener("click", () => {
       const buttons = palette.querySelectorAll("button");
       buttons.forEach((button) => {
-        button.classList.remove("checked", "disabled");
+        button.classList.remove("checked");
+        button.classList.add("disabled");
       });
       panels.forEach((panel) => {
         const blocks = panel.querySelectorAll(".panel__block");
@@ -32,6 +33,11 @@ function getLogoPanel() {
   divLogoPanel.appendChild(divLogoPanelTitle);
 
   const divLogoPalette = create("div", "logo-panel__logos-palette");
+  const logoPaletteText = create("span", "logos-palette__text");
+  logoPaletteText.setAttribute("data-lang", "logos_txt");
+  logoPaletteText.textContent = "*Please choose the detail";
+  divLogoPalette.appendChild(logoPaletteText);
+
   logos.forEach((logo) => {
     const divLogoItem = create("div", "logos-palette__logo-item");
     const logoButton = create("button");
@@ -53,6 +59,11 @@ function getLogoPanel() {
                 if (block.getAttribute("data-id") === data) block.classList.add("active");
                 else block.classList.remove("active");
               } else if (block.getAttribute("data-id") === data) block.classList.remove("active");
+
+              if (block.getAttribute("data-id") === "custom_text") {
+                const text = block.querySelector(".panel__block--text");
+                text.value = "";
+              }
             });
           }
         });
@@ -107,6 +118,7 @@ function getLogoPanel() {
         default: break;
       }
     });
+    logoButton.classList.add("disabled");
     divLogoItem.appendChild(logoButton);
     if (tip !== undefined) divLogoItem.appendChild(tip);
     divLogoPalette.appendChild(divLogoItem);

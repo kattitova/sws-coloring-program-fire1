@@ -17,8 +17,7 @@ export default function tabsClick() {
     constructorActive.classList.remove("active");
 
     const templatePanel = document.querySelector(".right-container__template-panel");
-    templatePanel.classList.remove(activeTab.className.split(" ")[1]);
-    templatePanel.classList.add(tabs[1]);
+    templatePanel.className = `right-container__template-panel ${tabs[1]}`;
 
     const clearButton = document.querySelector(".template-panel__button-clear");
     clearButton.classList.remove(activeTab.className.split(" ")[1]);
@@ -33,5 +32,10 @@ export default function tabsClick() {
     });
 
     setActive(e.target);
+
+    const previewScreen = constructor.querySelector(".constructor__item.preview");
+    if (previewScreen.classList.contains("active")) {
+      previewScreen.classList.remove("active");
+    }
   });
 }

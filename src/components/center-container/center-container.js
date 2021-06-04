@@ -6,6 +6,7 @@ import getBack from "./screens/container/container-back";
 import getSide from "./screens/container/container-side";
 import infoJSON from "./info.json";
 import genInputs from "./get-inputs";
+import { getPreviewScreen } from "./screens/preview/preview";
 
 // объект с пунктами меню, для каждого пункта описаны виды,
 // и функция, которая выводит каждую схему ранца
@@ -45,7 +46,7 @@ export default class CenterContainer {
   static getConstructor() {
     const divConstructor = create("div", "center-container__constructor");
 
-
+    arrTabs.push("preview");
     arrTabs.forEach((i) => {
       // генерируем экраны для разделов меню
       const screen = create("div", ...["constructor__item", `${i}`]);
@@ -203,6 +204,10 @@ export default class CenterContainer {
 
       if (i === "options") {
         screen.appendChild(genInputs(infoJSON[2], "options"));
+      }
+
+      if (i === "preview") {
+        screen.appendChild(getPreviewScreen());
       }
 
       divConstructor.appendChild(screen);

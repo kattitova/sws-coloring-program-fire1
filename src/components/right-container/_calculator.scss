@@ -3,7 +3,8 @@
     display: none;
   }
 
-  &.options {
+  &.options,
+  &.preview {
     .right-container__calc-panel {
       @include flex(center, center, column);
       background: #1b4c70;

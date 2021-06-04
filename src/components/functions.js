@@ -10,6 +10,7 @@ import getTooltipColor from "./center-container/screens/options/options";
 import json from "./center-container/info.json";
 import { addCalcBlock, checkAddedOption } from "./right-container/calculator";
 import { specOptionsInit } from "./center-container/screens/options/spec-options";
+import { specialPreviewFunc, getPreviewInfo } from "./center-container/screens/preview/preview";
 // import saveOrders from "./save-orders/save-orders";
 
 const form = document.querySelector(".form-constructor");
@@ -302,6 +303,26 @@ function isValid(type, str) {
   return reg.test(str);
 }
 
+function openPreviewScreen() {
+  const previewButton = document.querySelector(".main-buttons__preview");
+  const allScreens = document.querySelectorAll(".constructor__item");
+  previewButton.addEventListener("click", () => {
+    allScreens.forEach((screen) => {
+      if (screen.classList.contains("preview")) {
+        screen.classList.add("active");
+        screen.parentElement.className = "center-container__constructor preview";
+        const rightPanel = document.querySelector(".right-container__template-panel");
+        rightPanel.className = "right-container__template-panel preview";
+      } else screen.classList.remove("active");
+    });
+    const allTabs = document.querySelectorAll(".tabs-list__tabs-item");
+    allTabs.forEach((tab) => {
+      tab.classList.remove("active");
+    });
+    getPreviewInfo();
+  });
+}
+
 export default function funcInit() {
   getContainerElements();
   splitButtonsClick();
@@ -316,6 +337,8 @@ export default function funcInit() {
   getCheksValue();
   setAddPrice();
   specOptionsInit();
+  openPreviewScreen();
+  specialPreviewFunc();
   // Temp
   // saveOrders();
 }

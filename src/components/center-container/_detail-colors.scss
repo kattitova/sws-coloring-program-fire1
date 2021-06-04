@@ -436,6 +436,48 @@ $neon-green: #6bff06 !important;
   }
 }
 
+.constructor__item.preview {
+  .schema__front {
+    .schema__element {
+      &[data-color="CamoW"] {
+        fill: url("#camow-front-preview") !important;
+      }
+
+      &[data-color="CamoD"] {
+        fill: url("#camod-front-preview") !important;
+      }
+
+      &[data-color="Multicam"] {
+        fill: url("#multicam-front-preview") !important;
+      }
+
+      &[data-color="MulticamBl"] {
+        fill: url("#multicambl-front-preview") !important;
+      }
+    }
+  }
+
+  .schema__back {
+    .schema__element {
+      &[data-color="CamoW"] {
+        fill: url("#camow-back-preview") !important;
+      }
+
+      &[data-color="CamoD"] {
+        fill: url("#camod-back-preview") !important;
+      }
+
+      &[data-color="Multicam"] {
+        fill: url("#multicam-back-preview") !important;
+      }
+
+      &[data-color="MulticamBl"] {
+        fill: url("#multicambl-back-preview") !important;
+      }
+    }
+  }
+}
+
 .constructor__logos {
   .logos__area {
     &[data-color="wht"] {

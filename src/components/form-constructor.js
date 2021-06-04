@@ -61,7 +61,7 @@ function getEmbroidery() {
 }
 
 function getInfoSizeOptionsInputs() {
-  createFormInput(["preview-value", "info"], "Info/Dealer", "dealer");
+  createFormInput(["preview-value", "information"], "Information/Dealer", "dealer");
   const infoPages = document.querySelectorAll(".constructor__data-block");
   infoPages.forEach((info) => {
     const lbs = info.querySelectorAll(".data-row__label");

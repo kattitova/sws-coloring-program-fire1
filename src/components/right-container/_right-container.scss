@@ -415,7 +415,8 @@
 
 .right-container__template-panel.information,
 .right-container__template-panel.sizes,
-.right-container__template-panel.options {
+.right-container__template-panel.options,
+.right-container__template-panel.preview {
   .right-container__color-panel,
   .template-panel__button-apply,
   .template-panel__button-clear {
@@ -454,5 +455,14 @@
         margin-top: 20px;
       }
     }
+  }
+}
+
+.right-container__template-panel.container,
+.right-container__template-panel.harness,
+.right-container__template-panel.binding_pinstripes,
+.right-container__template-panel.logo {
+  .right-container__contact-panel {
+    display: none;
   }
 }

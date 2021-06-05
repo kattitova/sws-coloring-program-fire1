@@ -50,9 +50,31 @@ function specialPreviewFunc() {
   });
 }
 
+function checkSplitDesign() {
+  const form = document.querySelector(".form-constructor");
+  const allSplit = form.querySelectorAll(".split");
+  const colorBlock = document.querySelector(".constructor__data-block.color");
+  allSplit.forEach((split) => {
+    const name = split.getAttribute("name");
+    const num = name[name.length - 1];
+    if (split.value === "active") {
+      const allNumDetail = colorBlock.querySelectorAll(".preview-chain");
+      allNumDetail.forEach((det) => {
+        const target = det.getAttribute("data-target");
+        if (target[0] === num) console.log(det);
+        // TODO add hidden class
+      });
+    }
+  });
+}
+
 function getPreviewInfo() {
   const constructor = document.querySelector(".constructor__item.preview");
   const wrapper = constructor.querySelector(".constructor__data-wrapper");
+  const allBlocks = wrapper.querySelectorAll(".constructor__data-block");
+  allBlocks.forEach((block) => {
+    if (!block.classList.contains("schema")) block.remove();
+  });
   const form = document.querySelector(".form-constructor");
   const allInputs = form.querySelectorAll(".preview-value");
 
@@ -112,37 +134,53 @@ function getPreviewInfo() {
       case "options": {
         const ind = part === "color" ? 1 : 0;
         const subTitle = input.getAttribute("name").split("/")[ind];
-        if (subTitle !== prevSubTitle) {
-          const subTitleDiv = create("div", "preview-chain__subtitle");
-          subTitleDiv.setAttribute("data-lang", subTitle.toLowerCase());
-          subTitleDiv.textContent = subTitle.replaceAll("_", " ");
-          blockCont.appendChild(subTitleDiv);
-          subCont = create("div", "data-block__sub-container");
-          blockCont.appendChild(subCont);
-          prevSubTitle = subTitle;
+        if (subTitle !== "Special_Instructions") {
+          if (subTitle !== prevSubTitle) {
+            const subTitleDiv = create("div", "preview-chain__subtitle");
+            subTitleDiv.setAttribute("data-lang", subTitle.toLowerCase());
+            subTitleDiv.textContent = subTitle.replaceAll("_", " ");
+            blockCont.appendChild(subTitleDiv);
+            subCont = create("div", "data-block__sub-container");
+            blockCont.appendChild(subCont);
+            prevSubTitle = subTitle;
+          }
+          const chain = create("div", "preview-chain");
+
+          const chainTitle = create("div", "preview-chain__title");
+          if (part === "options") {
+            chainTitle.setAttribute("data-lang", target);
+          }
+          const name = input.getAttribute("name").split("/")[ind + 1];
+          chainTitle.textContent = name;
+          chain.appendChild(chainTitle);
+
+          if (part === "color") {
+            chain.setAttribute("data-target", name);
+          }
+
+          const chainVal = create("div", "preview-chain__value");
+          const value = input.value === "NULL" ? "" : input.value;
+          chainVal.textContent = value;
+          chain.appendChild(chainVal);
+
+          subCont.appendChild(chain);
+        } else {
+          dataBlock = create("div", ...["constructor__data-block", subTitle.toLowerCase()]);
+          const dataTitle = create("div", "data-block__title");
+          dataTitle.setAttribute("data-lang", subTitle.toLowerCase());
+          dataTitle.textContent = subTitle.replace("_", " ");
+          dataBlock.appendChild(dataTitle);
+          blockCont = create("div", "data-block__container");
+          blockCont.textContent = input.value;
+          dataBlock.appendChild(blockCont);
         }
-        const chain = create("div", "preview-chain");
-
-        const chainTitle = create("div", "preview-chain__title");
-        if (part === "options") {
-          chainTitle.setAttribute("data-lang", target);
-        }
-        const name = input.getAttribute("name").split("/")[ind + 1];
-        chainTitle.textContent = name;
-        chain.appendChild(chainTitle);
-
-        const chainVal = create("div", "preview-chain__value");
-        const value = input.value === "NULL" ? "" : input.value;
-        chainVal.textContent = value;
-        chain.appendChild(chainVal);
-
-        subCont.appendChild(chain);
         break;
       }
       default: break;
     }
     wrapper.appendChild(dataBlock);
   });
+  checkSplitDesign();
 }
 
 export { getPreviewScreen, specialPreviewFunc, getPreviewInfo };

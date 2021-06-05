@@ -8,14 +8,15 @@
   .constructor__data-wrapper {
     display: grid;
     font-size: 10px;
-    grid-gap: 15px;
+    grid-gap: 10px 15px;
     grid-template-areas:
       "schema colors options"
       "schema bp options"
       "info logos options"
+      "info instructions options"
       "sizes sizes options";
     grid-template-columns: 1fr 1fr 0.8fr;
-    grid-template-rows: 0.7fr 0.4fr 0.7fr 0.4fr;
+    grid-template-rows: 0.7fr 0.4fr 0.6fr 0.3fr 0.4fr;
     height: calc(100% - 48px);
     padding: 8px 16px;
   }
@@ -175,6 +176,10 @@
 
     &.options {
       grid-area: options;
+    }
+
+    &.special_instructions {
+      grid-area: instructions;
     }
   }
 }

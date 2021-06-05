@@ -79,7 +79,7 @@ function getInfoSizeOptionsInputs() {
       }
     });
   });
-  createFormInput(["preview-value", "options"], "Special Instructions/Text", "special_instructions");
+  createFormInput(["preview-value", "options"], "Special_Instructions/Text", "special_instructions");
 }
 
 export default function getFormConstructor() {

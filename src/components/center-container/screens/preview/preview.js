@@ -57,12 +57,22 @@ function checkSplitDesign() {
   allSplit.forEach((split) => {
     const name = split.getAttribute("name");
     const num = name[name.length - 1];
+    const allNumDetail = colorBlock.querySelectorAll(".preview-chain");
     if (split.value === "active") {
-      const allNumDetail = colorBlock.querySelectorAll(".preview-chain");
       allNumDetail.forEach((det) => {
         const target = det.getAttribute("data-target");
-        if (target[0] === num) console.log(det);
-        // TODO add hidden class
+        if (target[0] === num) {
+          if (target.length === 1) det.classList.add("hidden");
+          else det.classList.remove("hidden");
+        }
+      });
+    } else {
+      allNumDetail.forEach((det) => {
+        const target = det.getAttribute("data-target");
+        if (target[0] === num) {
+          if (target.length === 1) det.classList.remove("hidden");
+          else det.classList.add("hidden");
+        }
       });
     }
   });
@@ -123,9 +133,17 @@ function getPreviewInfo() {
         chain.appendChild(chainTitle);
 
         const chainVal = create("div", "preview-chain__value");
-        const value = input.value === "NULL" ? "" : input.value;
+        const value = input.textContent;
         chainVal.textContent = value;
         chain.appendChild(chainVal);
+
+        if (part === "logo" && value !== "") {
+          const chainColor = create("div", "preview-chain__value");
+          const color = input.getAttribute("data-color");
+          const setColor = color === null ? "NULL" : color;
+          chainColor.textContent = setColor;
+          chain.appendChild(chainColor);
+        }
 
         blockCont.appendChild(chain);
         break;
@@ -159,8 +177,7 @@ function getPreviewInfo() {
           }
 
           const chainVal = create("div", "preview-chain__value");
-          const value = input.value === "NULL" ? "" : input.value;
-          chainVal.textContent = value;
+          chainVal.innerHTML = input.textContent;
           chain.appendChild(chainVal);
 
           subCont.appendChild(chain);
@@ -171,7 +188,7 @@ function getPreviewInfo() {
           dataTitle.textContent = subTitle.replace("_", " ");
           dataBlock.appendChild(dataTitle);
           blockCont = create("div", "data-block__container");
-          blockCont.textContent = input.value;
+          blockCont.textContent = input.textContent;
           dataBlock.appendChild(blockCont);
         }
         break;

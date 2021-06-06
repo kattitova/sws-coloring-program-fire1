@@ -13,8 +13,10 @@ export default function tabsClick() {
     const tabs = e.target.className.split(" ");
     const constructorSetActive = document.querySelector(`.constructor__item.${tabs[1]}`);
     constructorSetActive.classList.add("active");
-    const constructorActive = document.querySelector(`.constructor__item.${activeTab.className.split(" ")[1]}`);
-    constructorActive.classList.remove("active");
+    if (e.target !== activeTab) {
+      const constructorActive = document.querySelector(`.constructor__item.${activeTab.className.split(" ")[1]}`);
+      constructorActive.classList.remove("active");
+    }
 
     const templatePanel = document.querySelector(".right-container__template-panel");
     templatePanel.className = `right-container__template-panel ${tabs[1]}`;

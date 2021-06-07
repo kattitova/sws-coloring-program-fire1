@@ -178,6 +178,17 @@ function getPreviewInfo() {
 
           const chainVal = create("div", "preview-chain__value");
           chainVal.innerHTML = input.textContent;
+          let dataColor = input.getAttribute("data-color");
+          if (dataColor === "def") {
+            dataColor = "";
+            input.setAttribute("data-color", "");
+          }
+          if (dataColor !== "" && dataColor !== null) {
+            chainVal.innerHTML = `${input.textContent}<br>Color: ${dataColor}`;
+            if (input.getAttribute("data-target") === "main_pc") {
+              chainVal.innerHTML = `${input.textContent}<br>Color: ${dataColor}($)`;
+            }
+          }
           chain.appendChild(chainVal);
 
           subCont.appendChild(chain);

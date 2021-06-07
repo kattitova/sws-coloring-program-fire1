@@ -170,10 +170,10 @@ function getCheksValue() {
             switch (select) {
               case "solo": {
                 let countCheckbox = 0;
-                if (checkedInput.getAttribute("data-text") !== "choose_color") {
+                const dataText = checkedInput.getAttribute("data-text");
+                if (dataText !== "choose_color") {
                   ipts.forEach((input, ind) => {
                     if (ind === ipts.length - 1 && ind > 2) {
-                    // if (input.getAttribute("type") === "radio") {
                       countCheckbox += 1;
                     } else input.checked = false;
                   });
@@ -185,14 +185,20 @@ function getCheksValue() {
                   checkedInput.checked = true;
                 }
 
-                formItem.setAttribute("value", checkedInput.getAttribute("data-text"));
+                // флаг для опций раздела Main deployment, где выбирается одновременно опция и цвет
+                let flagColorOpt = false;
+                if (dataText === "choose_color" && checkedInput.parentElement.parentElement.getAttribute("data-val") !== "cutaway_handle") {
+                  flagColorOpt = true;
+                }
+
+                if (!flagColorOpt) formItem.setAttribute("value", checkedInput.getAttribute("data-text"));
                 if (price !== undefined) {
-                  formItem.textContent = name;
+                  if (!flagColorOpt) formItem.textContent = `${name}($)`;
                   if (checkedInput.getAttribute("type") !== "radio" && !checkedInput.checked) {
                     checkAddedOption(invoisList, select, val, price, name, true);
                   } else addCalcBlock(invoisList, val, price, name, select);
                 } else {
-                  formItem.textContent = text.replace("Standart", "");
+                  if (!flagColorOpt) formItem.textContent = text.replace("Standart", "");
                   if (countCheckbox > 0) {
                     checkAddedOption(invoisList, select, val, price, name, false);
                   } else {
@@ -212,7 +218,7 @@ function getCheksValue() {
                   const subtitle = input.nextElementSibling.querySelector(".data-row__name").textContent;
                   if (input.checked) {
                     formValue += `${input.getAttribute("data-text")}+`;
-                    formText += `${subtitle}${br}`;
+                    formText += `${subtitle}($)${br}`;
                     count += 1;
                   }
                 });
@@ -240,7 +246,7 @@ function getCheksValue() {
                   formItem.setAttribute("value", checkedInput.getAttribute("data-text"));
                   formItem.textContent = text;
                   if (price !== undefined) {
-                    formItem.textContent = name;
+                    formItem.textContent = `${name}($)`;
                     addCalcBlock(invoisList, val, price, name, select);
                   } else {
                     formItem.textContent = text;
@@ -307,6 +313,29 @@ function openPreviewScreen() {
   const previewButton = document.querySelector(".main-buttons__preview");
   const allScreens = document.querySelectorAll(".constructor__item");
   previewButton.addEventListener("click", () => {
+    // перекидываем данные из опций для подушки отцепки и кольца ЗП
+    // в раздел Form-constructor - Color
+    const cutawayHandle = form.querySelector("[data-target=\"cutaway_handle\"]");
+    const area15 = form.querySelector("[data-target=\"area-15\"]");
+    let color;
+    if (cutawayHandle.value !== "choose_color") {
+      cutawayHandle.setAttribute("data-color", "");
+      color = cutawayHandle.textContent;
+    } else color = cutawayHandle.getAttribute("data-color");
+    area15.value = color;
+    area15.textContent = color;
+
+    const reserveHandle = form.querySelector("[data-target=\"reserve_handle\"]");
+    if (reserveHandle.value !== "soft_handle") {
+      reserveHandle.setAttribute("data-color", "");
+      color = reserveHandle.textContent;
+    } else color = reserveHandle.getAttribute("data-color");
+    const area16 = form.querySelector("[data-target=\"area-16\"]");
+    area16.value = color;
+    area16.textContent = color;
+    // --------------------
+
+    // назначаем активный экран
     allScreens.forEach((screen) => {
       if (screen.classList.contains("preview")) {
         screen.classList.add("active");

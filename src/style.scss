@@ -73,6 +73,7 @@ textarea {
     "menu constructor panel"
     "links buttons panel";
   grid-template-columns: 286px 1fr 176px;
+  grid-template-rows: 108px auto auto;
 }
 
 .hidden {

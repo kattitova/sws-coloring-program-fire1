@@ -77,8 +77,7 @@ export default function getTooltipColor() {
       optionsColors.classList.remove("active", title, subtitle);
       const form = document.querySelector(".form-constructor");
       const formInput = form.querySelector(`.preview-value.options[data-target="${title}"]`);
-      formInput.value = color;
-      formInput.textContent = toCapitalizedCase(color);
+      formInput.setAttribute("data-color", color);
     });
   });
 }

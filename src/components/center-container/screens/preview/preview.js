@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import create from "../../../create";
 import getFront from "../container/container-front";
 import getBack from "../container/container-back";
@@ -50,8 +51,7 @@ function specialPreviewFunc() {
   });
 }
 
-function checkSplitDesign() {
-  const form = document.querySelector(".form-constructor");
+function checkSplitDesign(form) {
   const allSplit = form.querySelectorAll(".split");
   const colorBlock = document.querySelector(".constructor__data-block.color");
   allSplit.forEach((split) => {
@@ -62,30 +62,71 @@ function checkSplitDesign() {
       allNumDetail.forEach((det) => {
         const target = det.getAttribute("data-target");
         if (target[0] === num) {
-          if (target.length === 1) det.classList.add("hidden");
-          else det.classList.remove("hidden");
+          if (target.length === 1) {
+            det.classList.add("hidden");
+            form.querySelector(`[data-target="area-${target}"]`).required = false;
+          } else {
+            det.classList.remove("hidden");
+            form.querySelector(`[data-target="area-${target}"]`).required = true;
+          }
         }
       });
     } else {
       allNumDetail.forEach((det) => {
         const target = det.getAttribute("data-target");
         if (target[0] === num) {
-          if (target.length === 1) det.classList.remove("hidden");
-          else det.classList.add("hidden");
+          if (target.length === 1) {
+            det.classList.remove("hidden");
+            form.querySelector(`[data-target="area-${target}"]`).required = true;
+          } else {
+            det.classList.add("hidden");
+            form.querySelector(`[data-target="area-${target}"]`).required = false;
+          }
         }
       });
     }
   });
 }
 
-function getPreviewInfo() {
+function setRequiredFilds(form) {
+  const allInput = form.querySelectorAll("input");
+  allInput.forEach((input) => {
+    const part = input.className.split(" ")[1];
+    const target = input.getAttribute("data-target");
+    const name = input.getAttribute("name");
+    switch (part) {
+      case "color":
+      case "sizes": {
+        input.required = true;
+        break;
+      }
+      case "bp":
+        if (target === "binding") input.required = true;
+        break;
+      case "logo":
+        if (input.value !== "NULL") input.required = true;
+        break;
+      case "information":
+        if (target !== "dealer") input.required = true;
+        break;
+      case "options":
+        if (target !== "swoop_options" && !name.includes("Additional_options") && !name.includes("Special_Instructions")) {
+          input.required = true;
+        }
+        break;
+      default: break;
+    }
+  });
+  checkSplitDesign(form);
+}
+
+function getPreviewInfo(form) {
   const constructor = document.querySelector(".constructor__item.preview");
   const wrapper = constructor.querySelector(".constructor__data-wrapper");
   const allBlocks = wrapper.querySelectorAll(".constructor__data-block");
   allBlocks.forEach((block) => {
     if (!block.classList.contains("schema")) block.remove();
   });
-  const form = document.querySelector(".form-constructor");
   const allInputs = form.querySelectorAll(".preview-value");
 
   let prevPart = "";
@@ -135,6 +176,10 @@ function getPreviewInfo() {
         const chainVal = create("div", "preview-chain__value");
         const value = input.textContent;
         chainVal.textContent = value;
+
+        const lang = input.getAttribute("data-lang");
+        if (lang !== null) chainVal.setAttribute("data-lang", lang);
+
         chain.appendChild(chainVal);
 
         if (part === "logo" && value !== "") {
@@ -178,6 +223,10 @@ function getPreviewInfo() {
 
           const chainVal = create("div", "preview-chain__value");
           chainVal.innerHTML = input.textContent;
+
+          const lang = input.getAttribute("data-lang");
+          if (lang !== null) chainVal.setAttribute("data-lang", lang);
+
           let dataColor = input.getAttribute("data-color");
           if (dataColor === "def") {
             dataColor = "";
@@ -208,7 +257,56 @@ function getPreviewInfo() {
     }
     wrapper.appendChild(dataBlock);
   });
-  checkSplitDesign();
+  // checkSplitDesign();
 }
 
-export { getPreviewScreen, specialPreviewFunc, getPreviewInfo };
+function openPreviewScreen() {
+  const form = document.querySelector(".form-constructor");
+  const previewButton = document.querySelector(".main-buttons__preview");
+  const allScreens = document.querySelectorAll(".constructor__item");
+  previewButton.addEventListener("click", () => {
+    // перекидываем данные из опций для подушки отцепки и кольца ЗП
+    // в раздел Form-constructor - Color
+    const cutawayHandle = form.querySelector("[data-target=\"cutaway_handle\"]");
+    const area15 = form.querySelector("[data-target=\"area-15\"]");
+    let color;
+    if (cutawayHandle.value !== "choose_color") {
+      cutawayHandle.setAttribute("data-color", "");
+      color = cutawayHandle.textContent;
+    } else color = cutawayHandle.getAttribute("data-color");
+    area15.value = color;
+    area15.textContent = color;
+
+    const reserveHandle = form.querySelector("[data-target=\"reserve_handle\"]");
+    if (reserveHandle.value !== "soft_handle") {
+      reserveHandle.setAttribute("data-color", "");
+      color = reserveHandle.textContent;
+    } else color = reserveHandle.getAttribute("data-color");
+    const area16 = form.querySelector("[data-target=\"area-16\"]");
+    area16.value = color;
+    area16.textContent = color;
+    // --------------------
+
+    // назначаем активный экран
+    allScreens.forEach((screen) => {
+      if (screen.classList.contains("preview")) {
+        screen.classList.add("active");
+        screen.parentElement.className = "center-container__constructor preview";
+        const rightPanel = document.querySelector(".right-container__template-panel");
+        rightPanel.className = "right-container__template-panel preview";
+      } else screen.classList.remove("active");
+    });
+    const allTabs = document.querySelectorAll(".tabs-list__tabs-item");
+    allTabs.forEach((tab) => {
+      tab.classList.remove("active");
+    });
+
+    const panel = document.querySelector(".center-container__buttons-panel");
+    panel.className = "center-container__buttons-panel preview";
+
+    getPreviewInfo(form);
+    setRequiredFilds(form);
+  });
+}
+
+export { getPreviewScreen, specialPreviewFunc, openPreviewScreen };

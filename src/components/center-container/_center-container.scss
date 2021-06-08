@@ -437,7 +437,7 @@
       }
     }
 
-    .navigation-buttons__back {
+    .navigation-buttons.back {
       margin-right: 16px;
       padding: 0 16px 0 60px;
       text-align: right;
@@ -449,8 +449,104 @@
       }
     }
 
-    .navigation-buttons__preview {
-      &--hidden {
+    .navigation-buttons {
+      &.preview,
+      &.order {
+        display: none;
+      }
+    }
+  }
+
+  &.container {
+    .navigation-buttons.back {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  }
+
+  &.options {
+    .navigation-buttons {
+      &.preview {
+        display: block;
+      }
+
+      &.next {
+        display: none;
+      }
+    }
+  }
+
+  .main-buttons__info-block {
+    display: none;
+  }
+
+  &.preview {
+    .main-buttons__info-block {
+      display: grid;
+      grid-gap: 0 16px;
+      grid-template-areas:
+        "info-1 info-2"
+        "info-1 info-3";
+      grid-template-columns: auto 140px;
+      grid-template-rows: 30px 30px;
+
+      .info-block.info-1 {
+        @include flex(space-between);
+        background: $button-color;
+        border: 0;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(42, 59, 76, 0.5);
+        font-size: 12px;
+        font-weight: 500;
+        grid-area: info-1;
+        height: 48px;
+        letter-spacing: 0.1em;
+        padding: 0 16px;
+        position: relative;
+        text-align: left;
+        text-transform: uppercase;
+        width: 184px;
+
+        &:hover {
+          @include button-hover;
+        }
+
+        &::after {
+          @include font-awesome;
+          content: "\f46c";
+          font-size: 22px;
+          font-weight: 900;
+        }
+      }
+
+      .info-block.info-2,
+      .info-block.info-3 {
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: capitalize;
+
+        &::before {
+          @include font-awesome;
+          content: "\f15c";
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .main-buttons__save {
+      width: 107px;
+    }
+
+    .main-buttons__preview {
+      display: none;
+    }
+
+    .navigation-buttons {
+      &.order {
+        display: block;
+      }
+
+      &.next {
         display: none;
       }
     }

@@ -302,6 +302,19 @@ export default class CenterContainer {
 
   static getMainButtons() {
     const divMainButtons = create("div", "buttons-panel__main-buttons");
+
+    const mainButtonsInfoBlock = create("div", "main-buttons__info-block");
+    const arrMainInfo = ["order coordination", "order procedures", "order confirmation"];
+    arrMainInfo.forEach((info, ind) => {
+      const link = create("a", ...["info-block", `info-${ind + 1}`]);
+      link.setAttribute("href", `./images/${info.replace(" ", "")}.pdf`);
+      link.setAttribute("target", "blank");
+      link.setAttribute("data-lang", info.replace(" ", "_"));
+      link.textContent = info;
+      mainButtonsInfoBlock.appendChild(link);
+    });
+    divMainButtons.appendChild(mainButtonsInfoBlock);
+
     const arrMainButtons = ["preview", "save"];
     arrMainButtons.forEach((i) => {
       const button = create("button", `main-buttons__${i}`);
@@ -314,11 +327,9 @@ export default class CenterContainer {
 
   static getNavigationButtons() {
     const divNavigationButtons = create("div", "buttons-panel__navigation-buttons");
-    const arrNavButtons = ["back", "next", "preview"];
+    const arrNavButtons = ["back", "next", "preview", "order"];
     arrNavButtons.forEach((i) => {
-      let button;
-      if (i === "preview") button = create("button", ...[`navigation-buttons__${i}`, `navigation-buttons__${i}--hidden`]);
-      else button = create("button", `navigation-buttons__${i}`);
+      const button = create("button", ...["navigation-buttons", i]);
       button.setAttribute("data-lang", i);
       button.textContent = i;
       divNavigationButtons.appendChild(button);

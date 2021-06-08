@@ -21,6 +21,9 @@ export default function tabsClick() {
     const templatePanel = document.querySelector(".right-container__template-panel");
     templatePanel.className = `right-container__template-panel ${tabs[1]}`;
 
+    const navButtonPanel = document.querySelector(".center-container__buttons-panel");
+    navButtonPanel.className = `center-container__buttons-panel ${tabs[1]}`;
+
     const clearButton = document.querySelector(".template-panel__button-clear");
     clearButton.classList.remove(activeTab.className.split(" ")[1]);
     clearButton.classList.add(tabs[1]);

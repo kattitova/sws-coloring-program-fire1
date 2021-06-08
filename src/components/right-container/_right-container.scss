@@ -94,6 +94,23 @@
       text-transform: uppercase;
     }
 
+    .color-panel__title {
+      &::after {
+        @include font-awesome;
+        content: "\f05a";
+        font-size: 20px;
+        margin-left: 10px;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        &::after {
+          color: #fff;
+        }
+      }
+    }
+
     .color-panel__footer {
       background: #192837;
       color: #fff;

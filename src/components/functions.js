@@ -3,6 +3,7 @@ import tabsClick from "./left-container/tabs-item";
 import posClick from "./center-container/pos-item";
 import getContainerElements from "./center-container/screens/container/container";
 import splitButtonsClick from "./center-container/split-buttons";
+import { navigationButtonsClick } from "./center-container/nav-buttons";
 import getHarnessElements from "./center-container/screens/harness/harness";
 import getBindingPinstripesElements from "./center-container/screens/bind_pinstripes/bind_pinstripes";
 import getLogosElements from "./center-container/screens/logos/logos";
@@ -10,7 +11,7 @@ import getTooltipColor from "./center-container/screens/options/options";
 import json from "./center-container/info.json";
 import { addCalcBlock, checkAddedOption } from "./right-container/calculator";
 import { specOptionsInit } from "./center-container/screens/options/spec-options";
-import { specialPreviewFunc, getPreviewInfo } from "./center-container/screens/preview/preview";
+import { specialPreviewFunc, openPreviewScreen } from "./center-container/screens/preview/preview";
 // import saveOrders from "./save-orders/save-orders";
 
 const form = document.querySelector(".form-constructor");
@@ -191,7 +192,10 @@ function getCheksValue() {
                   flagColorOpt = true;
                 }
 
-                if (!flagColorOpt) formItem.setAttribute("value", checkedInput.getAttribute("data-text"));
+                if (!flagColorOpt) {
+                  formItem.setAttribute("value", checkedInput.getAttribute("data-text"));
+                  formItem.setAttribute("data-lang", checkedInput.getAttribute("data-text"));
+                }
                 if (price !== undefined) {
                   if (!flagColorOpt) formItem.textContent = `${name}($)`;
                   if (checkedInput.getAttribute("type") !== "radio" && !checkedInput.checked) {
@@ -224,6 +228,7 @@ function getCheksValue() {
                 });
                 if (count === 0) formValue = "NULL ";
                 formItem.setAttribute("value", formValue.substring(0, formValue.length - 1));
+                formItem.setAttribute("data-lang", formValue.substring(0, formValue.length - 1));
                 formItem.textContent = formText.substring(0, formText.length - br.length);
 
                 const subtitle = label.querySelector(".data-row__name").textContent;
@@ -244,6 +249,7 @@ function getCheksValue() {
                 }
                 if (checkedInput.checked) {
                   formItem.setAttribute("value", checkedInput.getAttribute("data-text"));
+                  formItem.setAttribute("data-lang", checkedInput.getAttribute("data-text"));
                   formItem.textContent = text;
                   if (price !== undefined) {
                     formItem.textContent = `${name}($)`;
@@ -309,49 +315,6 @@ function isValid(type, str) {
   return reg.test(str);
 }
 
-function openPreviewScreen() {
-  const previewButton = document.querySelector(".main-buttons__preview");
-  const allScreens = document.querySelectorAll(".constructor__item");
-  previewButton.addEventListener("click", () => {
-    // перекидываем данные из опций для подушки отцепки и кольца ЗП
-    // в раздел Form-constructor - Color
-    const cutawayHandle = form.querySelector("[data-target=\"cutaway_handle\"]");
-    const area15 = form.querySelector("[data-target=\"area-15\"]");
-    let color;
-    if (cutawayHandle.value !== "choose_color") {
-      cutawayHandle.setAttribute("data-color", "");
-      color = cutawayHandle.textContent;
-    } else color = cutawayHandle.getAttribute("data-color");
-    area15.value = color;
-    area15.textContent = color;
-
-    const reserveHandle = form.querySelector("[data-target=\"reserve_handle\"]");
-    if (reserveHandle.value !== "soft_handle") {
-      reserveHandle.setAttribute("data-color", "");
-      color = reserveHandle.textContent;
-    } else color = reserveHandle.getAttribute("data-color");
-    const area16 = form.querySelector("[data-target=\"area-16\"]");
-    area16.value = color;
-    area16.textContent = color;
-    // --------------------
-
-    // назначаем активный экран
-    allScreens.forEach((screen) => {
-      if (screen.classList.contains("preview")) {
-        screen.classList.add("active");
-        screen.parentElement.className = "center-container__constructor preview";
-        const rightPanel = document.querySelector(".right-container__template-panel");
-        rightPanel.className = "right-container__template-panel preview";
-      } else screen.classList.remove("active");
-    });
-    const allTabs = document.querySelectorAll(".tabs-list__tabs-item");
-    allTabs.forEach((tab) => {
-      tab.classList.remove("active");
-    });
-    getPreviewInfo();
-  });
-}
-
 export default function funcInit() {
   getContainerElements();
   splitButtonsClick();
@@ -360,6 +323,7 @@ export default function funcInit() {
   getLogosElements();
   tabsClick();
   posClick();
+  navigationButtonsClick();
   getTooltipColor();
   clearAll();
   getInputValue();

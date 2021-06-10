@@ -12,6 +12,8 @@ import json from "./center-container/info.json";
 import { addCalcBlock, checkAddedOption } from "./right-container/calculator";
 import { specOptionsInit } from "./center-container/screens/options/spec-options";
 import { specialPreviewFunc, openPreviewScreen } from "./center-container/screens/preview/preview";
+import { getColorInfo } from "./color-info/color-info";
+import { saveColoring } from "./save-coloring/save-coloring";
 // import saveOrders from "./save-orders/save-orders";
 
 const form = document.querySelector(".form-constructor");
@@ -332,6 +334,8 @@ export default function funcInit() {
   specOptionsInit();
   openPreviewScreen();
   specialPreviewFunc();
+  getColorInfo();
+  saveColoring();
   // Temp
   // saveOrders();
 }

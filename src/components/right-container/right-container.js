@@ -63,6 +63,10 @@ export default class RightContainer {
     const divColorPanelTitle = create("div", "color-panel__title");
     divColorPanelTitle.setAttribute("data-lang", "colors");
     divColorPanelTitle.textContent = "colors";
+    divColorPanelTitle.addEventListener("click", () => {
+      const modal = document.querySelector(".modal-window.modal-info");
+      modal.classList.add("open");
+    });
     divColorPanel.appendChild(divColorPanelTitle);
 
     const divColorsPalette = create("div", "color-panel__colors-palette");

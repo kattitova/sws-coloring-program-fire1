@@ -1,3 +1,43 @@
+/* eslint-disable prefer-destructuring */
+function getFormConstructorData() {
+  const form = document.querySelector(".form-constructor");
+  const allInput = form.querySelectorAll("input");
+  const data = [];
+  allInput.forEach((input) => {
+    const obj = {};
+    obj.part = input.className.split(" ")[1];
+    obj["data-target"] = input.getAttribute("data-target");
+    obj.value = input.value;
+    obj.text = input.textContent;
+    obj["data-lang"] = input.getAttribute("data-lang");
+    if (input.value === "custom_text") obj["data-text"] = input.getAttribute("data-text");
+    obj["data-color"] = input.getAttribute("data-color");
+    data.push(obj);
+  });
+  return data;
+}
+
+// сохранение промежуточных раскрасок пользователей
+function saveColoring() {
+  const saveButton = document.querySelector(".main-buttons__save");
+  saveButton.addEventListener("click", () => {
+    fetch("/save-coloring", {
+      method: "POST",
+      body: JSON.stringify(getFormConstructorData()),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      if (response.ok) {
+        return response.json;
+      }
+      throw new Error("Request failed");
+    });
+  });
+}
+
+export { saveColoring };
+
 // // import { orderRuXLSX } from "xlsx-populate";
 
 // // export default function saveOrders() {

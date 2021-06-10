@@ -569,7 +569,9 @@
   .info-wrapper,
   .sizes-wrapper,
   .options-wrapper {
-    width: 100%;
+    @include size(100%, 100%);
+    display: flex;
+    flex-direction: column;
   }
 
   .constructor__title {

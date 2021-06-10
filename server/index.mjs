@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import Excel from "exceljs";
 import fs from "fs";
 import { sendContactMail } from "./nodemailer.mjs";
+import { saveColoring } from "./save-coloring.mjs";
 
 const dirname = path.resolve();
 // console.log(`${dirname}\\dist`, path, path.join(dirname, "../dist"));
@@ -19,10 +20,17 @@ app.get("/", urlencodedParser, (request, response) => {
   response.send("Hello from Express!");
 });
 
+// отправка сообщения из контактной формы
 app.post("/contact", jsonParser, (req, res) => {
   sendContactMail(req.body);
   // console.log(req.body);
-  const name = `${req.body.full_name} ${req.body.phone}`;
+  // const name = `${req.body.full_name} ${req.body.phone}`;
+  return res.redirect("back");
+});
+
+// сохранение результатов раскрашивания пользоватлей
+app.post("/save-coloring", jsonParser, (req, res) => {
+  saveColoring(req.body);
   return res.redirect("back");
 });
 

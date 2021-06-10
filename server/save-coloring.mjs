@@ -29,7 +29,8 @@ function saveColoring(data) {
   const fileName = genFileName();
   // сохраняем данные раскраски в файл
   saveIndexFile(`server/save/${fileName}.json`, JSON.stringify(data));
-  console.log(fileName, data);
+  // console.log(fileName, data);
+  return fileName;
 }
 
 export { saveColoring };

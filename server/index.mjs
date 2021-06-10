@@ -1,6 +1,5 @@
 import express from "express";
 import path from "path";
-import bodyParser from "body-parser";
 import Excel from "exceljs";
 import fs from "fs";
 import { sendContactMail } from "./nodemailer.mjs";
@@ -10,8 +9,8 @@ const dirname = path.resolve();
 // console.log(`${dirname}\\dist`, path, path.join(dirname, "../dist"));
 
 const app = express();
-const jsonParser = bodyParser.json();
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const jsonParser = express.json();
+const urlencodedParser = express.urlencoded({ extended: false });
 app.use(express.static(`${dirname}\\dist`));
 
 const port = 3000;
@@ -30,7 +29,8 @@ app.post("/contact", jsonParser, (req, res) => {
 
 // сохранение результатов раскрашивания пользоватлей
 app.post("/save-coloring", jsonParser, (req, res) => {
-  saveColoring(req.body);
+  const fileName = saveColoring(req.body);
+  res.send(`${fileName}`);
   return res.redirect("back");
 });
 

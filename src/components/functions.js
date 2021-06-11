@@ -14,7 +14,7 @@ import { specOptionsInit } from "./center-container/screens/options/spec-options
 import { specialPreviewFunc, openPreviewScreen } from "./center-container/screens/preview/preview";
 import { getColorInfo } from "./color-info/color-info";
 import * as Save from "./save-coloring/save-coloring";
-// import saveOrders from "./save-orders/save-orders";
+import * as EnterCode from "./enter-code/enter-code";
 
 const form = document.querySelector(".form-constructor");
 const priceList = json[3].parts[0];
@@ -337,8 +337,8 @@ export default function funcInit() {
   getColorInfo();
   Save.saveColoring();
   Save.getModalSave();
-  // Temp
-  // saveOrders();
+  EnterCode.getModalSuccess();
+  EnterCode.enterCode();
 }
 
 export {

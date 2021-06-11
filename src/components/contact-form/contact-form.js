@@ -64,7 +64,6 @@ function getForm() {
     const data = {};
     let flag = true;
     inputs.forEach((inp) => {
-      console.log(isValid(inp.getAttribute("type"), inp.value));
       if (!isValid(inp.getAttribute("type"), inp.value)) {
         flag = false;
         inp.classList.add("invalid");
@@ -81,9 +80,7 @@ function getForm() {
     } else {
       data[txtarea.getAttribute("name")] = txtarea.value;
     }
-    console.log(flag);
     if (flag) {
-      console.log(data);
       fetch("/contact", {
         method: "POST",
         body: JSON.stringify(data),
@@ -96,9 +93,6 @@ function getForm() {
         }
         throw new Error("Request failed");
       });
-      // }, networkError => console.log(networkError.message)).then((jsonResponse) => {
-      //   console.log(jsonResponse);
-      // });
       form.classList.toggle("sent");
       setTimeout(() => {
         modal.classList.toggle("open");

@@ -154,6 +154,10 @@
   "calc": "calculation",
   "total": "Total $",
   "message": "Message",
-  "contact_form_msg": "SWS Company would like to thank you for using the feedback form.<br><br>Your message has been sent. The company manager will contact you shortly. Компания SWS благодарит вас за то, что воспользовались формой обратной связи.<br><br>Ваше сообщение отправлено. Менеджер компании свяжется с вами в ближайшее время."
+  "contact_form_msg": "SWS Company would like to thank you for using the feedback form.<br><br>Your message has been sent. The company manager will contact you shortly. Компания SWS благодарит вас за то, что воспользовались формой обратной связи.<br><br>Ваше сообщение отправлено. Менеджер компании свяжется с вами в ближайшее время.",
+  "save_code": "code",
+  "save_msg": "Your code is:",
+  "copy_alert": "copy!",
+  "success_title": "success"
   }
 ]

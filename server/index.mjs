@@ -34,6 +34,18 @@ app.post("/save-coloring", jsonParser, (req, res) => {
   return res.redirect("back");
 });
 
+// загрузка данных из сохраненного файла
+app.post("/enter-code", jsonParser, (req, res) => {
+  const file = req.body.code;
+  try {
+    const content = fs.readFileSync(`server/save/${file}.json`, "utf8");
+    res.send(content);
+  } catch (e) {
+    res.send({ error: "nofile" });
+  }
+  // res.redirect("back");
+});
+
 app.post("/order", jsonParser, (req, res) => {
   console.log(req.body);
   const name = `${req.body.full_name} ${req.body.phone}`;

@@ -24,7 +24,6 @@ function getModalSave() {
   const fileName = create("input", "save-block__code");
   fileName.setAttribute("type", "text");
   fileName.readonly = true;
-  // fileName.value = "100023";
   container.appendChild(fileName);
 
   const divAlert = create("div", "copy-alert");

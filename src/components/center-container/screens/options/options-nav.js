@@ -17,6 +17,10 @@ function getNavigationButtons(arr) {
     button.textContent = i;
     let newActiveElem;
     button.addEventListener("click", () => {
+      // закрываем дополнительную палитру цветов для опций при переходе между подэкранами опций
+      const colorPalette = document.querySelector(".opitons__colors");
+      colorPalette.className = "opitons__colors";
+
       arr.forEach((item, ind) => {
         if (item.classList.contains("active")) {
           item.classList.remove("active");
@@ -29,7 +33,6 @@ function getNavigationButtons(arr) {
         }
       });
       newActiveElem.classList.add("active");
-      // const newDataElem = newActiveElem.getAttribute("data-lang");
       setActiveOptionsPage(newActiveElem.getAttribute("data-lang"));
     });
     divNavigationButtons.appendChild(button);

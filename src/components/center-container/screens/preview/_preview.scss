@@ -5,6 +5,19 @@
     flex-direction: column;
   }
 
+  .constructor__title {
+    [data-lang="please_fill_required_fiedls"] {
+      display: none;
+    }
+
+    &.error {
+      [data-lang="please_fill_required_fiedls"] {
+        color: #ff5151;
+        display: block;
+      }
+    }
+  }
+
   .constructor__data-wrapper {
     display: grid;
     font-size: 10px;
@@ -105,8 +118,16 @@
       text-transform: uppercase;
     }
 
-    .preview-chain:not(:last-child) {
-      margin-bottom: 3px;
+    .preview-chain {
+      &.error {
+        .preview-chain__title {
+          color: #b90404;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 3px;
+      }
     }
 
     .preview-chain__title {

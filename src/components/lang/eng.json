@@ -158,6 +158,7 @@
   "save_code": "code",
   "save_msg": "Your code is:",
   "copy_alert": "copy!",
-  "success_title": "success"
+  "success_title": "success",
+  "please_fill_required_fiedls": "please fill required fiedls"
   }
 ]

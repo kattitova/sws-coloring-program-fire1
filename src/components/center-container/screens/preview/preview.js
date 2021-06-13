@@ -21,10 +21,10 @@ function getPreviewScreen() {
   const previewScreen = create("div", "preview-wrapper");
 
   const previewTitle = create("div", "constructor__title");
-  const arr = ["preview", "order form"];
+  const arr = ["preview", "please fill required fiedls", "order form"];
   arr.forEach((item) => {
     const subTitle = create("div", "constructor__sub-title");
-    subTitle.setAttribute("data-lang", item.replace(" ", "_"));
+    subTitle.setAttribute("data-lang", item.replaceAll(" ", "_"));
     subTitle.textContent = item;
     previewTitle.appendChild(subTitle);
   });
@@ -61,26 +61,26 @@ function checkSplitDesign(form) {
     if (split.value === "active") {
       allNumDetail.forEach((det) => {
         const target = det.getAttribute("data-target");
-        if (target[0] === num) {
-          if (target.length === 1) {
+        if (target[5] === num) {
+          if (target.length === 6) {
             det.classList.add("hidden");
-            form.querySelector(`[data-target="area-${target}"]`).required = false;
+            form.querySelector(`[data-target="${target}"]`).required = false;
           } else {
             det.classList.remove("hidden");
-            form.querySelector(`[data-target="area-${target}"]`).required = true;
+            form.querySelector(`[data-target="${target}"]`).required = true;
           }
         }
       });
     } else {
       allNumDetail.forEach((det) => {
         const target = det.getAttribute("data-target");
-        if (target[0] === num) {
-          if (target.length === 1) {
+        if (target[5] === num) {
+          if (target.length === 6) {
             det.classList.remove("hidden");
-            form.querySelector(`[data-target="area-${target}"]`).required = true;
+            form.querySelector(`[data-target="${target}"]`).required = true;
           } else {
             det.classList.add("hidden");
-            form.querySelector(`[data-target="area-${target}"]`).required = false;
+            form.querySelector(`[data-target="${target}"]`).required = false;
           }
         }
       });
@@ -88,7 +88,7 @@ function checkSplitDesign(form) {
   });
 }
 
-function setRequiredFilds(form) {
+function setRequiredFields(form) {
   const allInput = form.querySelectorAll("input");
   allInput.forEach((input) => {
     const part = input.className.split(" ")[1];
@@ -105,6 +105,7 @@ function setRequiredFilds(form) {
         break;
       case "logo":
         if (input.value !== "NULL") input.required = true;
+        else input.required = false;
         break;
       case "information":
         if (target !== "dealer") input.required = true;
@@ -189,7 +190,7 @@ function getPreviewInfo(form) {
           chainColor.textContent = setColor;
           chain.appendChild(chainColor);
         }
-
+        chain.setAttribute("data-target", target);
         blockCont.appendChild(chain);
         break;
       }
@@ -217,9 +218,7 @@ function getPreviewInfo(form) {
           chainTitle.textContent = name;
           chain.appendChild(chainTitle);
 
-          if (part === "color") {
-            chain.setAttribute("data-target", name);
-          }
+          chain.setAttribute("data-target", target);
 
           const chainVal = create("div", "preview-chain__value");
           chainVal.innerHTML = input.textContent;
@@ -305,7 +304,14 @@ function openPreviewScreen() {
     panel.className = "center-container__buttons-panel preview";
 
     getPreviewInfo(form);
-    setRequiredFilds(form);
+    setRequiredFields(form);
+
+    // снять класс error со всех элементов
+    const preview = document.querySelector(".constructor__item.preview");
+    const allDiv = preview.querySelectorAll("div");
+    allDiv.forEach((div) => {
+      div.classList.remove("error");
+    });
   });
 }
 

@@ -87,7 +87,7 @@ function saveColoring() {
   });
 }
 
-export { saveColoring, getModalSave };
+export { saveColoring, getModalSave, getFormConstructorData };
 
 // // import { orderRuXLSX } from "xlsx-populate";
 

@@ -1,3 +1,4 @@
+import { getFormConstructorData } from "../save-coloring/save-coloring";
 // add ERROR class
 const addErrorClass = (part, target, input) => {
   const preview = document.querySelector(".constructor__item.preview");
@@ -50,6 +51,18 @@ const sendOrder = () => {
       console.log("send order");
 
       // TODO Fetch to "/send-order"
+      fetch("/send-order", {
+        method: "POST",
+        body: JSON.stringify(getFormConstructorData()),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((response) => {
+        if (response.ok) {
+          return response.json;
+        }
+        throw new Error("Request failed");
+      });
     } else console.log("stop sending order");
   });
 };

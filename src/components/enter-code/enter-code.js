@@ -50,7 +50,7 @@ function enterCode() {
           span.textContent = "You have used the wrong code. Please try again";
           span.setAttribute("data-lang", "error_msg");
         } else {
-          // TODO загрузка данных в саму программу, примененние ВСЕГО
+          // загрузка данных в саму программу, примененние ВСЕГО
           loadData(body);
           title.textContent = "success";
           title.setAttribute("data-lang", "success_title");

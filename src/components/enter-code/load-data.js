@@ -118,7 +118,7 @@ const loadDataToScreen = (data) => {
           if (target !== "swoop_options") {
             const label = checks.querySelector(`label[for="${target}-${item.value}"]`);
             if (label) label.click();
-            if (item["data-color"] !== null) {
+            if (item["data-color"] !== null && item["data-color"] !== "") {
               let val;
               if (target === "main_deployment_handle" || target === "main_pc") {
                 val = "choose_color";

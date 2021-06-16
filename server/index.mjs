@@ -55,6 +55,7 @@ app.post("/send-order", jsonParser, (req, res) => {
   const fileName = `${name.text}_${dealerValue}_${getDateNow}`;
   try {
     createOrderForm(data, "Ru", fileName);
+    createOrderForm(data, "Eng", fileName);
     res.send({ result: "ok" });
   } catch (e) {
     console.log(e);

@@ -4,6 +4,7 @@ import fs from "fs";
 import { sendContactMail } from "./nodemailer.mjs";
 import { saveColoring } from "./save-coloring.mjs";
 import { createOrderForm } from "./create-order-form.mjs";
+import { createConfirmation } from "./create-confirmation.mjs";
 
 const dirname = path.resolve();
 // console.log(`${dirname}\\dist`, path, path.join(dirname, "../dist"));
@@ -56,6 +57,7 @@ app.post("/send-order", jsonParser, (req, res) => {
   try {
     createOrderForm(data, "Ru", fileName);
     createOrderForm(data, "Eng", fileName);
+    createConfirmation(data, "Ru", fileName);
     res.send({ result: "ok" });
   } catch (e) {
     console.log(e);

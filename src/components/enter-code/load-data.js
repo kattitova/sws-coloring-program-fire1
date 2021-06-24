@@ -180,6 +180,11 @@ const resetAllData = (form) => {
     logo.classList.remove("checked");
   });
 
+  const allSchematicTitle = document.querySelectorAll(".schematics__title");
+  allSchematicTitle.forEach((title) => {
+    if (title.classList.contains("active")) title.click();
+  });
+
   const allChecks = document.querySelectorAll(".constructor__data-row-checks");
   allChecks.forEach((check) => {
     const allCheckInput = check.querySelectorAll("input");

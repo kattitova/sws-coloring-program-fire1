@@ -33,7 +33,9 @@ export default function tabsClick() {
 
     const bpButtons = document.querySelectorAll(".position__pb-switch button");
     bpButtons.forEach((button) => {
-      button.classList.remove("active");
+      if (button.getAttribute("data-target") === "binding") {
+        button.classList.remove("active");
+      }
     });
 
     setActive(e.target);

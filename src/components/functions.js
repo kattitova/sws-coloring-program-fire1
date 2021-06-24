@@ -318,6 +318,16 @@ function isValid(type, str) {
   return reg.test(str);
 }
 
+// только для Файр1
+// при загрузке приложения кликаем на обе кнопки Split Design
+// и скрываем их в стилях
+function hideSplitButton() {
+  const allSplitButton = document.querySelectorAll(".split-switch__button");
+  allSplitButton.forEach((button) => {
+    if (!button.classList.contains("active")) button.click();
+  });
+}
+
 export default function funcInit() {
   getContainerElements();
   splitButtonsClick();
@@ -336,6 +346,7 @@ export default function funcInit() {
   openPreviewScreen();
   specialPreviewFunc();
   getColorInfo();
+  hideSplitButton();
   Save.saveColoring();
   Save.getModalSave();
   EnterCode.getModalSuccess();

@@ -115,7 +115,7 @@ c0.001-36.088,36.737-95.123,41.177-99.657C174.414,26.099,170.341,24.711,169.231,
 <path stroke="#9AB7CD" fill="#5782A3" stroke-width="2" stroke-miterlimit="10" d="M75.902,144.633c1.851-3.886,3.701-7.587,5.552-11.104
 c-8.328,27.112-25.724,51.355-24.984,65.514c0,0,0,0-2.684,4.256c-0.463,0.741-0.925,1.573-1.48,2.313
 C51.473,194.231,65.446,173.874,75.902,144.633z"/>
-<path data-id="area-2c" class="schema__element hidden no-active" fill="#5782A3" stroke="#9AB7CD" stroke-width="2" stroke-miterlimit="10" d="M52.306,205.705
+<path data-id="area-2c" class="schema__element no-active" fill="#5782A3" stroke="#9AB7CD" stroke-width="2" stroke-miterlimit="10" d="M52.306,205.705
 c-0.37,0.646-0.833,1.296-1.203,1.941c-8.605,6.017-11.659,9.254-18.506,16.287c7.495-22.484,31.369-54.225,43.305-79.301
 C65.446,173.874,51.474,194.231,52.306,205.705z"/>
 <path data-id="area-2" class="schema__element no-active" fill="#5782A3" stroke="#9AB7CD" stroke-width="2" stroke-miterlimit="10" d="M52.306,205.705

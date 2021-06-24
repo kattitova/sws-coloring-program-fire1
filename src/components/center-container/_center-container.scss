@@ -139,215 +139,214 @@
       &.active {
         @include flex(center, flex-start);
       }
+    }
+  }
+}
 
-      .panel__schematics {
-        background: #9ab7cd;
-        border-radius: 4px;
-        box-shadow: 0 4px 12px rgba(42, 59, 76, 0.5);
+.panel__schematics {
+  background: #9ab7cd;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(42, 59, 76, 0.5);
+  color: #263c52;
+  overflow: hidden;
+  width: 100%;
+
+  .schematics__title {
+    @include flex(flex-start);
+    background: #597e9b;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    height: 32px;
+    letter-spacing: 0.1em;
+    padding: 0 16px;
+    position: relative;
+    text-transform: uppercase;
+    transition: 0.2s;
+
+    &::before {
+      @include absolute-center;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 8px;
+      content: "";
+      height: 8px;
+      right: 16px;
+      transition: 0.2s;
+      width: 20px;
+    }
+
+    &::after {
+      @include absolute-center;
+      background: #192837;
+      border-radius: 50%;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
+      content: "";
+      height: 12px;
+      right: 26px;
+      transition: 0.2s;
+      width: 12px;
+    }
+
+    &.active {
+      background: #7d8fa2;
+      color: rgba(18, 51, 75, 0.5);
+
+      &::before {
+        background: #4caf50;
+      }
+
+      &::after {
+        right: 14px;
+      }
+    }
+  }
+
+  .schematics__list {
+    max-height: 368px;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 16px 7px;
+
+    .schematics__list-item:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    .schematics__list-item:not(.disabled) {
+      cursor: pointer;
+    }
+
+    .schematics__list-item {
+      display: flex;
+
+      .list-item__num {
+        @include flex;
+        border: 1px solid #33506d;
+        border-radius: 50%;
+        color: #33506d;
+        font-size: 9px;
+        font-weight: 700;
+        height: 16px;
+        padding-top: 1px;
+        width: 16px;
+      }
+
+      .list-item__name {
         color: #263c52;
-        overflow: hidden;
-        width: 100%;
-
-        .schematics__title {
-          @include flex(flex-start);
-          background: #597e9b;
-          color: rgba(255, 255, 255, 0.5);
-          cursor: pointer;
-          font-size: 12px;
-          font-weight: 500;
-          height: 32px;
-          letter-spacing: 0.1em;
-          padding: 0 16px;
-          position: relative;
-          text-transform: uppercase;
-          transition: 0.2s;
-
-          &::before {
-            @include absolute-center;
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 8px;
-            content: "";
-            height: 8px;
-            right: 16px;
-            transition: 0.2s;
-            width: 20px;
-          }
-
-          &::after {
-            @include absolute-center;
-            background: #192837;
-            border-radius: 50%;
-            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24),
-              0 0 2px rgba(0, 0, 0, 0.12);
-            content: "";
-            height: 12px;
-            right: 26px;
-            transition: 0.2s;
-            width: 12px;
-          }
-
-          &.active {
-            background: #7d8fa2;
-            color: rgba(18, 51, 75, 0.5);
-
-            &::before {
-              background: #4caf50;
-            }
-
-            &::after {
-              right: 14px;
-            }
-          }
-        }
-
-        .schematics__list {
-          max-height: 368px;
-          overflow: hidden;
-          overflow-y: auto;
-          padding: 16px 7px;
-
-          .schematics__list-item:not(:last-child) {
-            margin-bottom: 16px;
-          }
-
-          .schematics__list-item:not(.disabled) {
-            cursor: pointer;
-          }
-
-          .schematics__list-item {
-            display: flex;
-
-            .list-item__num {
-              @include flex;
-              border: 1px solid #33506d;
-              border-radius: 50%;
-              color: #33506d;
-              font-size: 9px;
-              font-weight: 700;
-              height: 16px;
-              padding-top: 1px;
-              width: 16px;
-            }
-
-            .list-item__name {
-              color: #263c52;
-              font-size: 12px;
-              line-height: 16px;
-              padding-left: 10px;
-            }
-
-            &:hover {
-              .list-item__num {
-                background: #526a83;
-                border-color: #526a83;
-                color: #fff;
-              }
-
-              .list-item__name {
-                color: #526a83;
-                font-weight: 500;
-              }
-            }
-          }
-
-          .schematics__split-switch {
-            @include flex(space-between);
-
-            .list-item__name {
-              font-size: 10px;
-              padding-left: 2px;
-            }
-
-            .schematics__list-item {
-              margin-bottom: 16px;
-            }
-          }
-        }
+        font-size: 12px;
+        line-height: 16px;
+        padding-left: 10px;
       }
 
-      .panel__split-switch {
-        margin-top: 10px;
-
-        .split-switch__button {
-          background: #246595;
-          border: 0;
-          border-radius: 4px;
-          box-shadow: 0 2px 8px rgba(42, 59, 76, 0.5);
-          color: rgba(255, 255, 255, 0.75);
-          font-size: 10px;
-          font-weight: 500;
-          height: 28px;
-          letter-spacing: 0.1em;
-          margin-bottom: 10px;
-          padding: 0 5px;
-          position: relative;
-          text-align: left;
-          text-transform: uppercase;
-          width: 100%;
-
-          &::before {
-            @include absolute-center;
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 8px;
-            content: "";
-            height: 8px;
-            right: 6px;
-            transition: 0.2s;
-            width: 20px;
-          }
-
-          &::after {
-            @include absolute-center;
-            background: #192837;
-            border-radius: 50%;
-            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24),
-              0 0 2px rgba(0, 0, 0, 0.12);
-            content: "";
-            height: 12px;
-            right: 14px;
-            transition: 0.2s;
-            width: 12px;
-          }
-
-          &.active {
-            &::before {
-              background: #4caf50;
-            }
-
-            &::after {
-              right: 6px;
-            }
-          }
-
-          &--num {
-            border: 1px solid rgba(255, 255, 255, 0.75);
-            border-radius: 50%;
-            color: rgba(255, 255, 255, 0.75);
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 500;
-            height: 16px;
-            margin-right: 5px;
-            padding-top: 1px;
-            text-align: center;
-            width: 16px;
-          }
-
-          &--name::after {
-            content: " ($)";
-          }
+      &:hover {
+        .list-item__num {
+          background: #526a83;
+          border-color: #526a83;
+          color: #fff;
         }
 
-        .split-switch__tip {
-          @include flex(space-between);
-          font-size: 11px;
-          width: 100%;
-
-          *:last-child {
-            margin-left: 5px;
-          }
+        .list-item__name {
+          color: #526a83;
+          font-weight: 500;
         }
       }
+    }
+
+    .schematics__split-switch {
+      @include flex(space-between);
+
+      .list-item__name {
+        font-size: 10px;
+        padding-left: 2px;
+      }
+
+      .schematics__list-item {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+.panel__split-switch {
+  display: none; // REMOVE FOR FIRE2
+  margin-top: 10px;
+
+  .split-switch__button {
+    background: #246595;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(42, 59, 76, 0.5);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 10px;
+    font-weight: 500;
+    height: 28px;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    padding: 0 5px;
+    position: relative;
+    text-align: left;
+    text-transform: uppercase;
+    width: 100%;
+
+    &::before {
+      @include absolute-center;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 8px;
+      content: "";
+      height: 8px;
+      right: 6px;
+      transition: 0.2s;
+      width: 20px;
+    }
+
+    &::after {
+      @include absolute-center;
+      background: #192837;
+      border-radius: 50%;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
+      content: "";
+      height: 12px;
+      right: 14px;
+      transition: 0.2s;
+      width: 12px;
+    }
+
+    &.active {
+      &::before {
+        background: #4caf50;
+      }
+
+      &::after {
+        right: 6px;
+      }
+    }
+
+    &--num {
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 50%;
+      color: rgba(255, 255, 255, 0.75);
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      height: 16px;
+      margin-right: 5px;
+      padding-top: 1px;
+      text-align: center;
+      width: 16px;
+    }
+
+    &--name::after {
+      content: " ($)";
+    }
+  }
+
+  .split-switch__tip {
+    @include flex(space-between);
+    font-size: 11px;
+    width: 100%;
+
+    *:last-child {
+      margin-left: 5px;
     }
   }
 }

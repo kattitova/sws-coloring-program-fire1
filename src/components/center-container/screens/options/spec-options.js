@@ -185,7 +185,7 @@ function addSwitchOptionsToCalc() {
         arr.forEach((but) => {
           if (but.classList.contains("active")) activeBut += 1;
         });
-        if (activeBut > 0) Calc.addCalcBlock(calc, title, price, "", "solo");
+        if (activeBut > 0 && parseInt(price, 10) !== 0) Calc.addCalcBlock(calc, title, price, "", "solo");
         else Calc.removeBlock(title, "");
       });
     });

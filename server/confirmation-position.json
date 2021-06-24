@@ -8,82 +8,82 @@
     },
    {
      "data-target": "area-2a",
-      "row": 32,
-      "cell": 2
+      "row": 39,
+      "cell": 3
    },
    {
      "data-target": "area-2b",
-     "row": 33,
-      "cell": 2
+     "row": 39,
+      "cell": 5
    },
    {
      "data-target": "area-2c",
-     "row": 34,
-      "cell": 2
+     "row": 39,
+      "cell": 7
    },
    {
      "data-target": "area-3",
-     "row": 35,
+     "row": 33,
       "cell": 2
    },
    {
      "data-target": "area-4",
-     "row": 36,
+     "row": 34,
       "cell": 2
    },
    {
      "data-target": "area-5",
-     "row": 37,
+     "row": 35,
       "cell": 2
    },
    {
      "data-target": "area-6d",
-     "row": 38,
-      "cell": 2
+     "row": 40,
+      "cell": 3
    },
    {
      "data-target": "area-6e",
-     "row": 39,
-      "cell": 2
+     "row": 40,
+      "cell": 5
    },
    {
      "data-target": "area-6f",
+     "row": 40,
+      "cell": 7
+   },
+   {
+     "data-target": "area-7",
+     "row": 37,
+      "cell": 2
+   },
+   {
+     "data-target": "area-8",
      "row": 31,
       "cell": 6
    },
    {
-     "data-target": "area-7",
+     "data-target": "area-9",
      "row": 32,
       "cell": 6
    },
    {
-     "data-target": "area-8",
+     "data-target": "area-10",
      "row": 33,
       "cell": 6
    },
    {
-     "data-target": "area-9",
-     "row": 34,
-      "cell": 6
-   },
-   {
-     "data-target": "area-10",
-     "row": 35,
-      "cell": 6
-   },
-   {
      "data-target": "area-11",
-    "row": 36,
+    "row": 34,
       "cell": 6
    },
    {
      "data-target": "area-12",
-     "row": 37,
+     "row": 35,
       "cell": 6
    },
    {
      "data-target": "area-13",
-     "row": 38,
+     "row": 36,
       "cell": 6
    },
    {

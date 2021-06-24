@@ -41,7 +41,6 @@ function createConfirmation(data, lang, fileName) {
       return workbook.xlsx.writeFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`);
     })
     .then(() => {
-      // setTimeout(() => {
       console.log("xlsx file is written");
       const book = new Excel.Workbook();
       book.xlsx.readFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`)
@@ -53,7 +52,6 @@ function createConfirmation(data, lang, fileName) {
         .then(() => {
           console.log("xlsx file is recalc");
         });
-      // }, 2000);
     });
 }
 

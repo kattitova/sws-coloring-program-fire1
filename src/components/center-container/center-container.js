@@ -268,7 +268,7 @@ export default class CenterContainer {
           // добаляем доп детали 2a,2b,2c,6d,6e,6f в лист Схематикс
           const symb = num === 2 ? 97 : 100;
           if (num === 2 || num === 6) {
-            const listItemDopContainer = create("div", ...["schematics__split-switch", "hidden"]);
+            const listItemDopContainer = create("div", "schematics__split-switch");
             listItemDopContainer.setAttribute("data-target", `split-design-${num}`);
             for (let j = symb; j < symb + 3; j += 1) {
               const listItemDop = create("div", "schematics__list-item");
@@ -292,7 +292,7 @@ export default class CenterContainer {
     }
   }
 
-  // кнопки Preview, Saev, Next, Back
+  // кнопки Preview, Save, Next, Back
   static getButtonsPanel() {
     const divButtonsPanel = create("div", "center-container__buttons-panel");
     divButtonsPanel.appendChild(CenterContainer.getMainButtons());

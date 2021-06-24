@@ -239,7 +239,7 @@
         "embroidery_img": "$50",
         "change_color": "$50",
         "change_trim_tape": "$50",
-        "split_design": "$50",
+        "split_design": 0,
         "4rings_black": "$225",
         "4rings_ss": "$225"
       }

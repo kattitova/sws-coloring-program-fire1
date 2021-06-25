@@ -5,7 +5,6 @@ import Excel from "exceljs";
 const dirname = path.resolve();
 const posJSON = fs.readFileSync("server/order-form-position.json", "utf8");
 const positions = JSON.parse(posJSON)[0];
-// console.log(JSON.parse(posJSON)[0].color);
 
 function spliceData(data) {
   const obj = {
@@ -194,4 +193,4 @@ function createOrderForm(data, lang, fileName) {
     });
 }
 
-export { createOrderForm };
+export { createOrderForm, spliceData };

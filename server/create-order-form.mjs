@@ -168,8 +168,10 @@ function createOrderForm(data, lang, fileName) {
                       row.commit();
                     }
                   }
-                  numRow = pos[value].row;
-                  numCell = pos[value].cell;
+                  if (flag) {
+                    numRow = pos[value].row;
+                    numCell = pos[value].cell;
+                  }
                 } else {
                   numRow = pos.row;
                   numCell = pos.cell;

@@ -157,7 +157,7 @@ function ReservePartsChangePrice() {
             if (flag[val]) {
               newPrice = mainPartsPrice - parseInt(price, 10);
               flag[val] = false;
-            }
+            } else newPrice = mainPartsPrice;
             break;
           default: break;
         }

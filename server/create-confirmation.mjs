@@ -22,6 +22,12 @@ function recalc(workbook) {
   // worksheet.state = 'hidden';
 }
 
+function setCamoOption(worksheet) {
+  const row = worksheet.getRow(32);
+  row.getCell(13).value = "x";
+  row.commit();
+}
+
 function createConfirmation(data, lang, fileName) {
   const workbook = new Excel.Workbook();
 
@@ -29,7 +35,10 @@ function createConfirmation(data, lang, fileName) {
     .then(() => {
       const worksheet = workbook.getWorksheet(1);
 
-      // TODO здесь организовать рассталение данных в ячейки
+      const servRow = worksheet.getRow(10);
+      servRow.getCell(4).value = "SWS Coloring Program";
+      servRow.commit();
+
       const obj = spliceData(data);
 
       Object.keys(obj).forEach((item) => {
@@ -51,11 +60,7 @@ function createConfirmation(data, lang, fileName) {
                 if (subItem.text.toLowerCase().includes("cam")) camoFlag = true;
               }
             });
-            if (camoFlag) {
-              const row = worksheet.getRow(32);
-              row.getCell(13).value = "x";
-              row.commit();
-            }
+            if (camoFlag) setCamoOption(worksheet);
             break;
           }
           // расставляем блок лучи и окантовка
@@ -63,24 +68,103 @@ function createConfirmation(data, lang, fileName) {
             obj[item].forEach((bp) => {
               const target = bp["data-target"];
               const pos = positions[item].filter(elem => elem["data-target"] === target)[0];
-              const row = worksheet.getRow(pos.row);
-              row.getCell(pos.cell).value = bp.text.toLowerCase() === "def" ? "" : bp.text;
-              row.commit();
+              if (bp.text.toLowerCase() !== "def" && bp.text.toLowerCase() !== "") {
+                const row = worksheet.getRow(pos.row);
+                row.getCell(pos.cell).value = bp.text;
+                row.commit();
+              }
+            });
+            break;
+          }
+          // расставляем блок опции
+          case "options": {
+            let camoFlag = false;
+            obj[item].forEach((options, ind) => {
+              const target = options["data-target"];
+              const pos = positions[item].filter(elem => elem["data-target"] === target)[0];
+              if (pos) {
+                let numRow;
+                let numCell;
+                let txt = "x";
+                let flag = true;
+                const { value } = options;
+                if (value !== "NULL") {
+                  if (ind < obj[item].length - 4) {
+                    if (value === "choose_color" || value === "soft_handle") {
+                      txt = options["data-color"];
+                      if (options["data-color"].toLowerCase().includes("cam")) camoFlag = true;
+                    }
+                    if (target === "swoop_options") {
+                      const swoopValue = value.split("+");
+                      swoopValue.forEach((val) => {
+                        const row = worksheet.getRow(pos[val].row);
+                        row.getCell(pos[val].cell).value = "x";
+                        row.commit();
+                      });
+                      flag = false;
+                    }
+                    if (target === "main_pc" || target === "main_deployment_handle") {
+                      if (options["data-color"] !== null && options["data-color"] !== "") {
+                        const row = worksheet.getRow(pos["data-color"].row);
+                        row.getCell(pos["data-color"].cell).value = options["data-color"];
+                        row.commit();
+                        if (options["data-color"].toLowerCase().includes("cam")) camoFlag = true;
+                      } else if (target === "main_pc") {
+                        const row = worksheet.getRow(40);
+                        row.getCell(19).value = "x";
+                        row.commit();
+                      }
+                    }
+                    if (flag) {
+                      numRow = pos[value].row;
+                      numCell = pos[value].cell;
+                    }
+                  } else {
+                    numRow = pos.row;
+                    numCell = pos.cell;
+                    if (target === "special_instructions") {
+                      txt = options.text;
+                    }
+                  }
+                  if (flag) {
+                    const row = worksheet.getRow(numRow);
+                    row.getCell(numCell).value = txt;
+                    row.commit();
+                  }
+                }
+              }
+            });
+            if (camoFlag) setCamoOption(worksheet);
+            break;
+          }
+          // расставляем блок Логотипы
+          case "logo": {
+            obj[item].forEach((logo) => {
+              const target = logo["data-target"];
+              const { value } = logo;
+              const pos = positions[item].filter(elem => elem["data-target"] === target)[0];
+              let numCell;
+              if (value !== "NULL") {
+                switch (value) {
+                  case "custom_text": numCell = pos.cell + 3; break;
+                  case "custom_logo": numCell = pos.cell + 6; break;
+                  default: numCell = pos.cell; break;
+                }
+                const row = worksheet.getRow(pos.row);
+                row.getCell(numCell).value = "x";
+                row.getCell(pos.cell + 7).value = logo["data-color"];
+                row.commit();
+                if (value === "custom_text") {
+                  const rowTxt = worksheet.getRow(44);
+                  rowTxt.getCell(1).value = `${rowTxt.getCell(1).text}\n${target}: ${logo["data-text"]}`.trim();
+                }
+              }
             });
             break;
           }
           default: break;
         }
       });
-
-      let row = worksheet.getRow(22);
-      row.getCell(23).value = "x";
-      row.commit();
-
-      row = worksheet.getRow(23);
-      row.getCell(19).value = "x";
-      row.commit();
-
       // --------------------
 
       return workbook.xlsx.writeFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`);

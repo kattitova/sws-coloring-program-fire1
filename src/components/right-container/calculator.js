@@ -96,7 +96,7 @@ function checkAddedOption(parrent, select, title, value, subtitle, remove) {
         metals.forEach((metal) => {
           const { id } = metal;
           if (id === "metal-cad") {
-            metal.checked = true;
+            metal.nextElementSibling.click();
           } else {
             metal.checked = false;
             metal.classList.add("disabled");

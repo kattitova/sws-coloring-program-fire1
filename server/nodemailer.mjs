@@ -1,4 +1,8 @@
 import nodemailer from "nodemailer";
+import path from "path";
+import fs from "fs";
+
+const dirname = path.resolve();
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -6,11 +10,18 @@ const transporter = nodemailer.createTransport({
     user: "sws.nodemailer@gmail.com",
     pass: "sws.nodemailer.2021",
   },
+  // host: "smtp.gmail.com",
+  // port: 465,
+  // secure: true,
+  // auth: {
+  //   user: "sws.nodemailer@gmail.com",
+  //   pass: "sws.nodemailer.2021",
+  // },
 });
 
 const adminEmail = "titova.kat.85@gmail.com"; // TODO change on order@sws.aero
 // const copyEmail = "skyinsur@gmail.com";
-const fromName = "SWS Coloring Program";
+const fromName = "SWS Constructor Form";
 
 // отправка письма из контактной формы
 async function sendContactMail(data) {
@@ -35,4 +46,27 @@ async function sendContactMail(data) {
   console.log(result);
 }
 
-export { sendContactMail };
+// отправка письма С заказом
+async function sendOrderMail(fileName, name, email, phone) {
+  const filePath = `${dirname}/server/orders/Fire1_OrderFormRu_${fileName}.xlsx`;
+  const result = await transporter.sendMail({
+    from: `"${fromName}" <${adminEmail}>`,
+    to: adminEmail,
+    // bcc: copyEmail, // hidden email copy
+    subject: "Fire1: Оформлен новый заказ",
+    html: `Вы получили заказ на ранец Fire1<br>
+    Заказчик: ${name}<br>
+    E-mail: ${email}<br>
+    Телефон: ${phone}`,
+    attachments: [
+      { filename: `Fire1_OrderFormRu_${fileName}.xlsx`, path: filePath },
+      // { filename: `Fire1_OrderFormEng_${fileName}.xlsx`, path: filePath },
+      // { filename: `Fire1_OrderConfirmationRu_${fileName}.xlsx`, path: filePath },
+      // { filename: `Fire1_OrderConfirmationEng_${fileName}.xlsx`, path: filePath },
+    ],
+  });
+
+  console.log(result);
+}
+
+export { sendContactMail, sendOrderMail };

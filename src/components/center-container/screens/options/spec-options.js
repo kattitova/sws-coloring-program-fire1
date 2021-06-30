@@ -242,10 +242,6 @@ function addCamoToCalc() {
   function func() {
     const camoFlag = checkCamo(form);
     if (camoFlag) Calc.addCalcBlock(calc, "camo_pattern", price, "", "solo");
-    else {
-      Calc.removeBlock("camo_pattern", "");
-      Calc.sumTotal();
-    }
   }
 
   const optionsTab = document.querySelector(".tabs-list__tabs-item.options");

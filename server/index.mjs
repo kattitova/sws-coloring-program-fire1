@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
-import { sendContactMail } from "./nodemailer.mjs";
+import { sendContactMail, sendOrderMail } from "./nodemailer.mjs";
 import { saveColoring } from "./save-coloring.mjs";
 import { createOrderForm } from "./create-order-form.mjs";
 import { createConfirmation } from "./create-confirmation.mjs";
@@ -45,11 +45,17 @@ app.post("/enter-code", jsonParser, (req, res) => {
   // res.redirect("back");
 });
 
+function getDataByTarget(data, target) {
+  return data.filter(elem => elem["data-target"] === target)[0];
+}
+
 app.post("/send-order", jsonParser, (req, res) => {
   console.log(req.body);
   const data = req.body;
-  const name = data.filter(elem => elem["data-target"] === "full_name")[0];
-  const dealer = data.filter(elem => elem["data-target"] === "dealer")[0];
+  const name = getDataByTarget(data, "full_name");
+  const dealer = getDataByTarget(data, "dealer");
+  const email = getDataByTarget(data, "email");
+  const phone = getDataByTarget(data, "phone");
   const dealerValue = dealer.value === "NULL" ? "No dealer" : dealer.text;
   const date = new Date();
   const getDateNow = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}_${date.getHours()}.${date.getMinutes()}`;
@@ -58,6 +64,8 @@ app.post("/send-order", jsonParser, (req, res) => {
     createOrderForm(data, "Ru", fileName);
     createOrderForm(data, "Eng", fileName);
     createConfirmation(data, "Ru", fileName);
+    createConfirmation(data, "Eng", fileName);
+    setTimeout(() => sendOrderMail(fileName, name.text, email.text, phone.text), 15000);
     res.send({ result: "ok" });
   } catch (e) {
     console.log(e);

@@ -318,7 +318,7 @@ function isValid(type, str) {
   return reg.test(str);
 }
 
-// только для Файр1
+// !!! только для Файр1
 // при загрузке приложения кликаем на обе кнопки Split Design
 // и скрываем их в стилях
 function hideSplitButton() {

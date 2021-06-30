@@ -19,7 +19,7 @@ function recalc(workbook) {
     }
   });
   // make worksheet hidden
-  // worksheet.state = 'hidden';
+  worksheet.state = "hidden";
 }
 
 function setCamoOption(worksheet) {
@@ -36,7 +36,7 @@ function createConfirmation(data, lang, fileName) {
       const worksheet = workbook.getWorksheet(1);
 
       const servRow = worksheet.getRow(10);
-      servRow.getCell(4).value = "SWS Coloring Program";
+      servRow.getCell(4).value = "SWS Constructor Form";
       servRow.commit();
 
       const obj = spliceData(data);
@@ -170,16 +170,12 @@ function createConfirmation(data, lang, fileName) {
       return workbook.xlsx.writeFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`);
     })
     .then(() => {
-      console.log("xlsx file is written");
       const book = new Excel.Workbook();
       book.xlsx.readFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`)
         .then(() => {
           book.calcProperties.fullCalcOnLoad = true;
           recalc(book);
           return book.xlsx.writeFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`);
-        })
-        .then(() => {
-          console.log("xlsx file is recalc");
         });
     });
 }

@@ -7,6 +7,7 @@ import Footer from "./components/footer/footer";
 import funcInit from "./components/functions";
 import getFormConstructor from "./components/form-constructor";
 import getDealerList from "./components/dealer-list/dealer-list";
+import getContactForm from "./components/contact-form/contact-form";
 
 if (localStorage.getItem("color") !== null) localStorage.removeItem("color");
 LeftContainer.init();
@@ -16,3 +17,4 @@ Footer.init();
 getFormConstructor();
 funcInit();
 getDealerList();
+getContactForm();

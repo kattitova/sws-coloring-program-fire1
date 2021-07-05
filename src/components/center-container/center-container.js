@@ -4,8 +4,9 @@ import getIsometric from "./screens/container/container-isometric";
 import getFront from "./screens/container/container-front";
 import getBack from "./screens/container/container-back";
 import getSide from "./screens/container/container-side";
-import infoJSON from "./info-inputs.json";
+import infoJSON from "./info.json";
 import genInputs from "./get-inputs";
+import { getPreviewScreen } from "./screens/preview/preview";
 
 // объект с пунктами меню, для каждого пункта описаны виды,
 // и функция, которая выводит каждую схему ранца
@@ -13,20 +14,20 @@ const objPositionTabs = {
   container: {
     isometric: getIsometric,
     front: getFront,
-    back: getBack, // change on getBack
-    side: getSide, // change on getSide
+    back: getBack,
+    side: getSide,
   },
   harness: {
-    back: getBack, // change on getBackHarness
+    back: getBack,
   },
   binding_pinstripes: {
-    front: getFront, // change on FrontBP
-    back: getBack, // change on getBackBP
+    front: getFront,
+    back: getBack,
   },
   logos: {
-    front: getFront, // change on FrontLogos
-    back: getBack, // change on getBackLogos
-    side: getSide, // change on getSideLogos
+    front: getFront,
+    back: getBack,
+    side: getSide,
   },
 };
 
@@ -45,7 +46,7 @@ export default class CenterContainer {
   static getConstructor() {
     const divConstructor = create("div", "center-container__constructor");
 
-
+    arrTabs.push("preview");
     arrTabs.forEach((i) => {
       // генерируем экраны для разделов меню
       const screen = create("div", ...["constructor__item", `${i}`]);
@@ -102,13 +103,55 @@ export default class CenterContainer {
                 tip.appendChild(tipText);
                 tip.appendChild(document.createTextNode(" - "));
                 const price = create("span");
-                price.setAttribute("data-id", "price74");
+                price.setAttribute("data-id", "split_design");
                 tip.appendChild(price);
 
                 splitButtons.appendChild(tip);
                 panel.appendChild(splitButtons);
               }
             }
+            screen.appendChild(panel);
+          }
+
+          // добавляем info для вышивок только для раздела logos
+          if (i === "logos") {
+            const arr = [
+              {
+                title: "custom_text",
+                msg: "Select container panel and enter your text here:",
+                textarea: "all text should be placed inside this figure and should be horizontal center aligned",
+              },
+              {
+                title: "custom_logo",
+                msg: "Please contact your dealer for details.",
+              },
+            ];
+            arr.forEach((itemLogo) => {
+              const block = create("div", "panel__block");
+              block.setAttribute("data-id", itemLogo.title);
+
+              const label = create("div", "panel__block--label");
+              label.setAttribute("data-lang", `${itemLogo.title}_msg`);
+              label.textContent = itemLogo.msg;
+              block.appendChild(label);
+
+              if (itemLogo.textarea) {
+                const textarea = create("textarea", "panel__block--text");
+                textarea.setAttribute("placeholder", itemLogo.textarea);
+                textarea.setAttribute("data-lang", `${itemLogo.title}_placeholder`);
+                block.appendChild(textarea);
+              }
+
+              panel.appendChild(block);
+            });
+
+            // общая информация на панели для логотипов
+            const logoInfo = create("div", "panel__info");
+            logoInfo.setAttribute("data-lang", "logos_info");
+            logoInfo.textContent = `Color logos in one or two colors.
+            Use the default logo colors,
+            or create your own color scheme.`;
+            panel.appendChild(logoInfo);
 
             screen.appendChild(panel);
           }
@@ -129,7 +172,7 @@ export default class CenterContainer {
           pinstrapButton.appendChild(pinB);
 
           const pinSpan = create("span");
-          pinSpan.setAttribute("data-id", "price68");
+          pinSpan.setAttribute("data-id", "pinstripes");
 
           pinstrapButton.appendChild(pinSpan);
           switcherBlock.appendChild(pinstrapButton);
@@ -152,7 +195,7 @@ export default class CenterContainer {
       }
 
       if (i === "information") {
-        screen.appendChild(genInputs(infoJSON[0], "info"));
+        screen.appendChild(genInputs(infoJSON[0], "information"));
       }
 
       if (i === "sizes") {
@@ -161,6 +204,10 @@ export default class CenterContainer {
 
       if (i === "options") {
         screen.appendChild(genInputs(infoJSON[2], "options"));
+      }
+
+      if (i === "preview") {
+        screen.appendChild(getPreviewScreen());
       }
 
       divConstructor.appendChild(screen);
@@ -221,7 +268,7 @@ export default class CenterContainer {
           // добаляем доп детали 2a,2b,2c,6d,6e,6f в лист Схематикс
           const symb = num === 2 ? 97 : 100;
           if (num === 2 || num === 6) {
-            const listItemDopContainer = create("div", ...["schematics__split-switch", "hidden"]);
+            const listItemDopContainer = create("div", "schematics__split-switch");
             listItemDopContainer.setAttribute("data-target", `split-design-${num}`);
             for (let j = symb; j < symb + 3; j += 1) {
               const listItemDop = create("div", "schematics__list-item");
@@ -245,7 +292,7 @@ export default class CenterContainer {
     }
   }
 
-  // кнопки Preview, Saev, Next, Back
+  // кнопки Preview, Save, Next, Back
   static getButtonsPanel() {
     const divButtonsPanel = create("div", "center-container__buttons-panel");
     divButtonsPanel.appendChild(CenterContainer.getMainButtons());
@@ -255,6 +302,19 @@ export default class CenterContainer {
 
   static getMainButtons() {
     const divMainButtons = create("div", "buttons-panel__main-buttons");
+
+    const mainButtonsInfoBlock = create("div", "main-buttons__info-block");
+    const arrMainInfo = ["order coordination", "order procedures", "order confirmation"];
+    arrMainInfo.forEach((info, ind) => {
+      const link = create("a", ...["info-block", `info-${ind + 1}`]);
+      link.setAttribute("href", `./images/${info.replace(" ", "")}.pdf`);
+      link.setAttribute("target", "blank");
+      link.setAttribute("data-lang", info.replace(" ", "_"));
+      link.textContent = info;
+      mainButtonsInfoBlock.appendChild(link);
+    });
+    divMainButtons.appendChild(mainButtonsInfoBlock);
+
     const arrMainButtons = ["preview", "save"];
     arrMainButtons.forEach((i) => {
       const button = create("button", `main-buttons__${i}`);
@@ -267,11 +327,9 @@ export default class CenterContainer {
 
   static getNavigationButtons() {
     const divNavigationButtons = create("div", "buttons-panel__navigation-buttons");
-    const arrNavButtons = ["back", "next", "preview"];
+    const arrNavButtons = ["back", "next", "preview", "order"];
     arrNavButtons.forEach((i) => {
-      let button;
-      if (i === "preview") button = create("button", ...[`navigation-buttons__${i}`, `navigation-buttons__${i}--hidden`]);
-      else button = create("button", `navigation-buttons__${i}`);
+      const button = create("button", ...["navigation-buttons", i]);
       button.setAttribute("data-lang", i);
       button.textContent = i;
       divNavigationButtons.appendChild(button);

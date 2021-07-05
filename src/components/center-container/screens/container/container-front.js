@@ -126,22 +126,22 @@ c-0.492-1.671-1.279-3.244-2.263-4.03c-0.591-0.492-1.477-1.18-2.46-1.868c0,0,8.75
 C70.368,68.326,74.994,75.7,78.143,75.7z"/>
 <path data-id="area-6" class="schema__element" fill="#5782A3" stroke="#9AB7CD" stroke-width="2" stroke-miterlimit="10" d="M149.2,81.894h-27.558h-6.594h-6.692
 H80.8h-2.657l16.632,94.773h13.582h6.692h6.594h13.582l16.633-94.773H149.2z"/>
-<polygon data-id="area-6d" class="schema__element hidden" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" points="108.357,82.9 80.8,82.9 78.143,82.9 
+<polygon data-id="area-6d" class="schema__element" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" points="108.357,82.9 80.8,82.9 78.143,82.9 
 94.775,177.672 99.924,177.672 114.14,82.9 "/>
-<polygon data-id="area-6e" class="schema__element hidden" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" points="114.14,82.9 99.924,177.672 108.357,177.672 
+<polygon data-id="area-6e" class="schema__element" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" points="114.14,82.9 99.924,177.672 108.357,177.672 
 115.049,177.672 121.643,177.672 129.076,177.672 114.86,82.9 "/>
-<polygon data-id="area-6f" class="schema__element hidden" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" points="151.857,82.9 149.199,82.9 121.643,82.9 
+<polygon data-id="area-6f" class="schema__element" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" points="151.857,82.9 149.199,82.9 121.643,82.9 
 115.049,82.9 114.86,82.9 129.076,177.672 135.225,177.672 "/>
-<path data-id="area-2" class="schema__element" fill="#5782A3" stroke="#9AB7CD" stroke-width="2" stroke-miterlimit="10" d="M141.818,176.667h-6.594h-13.582h-6.594
+<path data-id="area-2" data-logo="central-detail" class="schema__element logo-area" fill="#5782A3" stroke="#9AB7CD" stroke-width="2" stroke-miterlimit="10" d="M141.818,176.667h-6.594h-13.582h-6.594
 h-6.594h-13.68h-6.594c0,0-27.557,66.064-29.132,69.899c9.448,15.238,19.093,34.114,27.655,43.748h5.216h15.55h7.578h7.578h15.55
 h5.216c8.465-9.634,18.109-28.412,27.558-43.552C168.588,241.356,141.818,176.667,141.818,176.667z"/>
-<path data-id="area-2a" class="schema__element hidden" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M94.683,177.672h-6.594c0,0-3.324,7.97-7.729,18.531
+<path data-id="area-2a" class="schema__element" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M94.683,177.672h-6.594c0,0-3.324,7.97-7.729,18.531
 c-8.278,19.852-20.375,48.864-21.402,51.367c3.486,5.622,6.998,11.739,10.473,17.705c4.972,8.535,9.867,16.753,14.498,22.772
 l16.038-110.377L94.683,177.672L94.683,177.672z"/>
-<path data-id="area-2b" class="schema__element hidden" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M121.55,177.672h-6.594h-6.594h-8.396L83.929,288.049
+<path data-id="area-2b" data-logo="central-detail" class="schema__element logo-area" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M121.55,177.672h-6.594h-6.594h-8.396L83.929,288.049
 c0.905,1.176,1.8,2.277,2.684,3.271h5.217h15.549h7.578h7.578h15.551h5.215c0.631-0.717,1.27-1.499,1.911-2.312l-16.178-111.336
 H121.55z"/>
-<path data-id="area-2c" class="schema__element hidden" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M149.829,197.24
+<path data-id="area-2c" class="schema__element" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M149.829,197.24
 c-4.593-11.081-8.104-19.568-8.104-19.568h-6.594h-6.099l16.178,111.336c4.856-6.146,10.058-14.885,15.351-23.938
 c3.414-5.839,6.867-11.808,10.297-17.301C169.352,244.318,157.915,216.755,149.829,197.24z"/>
 

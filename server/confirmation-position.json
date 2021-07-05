@@ -1,0 +1,542 @@
+[
+  { 
+  "color": [
+     {
+      "data-target": "area-1",
+      "row": 14,
+      "cell": 6
+    },
+   {
+     "data-target": "area-2a",
+      "row": 15,
+      "cell": 6
+   },
+   {
+     "data-target": "area-2b",
+     "row": 16,
+      "cell": 6
+   },
+   {
+     "data-target": "area-2c",
+     "row": 17,
+      "cell": 6
+   },
+   {
+     "data-target": "area-3",
+     "row": 18,
+      "cell": 6
+   },
+   {
+     "data-target": "area-4",
+     "row": 19,
+      "cell": 6
+   },
+   {
+     "data-target": "area-5",
+     "row": 20,
+      "cell": 6
+   },
+   {
+     "data-target": "area-6d",
+     "row": 21,
+      "cell": 6
+   },
+   {
+     "data-target": "area-6e",
+     "row": 22,
+      "cell": 6
+   },
+   {
+     "data-target": "area-6f",
+     "row": 23,
+      "cell": 6
+   },
+   {
+     "data-target": "area-7",
+     "row": 24,
+      "cell": 6
+   },
+   {
+     "data-target": "area-8",
+     "row": 25,
+      "cell": 6
+   },
+   {
+     "data-target": "area-9",
+     "row": 26,
+      "cell": 6
+   },
+   {
+     "data-target": "area-10",
+     "row": 27,
+      "cell": 6
+   },
+   {
+     "data-target": "area-11",
+    "row": 28,
+      "cell": 6
+   },
+   {
+     "data-target": "area-12",
+     "row": 29,
+      "cell": 6
+   },
+   {
+     "data-target": "area-13",
+     "row": 30,
+      "cell": 6
+   },
+   {
+     "data-target": "area-14",
+     "row": 36,
+      "cell": 4
+   }
+  ],
+  "bp": [
+    {
+     "data-target": "pinstripes-ab",
+     "row": 34,
+      "cell": 3
+   },
+   {
+     "data-target": "pinstripes-bc",
+     "row": 34,
+      "cell": 6
+   },
+   {
+     "data-target": "pinstripes-de",
+     "row": 33,
+      "cell": 3
+   },
+   {
+     "data-target": "pinstripes-ef",
+     "row": 33,
+      "cell": 6
+   },
+   {
+     "data-target": "pinstripes-3",
+     "row": 35,
+      "cell": 4
+   },
+   {
+     "data-target": "pinstripes-9",
+     "row": 32,
+      "cell": 4
+   },
+   {
+     "data-target": "binding",
+     "row": 36,
+      "cell": 9
+   }
+  ],
+   "logo": [
+     {
+     "data-target": "left-side",
+     "row": 41,
+      "cell": 5
+   },
+   {
+     "data-target": "right-side",
+     "row": 40,
+      "cell": 5
+   },
+   {
+     "data-target": "rc-left",
+     "row": 39,
+      "cell": 5
+   },
+   {
+     "data-target": "rc-right",
+     "row": 38,
+      "cell": 5
+   },
+   {
+     "data-target": "central-detail",
+     "row": 42,
+      "cell": 5
+   }
+  ],
+   "info": [
+     {
+     "data-target": "dealer",
+     "row": 8,
+      "cell": 4
+   },
+   {
+     "data-target": "full_name",
+     "row": 9,
+      "cell": 4
+   }
+  ],
+   "sizes": [
+     {
+     "data-target": "measurement_units",
+     "row": 7,
+      "cell": 25
+   },
+   {
+     "data-target": "sex",
+     "row": 8,
+      "cell": 21
+   },
+   {
+     "data-target": "height",
+     "row": 9,
+      "cell": 21
+   },
+   {
+     "data-target": "weight",
+    "row": 10,
+      "cell": 21
+   },
+   {
+     "data-target": "chest",
+     "row": 11,
+      "cell": 21
+   },
+   {
+     "data-target": "belly",
+     "row": 12,
+      "cell": 21
+   },
+   {
+     "data-target": "torso",
+     "row": 8,
+      "cell": 25
+   },
+   {
+     "data-target": "legstrap",
+     "row": 9,
+      "cell": 25
+   },
+   {
+     "data-target": "thigh",
+    "row": 10,
+      "cell": 25
+   },
+   {
+     "data-target": "size_a",
+     "row": 11,
+      "cell": 25
+   },
+   {
+     "data-target": "inseam",
+    "row": 12,
+      "cell": 25
+   },
+   {
+     "data-target": "harness",
+       "row": 12,
+      "cell": 15
+   },
+   {
+     "data-target": "container",
+       "row": 12,
+      "cell": 17
+   },
+   {
+     "data-target": "main_canopy",
+      "row": 10,
+      "cell": 15
+   },
+   {
+     "data-target": "reserve_canopy",
+      "row": 11,
+      "cell": 15
+   }
+  ],
+  "options": [
+    {
+     "data-target": "metal",
+     "cad": {
+        "row": 18,
+      "cell": 19
+     },
+     "black": {
+        "row": 18,
+      "cell": 23
+     },
+     "ss": {
+        "row": 18,
+      "cell": 26
+     }
+   },
+   {
+     "data-target": "3-rings",
+     "mini": {
+        "row": 19,
+        "cell": 19
+     },
+     "big": {
+        "row": 19,
+        "cell": 23
+     }
+   },
+   {
+     "data-target": "harness_type",
+     "2rings": {
+        "row": 20,
+        "cell": 19
+     },
+     "4rings": {
+        "row": 20,
+        "cell": 23
+     },
+     "adjustable": {
+        "row": 20,
+        "cell": 26
+     }
+   },
+   {
+     "data-target": "chest_strap",
+     "narrow": {
+        "row": 21,
+        "cell": 19
+     },
+     "wide": {
+        "row": 21,
+        "cell": 23
+     }
+   },
+   {
+     "data-target": "legstrap_buckles",
+     "thread_thru": {
+        "row": 22,
+        "cell": 19
+     },
+     "b12": {
+        "row": 22,
+        "cell": 23
+     }
+   },
+   {
+     "data-target": "risers",
+     "narrow": {
+        "row": 23,
+        "cell": 19
+     },
+     "wide": {
+        "row": 23,
+        "cell": 23
+     }
+   },
+   {
+     "data-target": "swoop_options",
+     "additional_ring": {
+        "row": 24,
+        "cell": 19
+     },
+     "dive_loops": {
+        "row": 24,
+        "cell": 23
+     },
+     "low_profile_risers": {
+        "row": 24,
+        "cell": 26
+     }
+   },
+   {
+     "data-target": "riser_length",
+     "500mm": {
+        "row": 25,
+        "cell": 19
+     },
+     "550mm": {
+        "row": 25,
+        "cell": 23
+     },
+     "600mm": {
+        "row": 25,
+        "cell": 26
+     }
+   },
+   {
+     "data-target": "main_container",
+     "standard": {
+        "row": 28,
+        "cell": 19
+     },
+     "wingmode": {
+        "row": 28,
+        "cell": 23
+     }
+   },
+   {
+     "data-target": "backpad",
+      "parapack": {
+        "row": 29,
+        "cell": 19
+     },
+     "spacer_foam": {
+        "row": 29,
+        "cell": 23
+     }
+   },
+   {
+     "data-target": "laterals",
+     "standard": {
+        "row": 30,
+        "cell": 19
+     },
+     "cut_in": {
+        "row": 30,
+        "cell": 23
+     }
+   },
+   {
+     "data-target": "legstrap",
+     "standard": {
+        "row": 31,
+        "cell": 19
+     },
+     "narrow": {
+        "row": 31,
+        "cell": 23
+     }
+   },
+   {
+     "data-target": "cutaway_handle",
+     "red": {
+        "row": 33,
+        "cell": 19
+     },
+     "choose_color": {
+        "row": 33,
+        "cell": 24
+     }
+   },
+   {
+     "data-target": "reserve_handle",
+     "d_ring": {
+        "row": 34,
+        "cell": 19
+     },
+     "soft_handle": {
+        "row": 34,
+        "cell": 24
+     }
+   },
+   {
+     "data-target": "rsl",
+     "no": {
+        "row": 35,
+        "cell": 19
+     },
+     "brass": {
+        "row": 35,
+        "cell": 23
+     },
+     "ss": {
+        "row": 35,
+        "cell": 26
+     }
+   },
+   {
+     "data-target": "drd",
+     "no": {
+        "row": 36,
+        "cell": 19
+     },
+     "brass": {
+        "row": 36,
+        "cell": 23
+     },
+     "ss": {
+        "row": 36,
+        "cell": 26
+     }
+   },
+   {
+     "data-target": "main_deployment_handle",
+     "pod": {
+        "row": 38,
+        "cell": 15
+     },
+     "hackey": {
+        "row": 38,
+        "cell": 17
+     },
+     "hackey_pod": {
+        "row": 38,
+        "cell": 20
+     },
+     "tube": {
+        "row": 38,
+        "cell": 23
+     },
+     "data-color": {
+      "row": 38,
+      "cell": 25
+     }
+   },
+   {
+     "data-target": "main_pc",
+     "zp": {
+        "row": 39,
+        "cell": 19
+     },
+     "f_111": {
+        "row": 39,
+        "cell": 24
+     },
+     "data-color": {
+      "row": 40,
+      "cell": 24
+     }
+   },
+   {
+     "data-target": "bridle",
+     "2m": {
+      "row": 41,
+      "cell": 19
+     },
+     "wingmode_3m": {
+      "row": 41,
+      "cell": 24
+     }
+   },
+   {
+     "data-target": "main_dbag",
+     "standard": {
+      "row": 42,
+      "cell": 19
+     },
+     "lazy_bag": {
+      "row": 42,
+      "cell": 24
+     }
+   },
+   {
+     "data-target": "hook-knife",
+     "plastic": {
+      "row": 45,
+      "cell": 20
+     },
+     "metal": {
+      "row": 45,
+      "cell": 26
+     }
+   },
+   {
+     "data-target": "main_parts_kit",
+      "row": 46,
+      "cell": 26
+   },
+   {
+     "data-target": "reserve_parts_kit",
+      "row": 47,
+      "cell": 26
+   },
+   {
+     "data-target": "assemble_at_sws",
+      "row": 48,
+      "cell": 26
+   },
+   {
+     "data-target": "special_instructions",
+     "row": 50,
+     "cell": 1
+   }
+  ]
+}
+]

@@ -17,6 +17,9 @@ export default function posClick() {
       const positions = posList.querySelectorAll(".tabs-list__position-item");
       const allSchemas = item.querySelectorAll(".constructor__schema");
       const allPanels = item.querySelectorAll(".constructor__panel");
+      const allLogos = item.querySelectorAll(".constructor__logos");
+      const allDetails = item.querySelectorAll(".schema__element");
+
       posList.addEventListener("click", (e) => {
         positions.forEach((pos) => {
           if (pos.classList.contains("active")) activeTab = pos;
@@ -27,11 +30,20 @@ export default function posClick() {
         allPanels.forEach((panel) => {
           panel.classList.remove("active");
         });
+        allLogos.forEach((logos) => {
+          logos.classList.remove("active");
+        });
+        allDetails.forEach((det) => {
+          det.classList.remove("active");
+        });
+
         const activePos = e.target.className.split(" ");
         item.querySelector(`.constructor__schema.${activePos[1]}`).classList.add("active");
-        // если появится боковая панель у окантовки и/или логотипов,
-        // то это условие убрать / скорректировать
-        if (item.classList.contains("container") || item.classList.contains("harness")) {
+        const logos = item.querySelectorAll(`.constructor__logos.${activePos[1]}`);
+        logos.forEach((logo) => {
+          logo.classList.add("active");
+        });
+        if (item.classList.contains("container") || item.classList.contains("harness") || item.classList.contains("logos")) {
           item.querySelector(`.constructor__panel.${activePos[1]}`).classList.add("active");
         }
         setActive(e.target);

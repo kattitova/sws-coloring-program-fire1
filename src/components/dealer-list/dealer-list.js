@@ -1,4 +1,5 @@
 import create from "../create";
+import { getCloseButton } from "../close-button";
 import json from "./dealers.json";
 
 const modal = document.querySelector(".modal-dealer");
@@ -50,7 +51,6 @@ function getDealerItem(country) {
     const button = create("button", "dealer-item-choose");
     button.textContent = "choose a dealer";
     button.setAttribute("data-lang", "choose_a_dealer");
-    // TODO set chosed dealer to info dealer input
     button.addEventListener(("click"), () => {
       const input = document.querySelector(".data-row__input[data-val=\"dealer\"]");
       input.textContent = dealer.name;
@@ -67,13 +67,7 @@ function getDealerItem(country) {
 
 function getDealerForm() {
   const form = create("div", "dealer-form");
-
-  const closeButton = create("button", "modal-close");
-  closeButton.innerHTML = "<i class=\"fas fa-times\"></i>";
-  closeButton.addEventListener("click", () => {
-    modal.classList.toggle("open");
-  });
-  form.appendChild(closeButton);
+  form.appendChild(getCloseButton(modal));
 
   const title = create("div", "modal-title");
   title.textContent = "Find a Dealer";

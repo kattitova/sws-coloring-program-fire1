@@ -76,13 +76,15 @@
     margin-right: 10px;
   }
 
-  .right-container__color-panel {
+  .right-container__color-panel,
+  .right-container__logo-panel {
     background: #1b4c70;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(42, 59, 76, 0.5);
     overflow: hidden;
 
-    .color-panel__title {
+    .color-panel__title,
+    .logo-panel__title {
       @include flex;
       background: #12334b;
       font-size: 12px;
@@ -90,6 +92,23 @@
       height: 48px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+    }
+
+    .color-panel__title {
+      &::after {
+        @include font-awesome;
+        content: "\f05a";
+        font-size: 20px;
+        margin-left: 10px;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        &::after {
+          color: #fff;
+        }
+      }
     }
 
     .color-panel__footer {
@@ -101,6 +120,10 @@
       opacity: 0.25;
       padding: 10px;
       text-align: center;
+    }
+
+    .logo-panel__logos-palette {
+      padding: 10px 16px 16px;
     }
 
     .color-panel__colors-palette {
@@ -267,6 +290,10 @@
 }
 
 .right-container__template-panel {
+  .right-container__logo-panel {
+    display: none;
+  }
+
   &.binding_pinstripes,
   &.logos {
     .colors-palette__camo-block,
@@ -276,8 +303,23 @@
   }
 
   &.logos {
+    .right-container__logo-panel {
+      display: flex;
+      flex-direction: column;
+    }
+
     .template-panel__button-clear {
       display: none;
+    }
+
+    .right-container__color-panel {
+      .pick-block__colors button.def {
+        display: none;
+      }
+
+      .color-panel__footer {
+        display: none;
+      }
     }
   }
 }
@@ -390,7 +432,8 @@
 
 .right-container__template-panel.information,
 .right-container__template-panel.sizes,
-.right-container__template-panel.options {
+.right-container__template-panel.options,
+.right-container__template-panel.preview {
   .right-container__color-panel,
   .template-panel__button-apply,
   .template-panel__button-clear {
@@ -429,5 +472,14 @@
         margin-top: 20px;
       }
     }
+  }
+}
+
+.right-container__template-panel.container,
+.right-container__template-panel.harness,
+.right-container__template-panel.binding_pinstripes,
+.right-container__template-panel.logo {
+  .right-container__contact-panel {
+    display: none;
   }
 }

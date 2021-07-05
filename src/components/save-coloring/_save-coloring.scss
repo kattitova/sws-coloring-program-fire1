@@ -1,0 +1,76 @@
+.modal-save {
+  display: none;
+
+  &.open {
+    @include flex;
+    padding: 80px 20px;
+  }
+
+  .save-block {
+    background: #246595;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 400px;
+    z-index: 2;
+
+    .modal-container {
+      @include flex;
+      overflow: hidden;
+      position: relative;
+    }
+
+    &__code {
+      background: none;
+      border: 0;
+      font-weight: 900;
+      margin-left: 8px;
+      outline: none;
+      width: 50px;
+    }
+
+    &__copy-button {
+      background: 0 0;
+      border: 0;
+      font-size: 18px;
+      margin-left: 8px;
+      opacity: 0.5;
+      padding: 0;
+      position: relative;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    .copy-alert {
+      @include flex;
+      @include size(160px, 35px);
+      background: #192837;
+      border-radius: 4px;
+      box-shadow: 0 15px 35px rgb(0 0 0 / 30%);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      left: 50%;
+      opacity: 0;
+      position: absolute;
+      text-transform: uppercase;
+      top: calc(50% + 50px);
+      transform: translate(-50%, -50%);
+      transition: 0.2s;
+      visibility: hidden;
+      z-index: 2;
+
+      &.active {
+        opacity: 1;
+        top: 50%;
+        visibility: visible;
+      }
+    }
+  }
+}

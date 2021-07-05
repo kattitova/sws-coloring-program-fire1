@@ -12,9 +12,18 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 module.exports = {
   mode: "development",
 
+  entry: {
+    main: path.resolve(__dirname, "./src/index.js"),
+  },
+
+  output: {
+    path: path.resolve(__dirname, "./dist"),
+    filename: "bundle.js",
+  },
+
   devServer: {
     historyApiFallback: true,
-    contentBase: path.resolve(__dirname, "./public"),
+    contentBase: path.resolve(__dirname, "./dist"),
     open: true,
     compress: true,
     hot: true,
@@ -56,7 +65,6 @@ module.exports = {
       new CssMinimizerPlugin(),
     ],
   },
-
   module: {
     rules: [
       // JavaScript

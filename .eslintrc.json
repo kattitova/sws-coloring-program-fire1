@@ -17,6 +17,7 @@
         "quotes": [
             "error",
             "double"
-        ]
+        ],
+        "import/prefer-default-export": false
     }
 }

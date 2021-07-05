@@ -331,8 +331,8 @@ c9.508,3.979,21.861,8.201,21.861,8.201L83.312,247.031z"/>
 <path fill="#5782A3" stroke="#91AABF" stroke-miterlimit="10" d="M115.412,125.626H94.851v12.019h20.561V125.626z"/>
 <path fill="#5782A3" stroke="#91AABF" stroke-miterlimit="10" d="M122.888,125.626h-7.477v12.019h7.477V125.626z"/>
 </g>
-<path data-id="area-12" class="schema__element" fill="#5782A3" stroke="#91AABF" stroke-miterlimit="10" d="M253.158,65.778h-37.463v46.206h37.463V65.778z"/>
-<path data-id="area-12" class="schema__element" fill="#5782A3" stroke="#91AABF" stroke-miterlimit="10" d="M94.77,65.778H57.306v46.206H94.77V65.778z"/>
+<path data-id="area-12" data-logo="rc-left" class="schema__element logo-area" fill="#5782A3" stroke="#91AABF" stroke-miterlimit="10" d="M253.158,65.778h-37.463v46.206h37.463V65.778z"/>
+<path data-id="area-12" data-logo="rc-right" class="schema__element logo-area" fill="#5782A3" stroke="#91AABF" stroke-miterlimit="10" d="M94.77,65.778H57.306v46.206H94.77V65.778z"/>
 <path fill="#5EBCFC" stroke="#8F9EAF" stroke-miterlimit="10" d="M226.666,312.889C226.666,312.808,226.666,312.808,226.666,312.889
 c-0.406-0.487-0.731-0.73-0.895-0.894c-0.081-0.081-0.242-0.162-0.324-0.244c0,0.082-1.057,2.681-2.275,5.36
 c0,0.487-0.082,0.975-0.243,1.381l-2.113,4.953c-0.731,1.787-2.763,2.599-4.552,1.867l-14.709-6.171

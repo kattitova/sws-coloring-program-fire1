@@ -1,5 +1,3 @@
-import { getAllDetailsByDataId } from "../functions";
-
 export const letters = ["a", "b", "c", "d", "e", "f"];
 
 export default function splitButtonsClick() {
@@ -7,23 +5,15 @@ export default function splitButtonsClick() {
   splitButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const num = parseInt(button.getAttribute("data-num"), 10);
-      const id = `area-${num}`;
-
-      // при клике на кнопку Split Design
-      // отображаем / убираем соответствующие детали из панели Схематикс
-      // делаем все одноименные кнопки Split Design активными/неактивными
-      const splitPanel = document.querySelectorAll(`.schematics__split-switch[data-target="${button.getAttribute("data-target")}"]`);
-      splitPanel.forEach((panel) => {
-        panel.classList.toggle("hidden");
-      });
-      const solidPanel = document.querySelectorAll(`.schematics__list-item[data-target="${id}"]`);
-      solidPanel.forEach((panel) => {
-        panel.classList.toggle("hidden");
-      });
       const allButtons = document.querySelectorAll(`.split-switch__button[data-num="${num}"]`);
       allButtons.forEach((but) => {
         but.classList.toggle("active");
       });
+
+      const target = button.getAttribute("data-target");
+      const cont = document.querySelector(".center-container__constructor");
+      if (button.classList.contains("active")) cont.setAttribute(target, true);
+      else cont.setAttribute(target, false);
       // ----------------
 
       // при клике на кнопку Split Design
@@ -45,22 +35,6 @@ export default function splitButtonsClick() {
         }
       });
       // ----------------
-
-      const solidDetails = getAllDetailsByDataId(id);
-      let startInd;
-
-      solidDetails.forEach((det) => {
-        det.classList.toggle("hidden");
-      });
-      if (num === 2) startInd = 0;
-      else startInd = 3;
-      for (let i = startInd; i < startInd + 3; i += 1) {
-        const splitId = `area-${num}${letters[i]}`;
-        const splitDetails = getAllDetailsByDataId(splitId);
-        splitDetails.forEach((det) => {
-          det.classList.toggle("hidden");
-        });
-      }
 
       const form = document.querySelector(".form-constructor");
       const input = form.querySelector(`[data-target="${button.getAttribute("data-target")}"]`);

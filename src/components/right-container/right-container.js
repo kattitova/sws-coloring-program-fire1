@@ -2,6 +2,8 @@ import create from "../create";
 import colors from "../colors.json";
 import camo from "../camo.json";
 import neon from "../neon.json";
+import getCalculatorPanel from "./calculator";
+import { getLogoPanel } from "./logo-panel";
 
 // класс отрисовки правой панели
 export default class RightContainer {
@@ -34,6 +36,8 @@ export default class RightContainer {
   static getTemplatePanel() {
     const divTemplatePanel = create("div", ...["right-container__template-panel", "container"]);
 
+    divTemplatePanel.appendChild(getLogoPanel());
+
     divTemplatePanel.appendChild(RightContainer.getColorPanel());
 
     const buttonApplayAll = create("button", "template-panel__button-apply");
@@ -47,6 +51,7 @@ export default class RightContainer {
     divTemplatePanel.appendChild(buttonClearAll);
 
     divTemplatePanel.appendChild(RightContainer.panelContactUs());
+    divTemplatePanel.appendChild(getCalculatorPanel());
 
     return divTemplatePanel;
   }
@@ -58,6 +63,10 @@ export default class RightContainer {
     const divColorPanelTitle = create("div", "color-panel__title");
     divColorPanelTitle.setAttribute("data-lang", "colors");
     divColorPanelTitle.textContent = "colors";
+    divColorPanelTitle.addEventListener("click", () => {
+      const modal = document.querySelector(".modal-window.modal-info");
+      modal.classList.add("open");
+    });
     divColorPanel.appendChild(divColorPanelTitle);
 
     const divColorsPalette = create("div", "color-panel__colors-palette");
@@ -140,7 +149,7 @@ export default class RightContainer {
     tip.appendChild(tipTitle);
     tip.appendChild(document.createTextNode(" - "));
     const tipPrice = create("span");
-    tipPrice.setAttribute("data-id", "price69");
+    tipPrice.setAttribute("data-id", "camo");
     tip.appendChild(tipPrice);
     pickBlockCamo.appendChild(tip);
 

@@ -1,0 +1,248 @@
+[
+  {
+    "title": "step 1: information",
+    "parts": [
+      {
+        "title": "DEALER INFORMATION",
+        "button": "CHOOSE A DEALER",
+        "input": "dealer",
+        "clear-button": "x"
+      },
+      {
+        "title": "CUSTOMER INFORMATION",
+        "inputs": ["Full name", "Phone", "Email", "Address", "How many jumps", "Previous container"]
+      }
+    ]
+  },
+  {
+    "title": "step 2: sizes",
+    "parts": [
+      {
+        "title": "CUSTOMER MEASUREMENTS",
+        "check-box": [
+          {
+            "label": "Measurement Units",
+            "radio": ["Cm/Kg", "Inch/Lb"],
+            "select": "solo"
+          },
+          {
+            "label": "Sex",
+            "radio": ["Male", "Female"],
+            "select": "solo"
+          }
+        ],
+        "inputs": ["Height", "Weight", "Chest", "Belly", "Torso", "Legstrap", "Thigh", "Size A", "Inseam"]
+      },
+      {
+        "check-box": [
+          {
+            "label": "Harness",
+            "radio": ["Normal", "Loose", "Tight"],
+            "select": "solo"
+          },
+          {
+            "label": "Container",
+            "radio": ["Normal", "Loose", "Tight"],
+            "select": "solo"
+          }
+        ],
+        "inputs": ["Main canopy", "Reserve canopy"]
+      }
+    ]
+  },
+  {
+    "title": "step 3: options",
+    "parts": [
+      {
+        "title": "Harness",
+        "check-box": [
+          {
+            "label": "Metal",
+            "radio": ["Cad", "Black", "SS"],
+            "price": ["Standart", "$175", "$175"],
+            "select": "solo"
+          },
+          {
+            "label": "3-rings",
+            "radio": ["Mini", "Big"],
+            "price": [0, 0],
+            "select": "solo"
+          },
+          {
+            "label": "Harness type",
+            "radio": ["2Rings", "4Rings", "Adjustable"],
+            "price": ["Standart", "$125", "$200"],
+            "select": "solo"
+          },
+          {
+            "label": "Chest strap",
+            "radio": ["Narrow", "Wide"],
+            "price": [0, 0],
+            "select": "solo"
+          },
+          {
+            "label": "Legstrap buckles",
+            "radio": ["Thread Thru", "B12"],
+            "price": ["Standart", "$50"],
+            "select": "solo"
+          },
+          {
+            "label": "Risers",
+            "radio": ["Narrow", "Wide"],
+            "price": [0, 0],
+            "select": "solo"
+          },
+          {
+            "label": "Swoop options",
+            "checkbox": ["Additional Ring", "Dive Loops", "Low Profile Risers"],
+            "price": ["$25", "$25", "$25"],
+            "select": "multi"
+          },
+          {
+            "label": "Riser length",
+            "radio": ["500mm", "550mm", "600mm"],
+            "price": [0, 0, 0],
+            "select": "solo"
+          }
+        ]
+      },
+      {
+        "title": "Container and backpad",
+        "check-box": [
+          {
+            "label": "Main container",
+            "radio": ["Standard", "Wingmode"],
+            "price": [0, 0],
+            "select": "solo"
+          },
+          {
+            "label": "Backpad",
+            "radio": ["Parapack", "Spacer Foam"],
+            "price": ["Standart", "$125"],
+            "select": "solo"
+          },
+          {
+            "label": "Laterals",
+            "radio": ["Standard", "Cut-In"],
+            "price": [0, 0],
+            "select": "solo"
+          },
+          {
+            "label": "Legstrap",
+            "radio": ["Standard", "Narrow"],
+            "price": [0, 0],
+            "select": "solo"
+          }
+        ]
+      },
+      {
+        "title": "Reserve deployment",
+        "check-box": [
+          {
+            "label": "Cutaway handle",
+            "radio": ["Red", "Choose Color"],
+            "price": ["Standart", "$25"],
+            "select": "solo"
+          },
+          {
+            "label": "Reserve handle",
+            "radio": ["D-Ring", "Soft Handle"],
+            "price": ["Standart", "$25"],
+            "select": "solo"
+          },
+          {
+            "label": "RSL",
+            "radio": ["No", "Brass", "SS"],
+            "price": ["Standart", "$50", "$70"],
+            "select": "solo"
+          },
+          {
+            "label": "DRD",
+            "radio": ["No", "Brass", "SS"],
+            "price": ["Standart", "$170", "$190"],
+            "select": "solo"
+          }
+        ]
+      },
+      {
+        "title": "Main deployment",
+        "check-box": [
+          {
+            "label": "Main deployment handle",
+            "radio": ["Pod", "Hackey", "Hackey-Pod", "Tube", "Choose Color"],
+            "price": [0, 0, 0, 0, 0],
+            "select": "solo"
+          },
+          {
+            "label": "Main PC",
+            "radio": ["Zp", "F-111", "Student", "Choose Color"],
+            "price": [0, 0, 0, "$25"],
+            "select": "solo"
+          },
+          {
+            "label": "Bridle",
+            "radio": ["2m", "Wingmode 3m", "Student"],
+            "price": [0, 0, 0],
+            "select": "solo"
+          },
+          {
+            "label": "Main Dbag",
+            "radio": ["Standard", "Lazy Bag"],
+            "price": ["Standart", "$30"],
+            "select": "solo"
+          }
+        ]
+      },
+      {
+        "title": "Additional options",
+        "check-box": [
+          {
+            "label": "Hook-knife",
+            "checkbox": ["Plastic", "Metal"],
+            "price": ["$25", "$50"],
+            "select": "add"
+          },
+          {
+            "label": "Main parts kit",
+            "checkbox": ["Risers, D-Bag, Bridle, PC"],
+            "price": ["$175"],
+            "select": "add"
+          },
+          {
+            "label": "Reserve parts kit",
+            "checkbox": ["D-Bag + Bridle, Reserve PC, Cutaway Handle, Reserve D-Ring"],
+            "price": ["$225"],
+            "select": "add"
+          },
+          {
+            "label": "Assemble at SWS",
+            "checkbox": ["Yes"],
+            "price": ["$50"],
+            "select": "add"
+          }
+        ]
+      },
+      {
+        "title": "Special instructions",
+        "textarea": "Write your instructions here"
+      }
+    ]
+  },
+  {
+    "title": "Price",
+    "parts": [
+      {
+        "fire": "$1300",
+        "pinstripes": "$30",
+        "camo": "$60",
+        "embroidery_text": "$30",
+        "embroidery_img": "$50",
+        "change_color": "$50",
+        "change_trim_tape": "$50",
+        "split_design": 0,
+        "4rings_black": "$225",
+        "4rings_ss": "$225"
+      }
+    ]
+  }
+]

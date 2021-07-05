@@ -1,0 +1,258 @@
+.constructor__item.options {
+  .constructor__data-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 16px 25px 24px;
+    width: 100%;
+
+    .constructor__data-block {
+      display: none;
+
+      &.active {
+        display: block;
+        width: calc(100% - 170px);
+      }
+    }
+
+    .data-row__title {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .constructor__data-row {
+      align-items: center;
+      display: grid;
+      font-size: 12px;
+      grid-template-columns: 110px auto;
+
+      &:not(:last-child) {
+        margin-bottom: 27px;
+      }
+
+      .data-row__label {
+        font-weight: 500;
+
+        b {
+          color: #263c52;
+          font-weight: 700;
+        }
+      }
+
+      .data-row__price {
+        color: #263c52;
+        font-weight: 700;
+      }
+    }
+
+    .constructor__data-row-checks {
+      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      &[data-val="main_parts_kit"],
+      &[data-val="reserve_parts_kit"] {
+        grid-template-columns: 1fr;
+      }
+
+      .data-row__name {
+        color: rgba(255, 255, 255, 0.75);
+      }
+    }
+
+    .data-row__textarea {
+      @include size(470px, 245px);
+      background: #ccd3db;
+      border: 0;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+      color: #263c52;
+      font-size: 12px;
+      padding: 16px;
+      resize: none;
+    }
+  }
+}
+
+.options-nav__container {
+  background: #9ab7cd;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+  counter-reset: section;
+  overflow: hidden;
+  width: 170px;
+
+  .options-nav__title {
+    background: #597e9b;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    line-height: 32px;
+    padding: 0 16px;
+    text-transform: uppercase;
+  }
+
+  .options-nav__list {
+    padding: 16px 7px;
+
+    .list__title {
+      @include flex(flex-start);
+      color: #263c52;
+      font-size: 12px;
+      text-align: left;
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      &::before {
+        @include size(16px, 16px);
+        @include flex;
+        border: 1px solid #33506d;
+        border-radius: 50%;
+        content: counter(section);
+        counter-increment: section;
+        font-size: 9px;
+        font-weight: 700;
+        margin-right: 10px;
+      }
+
+      &.active {
+        font-weight: 700;
+
+        &::before {
+          background: #33506d;
+          color: #ccd3db;
+        }
+      }
+
+      &.done::before {
+        @include font-awesome(8px);
+        background: #33506d;
+        color: #ccd3db;
+        content: "\f00c";
+      }
+    }
+  }
+
+  .options-nav__nav-buttons {
+    @include flex;
+    margin-bottom: 20px;
+
+    button {
+      @include flex;
+      @include size(60px, 56px);
+      background: #4caf50;
+      border: 0;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: normal;
+      min-width: 60px;
+      padding: 30px 0 0;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      &::after {
+        background: url("./images/arrow-right.svg") center no-repeat;
+        background-size: cover;
+        content: "";
+        height: 8px;
+        opacity: 0.5;
+        position: absolute;
+        right: 16px;
+        top: 15px;
+        width: 27px;
+      }
+
+      &[data-lang="back"]::after {
+        transform: rotate(180deg);
+      }
+
+      &:hover {
+        background: #39833c;
+        color: rgba(255, 255, 255, 0.75);
+      }
+    }
+  }
+}
+
+.options-wrapper {
+  position: relative;
+
+  .opitons__colors {
+    background: #246595;
+    box-shadow: 0 12px 16px rgb(42 59 76 / 50%);
+    display: none;
+    left: 0;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    width: 154px;
+
+    &.active {
+      display: block;
+    }
+
+    &.cutaway_handle {
+      .red,
+      .def {
+        display: none;
+      }
+    }
+
+    &.reserve_handle {
+      .def {
+        display: none;
+      }
+    }
+
+    &.main_deployment_handle {
+      .def {
+        display: none;
+      }
+    }
+
+    &.main_pc {
+      .colors-palette__camo-block,
+      .colors-palette__neon-block {
+        display: none;
+      }
+
+      .dg,
+      .lbl,
+      .gld,
+      .grn,
+      .pnk,
+      .brd,
+      .brn,
+      .prp {
+        display: none;
+      }
+    }
+
+    .pick-block__title,
+    .camo-block__title,
+    .neon-block__title {
+      font-size: 10px;
+    }
+
+    button[data-container="no"] {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,141 @@
+.center-container__constructor {
+  .schema__element {
+    &[data-id="area-2a"],
+    &[data-id="area-2b"],
+    &[data-id="area-2c"] {
+      display: none;
+    }
+
+    &[data-id="area-2"] {
+      display: block;
+    }
+
+    &[data-id="area-6d"],
+    &[data-id="area-6e"],
+    &[data-id="area-6f"] {
+      display: none;
+    }
+
+    &[data-id="area-6"] {
+      display: block;
+    }
+  }
+
+  .schematics__list-item {
+    &[data-target="area-2"],
+    &[data-target="area-6"] {
+      display: flex;
+    }
+  }
+
+  .schematics__split-switch {
+    &[data-target="split-design-2"],
+    &[data-target="split-design-6"] {
+      display: none;
+    }
+  }
+
+  &[split-design-2="true"] {
+    .schema__element {
+      &[data-id="area-2a"],
+      &[data-id="area-2b"],
+      &[data-id="area-2c"] {
+        display: block;
+      }
+
+      &[data-id="area-2"] {
+        display: none;
+      }
+    }
+
+    .schematics__list-item {
+      &[data-target="area-2"] {
+        display: none;
+      }
+    }
+
+    .schematics__split-switch {
+      &[data-target="split-design-2"] {
+        display: flex;
+      }
+    }
+  }
+
+  &[split-design-6="true"] {
+    .schema__element {
+      &[data-id="area-6d"],
+      &[data-id="area-6e"],
+      &[data-id="area-6f"] {
+        display: block;
+      }
+
+      &[data-id="area-6"] {
+        display: none;
+      }
+    }
+
+    .schematics__list-item {
+      &[data-target="area-6"] {
+        display: none;
+      }
+    }
+
+    .schematics__split-switch {
+      &[data-target="split-design-6"] {
+        display: flex;
+      }
+    }
+  }
+
+  &[split-design-2="false"] {
+    .schema__element {
+      &[data-id="area-2a"],
+      &[data-id="area-2b"],
+      &[data-id="area-2c"] {
+        display: none;
+      }
+
+      &[data-id="area-2"] {
+        display: block;
+      }
+    }
+
+    .schematics__list-item {
+      &[data-target="area-2"] {
+        display: flex;
+      }
+    }
+
+    .schematics__split-switch {
+      &[data-target="split-design-2"] {
+        display: none;
+      }
+    }
+  }
+
+  &[split-design-6="false"] {
+    .schema__element {
+      &[data-id="area-6d"],
+      &[data-id="area-6e"],
+      &[data-id="area-6f"] {
+        display: none;
+      }
+
+      &[data-id="area-6"] {
+        display: block;
+      }
+    }
+
+    .schematics__list-item {
+      &[data-target="area-6"] {
+        display: flex;
+      }
+    }
+
+    .schematics__split-switch {
+      &[data-target="split-design-6"] {
+        display: none;
+      }
+    }
+  }
+}

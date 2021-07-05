@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
-import { sendContactMail, sendOrderMail } from "./nodemailer.mjs";
+import { sendContactMail, sendOrderMail, sendClientMail } from "./nodemailer.mjs";
 import { saveColoring } from "./save-coloring.mjs";
 import { createOrderForm } from "./create-order-form.mjs";
 import { createConfirmation } from "./create-confirmation.mjs";
@@ -65,7 +65,10 @@ app.post("/send-order", jsonParser, (req, res) => {
     createOrderForm(data, "Eng", fileName);
     createConfirmation(data, "Ru", fileName);
     createConfirmation(data, "Eng", fileName);
-    setTimeout(() => sendOrderMail(fileName, name.text, email.text, phone.text), 15000);
+    setTimeout(() => {
+      sendOrderMail(fileName, name.text, email.text, phone.text);
+      sendClientMail(name.text, email.text);
+    }, 15000);
     res.send({ result: "ok" });
   } catch (e) {
     console.log(e);

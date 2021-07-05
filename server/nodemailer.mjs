@@ -46,9 +46,56 @@ async function sendContactMail(data) {
   console.log(result);
 }
 
-// отправка письма С заказом
+// async function check(file) {
+//   let flag;
+//   fs.access(file, (error) => {
+//     if (error) {
+//       flag = false;
+//       console.log("Файл не найден");
+//     } else {
+//       console.log("Файл найден");
+//     }
+//   });
+//   return flag;
+// }
+
+// async function checkFiles(arrAttach) {
+//   let flag = true;
+//   for (const file of arrAttach) {
+//     fs.access(file.path, (error) => {
+//       if (error) {
+//         flag = false;
+//         console.log("Файл не найден");
+//       } else {
+//         console.log("Файл найден");
+//       }
+//     });
+//   }
+//   console.log("func", flag);
+//   return flag;
+// }
+
+// отправка письма с заказом
 async function sendOrderMail(fileName, name, email, phone) {
-  const filePath = `${dirname}/server/orders/Fire1_OrderFormRu_${fileName}.xlsx`;
+  const arrAttach = [];
+  const arrFile = ["Fire1_OrderFormRu", "Fire1_OrderFormEng", "Fire1_OrderConfirmationRu", "Fire1_OrderConfirmationEng"];
+  arrFile.forEach((file) => {
+    const obj = {
+      filename: "",
+      path: "",
+    };
+    obj.filename = `${file}_${fileName}.xlsx`;
+    obj.path = `${dirname}/server/orders/${obj.filename}`;
+    arrAttach.push(obj);
+  });
+
+  // const sendPromise = new Promise((resolve) => {
+  //   if (checkFiles(arrAttach)) resolve(true);
+  //   else resolve(checkFiles(arrAttach));
+  // });
+  // sendPromise.then((flag) => {
+  //   console.log(flag);
+  //   if (flag) {
   const result = await transporter.sendMail({
     from: `"${fromName}" <${adminEmail}>`,
     to: adminEmail,
@@ -58,15 +105,31 @@ async function sendOrderMail(fileName, name, email, phone) {
     Заказчик: ${name}<br>
     E-mail: ${email}<br>
     Телефон: ${phone}`,
-    attachments: [
-      { filename: `Fire1_OrderFormRu_${fileName}.xlsx`, path: filePath },
-      // { filename: `Fire1_OrderFormEng_${fileName}.xlsx`, path: filePath },
-      // { filename: `Fire1_OrderConfirmationRu_${fileName}.xlsx`, path: filePath },
-      // { filename: `Fire1_OrderConfirmationEng_${fileName}.xlsx`, path: filePath },
-    ],
+    attachments: arrAttach,
+  });
+
+  console.log(result);
+  //   }
+  // });
+}
+
+// отправка письма клиенту
+async function sendClientMail(name, email) {
+  const result = await transporter.sendMail({
+    from: `"${fromName}" <${adminEmail}>`,
+    to: email,
+    // bcc: copyEmail, // hidden email copy
+    subject: "Fire1: Оформлен новый заказ",
+    html: `Здравствуйте, ${name}!<br><br>
+    Благодарим за заказ. Менеджер SWS свяжется с вами в ближайшее время.<br><br>
+    С уважением, компания SWS<br><br><br>
+    Hello, ${name}!<br><br>
+    Thanks for your order. SWS manager will contact you shortly.<br><br>
+    Have a good day,<br>
+    SWS Company`,
   });
 
   console.log(result);
 }
 
-export { sendContactMail, sendOrderMail };
+export { sendContactMail, sendOrderMail, sendClientMail };

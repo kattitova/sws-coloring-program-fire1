@@ -1,0 +1,26 @@
+.modal-order {
+  display: none;
+
+  &.open {
+    @include flex;
+    padding: 80px 20px;
+  }
+
+  .order-block {
+    background: #246595;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgb(42 59 76 / 50%);
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 400px;
+    z-index: 2;
+
+    .modal-container {
+      @include flex;
+      overflow: hidden;
+    }
+  }
+}

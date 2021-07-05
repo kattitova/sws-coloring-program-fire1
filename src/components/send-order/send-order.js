@@ -1,4 +1,31 @@
 import { getFormConstructorData } from "../save-coloring/save-coloring";
+import create from "../create";
+import { getCloseButton } from "../close-button";
+
+function getModalOrder() {
+  const modal = document.querySelector(".modal-window.modal-order");
+  const overlay = create("div", "modal-overlay");
+  modal.appendChild(overlay);
+
+  const wrapper = create("div", "order-block");
+  wrapper.appendChild(getCloseButton(modal));
+
+  const title = create("div", "modal-title");
+  title.setAttribute("data-lang", "order_title");
+  title.textContent = "thank you!";
+  wrapper.appendChild(title);
+
+  const container = create("div", "modal-container");
+  const text = create("span", "order_msg");
+  text.setAttribute("data-lang", "order_msg");
+  text.textContent = "We will contact you soon.";
+  container.appendChild(text);
+
+  wrapper.appendChild(container);
+
+  modal.appendChild(wrapper);
+}
+
 // add ERROR class
 const addErrorClass = (part, target, input) => {
   const preview = document.querySelector(".constructor__item.preview");
@@ -50,21 +77,21 @@ const sendOrder = () => {
     if (checkRequiredFilds()) {
       console.log("send order");
 
-      // TODO Fetch to "/send-order"
       fetch("/send-order", {
         method: "POST",
         body: JSON.stringify(getFormConstructorData()),
         headers: {
           "Content-Type": "application/json",
         },
-      }).then((response) => {
-        if (response.ok) {
-          return response.json;
-        }
-        throw new Error("Request failed");
-      });
+      }).then(response => response.json())
+        .then((body) => {
+          if (body.result === "ok") {
+            const modal = document.querySelector(".modal-window.modal-order");
+            modal.classList.add("open");
+          }
+        });
     } else console.log("stop sending order");
   });
 };
 
-export { sendOrder };
+export { sendOrder, getModalOrder };

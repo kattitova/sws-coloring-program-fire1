@@ -8,6 +8,7 @@
     "start": "webpack serve",
     "stylelint": "stylelint src/**/*.scss",
     "stylelint:fix": "stylelint src/**/*.scss --fix",
+    "build:prod": "webpack --mode production",
     "build:watch": "webpack --watch --mode development",
     "node": "concurrently \"npm run build:watch\" \"nodemon\""
   },
@@ -48,6 +49,7 @@
     "mini-css-extract-plugin": "^1.4.0",
     "nodemailer": "^6.6.0",
     "nodemon": "^2.0.7",
+    "postcss-loader": "^6.1.1",
     "read-excel-file": "^5.1.0",
     "sendmail": "^1.6.1",
     "terser-webpack-plugin": "^5.1.1",

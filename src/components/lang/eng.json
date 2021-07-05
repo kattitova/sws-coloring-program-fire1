@@ -159,6 +159,8 @@
   "save_msg": "Your code is:",
   "copy_alert": "copy!",
   "success_title": "success",
-  "please_fill_required_fiedls": "please fill required fiedls"
+  "please_fill_required_fiedls": "please fill required fiedls",
+  "order_title":"thank you!",
+  "order_msg":"We will contact you soon."
   }
 ]

@@ -1,0 +1,314 @@
+date/time         : 2012-02-06, 16:27:29, 593ms
+computer name     : NBOOK
+user name         : SYSTEM <admin>
+registered owner  : Kat / NBook
+operating system  : Windows XP Service Pack 2 build 2600
+system language   : Russian
+system up time    : 4 hours 5 minutes
+program up time   : 695 milliseconds
+processor         : Intel(R) Celeron(R) CPU 540 @ 1.86GHz
+physical memory   : 2175/3063 MB (free/total)
+free disk space   : (C:) 4,20 GB (D:) 9,17 GB
+display mode      : 1280x800, 32 bit
+process id        : $c78
+allocated memory  : 3,66 MB
+command line      : D:\sendmail\sendmail.exe -t
+executable        : sendmail.exe
+exec. date/time   : 2009-04-02 08:43
+compiled with     : Delphi 2006/07
+madExcept version : 3.0h
+callstack crc     : $fecf9b34, $4349b168, $4349b168
+exception number  : 1
+exception class   : EIdSMTPReplyError
+exception message : Message was not accepted -- it contains invalid headers. More specially, 'From:' header must match user you are sending mail from. See http://help.mail.ru/mail-help/mailer/popsmtp for details.
+
+main thread ($13c):
+0044dbbe +003e sendmail.exe IdReplySMTP     533   +1 TIdReplySMTP.RaiseReplyError
+004357dc +0008 sendmail.exe IdTCPConnection 562   +0 TIdTCPConnection.RaiseExceptionForLastCmdResult
+00435a4c +003c sendmail.exe IdTCPConnection 668  +10 TIdTCPConnection.CheckResponse
+00435770 +0024 sendmail.exe IdTCPConnection 551   +2 TIdTCPConnection.GetResponse
+0043582e +004e sendmail.exe IdTCPConnection 571   +4 TIdTCPConnection.SendCmd
+004a5e3d +13e9 sendmail.exe sendmail        816 +356 initialization
+
+thread $258:
+7c90d85a +0a ntdll.dll     NtDelayExecution
+7c8023e7 +4b kernel32.dll  SleepEx
+7c80244c +0a kernel32.dll  Sleep
+
+modules:
+00400000 sendmail.exe                D:\sendmail
+01cd0000 ssleay32.dll 0.9.8.4        C:\php5
+10000000 libeay32.dll 0.9.8.4        C:\php5
+16080000 mdnsNSP.dll  1.0.3.1        C:\Program Files\Bonjour
+58f10000 Wship6.dll   5.1.2600.2180  C:\WINDOWS\system32
+5b260000 uxtheme.dll  6.0.2900.2845  C:\WINDOWS\system32
+5d5b0000 comctl32.dll 5.82.2900.2649 C:\WINDOWS\system32
+698b0000 hnetcfg.dll  5.1.2600.2180  C:\WINDOWS\system32
+6d580000 mzvkbd3.dll  11.0.1.400     C:\PROGRA~1\KASPER~1\KASPER~1
+71a30000 mswsock.dll  5.1.2600.2180  C:\WINDOWS\System32
+71a70000 wshtcpip.dll 5.1.2600.2180  C:\WINDOWS\System32
+71a80000 WS2HELP.dll  5.1.2600.2180  C:\WINDOWS\system32
+71a90000 WS2_32.dll   5.1.2600.2180  C:\WINDOWS\system32
+71ab0000 wsock32.dll  5.1.2600.2180  C:\WINDOWS\system32
+76360000 IMM32.DLL    5.1.2600.2180  C:\WINDOWS\system32
+76380000 comdlg32.dll 6.0.2900.2180  C:\WINDOWS\system32
+76be0000 PSAPI.DLL    5.1.2600.2180  C:\WINDOWS\system32
+76d50000 Iphlpapi.dll 5.1.2600.2912  C:\WINDOWS\system32
+76f10000 DNSAPI.dll   5.1.2600.2938  C:\WINDOWS\system32
+76f50000 WLDAP32.dll  5.1.2600.2180  C:\WINDOWS\system32
+76fa0000 winrnr.dll   5.1.2600.2180  C:\WINDOWS\System32
+76fb0000 rasadhlp.dll 5.1.2600.2938  C:\WINDOWS\system32
+77110000 oleaut32.dll 5.1.2600.2180  C:\WINDOWS\system32
+773c0000 comctl32.dll 6.0.2900.2649  C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2649_x-ww_aac16c8b
+774d0000 ole32.dll    5.1.2600.2829  C:\WINDOWS\system32
+77bf0000 version.dll  5.1.2600.2180  C:\WINDOWS\system32
+77c00000 msvcrt.dll   7.0.2600.2180  C:\WINDOWS\system32
+77d30000 USER32.dll   5.1.2600.2622  C:\WINDOWS\system32
+77dc0000 ADVAPI32.dll 5.1.2600.2180  C:\WINDOWS\system32
+77e70000 RPCRT4.dll   5.1.2600.3555  C:\WINDOWS\system32
+77f10000 GDI32.dll    5.1.2600.2818  C:\WINDOWS\system32
+77f60000 SHLWAPI.dll  6.0.2900.2995  C:\WINDOWS\system32
+77fe0000 Secur32.dll  5.1.2600.2180  C:\WINDOWS\system32
+7c800000 kernel32.dll 5.1.2600.2786  C:\WINDOWS\system32
+7c900000 ntdll.dll    5.1.2600.2180  C:\WINDOWS\system32
+7c9c0000 shell32.dll  6.0.2900.2869  C:\WINDOWS\system32
+
+processes:
+0000 Idle
+0004 System               normal
+0590 smss.exe             normal C:\WINDOWS\system32
+0618 csrss.exe            normal C:\WINDOWS\system32
+0630 winlogon.exe         high   C:\WINDOWS\system32
+0660 services.exe         normal C:\WINDOWS\system32
+066c lsass.exe            normal C:\WINDOWS\system32
+0710 svchost.exe          normal C:\WINDOWS\system32
+074c svchost.exe          normal C:\WINDOWS\system32
+077c svchost.exe          normal C:\WINDOWS\System32
+07c4 svchost.exe          normal C:\WINDOWS\system32
+0120 svchost.exe          normal C:\WINDOWS\system32
+017c svchost.exe          normal C:\WINDOWS\system32
+02f8 spoolsv.exe          normal C:\WINDOWS\system32
+03a8 acs.exe              normal C:\WINDOWS\system32
+05f0 Explorer.EXE         normal C:\WINDOWS
+0734 TaskSwitch.exe       normal C:\WINDOWS\system32
+0794 HControl.exe         normal C:\WINDOWS\ATK0100
+07a4 DMEDIA.EXE           normal C:\Program Files\ASUS\ATK Media
+07e4 RTHDCPL.EXE          normal C:\WINDOWS
+0160 hkcmd.exe            normal C:\WINDOWS\system32
+016c igfxpers.exe         normal C:\WINDOWS\system32
+01a4 SynTPEnh.exe         normal C:\Program Files\Synaptics\SynTP
+01b0 wcourier.exe         normal C:\Program Files\Wireless Console 2
+01c0 sm56hlpr.exe         normal C:\Program Files\Motorola\SMSERIAL
+0240 USBTip.exe           normal C:\PROGRA~1\Pinnacle\SHARED~1\Programs\USBTip
+0274 jusched.exe          normal C:\Program Files\Common Files\Java\Java Update
+0288 avp.exe              normal C:\Program Files\Kaspersky Lab\Kaspersky Anti-Virus 2011
+02b4 GuardMailRu.exe      normal C:\Program Files\Mail.Ru\Guard
+02b8 igfxsrvc.exe         normal C:\WINDOWS\system32
+040c Updater.exe          normal C:\Program Files\Ask.com\Updater
+0434 ctfmon.exe           normal C:\WINDOWS\system32
+0444 ps.exe               normal C:\Program Files\Punto Switcher
+044c NMBgMonitor.exe      normal C:\Program Files\Common Files\Ahead\Lib
+04c8 ApacheMonitor.exe    normal C:\Program Files\Apache Group\Apache2\bin
+0268 Apache.exe           normal C:\Program Files\Apache Group\Apache2\bin
+0604 avp.exe              normal C:\Program Files\Kaspersky Lab\Kaspersky Anti-Virus 2011
+0260 mDNSResponder.exe    normal C:\Program Files\Bonjour
+0414 DevSvc.exe           normal C:\Program Files\Common Files\InterVideo\DeviceService
+05cc GuardMailRu.exe      normal C:\Program Files\Mail.Ru\Guard
+08e4 ibguard.exe          normal C:\Program Files\Borland\InterBase\bin
+0918 mbamservice.exe      normal C:\Program Files\Malwarebytes' Anti-Malware
+0d90 MDM.EXE              normal C:\Program Files\Common Files\Microsoft Shared\VS7DEBUG
+0dac mysqld-nt.exe        normal C:\Program Files\MySQL\MySQL Server 4.1\bin
+0dfc PSIService.exe       normal C:\WINDOWS\system32
+0ed8 svchost.exe          normal C:\WINDOWS\system32
+0ef0 Wacom_Tablet.exe     normal C:\WINDOWS\system32
+0f28 ULCDRSvr.exe         normal C:\Program Files\Common Files\Ulead Systems\DVD
+0f94 Wacom_TabletUser.exe normal C:\WINDOWS\system32\WTablet
+0fe4 Wacom_Tablet.exe     high   C:\WINDOWS\system32
+0968 ATKOSD.exe           normal C:\WINDOWS\ATK0100
+055c ibserver.exe         normal C:\Program Files\Borland\InterBase\bin
+1090 alg.exe              normal C:\WINDOWS\System32
+13e4 opera.exe            normal C:\Program Files\Opera
+15dc ICQ.exe              normal C:\Program Files\ICQ7.6
+1630 notepad++.exe        normal C:\Program Files\Notepad++
+090c Apache.exe           normal C:\Program Files\Apache Group\Apache2\bin
+1344 cmd.exe              normal C:\WINDOWS\system32
+0c78 sendmail.exe         normal D:\sendmail
+
+hardware:
++ DVD и CD-ROM дисководы
+  - Optiarc DVD RW AD-7590A
+  - VWV TU3WPQN4P2 SCSI CdRom Device
++ IDE ATA/ATAPI контроллеры
+  - Ricoh Memory Stick Host Controller (driver 1.0.2.4)
+  - Ricoh MMC Host Controller (driver 1.0.0.9)
+  - Ricoh xD-Picture Card Host Controller (driver 1.0.2.8)
+  - Вторичный канал IDE
+  - Вторичный канал IDE
+  - Первичный канал IDE
+  - Первичный канал IDE
+  - Стандартный двухканальный контроллер PCI IDE
+  - Стандартный двухканальный контроллер PCI IDE
++ SCSI и RAID контроллеры
+  - A025K2VW IDE Controller
++ Secure Digital хост-контроллеры
+  - Стандартный SDA-совместимый SD хост-контроллер
++ Батареи
+  - Адаптер блока питания (Майкрософт)
+  - Батарея с ACPI-совместимым управлением Microsoft
++ Видеоадаптеры
+  - Mobile Intel(R) 965 Express Chipset Family (driver 6.14.10.4820)
+  - Mobile Intel(R) 965 Express Chipset Family (driver 6.14.10.4820)
++ Дисковые устройства
+  - FUJITSU MHW2120BH
++ Звуковые, видео и игровые устройства
+  - Realtek High Definition Audio (driver 5.10.0.5282)
+  - Unimodem аудиоустройство с полудуплексом
+  - Аудио кодеки
+  - Видео кодеки
+  - Драйверы аудио (без PnP)
+  - Устройства записи видео (без PnP)
+  - Устройство управления
++ Клавиатуры
+  - Клавиатура HID
+  - Клавиатура HID
+  - Стандартная (101/102 клавиши) или клавиатура PS/2 Microsoft Natural
++ Компьютер
+  - Однопроцессорный компьютер с ACPI
++ Контроллеры универсальной последовательной шины USB
+  - Корневой USB концентратор
+  - Корневой USB концентратор
+  - Корневой USB концентратор
+  - Корневой USB концентратор
+  - Корневой USB концентратор
+  - Корневой USB концентратор
+  - Корневой USB концентратор
+  - Составное USB устройство
+  - Стандартный расширенный PCI - USB хост-контроллер
+  - Стандартный расширенный PCI - USB хост-контроллер
+  - Стандартный универсальный PCI - USB хост-контроллер
+  - Стандартный универсальный PCI - USB хост-контроллер
+  - Стандартный универсальный PCI - USB хост-контроллер
+  - Стандартный универсальный PCI - USB хост-контроллер
+  - Стандартный универсальный PCI - USB хост-контроллер
++ Модемы
+  - Motorola SM56 Speakerphone Modem (driver 6.11.13.1)
++ Мониторы
+  - Модуль подключения монитора
+  - Модуль подключения монитора
+  - Модуль подключения монитора
++ Мыши и иные указывающие устройства
+  - HID-совместимая мышь
+  - Synaptics PS/2 Port TouchPad
+  - Wacom Mouse (driver 1.2.2.0)
++ Процессоры
+  - Intel(R) Celeron(R) CPU          540  @ 1.86GHz
++ Сетевые платы
+  - Atheros AR5006X Wireless Network Adapter (driver 5.1.1.7)
+  - Realtek RTL8168/8111 PCI-E Gigabit Ethernet NIC (driver 5.652.627.2006)
+  - Сетевой адаптер 1394
++ Системные устройства
+  - ATK0100 ACPI UTILITY (driver 1043.2.15.58)
+  - CMOS и часы
+  - High Precision Event Timer (driver 7.0.0.1011)
+  - Intel(R) 82801 PCI Bridge - 2448 (driver 7.0.0.1011)
+  - Microsoft ACPI-совместимая система
+  - Microsoft ACPI-совместимый встроенный контроллер
+  - Pinnacle Marvin Bus (driver 2.1.29.0)
+  - Встроенный динамик
+  - Диспетчер логических дисков
+  - Диспетчер томов
+  - Драйвер Microsoft System Management BIOS
+  - Драйвер клавиатуры сервера терминалов
+  - Драйвер мыши сервера терминалов
+  - Драйвер шины Microsoft UAA для High Definition Audio
+  - Кнопка спящего режима ACPI
+  - Кнопка фиксированной возможности ACPI
+  - Контроллер прямого доступа к памяти
+  - Крышка ACPI
+  - Перенаправитель устройства сервера терминалов
+  - Перечислитель программных устройств Plug and Play
+  - Порт чтения данных ISAPNP
+  - Программируемый контроллер прерываний
+  - Процессор числовых данных
+  - Расширенная шина ввода/вывода
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Ресурсы системной платы
+  - Системная плата
+  - Системная плата
+  - Системный таймер
+  - Составная батарея Microsoft
+  - Стандартный мост PCI  - CPU
+  - Стандартный мост PCI - ISA
+  - Стандартный мост PCI - PCI
+  - Стандартный мост PCI - PCI
+  - Стандартный мост PCI - PCI
+  - Стандартный мост PCI - PCI
+  - Стандартный мост PCI - PCI
+  - Термальная зона ACPI
+  - Устройство обновления микропрограмм
+  - Шина PCI
++ Устройства HID (Human Interface Devices)
+  - HID-совместимое устройство
+  - HID-совместимое устройство
+  - HID-совместимое устройство
+  - HID-совместимое устройство
+  - HID-совместимое устройство управления
+  - USB HID-совместимое устройство
+  - USB HID-совместимое устройство
+  - Virtual Keyboard Driver (driver 1.1.0.0)
+  - Virtual Keyboard Interface (driver 1.1.0.0)
+  - Virtual Media Keys
+  - Wacom HID Digitizer
+  - Wacom HID Pen
+  - Wacom Virtual Hid Driver (driver 2.8.0.0)
++ Хост-контроллеры шины IEEE 1394
+  - OHCI-совместимый IEEE 1394 хост-контроллер
+
+cpu registers:
+eax = 009bf9b0
+ebx = 009d2388
+ecx = 0112fdf8
+edx = 0044dbc3
+esi = 00000000
+edi = 00000226
+eip = 0044dbc3
+esp = 0012fdb4
+ebp = 0012fdf8
+
+stack dump:
+0012fdb4  c3 db 44 00 de fa ed 0e - 01 00 00 00 07 00 00 00  ..D.............
+0012fdc4  c8 fd 12 00 c3 db 44 00 - b0 f9 9b 00 88 23 9d 00  ......D......#..
+0012fdd4  00 00 00 00 26 02 00 00 - f8 fd 12 00 e4 fd 12 00  ....&...........
+0012fde4  30 fe 12 00 58 4b 40 00 - f8 fd 12 00 f4 eb 44 00  0...XK@.......D.
+0012fdf4  00 00 00 00 14 fe 12 00 - df 57 43 00 4f 5a 43 00  .........WC.OZC.
+0012fe04  00 00 00 00 e8 fe 12 00 - e8 fe 12 00 70 5b 97 00  ............p[..
+0012fe14  48 fe 12 00 73 57 43 00 - 00 00 00 00 a8 3d 41 00  H...sWC......=A.
+0012fe24  e8 fe 12 00 f4 eb 44 00 - 31 58 43 00 54 fe 12 00  ......D.1XC.T...
+0012fe34  58 4b 40 00 48 fe 12 00 - 00 00 00 00 f4 eb 44 00  XK@.H.........D.
+0012fe44  00 00 00 00 c0 ff 12 00 - 40 5e 4a 00 00 00 00 00  ........@^J.....
+0012fe54  60 fe 12 00 58 4b 40 00 - c0 ff 12 00 6c fe 12 00  `...XK@.....l...
+0012fe64  58 4b 40 00 c0 ff 12 00 - 78 fe 12 00 ef 4c 40 00  XK@.....x....L@.
+0012fe74  c0 ff 12 00 b4 ff 12 00 - 58 4b 40 00 c0 ff 12 00  ........XK@.....
+0012fe84  7e c0 c3 8a d3 e4 cc 01 - 00 e0 fd 7f 00 00 00 00  ~...............
+0012fe94  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012fea4  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012feb4  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012fec4  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012fed4  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012fee4  00 00 00 00 fa 00 00 00 - 00 00 00 00 00 00 00 00  ................
+
+disassembling:
+[...]
+0044dbab       call    -$1e140 ($42fa70)      ; IdReply.TIdReply.GetNumericCode
+0044dbb0       mov     ecx, eax
+0044dbb2       mov     dl, 1
+0044dbb4       mov     eax, [$44d1b8]
+0044dbb9       call    +$1a2 ($44dd60)        ; IdReplySMTP.EIdSMTPReplyError.CreateError
+0044dbbe     > call    -$48f47 ($404c7c)      ; System.@RaiseExcept
+0044dbc3 534   xor     eax, eax
+0044dbc5       pop     edx
+0044dbc6       pop     ecx
+0044dbc7       pop     ecx
+0044dbc8       mov     fs:[eax], edx
+[...]

@@ -4,7 +4,7 @@
 		"country":"Ukraine",
 		"dealers":[
 			{
-				"location":"DZ Чайка, Киев",
+				"location":"Skydive Academy, Киев",
 				"name":"Яковлева Людмила",
 				"tel1":"+380674471696",
 				"tel2":"+380503387850",
@@ -89,14 +89,6 @@
 				"tel1":"+79788527910",
 				"tel2":"",
 				"email":"zjoma@inbox.ru",
-				"web":""
-			},
-			{
-				"location":"Ровно, Западная Украина, Ровенский АСК",
-				"name":"Мисюра Федор",
-				"tel1":"+38097844813",
-				"tel2":"+380666638066",
-				"email":"utizon09@gmail.com",
 				"web":""
 			},
 			{
@@ -541,6 +533,20 @@
 				"tel1":"",
 				"tel2":"",
 				"email":"boss@paraloftas.com",
+				"web":""
+			}
+		]
+	},
+	{
+		"data-target":"mex",
+		"country":"Mexico",
+		"dealers":[
+			{
+				"location":"Villalobos Lagunas",
+				"name":"Edgar Santiago",
+				"tel1":"+527351026127",
+				"tel2":"",
+				"email":"villalobosla@msn.com",
 				"web":""
 			}
 		]

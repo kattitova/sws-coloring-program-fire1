@@ -12,6 +12,7 @@
   grid-area: constructor;
   // height: 496px;
   margin-top: 40px;
+  min-width: 610px;
   overflow: hidden;
 
   .constructor__item {
@@ -110,11 +111,12 @@
       }
 
       &--info {
-        @include size(100%, 100%);
-        left: 0;
+        @include size(330px, 420px);
+        left: 50%;
         pointer-events: none;
         position: absolute;
-        top: 0;
+        top: 50%;
+        transform: translate(-50%, -50%);
 
         .info-item {
           @include flex;
@@ -356,9 +358,12 @@
   grid-area: buttons;
   justify-content: space-between;
   position: relative;
+  width: 100%;
 
   .buttons-panel__main-buttons {
     display: flex;
+    margin-right: 10px;
+    width: 65%;
 
     button {
       @include flex(space-between);
@@ -370,11 +375,12 @@
       font-weight: 500;
       height: 48px;
       letter-spacing: 0.1em;
+      max-width: 184px;
       padding: 0 16px;
       position: relative;
       text-align: left;
       text-transform: uppercase;
-      width: 184px;
+      width: 50%;
 
       &:hover {
         @include button-hover;
@@ -402,6 +408,7 @@
 
   .buttons-panel__navigation-buttons {
     display: flex;
+    justify-content: flex-end;
 
     button {
       background: #4caf50;
@@ -412,11 +419,12 @@
       font-weight: 500;
       height: 48px;
       letter-spacing: 0.1em;
-      min-width: 146px;
+      max-width: 146px;
       padding: 0 60px 0 16px;
       position: relative;
       text-align: left;
       text-transform: uppercase;
+      width: 50%;
 
       &::after {
         background: url("./images/arrow-right.svg") center no-repeat;
@@ -504,7 +512,7 @@
         position: relative;
         text-align: left;
         text-transform: uppercase;
-        width: 184px;
+        // width: 184px;
 
         &:hover {
           @include button-hover;
@@ -515,6 +523,7 @@
           content: "\f46c";
           font-size: 22px;
           font-weight: 900;
+          margin-left: 5px;
         }
       }
 
@@ -565,7 +574,7 @@
   @include flex;
   padding: 0;
 
-  .info-wrapper,
+  .information-wrapper,
   .sizes-wrapper,
   .options-wrapper {
     @include size(100%, 100%);

@@ -319,6 +319,27 @@ function addLogoToCalc() {
   });
 }
 
+// 8. Проверка выбранного привода и соответсявия цвета
+// конкретно проверка привода Трубка
+function checkTubeColor() {
+  const mainDeployment = document.querySelector("[data-val=\"main_deployment_handle\"]");
+  const tube = mainDeployment.querySelector("[for=\"main_deployment_handle-tube\"]");
+  tube.addEventListener("click", () => {
+    const color = mainDeployment.querySelector("[data-text=\"choose_color\"]");
+    if (color.checked) {
+      const label = color.nextElementSibling.querySelector("b");
+      const selectColor = label.textContent.toLowerCase();
+      if (selectColor !== "yel" || selectColor !== "org") {
+        color.checked = false;
+        label.textContent = "";
+        const form = document.querySelector(".form-constructor");
+        const formInput = form.querySelector("[data-target=\"main_deployment_handle\"]");
+        formInput.removeAttribute("data-color");
+      }
+    }
+  });
+}
+
 function specOptionsInit() {
   changeMetal();
   MainPartsChangePrice();
@@ -326,6 +347,7 @@ function specOptionsInit() {
   addSwitchOptionsToCalc();
   addCamoToCalc();
   addLogoToCalc();
+  checkTubeColor();
 }
 
 export {

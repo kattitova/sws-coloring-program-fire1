@@ -6,11 +6,11 @@ import getBack from "../container/container-back";
 function getSchemeBlock() {
   const schemeBlock = create("div", ...["constructor__data-block", "schema"]);
 
-  const schemaFront = create("div", ...["constructor__schema", "front"]);
+  const schemaFront = create("div", ...["constructor__schema", "back"]);
   schemaFront.appendChild(getFront());
   schemeBlock.appendChild(schemaFront);
 
-  const schemaBack = create("div", ...["constructor__schema", "back"]);
+  const schemaBack = create("div", ...["constructor__schema", "front"]);
   schemaBack.appendChild(getBack());
   schemeBlock.appendChild(schemaBack);
 
@@ -111,7 +111,7 @@ function setRequiredFields(form) {
         if (target !== "dealer") input.required = true;
         break;
       case "options":
-        if (target !== "swoop_options" && !name.includes("Additional_options") && !name.includes("Special_Instructions")) {
+        if (target !== "swoop_options" && target !== "fabric_toggles" && target !== "protected_main_pc_pocket" && !name.includes("Additional_options") && !name.includes("Special_Instructions")) {
           input.required = true;
         }
         break;

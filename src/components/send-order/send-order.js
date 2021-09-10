@@ -55,9 +55,15 @@ const checkRequiredFilds = () => {
         addErrorClass(part, target, input);
         flag = false;
       } else if (part === "logo") {
-        if (input.getAttribute("data-color") === null) {
+        if (input.getAttribute("data-color") === null || input.getAttribute("data-color") === "") {
           addErrorClass(part, target, input);
           flag = false;
+        }
+        if (input.value === "custom_text") {
+          if (input.getAttribute("data-text") === null || input.getAttribute("data-text") === "") {
+            addErrorClass(part, target, input);
+            flag = false;
+          }
         }
       } else if (target === "main_deployment_handle" || target === "reserve_handle" || target === "choose_color") {
         if (input.getAttribute("data-color") === null) {
@@ -75,6 +81,8 @@ const sendOrder = () => {
   const orderButton = document.querySelector(".navigation-buttons.order");
   orderButton.addEventListener("click", () => {
     if (checkRequiredFilds()) {
+      const saveButton = document.querySelector(".main-buttons__save");
+      // saveButton.click();
       console.log("send order");
 
       fetch("/send-order", {
@@ -88,6 +96,10 @@ const sendOrder = () => {
           if (body.result === "ok") {
             const modal = document.querySelector(".modal-window.modal-order");
             modal.classList.add("open");
+            setTimeout(() => {
+              saveButton.click();
+              modal.classList.remove("open");
+            }, 15500);
           }
         });
     } else console.log("stop sending order");

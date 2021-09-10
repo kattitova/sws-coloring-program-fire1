@@ -225,6 +225,24 @@
       .def {
         display: none;
       }
+
+      &.tube {
+        .colors-palette__camo-block,
+        .colors-palette__neon-block {
+          display: none;
+        }
+
+        .colors-palette__pick-block {
+          button {
+            display: none;
+          }
+
+          .yel,
+          .org {
+            display: block;
+          }
+        }
+      }
     }
 
     &.main_pc {

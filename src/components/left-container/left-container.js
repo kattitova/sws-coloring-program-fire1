@@ -1,4 +1,6 @@
 import create from "../create";
+import { getCloseButton } from "../close-button";
+import { closeLeftMenu } from "../mobile-menu";
 
 // display left sidebar
 // header - SWS logo + language icons
@@ -10,8 +12,11 @@ export default class LeftContainer {
   static init() {
     const leftContainer = document.querySelector(".main");
     leftContainer.appendChild(LeftContainer.getHeader());
-    leftContainer.appendChild(LeftContainer.getTabsList());
-    leftContainer.appendChild(LeftContainer.getLinkList());
+    const leftCont = create("div", "left-container");
+    leftCont.appendChild(getCloseButton(leftCont));
+    leftCont.appendChild(LeftContainer.getTabsList());
+    leftCont.appendChild(LeftContainer.getLinkList());
+    leftContainer.appendChild(leftCont);
   }
 
   static getHeader() {
@@ -75,6 +80,8 @@ export default class LeftContainer {
     findDealerLink.setAttribute("href", "#");
     findDealerLink.textContent = "Find a Dealer";
     findDealerLink.addEventListener("click", () => {
+      // закрываем левое меню - для мобильной версии
+      closeLeftMenu();
       const modal = document.querySelector(".modal-dealer");
       modal.classList.toggle("open");
     });
@@ -87,6 +94,8 @@ export default class LeftContainer {
     contactUsLink.setAttribute("href", "#");
     contactUsLink.textContent = "Contact Us";
     contactUsLink.addEventListener("click", () => {
+      // закрываем левое меню - для мобильной версии
+      closeLeftMenu();
       const modal = document.querySelector(".modal-contact");
       modal.classList.toggle("open");
     });

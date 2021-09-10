@@ -53,6 +53,9 @@ function checkAddedOption(parrent, select, title, value, subtitle, remove) {
       flag = false;
       // доп проверкa subtitle
       if (value !== undefined) {
+	    if (select === "add") {
+		  if (remove) block.remove();
+		}
         // логика для мульти
         if (select === "multi") {
           if (sub !== null) {

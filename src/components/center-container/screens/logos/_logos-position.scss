@@ -1,5 +1,5 @@
 .center-container__constructor.logos {
-  height: 545px;
+  // height: 545px;
 }
 
 .constructor__logos {
@@ -58,7 +58,11 @@
         transform: rotate(82deg);
 
         svg {
-          @include size(120%, 120%);
+          @include size(110%, 110%);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
       }
 
@@ -69,34 +73,42 @@
         transform: rotate(-16deg);
 
         svg {
-          @include size(120%, 120%);
+          @include size(70%, 70%);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
 
         .logo__custom_logo,
         .logo__custom_text {
-          padding-right: 10px;
+          // padding-right: 10px;
           transform: rotate(-10deg);
         }
       }
     }
   }
 
-  &.front {
+  &.back {
     .logos__area {
       &[data-logo="central-detail"] {
         @include size(62px, 113px);
-        left: 49%;
+        left: 50%;
         top: 176px;
         transform: translateX(-50%);
 
         svg {
-          @include size(120%, 120%);
+          @include size(60%, 60%);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
       }
     }
   }
 
-  &.back {
+  &.front {
     .logos__area {
       .logo__custom_logo,
       .logo__custom_text {
@@ -109,8 +121,11 @@
         top: 76px;
 
         svg {
-          @include size(110%, 110%);
-          padding-right: 2px;
+          @include size(100%, 100%);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
       }
 
@@ -120,7 +135,11 @@
         top: 76px;
 
         svg {
-          @include size(110%, 110%);
+          @include size(100%, 100%);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
       }
     }
@@ -135,7 +154,11 @@
         transform: rotate(-91deg);
 
         svg {
-          @include size(120%, 120%);
+          @include size(80%, 80%);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
       }
 
@@ -149,7 +172,7 @@
 .constructor__item.logos {
   .schema__element.logo-area {
     stroke: #4dfbc6;
-    stroke-width: 2px;
+    stroke-width: 3px;
   }
 
   .constructor__schema.side {
@@ -182,7 +205,11 @@
         transform: rotate(-91deg) scaleX(-1);
 
         svg {
-          @include size(120%, 120%);
+          @include size(80%, 80%);
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
       }
     }

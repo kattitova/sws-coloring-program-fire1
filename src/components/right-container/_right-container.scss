@@ -42,6 +42,10 @@
 .right-container__template-panel {
   grid-area: panel;
 
+  .modal-close {
+    display: none;
+  }
+
   .template-panel__button-apply,
   .template-panel__button-clear {
     background-color: #1b4c70;

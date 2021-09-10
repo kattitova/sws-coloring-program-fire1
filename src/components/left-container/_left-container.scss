@@ -1,8 +1,12 @@
 .left-container {
   display: flex;
   flex-direction: column;
+  grid-area: menu;
   padding: 10px 0;
-  width: 286px;
+
+  .modal-close {
+    display: none;
+  }
 }
 
 .left-container__header {
@@ -37,7 +41,6 @@
 .left-container__tabs-list {
   display: flex;
   flex-direction: column;
-  grid-area: menu;
   justify-content: flex-start;
 }
 
@@ -86,8 +89,8 @@
 .left-container__link-list {
   font-size: 12px;
   font-weight: 500;
-  grid-area: links;
   letter-spacing: 0.1em;
+  margin-top: 20px;
 
   a:hover {
     @include link-hover;

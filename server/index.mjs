@@ -28,9 +28,10 @@ app.post("/contact", jsonParser, (req, res) => {
 
 // сохранение результатов раскрашивания пользоватлей
 app.post("/save-coloring", jsonParser, (req, res) => {
+  console.log("save code");
   const fileName = saveColoring(req.body);
   res.send(`${fileName}`);
-  return res.redirect("back");
+  // return res.redirect("back");
 });
 
 // загрузка данных из сохраненного файла
@@ -50,7 +51,7 @@ function getDataByTarget(data, target) {
 }
 
 app.post("/send-order", jsonParser, (req, res) => {
-  console.log(req.body);
+  console.log("send order:", req.body);
   const data = req.body;
   const name = getDataByTarget(data, "full_name");
   const dealer = getDataByTarget(data, "dealer");

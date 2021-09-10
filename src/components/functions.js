@@ -16,6 +16,7 @@ import { getColorInfo } from "./color-info/color-info";
 import * as Save from "./save-coloring/save-coloring";
 import * as EnterCode from "./enter-code/enter-code";
 import { sendOrder, getModalOrder } from "./send-order/send-order";
+import { mobileButtonMenuHandler, closeRightMenu } from "./mobile-menu";
 
 const form = document.querySelector(".form-constructor");
 const priceList = json[3].parts[0];
@@ -37,7 +38,7 @@ function handlerClickHarness(color) {
 function handlerClickDetails(color) {
   const screens = document.querySelectorAll(".constructor__schema");
   screens.forEach((screen) => {
-    const details = screen.querySelectorAll("path");
+    const details = screen.querySelectorAll(".schema__element");
     details.forEach((item) => {
       const id = item.getAttribute("data-id");
       if (id !== null && id.indexOf("pinstripes") === -1) {
@@ -176,8 +177,14 @@ function getCheksValue() {
                 let countCheckbox = 0;
                 const dataText = checkedInput.getAttribute("data-text");
                 if (dataText !== "choose_color") {
+                // костыль для опции "main_pc",
+                // если в него добавится третий пункт выбора, то он будет не нужен
+                // indCheck будет просто равен 2
+                  const dataVal = rowChecks.getAttribute("data-val");
+                  const indCheck = dataVal === "main_pc" ? 1 : 2;
+                  // -------
                   ipts.forEach((input, ind) => {
-                    if (ind === ipts.length - 1 && ind > 2) {
+                    if (ind === ipts.length - 1 && ind > indCheck) {
                       countCheckbox += 1;
                     } else input.checked = false;
                   });
@@ -353,6 +360,8 @@ export default function funcInit() {
   EnterCode.enterCode();
   getModalOrder();
   sendOrder();
+  mobileButtonMenuHandler();
+  closeRightMenu();
 }
 
 export {

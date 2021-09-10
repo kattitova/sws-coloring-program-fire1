@@ -13,20 +13,20 @@ import { getPreviewScreen } from "./screens/preview/preview";
 const objPositionTabs = {
   container: {
     isometric: getIsometric,
-    front: getFront,
-    back: getBack,
+    back: getFront,
+    front: getBack,
     side: getSide,
   },
   harness: {
-    back: getBack,
+    front: getBack,
   },
   binding_pinstripes: {
-    front: getFront,
-    back: getBack,
+    back: getFront,
+    front: getBack,
   },
   logos: {
-    front: getFront,
-    back: getBack,
+    back: getFront,
+    front: getBack,
     side: getSide,
   },
 };
@@ -91,7 +91,7 @@ export default class CenterContainer {
 
             // кнопки Split|Solid
             if (i === "container") {
-              if (pos === "isometric" || pos === "front") {
+              if (pos === "isometric" || pos === "back") {
                 const splitButtons = create("div", "panel__split-switch");
                 splitButtons.append(CenterContainer.getSplitButton(2));
                 splitButtons.append(CenterContainer.getSplitButton(6));

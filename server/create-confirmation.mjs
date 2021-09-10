@@ -39,6 +39,12 @@ function createConfirmation(data, lang, fileName) {
       servRow.getCell(4).value = "SWS Constructor Form";
       servRow.commit();
 
+      const date = new Date();
+      const getDateNow = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+      const dateRow = worksheet.getRow(11);
+      dateRow.getCell(4).value = getDateNow;
+      dateRow.commit();
+
       const obj = spliceData(data);
 
       Object.keys(obj).forEach((item) => {
@@ -53,7 +59,8 @@ function createConfirmation(data, lang, fileName) {
               const pos = positions[item].filter(elem => elem["data-target"] === target)[0];
               if (pos) {
                 const row = worksheet.getRow(pos.row);
-                row.getCell(pos.cell).value = subItem.text;
+                const txt = item === "color" ? `${subItem.text[0].toUpperCase()}${subItem.text.slice(1)}` : subItem.text;
+                row.getCell(pos.cell).value = txt;
                 row.commit();
               }
               if (item === "color") {
@@ -70,7 +77,7 @@ function createConfirmation(data, lang, fileName) {
               const pos = positions[item].filter(elem => elem["data-target"] === target)[0];
               if (bp.text.toLowerCase() !== "def" && bp.text.toLowerCase() !== "") {
                 const row = worksheet.getRow(pos.row);
-                row.getCell(pos.cell).value = bp.text;
+                row.getCell(pos.cell).value = `${bp.text[0].toUpperCase()}${bp.text.slice(1)}`; // bp.text;
                 row.commit();
               }
             });
@@ -91,7 +98,7 @@ function createConfirmation(data, lang, fileName) {
                 if (value !== "NULL") {
                   if (ind < obj[item].length - 4) {
                     if (value === "choose_color" || value === "soft_handle") {
-                      txt = options["data-color"];
+                      txt = `${options["data-color"][0].toUpperCase()}${options["data-color"].slice(1)}`; // options["data-color"];
                       if (options["data-color"].toLowerCase().includes("cam")) camoFlag = true;
                     }
                     if (target === "swoop_options") {
@@ -106,7 +113,7 @@ function createConfirmation(data, lang, fileName) {
                     if (target === "main_pc" || target === "main_deployment_handle") {
                       if (options["data-color"] !== null && options["data-color"] !== "") {
                         const row = worksheet.getRow(pos["data-color"].row);
-                        row.getCell(pos["data-color"].cell).value = options["data-color"];
+                        row.getCell(pos["data-color"].cell).value = `${options["data-color"][0].toUpperCase()}${options["data-color"].slice(1)}`; // options["data-color"];
                         row.commit();
                         if (options["data-color"].toLowerCase().includes("cam")) camoFlag = true;
                       } else if (target === "main_pc") {
@@ -114,6 +121,12 @@ function createConfirmation(data, lang, fileName) {
                         row.getCell(19).value = "x";
                         row.commit();
                       }
+                    }
+                    if (target === "fabric_toggles" || target === "protected_main_pc_pocket") {
+                      const row = worksheet.getRow(pos.row);
+                      row.getCell(pos.cell).value = "x";
+                      row.commit();
+                      flag = false;
                     }
                     if (flag) {
                       numRow = pos[value].row;
@@ -152,7 +165,7 @@ function createConfirmation(data, lang, fileName) {
                 }
                 const row = worksheet.getRow(pos.row);
                 row.getCell(numCell).value = "x";
-                row.getCell(pos.cell + 7).value = logo["data-color"];
+                row.getCell(pos.cell + 7).value = `${logo["data-color"][0].toUpperCase()}${logo["data-color"].slice(1)}`; // logo["data-color"];
                 row.commit();
                 if (value === "custom_text") {
                   const rowTxt = worksheet.getRow(44);

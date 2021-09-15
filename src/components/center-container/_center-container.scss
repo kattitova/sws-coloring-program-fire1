@@ -18,7 +18,7 @@
   .constructor__item {
     display: none;
     grid-template-areas: "position schema panel";
-    grid-template-columns: 64px 1fr 168px;
+    grid-template-columns: 68px 1fr 168px;
     padding: 32px 16px 32px 38px;
     position: relative;
 
@@ -50,6 +50,7 @@
         padding: 0 0 4px;
         position: relative;
         transition: all 0.5s linear;
+        white-space: nowrap;
         width: 100%;
 
         &:hover,
@@ -490,12 +491,13 @@
   &.preview {
     .main-buttons__info-block {
       display: grid;
-      grid-gap: 0 16px;
+      grid-gap: 5px 10px;
       grid-template-areas:
         "info-1 info-2"
         "info-1 info-3";
-      grid-template-columns: auto 140px;
+      grid-template-columns: auto auto;
       grid-template-rows: 30px 30px;
+      margin-right: 10px;
 
       .info-block.info-1 {
         @include flex(space-between);
@@ -730,7 +732,7 @@
       }
     }
 
-    .data-row__label {
+    .data-row__label[data-lang="measurement_units"] {
       white-space: nowrap;
     }
 

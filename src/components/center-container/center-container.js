@@ -62,6 +62,7 @@ export default class CenterContainer {
           const item = create("button", ...["tabs-list__position-item", `${pos}`]);
           if (ind === 0) item.classList.add("active");
           item.textContent = pos;
+          item.setAttribute("data-lang", `tab_${pos}`);
           tabsList.appendChild(item);
 
           // для каждого вида добавляем свою схему ранца
@@ -258,7 +259,7 @@ export default class CenterContainer {
           itemNum.textContent = num;
 
           const itemName = create("div", "list-item__name");
-          itemName.setAttribute("data-lang", `${detailNames[num].replace(" ", "_").toLowerCase()}`);
+          itemName.setAttribute("data-lang", `${detailNames[num].replaceAll(" ", "_").toLowerCase()}`);
           itemName.textContent = detailNames[num];
 
           listItem.appendChild(itemNum);
@@ -307,7 +308,7 @@ export default class CenterContainer {
     const arrMainInfo = ["order coordination", "order procedures", "order confirmation"];
     arrMainInfo.forEach((info, ind) => {
       const link = create("a", ...["info-block", `info-${ind + 1}`]);
-      link.setAttribute("href", `./images/${info.replace(" ", "")}.pdf`);
+      link.setAttribute("href", `./images/${info.replace(" ", "")}_${localStorage.getItem("fire1_lang")}.pdf`);
       link.setAttribute("target", "blank");
       link.setAttribute("data-lang", info.replace(" ", "_"));
       link.textContent = info;
@@ -318,8 +319,10 @@ export default class CenterContainer {
     const arrMainButtons = ["preview", "save"];
     arrMainButtons.forEach((i) => {
       const button = create("button", `main-buttons__${i}`);
-      button.setAttribute("data-lang", i);
-      button.textContent = i;
+      const span = create("span");
+      span.setAttribute("data-lang", i);
+      span.textContent = i;
+      button.appendChild(span);
       divMainButtons.appendChild(button);
     });
     return divMainButtons;

@@ -21,6 +21,7 @@
     .modal-container {
       @include flex;
       overflow: hidden;
+      text-align: center;
     }
   }
 }

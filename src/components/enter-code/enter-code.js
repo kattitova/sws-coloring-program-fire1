@@ -1,6 +1,8 @@
+/* eslint-disable dot-notation */
 import create from "../create";
 import { getCloseButton } from "../close-button";
 import { loadData } from "./load-data";
+import { dict } from "../lang/lang";
 
 function getModalSuccess() {
   const modal = document.querySelector(".modal-window.modal-success");
@@ -31,6 +33,7 @@ function enterCode() {
   const input = document.querySelector(".enter-code__input");
   enterButton.addEventListener("click", (e) => {
     e.preventDefault();
+    const lang = localStorage.getItem("fire1_lang");
     const code = { code: input.value };
     fetch("/enter-code", {
       method: "POST",
@@ -45,16 +48,16 @@ function enterCode() {
         const title = modal.querySelector(".modal-title");
         const span = modal.querySelector("span");
         if (body.error) {
-          title.textContent = "error code";
+          title.textContent = dict[lang]["error_title"];
           title.setAttribute("data-lang", "error_title");
-          span.textContent = "You have used the wrong code. Please try again";
+          span.textContent = dict[lang]["error_msg"];
           span.setAttribute("data-lang", "error_msg");
         } else {
           // загрузка данных в саму программу, примененние ВСЕГО
           loadData(body);
-          title.textContent = "success";
+          title.textContent = dict[lang]["success_title"];
           title.setAttribute("data-lang", "success_title");
-          span.textContent = "Your code has been uploaded!";
+          span.textContent = dict[lang]["success_msg"];
           span.setAttribute("data-lang", "success_msg");
         }
       });

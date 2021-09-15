@@ -2,6 +2,7 @@
 import create from "../../../create";
 import getFront from "../container/container-front";
 import getBack from "../container/container-back";
+import { dict } from "../../../lang/lang";
 
 function getSchemeBlock() {
   const schemeBlock = create("div", ...["constructor__data-block", "schema"]);
@@ -135,6 +136,7 @@ function getPreviewInfo(form) {
   let blockCont;
   let prevSubTitle = "";
   let subCont;
+  const selLang = localStorage.getItem("fire1_lang");
   allInputs.forEach((input) => {
     const part = input.className.split(" ")[1];
     if (part !== prevPart) {
@@ -142,10 +144,10 @@ function getPreviewInfo(form) {
       const dataTitle = create("div", "data-block__title");
       if (part !== "bp") {
         dataTitle.setAttribute("data-lang", part);
-        dataTitle.textContent = part;
+        dataTitle.textContent = dict[selLang][part];
       } else {
         dataTitle.setAttribute("data-lang", "pinstripes");
-        dataTitle.textContent = "Pinstripes";
+        dataTitle.textContent = dict[selLang].pinstripes;
       }
       dataBlock.appendChild(dataTitle);
       blockCont = create("div", "data-block__container");
@@ -166,11 +168,15 @@ function getPreviewInfo(form) {
         const chainTitle = create("div", "preview-chain__title");
         if (part !== "bp") {
           chainTitle.setAttribute("data-lang", target);
-          chainTitle.textContent = name;
+          chainTitle.textContent = dict[selLang][target];
         } else {
           let bp = name.replace("Pinstripes-", "");
           if (bp.length === 2) bp = `${bp[0]}/${bp[1]}`;
           chainTitle.textContent = bp;
+          if (bp.toLowerCase() === "binding") {
+            chainTitle.setAttribute("data-lang", "binding");
+            chainTitle.textContent = dict[selLang].binding;
+          }
         }
         chain.appendChild(chainTitle);
 
@@ -202,7 +208,7 @@ function getPreviewInfo(form) {
           if (subTitle !== prevSubTitle) {
             const subTitleDiv = create("div", "preview-chain__subtitle");
             subTitleDiv.setAttribute("data-lang", subTitle.toLowerCase());
-            subTitleDiv.textContent = subTitle.replaceAll("_", " ");
+            subTitleDiv.textContent = dict[selLang][subTitle.toLowerCase()];
             blockCont.appendChild(subTitleDiv);
             subCont = create("div", "data-block__sub-container");
             blockCont.appendChild(subCont);
@@ -213,9 +219,11 @@ function getPreviewInfo(form) {
           const chainTitle = create("div", "preview-chain__title");
           if (part === "options") {
             chainTitle.setAttribute("data-lang", target);
+            chainTitle.textContent = dict[selLang][target];
+          } else {
+            const name = input.getAttribute("name").split("/")[ind + 1];
+            chainTitle.textContent = name;
           }
-          const name = input.getAttribute("name").split("/")[ind + 1];
-          chainTitle.textContent = name;
           chain.appendChild(chainTitle);
 
           chain.setAttribute("data-target", target);
@@ -244,7 +252,7 @@ function getPreviewInfo(form) {
           dataBlock = create("div", ...["constructor__data-block", subTitle.toLowerCase()]);
           const dataTitle = create("div", "data-block__title");
           dataTitle.setAttribute("data-lang", subTitle.toLowerCase());
-          dataTitle.textContent = subTitle.replace("_", " ");
+          dataTitle.textContent = dict[selLang][subTitle.toLowerCase()];
           dataBlock.appendChild(dataTitle);
           blockCont = create("div", "data-block__container");
           blockCont.textContent = input.textContent;

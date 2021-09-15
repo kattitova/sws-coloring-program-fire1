@@ -45,9 +45,10 @@ export default class LeftContainer {
   static getLangs() {
     const langs = create("div", "left-container__langs");
 
-    const arrLangs = ["eng", "ru", "ua"];
+    const arrLangs = ["eng", "ua", "ru"];
     arrLangs.forEach((lang) => {
-      const flag = create("a", ...["langs__lang", `langs__lang--${lang}`]);
+      const flag = create("a", "langs__lang");
+      flag.setAttribute("data-flag", lang);
       flag.setAttribute("href", "#");
       flag.textContent = lang;
       langs.appendChild(flag);

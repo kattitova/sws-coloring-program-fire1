@@ -16,7 +16,7 @@ function sumTotal() {
   }
 }
 
-function addBlock(parrent, title, value, subtitle) {
+function addBlock(parrent, title, value, subtitle, nameDataLang) {
   const calcBlock = create("div", "invoice__calc-block");
 
   const calcBlockTitle = create("div", "calc-block__title");
@@ -28,7 +28,7 @@ function addBlock(parrent, title, value, subtitle) {
   if (subtitle) {
     const calcBlockTitleB = create("b");
     calcBlockTitleB.textContent = subtitle;
-    calcBlockTitleB.setAttribute("data-lang", subtitle.toLowerCase().replace(/[ +,-][_]*/g, "_").replace(/_{1,}/g, "_"));
+    calcBlockTitleB.setAttribute("data-lang", nameDataLang);
     calcBlockTitle.appendChild(calcBlockTitleB);
   }
   calcBlock.appendChild(calcBlockTitle);
@@ -41,34 +41,33 @@ function addBlock(parrent, title, value, subtitle) {
 }
 
 // функция проверки добавлена уже опция или нет
-function checkAddedOption(parrent, select, title, value, subtitle, remove) {
+function checkAddedOption(parrent, select, title, value, subtitle, nameDataLang, remove) {
   const calcBlocks = document.querySelectorAll(".invoice__calc-block");
   let flag = true;
   // if (select === "solo" || select === "add") {
   calcBlocks.forEach((block) => {
     const option = block.querySelector(".calc-block__title");
-    const newSub = subtitle.toLowerCase().replace(/[ +,-][_]*/g, "_").replace(/_{1,}/g, "_");
     const sub = option.querySelector("b");
     if (option.getAttribute("data-name") === title) {
       flag = false;
       // доп проверкa subtitle
       if (value !== undefined) {
-	    if (select === "add") {
-		  if (remove) block.remove();
-		}
+        if (select === "add") {
+          if (remove) block.remove();
+        }
         // логика для мульти
         if (select === "multi") {
           if (sub !== null) {
-            if (sub.getAttribute("data-lang") !== newSub) {
+            if (sub.getAttribute("data-lang") !== nameDataLang) {
               flag = true;
             } else if (remove) {
               block.remove();
             }
           } else flag = true;
         } else if (subtitle !== "") {
-          if (sub.getAttribute("data-lang") !== newSub) {
+          if (sub.getAttribute("data-lang") !== nameDataLang) {
             sub.textContent = subtitle;
-            sub.setAttribute("data-lang", newSub);
+            sub.setAttribute("data-lang", nameDataLang);
             option.nextElementSibling.textContent = value;
           }
         } else if (remove) block.remove();
@@ -94,7 +93,7 @@ function checkAddedOption(parrent, select, title, value, subtitle, remove) {
       }
 
       // изменение доступности опций Металл в списке опций при выборе подвесной Adjustable
-      if (newSub === "adjustable") {
+      if (nameDataLang === "adjustable") {
         const metals = document.querySelectorAll(".constructor__data-row-checks[data-val=\"metal\"] input");
         metals.forEach((metal) => {
           const { id } = metal;
@@ -107,7 +106,7 @@ function checkAddedOption(parrent, select, title, value, subtitle, remove) {
         });
       }
     }
-    if (title === "harness_type" && newSub !== "adjustable") {
+    if (title === "harness_type" && nameDataLang !== "adjustable") {
       const metals = document.querySelectorAll(".constructor__data-row-checks[data-val=\"metal\"] input");
       metals.forEach((metal) => {
         metal.classList.remove("disabled");
@@ -115,7 +114,7 @@ function checkAddedOption(parrent, select, title, value, subtitle, remove) {
     }
 
     // при клике на опцию 2Кольца возврат в Калькуляцию строки с типом Металла, если он выбран
-    if (title === "harness_type" && newSub.replace("standart", "") === "2rings") {
+    if (title === "harness_type" && nameDataLang === "2rings") {
       let flagCheck = false;
       const blocks = document.querySelectorAll(".invoice__calc-block");
       blocks.forEach((item) => {
@@ -131,7 +130,7 @@ function checkAddedOption(parrent, select, title, value, subtitle, remove) {
             const label = metal.nextElementSibling;
             const name = label.querySelector(".data-row__name").textContent;
             const cost = label.querySelector(".data-row__price").textContent.replace("$", "");
-            addBlock(parrent, "Metal", cost, name);
+            addBlock(parrent, "Metal", cost, name, nameDataLang);
           }
         });
         flag = false;
@@ -139,13 +138,13 @@ function checkAddedOption(parrent, select, title, value, subtitle, remove) {
     }
 
     // при выборе варианта RSL (кроме No), устанавливать DRD в No
-    if (title === "rsl" && newSub.replace("standart", "") !== "no") {
+    if (title === "rsl" && nameDataLang !== "no") {
       const drd = document.querySelector(".data-row__label[for=\"drd-no\"]");
       drd.click();
     }
 
     // при выборе варианта DRD (кроме No), устанавливать RSL в No
-    if (title === "drd" && newSub.replace("standart", "") !== "no") {
+    if (title === "drd" && nameDataLang !== "no") {
       const rsl = document.querySelector(".data-row__label[for=\"rsl-no\"]");
       rsl.click();
     }
@@ -155,10 +154,10 @@ function checkAddedOption(parrent, select, title, value, subtitle, remove) {
 }
 
 // функцция добавляет новую строку опции в панель Счета
-function addCalcBlock(parrent, title, value, subtitle, select) {
-  const check = checkAddedOption(parrent, select, title, value, subtitle);
+function addCalcBlock(parrent, title, value, subtitle, select, nameDataLang) {
+  const check = checkAddedOption(parrent, select, title, value, subtitle, nameDataLang);
   if (title === "Fire" || check) {
-    addBlock(parrent, title, value, subtitle);
+    addBlock(parrent, title, value, subtitle, nameDataLang);
   }
 }
 

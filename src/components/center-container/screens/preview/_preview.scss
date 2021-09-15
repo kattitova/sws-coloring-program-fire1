@@ -230,17 +230,16 @@
   }
 }
 
-// @media (max-width: 1200px) {
-//   .constructor__item.preview {
-//     .constructor__data-wrapper {
-//       grid-template-areas:
-//         "schema colors"
-//         "info bp"
-//         "logos instructions"
-//         "sizes sizes"
-//         "options options";
-//       grid-template-columns: 1fr 1fr;
-//       grid-template-rows: 0.5fr 0.25fr 0.2fr 0.2fr auto;
-//     }
-//   }
-// }
+.wrapper {
+  &[data-flag="ru"],
+  &[data-flag="ua"] {
+    .center-container__buttons-panel.preview {
+      .main-buttons__save {
+        flex-direction: column-reverse;
+        font-size: 10px;
+        justify-content: space-evenly;
+        padding: 0 8px !important;
+      }
+    }
+  }
+}

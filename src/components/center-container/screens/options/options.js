@@ -12,7 +12,7 @@ function openTooltipColor(optionsColors, parent, txt) {
   if (txt) optionsColors.classList.add("active", title, subtitle, txt);
   else optionsColors.classList.add("active", title, subtitle);
   optionsColors.style.top = `${parent.offsetTop}px`;
-  optionsColors.style.left = `${parent.offsetLeft}px`;
+  optionsColors.style.left = `${parent.offsetLeft - 50}px`;
   activeColorOpt = title;
 }
 

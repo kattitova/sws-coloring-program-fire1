@@ -1,16 +1,14 @@
 import { setContainerColor } from "../container/container";
 import {
-  onHoverElement, outHoverElement, getAllDetailsByDataId
+  onHoverElement, outHoverElement, getAllDetailsByDataId,
 } from "../../../functions";
 
 function addPinstripesHover() {
   const constructor = document.querySelector(".constructor__item.binding_pinstripes [data-id=\"pinstripes\"]");
   const shemaItems = constructor.querySelectorAll(".schema__element.active");
-  console.log(shemaItems);
   shemaItems.forEach((item) => {
     const dataId = item.getAttribute("data-id");
     const details = getAllDetailsByDataId(dataId);
-	console.log(details);
 
     item.addEventListener("mouseover", () => {
       details.forEach((det) => {
@@ -66,7 +64,7 @@ function switcherButtonsClick() {
             });
           });
         });
-		addPinstripesHover();
+        addPinstripesHover();
       } else {
         pinstripesAll.forEach((pinstripes) => {
           pinstripes.classList.remove("active");

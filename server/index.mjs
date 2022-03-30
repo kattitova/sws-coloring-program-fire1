@@ -30,6 +30,7 @@ app.post("/contact", jsonParser, (req, res) => {
 app.post("/save-coloring", jsonParser, (req, res) => {
   console.log("save code");
   const fileName = saveColoring(req.body);
+  console.log(fileName);
   res.send(`${fileName}`);
   // return res.redirect("back");
 });

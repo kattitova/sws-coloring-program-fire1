@@ -12,7 +12,7 @@ function saveIndexFile(fileName, data) {
     );
     console.log("Done");
   } catch (e) {
-    console.log(e);
+    console.log("Error: ", e);
   }
 }
 
@@ -21,7 +21,7 @@ function genFileName() {
   const id = fs.readFileSync(indexFile, "utf8");
   const newId = parseInt(id, 10) + 1;
   // сохраняем в index.txt номер последнего сохраненного файла
-  saveIndexFile(indexFile, newId);
+  saveIndexFile(indexFile, newId.toString());
   return newId;
 }
 

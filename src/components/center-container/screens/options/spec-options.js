@@ -195,11 +195,44 @@ function addSwitchOptionsToCalc() {
   const splitButtons = split.querySelectorAll("button");
   const priceSplit = split.querySelector("[data-id=\"split_design\"]").textContent.replace("$", "");
   func(splitButtons, "split_design", priceSplit);
+}
 
-  const pintripes = document.querySelector(".position__pb-switch");
-  const pintripesButtons = pintripes.querySelectorAll("[data-target=\"pinstripes\"]");
-  const pricePin = pintripes.querySelector("[data-id=\"pinstripes\"]").textContent.replace("$", "");
-  func(pintripesButtons, "pinstripes", pricePin);
+function addPinstripesOptionsToCalc() {
+  const func = () => {
+    const calc = document.querySelector(".calc-panel__invoice");
+    const pintripes = document.querySelector(".position__pb-switch");
+    const price = pintripes.querySelector("[data-id=\"pinstripes\"]").textContent.replace("$", "");
+
+    const form = document.querySelector(".form-constructor");
+    const allBp = form.querySelectorAll(".preview-value.bp");
+    let pinFlag = false;
+    allBp.forEach((bp) => {
+      const target = bp.getAttribute("data-target");
+      if (target !== "binding") {
+        const color = bp.value;
+        if (color !== "NULL" && color !== "def") {
+          pinFlag = true;
+        }
+      }
+    });
+    if (pinFlag) {
+      // pinstripess add to calc
+      Calc.addCalcBlock(calc, "pinstripes", price, "", "solo");
+    } else {
+      // pinstripes remove from calc
+      Calc.removeBlock("pinstripes", "");
+    }
+  };
+
+  const optionsTab = document.querySelector(".tabs-list__tabs-item.options");
+  optionsTab.addEventListener("click", () => {
+    func();
+  });
+
+  const previewButton = document.querySelector(".main-buttons__preview");
+  previewButton.addEventListener("click", () => {
+    func();
+  });
 }
 //------------------
 
@@ -345,6 +378,7 @@ function specOptionsInit() {
   MainPartsChangePrice();
   ReservePartsChangePrice();
   addSwitchOptionsToCalc();
+  addPinstripesOptionsToCalc();
   addCamoToCalc();
   addLogoToCalc();
   checkTubeColor();

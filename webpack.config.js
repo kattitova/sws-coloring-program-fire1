@@ -35,6 +35,7 @@ module.exports = {
       title: "webpack sws coloring program",
       template: path.resolve(__dirname, "./src/index.html"), // шаблон
       filename: "index.html", // название выходного файла
+      cache: false,
     }),
     new MiniCssExtractPlugin({
       filename: "style.css",

@@ -4,6 +4,7 @@ import camo from "../camo.json";
 import neon from "../neon.json";
 import getCalculatorPanel from "./calculator";
 import { getLogoPanel } from "./logo-panel";
+import { getCloseButton } from "../close-button";
 
 // класс отрисовки правой панели
 export default class RightContainer {
@@ -36,14 +37,16 @@ export default class RightContainer {
   static getTemplatePanel() {
     const divTemplatePanel = create("div", ...["right-container__template-panel", "container"]);
 
+    divTemplatePanel.appendChild(getCloseButton(divTemplatePanel));
+
     divTemplatePanel.appendChild(getLogoPanel());
 
     divTemplatePanel.appendChild(RightContainer.getColorPanel());
 
-    const buttonApplayAll = create("button", "template-panel__button-apply");
-    buttonApplayAll.setAttribute("data-lang", "apply_all");
-    buttonApplayAll.textContent = "Apply to all areas";
-    divTemplatePanel.appendChild(buttonApplayAll);
+    const buttonApplyAll = create("button", "template-panel__button-apply");
+    buttonApplyAll.setAttribute("data-lang", "apply_all");
+    buttonApplyAll.textContent = "Apply to all areas";
+    divTemplatePanel.appendChild(buttonApplyAll);
 
     const buttonClearAll = create("button", ...["template-panel__button-clear", "container"]);
     buttonClearAll.setAttribute("data-lang", "clear_all");

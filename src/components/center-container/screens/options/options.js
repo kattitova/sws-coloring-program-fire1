@@ -6,12 +6,13 @@ import { removeBlock } from "../../../right-container/calculator";
 
 let activeColorOpt;
 
-function openTooltipColor(optionsColors, parent) {
+function openTooltipColor(optionsColors, parent, txt) {
   optionsColors.className = "opitons__colors";
   const [title, subtitle] = parent.previousSibling.id.split("-");
-  optionsColors.classList.add("active", title, subtitle);
+  if (txt) optionsColors.classList.add("active", title, subtitle, txt);
+  else optionsColors.classList.add("active", title, subtitle);
   optionsColors.style.top = `${parent.offsetTop}px`;
-  optionsColors.style.left = `${parent.offsetLeft}px`;
+  optionsColors.style.left = `${parent.offsetLeft - 50}px`;
   activeColorOpt = title;
 }
 
@@ -45,7 +46,17 @@ export default function getTooltipColor() {
 
   const mainDeployment = document.querySelector("[for=\"main_deployment_handle-choose_color\"]");
   mainDeployment.addEventListener("click", () => {
-    openTooltipColor(optionsColors, mainDeployment);
+    const checkParent = mainDeployment.parentElement;
+    const items = checkParent.parentElement.querySelectorAll("input");
+    let txt = "";
+    items.forEach((item, ind) => {
+      if (ind !== items.length - 1) {
+        if (item.checked) {
+          txt = item.getAttribute("data-text");
+        }
+      }
+    });
+    openTooltipColor(optionsColors, mainDeployment, txt);
   });
 
   const mainPC = document.querySelector("[for=\"main_pc-choose_color\"]");

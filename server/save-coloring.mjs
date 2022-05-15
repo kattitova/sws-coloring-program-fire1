@@ -1,9 +1,9 @@
 import fs from "fs";
 
-const indexFile = "server/save/index.txt";
+// const indexFile = "server/save/index.txt";
 
 // сохраняем файл
-function saveIndexFile(fileName, data) {
+function saveNewFile(fileName, data) {
   try {
     fs.writeFileSync(
       fileName,
@@ -18,17 +18,34 @@ function saveIndexFile(fileName, data) {
 
 // генерация имени файла сохранения
 function genFileName() {
-  const id = fs.readFileSync(indexFile, "utf8");
-  const newId = parseInt(id, 10) + 1;
-  // сохраняем в index.txt номер последнего сохраненного файла
-  saveIndexFile(indexFile, newId);
-  return newId;
+  // generate saving code simbol + digital
+  let result = "";
+  const words = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+  const maxPosition = words.length - 1;
+  for (let i = 0; i < 6; i += 1) {
+    const position = Math.floor(Math.random() * maxPosition);
+    result += words.substring(position, position + 1);
+  }
+  // ---
+  return result;
 }
 
 function saveColoring(data) {
   const fileName = genFileName();
-  // сохраняем данные раскраски в файл
-  saveIndexFile(`server/save/${fileName}.json`, JSON.stringify(data));
+  const path = `server/save/${fileName}.json`;
+  try {
+    if (fs.existsSync(path)) {
+      // gen new file name
+      saveColoring(data);
+    } else {
+      // сохраняем данные раскраски в файл
+      saveNewFile(path, JSON.stringify(data));
+    }
+  } catch (e) {
+    console.log(e);
+  }
+  // saveNewFile(path, JSON.stringify(data));
+
   // console.log(fileName, data);
   return fileName;
 }

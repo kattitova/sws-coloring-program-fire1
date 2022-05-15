@@ -1,4 +1,6 @@
 import create from "../create";
+import { getCloseButton } from "../close-button";
+import { closeLeftMenu } from "../mobile-menu";
 
 // display left sidebar
 // header - SWS logo + language icons
@@ -10,8 +12,11 @@ export default class LeftContainer {
   static init() {
     const leftContainer = document.querySelector(".main");
     leftContainer.appendChild(LeftContainer.getHeader());
-    leftContainer.appendChild(LeftContainer.getTabsList());
-    leftContainer.appendChild(LeftContainer.getLinkList());
+    const leftCont = create("div", "left-container");
+    leftCont.appendChild(getCloseButton(leftCont));
+    leftCont.appendChild(LeftContainer.getTabsList());
+    leftCont.appendChild(LeftContainer.getLinkList());
+    leftContainer.appendChild(leftCont);
   }
 
   static getHeader() {
@@ -40,9 +45,10 @@ export default class LeftContainer {
   static getLangs() {
     const langs = create("div", "left-container__langs");
 
-    const arrLangs = ["eng", "ru", "ua"];
+    const arrLangs = ["eng", "ua", "ru"];
     arrLangs.forEach((lang) => {
-      const flag = create("a", ...["langs__lang", `langs__lang--${lang}`]);
+      const flag = create("a", "langs__lang");
+      flag.setAttribute("data-flag", lang);
       flag.setAttribute("href", "#");
       flag.textContent = lang;
       langs.appendChild(flag);
@@ -75,6 +81,8 @@ export default class LeftContainer {
     findDealerLink.setAttribute("href", "#");
     findDealerLink.textContent = "Find a Dealer";
     findDealerLink.addEventListener("click", () => {
+      // закрываем левое меню - для мобильной версии
+      closeLeftMenu();
       const modal = document.querySelector(".modal-dealer");
       modal.classList.toggle("open");
     });
@@ -87,6 +95,8 @@ export default class LeftContainer {
     contactUsLink.setAttribute("href", "#");
     contactUsLink.textContent = "Contact Us";
     contactUsLink.addEventListener("click", () => {
+      // закрываем левое меню - для мобильной версии
+      closeLeftMenu();
       const modal = document.querySelector(".modal-contact");
       modal.classList.toggle("open");
     });

@@ -4,7 +4,7 @@
 		"country":"Ukraine",
 		"dealers":[
 			{
-				"location":"DZ Чайка, Киев",
+				"location":"DZ Skydive Academy, Киев",
 				"name":"Яковлева Людмила",
 				"tel1":"+380674471696",
 				"tel2":"+380503387850",
@@ -12,7 +12,7 @@
 				"web":""
 			},
 			{
-				"location":"DZ 5 Океан, Киев",
+				"location":"DZ Чайка, Киев",
 				"name":"Карась Максим",
 				"tel1":"+380677707844",
 				"tel2":"",
@@ -31,12 +31,12 @@
 				"location":"Киев, клуб AZOV-SKY",
 				"name":"Мыкита Виктор",
 				"tel1":"+380985088500",
-				"tel2":"+380935088800",
-				"email":"azov-sky@mail.ru",
+				"tel2":"",
+				"email":"viktor.mykita@gmail.com",
 				"web":""
 			},
 			{
-				"location":"Киев, Симферополь, Интернет",
+				"location":"Киев",
 				"name":"Рыков Николай",
 				"tel1":"+380500706122",
 				"tel2":"",
@@ -52,19 +52,11 @@
 				"web":""
 			},
 			{
-				"location":"DZ Прогресс, Чернигов",
+				"location":"DZ 5 Океан, Киев",
 				"name":"Козыренко Сергей",
 				"tel1":"+380679166087",
 				"tel2":"",
 				"email":"kozyrenko.ua@mail.com",
-				"web":""
-			},
-			{
-				"location":"Николаев, Херсон",
-				"name":"Савинец Евгений",
-				"tel1":"+380933554425",
-				"tel2":"",
-				"email":"ternovka07@rambler.ru",
 				"web":""
 			},
 			{
@@ -76,27 +68,11 @@
 				"web":""
 			},
 			{
-				"location":"Енакиево, Донецк",
+				"location":"Киев",
 				"name":"Лысенко Сергей",
 				"tel1":"+380953955508",
 				"tel2":"",
 				"email":"psixs@mail.ru",
-				"web":""
-			},
-			{
-				"location":"Севастополь, Крым",
-				"name":"Слободянюк Юра 'Зема'",
-				"tel1":"+79788527910",
-				"tel2":"",
-				"email":"zjoma@inbox.ru",
-				"web":""
-			},
-			{
-				"location":"Ровно, Западная Украина, Ровенский АСК",
-				"name":"Мисюра Федор",
-				"tel1":"+38097844813",
-				"tel2":"+380666638066",
-				"email":"utizon09@gmail.com",
 				"web":""
 			},
 			{
@@ -108,28 +84,12 @@
 				"web":""
 			},
 			{
-				"location":"Симферополь, Крым",
-				"name":"Судаков Александр",
-				"tel1":"+380505357979",
-				"tel2":"",
-				"email":"alex892005@mail.ru",
-				"web":""
-			},
-			{
 				"location":"DZ Майское, Днепропетровск",
 				"name":"Даниленко Сергей",
 				"tel1":"+380503205659",
 				"tel2":"",
 				"email":"skydive@avia-soyuz.com.ua",
 				"web":""
-			},
-			{
-				"location":"Одесса",
-				"name":"Пшеницкий Артур",
-				"tel1":"+380671788800",
-				"tel2":"",
-				"email":"a.pshenytskyy@gmail.com",
-				"web":"http://parachutist.com.ua/"
 			},
 			{
 				"location":"Ровно,  Западная Украина, Ровенский АСК",
@@ -140,7 +100,7 @@
 				"web":""
 			},
 			{
-				"location":"Чернигов, DZ прогресс",
+				"location":"Чернигов, DZ Skydive Academy",
 				"name":"Роман Слепой",
 				"tel1":"+380633356833",
 				"tel2":"",
@@ -161,6 +121,22 @@
 				"tel1":"+380507470065",
 				"tel2":"+380671129223",
 				"email":"tepliyaleksey@gmail.com",
+				"web":""
+			},
+			{
+				"location":"Одесса",
+				"name":"Заикин Владимир",
+				"tel1":"+380632847210",
+				"tel2":"",
+				"email":"zsmile83@gmail.com",
+				"web":""
+			},
+			{
+				"location":"Кривой Рог",
+				"name":"Перов Максим (Perov Maxim)",
+				"tel1":"+380677216501",
+				"tel2":"",
+				"email":"perovmaxim23@gmail.com",
 				"web":""
 			}
 		]
@@ -208,10 +184,10 @@
 			{
 				"location":"Skydive Atmosfera",
 				"name":"Iwan & Urszula Kucharczyk",
-				"tel1":"",
+				"tel1":"+34638919628",
 				"tel2":"",
-				"email":"ulaursula92@gmail.com",
-				"web":""
+				"email":"shop@skydiveatmosfera.shop",
+				"web":"www.skydiveatmosfera.shop"
 			},
 			{
 				"location":"Para-Sport, S.A.",
@@ -220,14 +196,6 @@
 				"tel2":"",
 				"email":"info@para-sport.es",
 				"web":"https://www.para-sport.com/"
-			},
-			{
-				"location":"Spain",
-				"name":"Олег Жуков",
-				"tel1":"+34687639899",
-				"tel2":"",
-				"email":"extrem_88@hotmail.com",
-				"web":""
 			}
 		]
 	},
@@ -235,14 +203,6 @@
 		"data-target":"pt",
 		"country":"Portugal",
 		"dealers":[
-			{
-				"location":"Viseu",
-				"name":"Guilherme Lopes",
-				"tel1":"+351916479001",
-				"tel2":"",
-				"email":"nblueskies@hotmail.com",
-				"web":""
-			},
 			{
 				"location":"Coimbra",
 				"name":"Valter Cordeiro",
@@ -278,20 +238,14 @@
 				"tel2":"",
 				"email":"lukasz@paragela.pl",
 				"web":"http://paragela.pl/"
-			}
-		]
-	},
-	{
-		"data-target":"ee",
-		"country":"Estonia",
-		"dealers":[
+			},
 			{
-				"location":"Estonia",
-				"name":"Andres Villemson",
-				"tel1":"+37256643585",
+				"location":"Skydive Atmosfera",
+				"name":"Iwan & Urszula Kucharczyk",
+				"tel1":"+48690497680",
 				"tel2":"",
-				"email":"wilson@skydive.ee",
-				"web":""
+				"email":"shop@skydiveatmosfera.shop",
+				"web":"www.skydiveatmosfera.shop"
 			}
 		]
 	},
@@ -305,20 +259,6 @@
 				"tel1":"+320499891740",
 				"tel2":"",
 				"email":"alexandre-73@live.com",
-				"web":""
-			}
-		]
-	},
-	{
-		"data-target":"co",
-		"country":"Colombia",
-		"dealers":[
-			{
-				"location":"Paracaidismo Colombia",
-				"name":"Andres Ocampo",
-				"tel1":"+5712888863-2889969",
-				"tel2":"+573133404139",
-				"email":"andres@paracaidismocolombia.com",
 				"web":""
 			}
 		]
@@ -366,59 +306,9 @@
 		]
 	},
 	{
-		"data-target":"mo",
-		"country":"Montenegro",
-		"dealers":[
-			{
-				"location":"DZ Fenix, Serbia, Beograd",
-				"name":"Dmitry Voytenko",
-				"tel1":"+38267220807",
-				"tel2":"",
-				"email":"udawka@gmail.com",
-				"web":""
-			}
-		]
-	},
-	{
-		"data-target":"sr",
-		"country":"Serbia",
-		"dealers":[
-			{
-				"location":"DZ Fenix, Serbia, Beograd",
-				"name":"Dmitry Voytenko",
-				"tel1":"+38267220807",
-				"tel2":"",
-				"email":"udawka@gmail.com",
-				"web":""
-			}
-		]
-	},
-	{
-		"data-target":"hr",
-		"country":"Croatia",
-		"dealers":[
-			{
-				"location":"DZ Fenix, Serbia, Beograd",
-				"name":"Dmitry Voytenko",
-				"tel1":"+38267220807",
-				"tel2":"",
-				"email":"udawka@gmail.com",
-				"web":""
-			}
-		]
-	},
-	{
 		"data-target":"by",
 		"country":"Belarus",
 		"dealers":[
-			{
-				"location":"Республика Беларусь, Belaavis",
-				"name":"Сергей Насатович",
-				"tel1":"+375295152222",
-				"tel2":"",
-				"email":"belaavis@tut.by",
-				"web":""
-			},
 			{
 				"location":"UAB Paraloftas",
 				"name":"Vitaly Greck",
@@ -435,41 +325,11 @@
 		"dealers":[
 			{
 				"location":"Кишинев",
-				"name":"Арсентьев Сергей",
-				"tel1":"+37379404007",
-				"tel2":"",
-				"email":"skydiver_ff@yahoo.com",
-				"web":""
-			},
-			{
-				"location":"Кишинев",
 				"name":"Романов Александр",
 				"tel1":"+37369122122",
 				"tel2":"",
 				"email":"miraj02@mail.ru",
 				"web":""
-			}
-		]
-	},
-	{
-		"data-target":"kz",
-		"country":"Kazakhstan",
-		"dealers":[
-			{
-				"location":"Алматы",
-				"name":"Константин Ким",
-				"tel1":"+77017147440",
-				"tel2":"",
-				"email":"kim.kv@outlook.com",
-				"web":""
-			},
-			{
-				"location":"Караганда",
-				"name":"Ибрагимов  Александр",
-				"tel1":"+77014292192",
-				"tel2":"",
-				"email":"barista.89@mail.ru",
-				"web":"http://vk.com/club57559831"
 			}
 		]
 	},
@@ -492,14 +352,6 @@
 		"country":"Slovakia",
 		"dealers":[
 			{
-				"location":"Slovakia",
-				"name":"Алексей Великопольский",
-				"tel1":"+421940550701",
-				"tel2":"",
-				"email":"a777aa@gmail.com",
-				"web":""
-			},
-			{
 				"location":"Born2Fly s.r.o.",
 				"name":"Miran Vereš",
 				"tel1":"+38670559917",
@@ -514,14 +366,6 @@
 		"country":"Lithuania",
 		"dealers":[
 			{
-				"location":"UAB Paraloftas",
-				"name":"Vitaly Greck",
-				"tel1":"",
-				"tel2":"",
-				"email":"boss@paraloftas.com",
-				"web":""
-			},
-			{
 				"location":"Baltic Tatry Skydiver Ltd",
 				"name":"Aleksandr Neposedov",
 				"tel1":"+37129469636",
@@ -532,29 +376,15 @@
 		]
 	},
 	{
-		"data-target":"usa",
-		"country":"USA",
+		"data-target":"mex",
+		"country":"Mexico",
 		"dealers":[
 			{
-				"location":"UAB Paraloftas",
-				"name":"Vitaly Greck",
-				"tel1":"",
+				"location":"Villalobos Lagunas",
+				"name":"Edgar Santiago",
+				"tel1":"+527351026127",
 				"tel2":"",
-				"email":"boss@paraloftas.com",
-				"web":""
-			}
-		]
-	},
-	{
-		"data-target":"europe",
-		"country":"Europe",
-		"dealers":[
-			{
-				"location":"UAB Paraloftas",
-				"name":"Vitaly Greck",
-				"tel1":"",
-				"tel2":"",
-				"email":"boss@paraloftas.com",
+				"email":"villalobosla@msn.com",
 				"web":""
 			}
 		]
@@ -580,28 +410,12 @@
 				"web":""
 			},
 			{
-				"location":"Сосновоборский Аэроклуб, Санкт-Петербург, Интернет",
-				"name":"Шушарин Константин",
-				"tel1":"+79219073705",
-				"tel2":"",
-				"email":"info@skybunker.ru",
-				"web":"http://vk.com/skybunker"
-			},
-			{
 				"location":"Уфа, DZ Первушино, DZ Мензелинск, интернет",
 				"name":"Шилин Вячеслав",
 				"tel1":"+79033111277",
 				"tel2":"",
 				"email":"ufatrans@mail.ru",
 				"web":""
-			},
-			{
-				"location":"Москва, Санкт-Петербург Интернет",
-				"name":"www.ParaShop.Ru",
-				"tel1":"+79151999928",
-				"tel2":"+79167940080",
-				"email":"sales@parashop.ru",
-				"web":"http://www.parashop.ru"
 			},
 			{
 				"location":"DZ Ватулино, Москва",
@@ -613,35 +427,11 @@
 			},
 			{
 				"location":"Москва",
-				"name":"Малунов Вячеслав",
-				"tel1":"+79262397017",
-				"tel2":"",
-				"email":"vmalunov@gmail.com",
-				"web":"http://www.runsky.ru"
-			},
-			{
-				"location":"DZ Пущино, Москва",
-				"name":"Микуленас Андрюс",
-				"tel1":"+79262033731",
-				"tel2":"",
-				"email":"shopfly@mail.ru",
-				"web":""
-			},
-			{
-				"location":"Москва",
 				"name":"www.r8sport.ru",
 				"tel1":"+79160088282",
 				"tel2":"+79636222282",
 				"email":"r8sport@mail.ru",
 				"web":"www.r8sport.ru"
-			},
-			{
-				"location":"Брянская, Орловская, Смоленская области",
-				"name":"Кривавич Сергей",
-				"tel1":"+79107357106",
-				"tel2":"",
-				"email":"safire@mail.ru",
-				"web":""
 			},
 			{
 				"location":"Кемерово, Новосибирск",
@@ -660,14 +450,6 @@
 				"web":"http://sky.vvo.ru"
 			},
 			{
-				"location":"DZ Фролово, Пермский край",
-				"name":"Яковлев Сергей, Яковлева Инна",
-				"tel1":"+79504550903",
-				"tel2":"",
-				"email":"yakovlev.s.n@yandex.ru",
-				"web":""
-			},
-			{
 				"location":"DZ Энем, Краснодарский край, РТ DZ Мензелинск,  Интернет магазин",
 				"name":"Назаров Сергей",
 				"tel1":"+89874068296",
@@ -676,20 +458,28 @@
 				"web":"http://vk.com/skyshop_russia"
 			},
 			{
-				"location":"г. Благовещенск, Амурская область",
-				"name":"Раков Роман",
-				"tel1":"+79622856626",
-				"tel2":"",
-				"email":"21-28-21@mail.ru",
-				"web":""
-			},
-			{
 				"location":"г. Ессентуки",
 				"name":"Малиновский Дмитрий",
 				"tel1":"+79636174529",
 				"tel2":"",
 				"email":"info@alti-meter.ru",
 				"web":"http://www.alti-meter.ru"
+			},
+			{
+				"location":"г. Омск",
+				"name":"Игнатов Иван",
+				"tel1":"+79059405835",
+				"tel2":"",
+				"email":"shop@skydiverussia.ru",
+				"web":""
+			},
+			{
+				"location":"г. Москва",
+				"name":"Михаил Петров",
+				"tel1":"+79629621245",
+				"tel2":"",
+				"email":"",
+				"web":""
 			}
 		]
 	}

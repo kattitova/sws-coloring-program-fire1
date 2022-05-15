@@ -1,5 +1,6 @@
 .footer {
   @include flex(center, center, column);
+  margin-top: 20px;
 
   .footer-text {
     @include flex;

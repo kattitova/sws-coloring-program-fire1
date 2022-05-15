@@ -69,6 +69,7 @@ export default function genInputs(obj, cls) {
         case "clear-button":
           elem = create("button", `data-row__${item}`);
           elem.setAttribute("data-val", block[item].toLowerCase().replaceAll(" ", "_"));
+          elem.setAttribute("data-lang", block[item].toLowerCase().replaceAll(" ", "_"));
           elem.textContent = block[item];
           dataBlock.appendChild(elem);
           break;

@@ -131,7 +131,7 @@ export default function getContainerElements() {
 
   containerScreens.forEach((screen) => {
     // вешаем события на детали hover, click
-    const details = screen.querySelectorAll("path");
+    const details = screen.querySelectorAll(".schema__element");
     details.forEach((item) => {
       const dataId = item.getAttribute("data-id");
       if (dataId !== null) {

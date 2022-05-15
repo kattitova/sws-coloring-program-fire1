@@ -16,6 +16,8 @@ import { getColorInfo } from "./color-info/color-info";
 import * as Save from "./save-coloring/save-coloring";
 import * as EnterCode from "./enter-code/enter-code";
 import { sendOrder, getModalOrder } from "./send-order/send-order";
+import { mobileButtonMenuHandler, closeRightMenu } from "./mobile-menu";
+import { selectLang } from "./lang/lang";
 
 const form = document.querySelector(".form-constructor");
 const priceList = json[3].parts[0];
@@ -37,7 +39,7 @@ function handlerClickHarness(color) {
 function handlerClickDetails(color) {
   const screens = document.querySelectorAll(".constructor__schema");
   screens.forEach((screen) => {
-    const details = screen.querySelectorAll("path");
+    const details = screen.querySelectorAll(".schema__element");
     details.forEach((item) => {
       const id = item.getAttribute("data-id");
       if (id !== null && id.indexOf("pinstripes") === -1) {
@@ -168,6 +170,7 @@ function getCheksValue() {
           const checkedInput = label.previousSibling;
           text = label.textContent;
           const [name, price] = text.split("$");
+          const nameDataLang = label.querySelector(".data-row__name").getAttribute("data-lang");
           const formItem = form.querySelector(`.${title}[data-target="${val}"]`);
 
           checkedInput.addEventListener("change", () => {
@@ -176,8 +179,14 @@ function getCheksValue() {
                 let countCheckbox = 0;
                 const dataText = checkedInput.getAttribute("data-text");
                 if (dataText !== "choose_color") {
+                // костыль для опции "main_pc",
+                // если в него добавится третий пункт выбора, то он будет не нужен
+                // indCheck будет просто равен 2
+                  const dataVal = rowChecks.getAttribute("data-val");
+                  const indCheck = dataVal === "main_pc" ? 1 : 2;
+                  // -------
                   ipts.forEach((input, ind) => {
-                    if (ind === ipts.length - 1 && ind > 2) {
+                    if (ind === ipts.length - 1 && ind > indCheck) {
                       countCheckbox += 1;
                     } else input.checked = false;
                   });
@@ -202,14 +211,14 @@ function getCheksValue() {
                 if (price !== undefined) {
                   if (!flagColorOpt) formItem.textContent = `${name}($)`;
                   if (checkedInput.getAttribute("type") !== "radio" && !checkedInput.checked) {
-                    checkAddedOption(invoisList, select, val, price, name, true);
-                  } else addCalcBlock(invoisList, val, price, name, select);
+                    checkAddedOption(invoisList, select, val, price, name, nameDataLang, true);
+                  } else addCalcBlock(invoisList, val, price, name, select, nameDataLang);
                 } else {
                   if (!flagColorOpt) formItem.textContent = text.replace("Standart", "");
                   if (countCheckbox > 0) {
-                    checkAddedOption(invoisList, select, val, price, name, false);
+                    checkAddedOption(invoisList, select, val, price, name, nameDataLang, false);
                   } else {
-                    checkAddedOption(invoisList, select, val, price, name, true);
+                    checkAddedOption(invoisList, select, val, price, name, nameDataLang, true);
                   }
                 }
 
@@ -236,8 +245,10 @@ function getCheksValue() {
 
                 const subtitle = label.querySelector(".data-row__name").textContent;
                 if (checkedInput.checked) {
-                  addCalcBlock(invoisList, val, price, subtitle, select);
-                } else checkAddedOption(invoisList, select, val, price, subtitle, true);
+                  addCalcBlock(invoisList, val, price, subtitle, select, nameDataLang);
+                } else {
+                  checkAddedOption(invoisList, select, val, price, subtitle, nameDataLang, true);
+                }
                 break;
               }
               case "add": {
@@ -256,15 +267,15 @@ function getCheksValue() {
                   formItem.textContent = text;
                   if (price !== undefined) {
                     formItem.textContent = `${name}($)`;
-                    addCalcBlock(invoisList, val, price, name, select);
+                    addCalcBlock(invoisList, val, price, name, select, nameDataLang);
                   } else {
                     formItem.textContent = text;
-                    checkAddedOption(invoisList, select, val, price, name);
+                    checkAddedOption(invoisList, select, val, price, name, nameDataLang);
                   }
                 } else {
                   formItem.setAttribute("value", "NULL");
                   formItem.textContent = "";
-                  checkAddedOption(invoisList, select, val, price, name, true);
+                  checkAddedOption(invoisList, select, val, price, name, nameDataLang, true);
                 }
                 break;
               }
@@ -353,6 +364,9 @@ export default function funcInit() {
   EnterCode.enterCode();
   getModalOrder();
   sendOrder();
+  mobileButtonMenuHandler();
+  closeRightMenu();
+  selectLang();
 }
 
 export {

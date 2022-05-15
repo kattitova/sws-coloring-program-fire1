@@ -96,7 +96,7 @@ function setLogoAreasActions() {
 
       elem.addEventListener("click", () => {
         const data = elem.getAttribute("data-logo");
-        const schema = elem.parentElement.className.baseVal.replace("schema__", "");
+        const schema = elem.parentElement.parentElement.parentElement.className.split(" ")[1];
 
         elements.forEach((el) => {
           el.classList.remove("active");
@@ -150,6 +150,10 @@ function setLogoAreasActions() {
             }
           });
         }
+
+        // для мобильной версии, чтобы по клику на деталь, сразу открывалась панель с логотипами
+        const rightPanel = document.querySelector(".right-container__template-panel");
+        rightPanel.classList.add("open");
       });
     }
   });
@@ -221,8 +225,8 @@ function addLogosToConstructor() {
 
       const logoAreas = {
         isometric: ["left-side", "central-detail"],
-        front: ["central-detail"],
-        back: ["rc-left", "rc-right"],
+        back: ["central-detail"],
+        front: ["rc-left", "rc-right"],
         side: ["left-side", "right-side"],
       };
 

@@ -1,3 +1,5 @@
+import { closeLeftMenu } from "../mobile-menu";
+
 export default function tabsClick() {
   const tabsList = document.querySelector(".left-container__tabs-list");
   let activeTab = tabsList.querySelector(".container");
@@ -9,6 +11,9 @@ export default function tabsClick() {
   }
 
   tabsList.addEventListener("click", (e) => {
+    // закрываем левое меню - для мобильной версии
+    closeLeftMenu();
+
     localStorage.removeItem("color");
     const tabs = e.target.className.split(" ");
     const constructorSetActive = document.querySelector(`.constructor__item.${tabs[1]}`);

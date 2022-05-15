@@ -168,6 +168,12 @@ function createOrderForm(data, lang, fileName) {
                       row.commit();
                     }
                   }
+                  if (target === "fabric_toggles" || target === "protected_main_pc_pocket") {
+                    const row = worksheet.getRow(pos.row);
+                    row.getCell(pos.cell).value = "R";
+                    row.commit();
+                    flag = false;
+                  }
                   if (flag) {
                     numRow = pos[value].row;
                     numCell = pos[value].cell;

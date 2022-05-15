@@ -351,6 +351,11 @@
      }
    },
    {
+     "data-target": "fabric_toggles",
+      "row": 26,
+      "cell": 23
+   },
+   {
      "data-target": "main_container",
      "standard": {
         "row": 28,
@@ -505,6 +510,11 @@
       "row": 42,
       "cell": 24
      }
+   },
+   {
+     "data-target": "protected_main_pc_pocket",
+      "row": 43,
+      "cell": 24
    },
    {
      "data-target": "hook-knife",

@@ -10,6 +10,7 @@ const transporter = nodemailer.createTransport({
     user: "sws.nodemailer@gmail.com",
     pass: "sws.nodemailer.2021",
   },
+
   // host: "smtp.gmail.com",
   // port: 465,
   // secure: true,
@@ -45,35 +46,6 @@ async function sendContactMail(data) {
 
   console.log(result);
 }
-
-// async function check(file) {
-//   let flag;
-//   fs.access(file, (error) => {
-//     if (error) {
-//       flag = false;
-//       console.log("Файл не найден");
-//     } else {
-//       console.log("Файл найден");
-//     }
-//   });
-//   return flag;
-// }
-
-// async function checkFiles(arrAttach) {
-//   let flag = true;
-//   for (const file of arrAttach) {
-//     fs.access(file.path, (error) => {
-//       if (error) {
-//         flag = false;
-//         console.log("Файл не найден");
-//       } else {
-//         console.log("Файл найден");
-//       }
-//     });
-//   }
-//   console.log("func", flag);
-//   return flag;
-// }
 
 // отправка письма с заказом
 async function sendOrderMail(fileName, name, email, phone) {

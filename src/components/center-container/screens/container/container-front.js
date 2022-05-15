@@ -138,12 +138,12 @@ h5.216c8.465-9.634,18.109-28.412,27.558-43.552C168.588,241.356,141.818,176.667,1
 <path data-id="area-2a" class="schema__element" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M94.683,177.672h-6.594c0,0-3.324,7.97-7.729,18.531
 c-8.278,19.852-20.375,48.864-21.402,51.367c3.486,5.622,6.998,11.739,10.473,17.705c4.972,8.535,9.867,16.753,14.498,22.772
 l16.038-110.377L94.683,177.672L94.683,177.672z"/>
-<path data-id="area-2b" data-logo="central-detail" class="schema__element logo-area" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M121.55,177.672h-6.594h-6.594h-8.396L83.929,288.049
-c0.905,1.176,1.8,2.277,2.684,3.271h5.217h15.549h7.578h7.578h15.551h5.215c0.631-0.717,1.27-1.499,1.911-2.312l-16.178-111.336
-H121.55z"/>
 <path data-id="area-2c" class="schema__element" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M149.829,197.24
 c-4.593-11.081-8.104-19.568-8.104-19.568h-6.594h-6.099l16.178,111.336c4.856-6.146,10.058-14.885,15.351-23.938
 c3.414-5.839,6.867-11.808,10.297-17.301C169.352,244.318,157.915,216.755,149.829,197.24z"/>
+<path data-id="area-2b" data-logo="central-detail" class="schema__element logo-area" fill="#5782A3" stroke="#9AB7CD" stroke-miterlimit="10" d="M121.55,177.672h-6.594h-6.594h-8.396L83.929,288.049
+c0.905,1.176,1.8,2.277,2.684,3.271h5.217h15.549h7.578h7.578h15.551h5.215c0.631-0.717,1.27-1.499,1.911-2.312l-16.178-111.336
+H121.55z"/>
 
 <g data-id="pinstripes" class="schema__element no-active">
 <path data-id="pinstripes-3" class="schema__element no-active" fill="none" stroke="#9AB7CD" stroke-width="2" stroke-miterlimit="10" d="M144.967,377.518

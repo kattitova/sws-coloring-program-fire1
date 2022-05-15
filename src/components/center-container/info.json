@@ -103,6 +103,12 @@
             "radio": ["500mm", "550mm", "600mm"],
             "price": [0, 0, 0],
             "select": "solo"
+          },
+		      {
+            "label": "Fabric toggles",
+            "checkbox": ["Yes"],
+            "price": ["$25"],
+            "select": "add"
           }
         ]
       },
@@ -175,14 +181,14 @@
           },
           {
             "label": "Main PC",
-            "radio": ["Zp", "F-111", "Student", "Choose Color"],
-            "price": [0, 0, 0, "$25"],
+            "radio": ["Zp", "F-111", "Choose Color"],
+            "price": [0, 0, "$25"],
             "select": "solo"
           },
           {
             "label": "Bridle",
-            "radio": ["2m", "Wingmode 3m", "Student"],
-            "price": [0, 0, 0],
+            "radio": ["2m", "Wingmode 3m"],
+            "price": [0, 0],
             "select": "solo"
           },
           {
@@ -190,6 +196,12 @@
             "radio": ["Standard", "Lazy Bag"],
             "price": ["Standart", "$30"],
             "select": "solo"
+          },
+		      {
+            "label": "Protected main PC pocket",
+            "checkbox": ["Yes"],
+            "price": ["$30"],
+            "select": "add"
           }
         ]
       },
@@ -232,7 +244,7 @@
     "title": "Price",
     "parts": [
       {
-        "fire": "$1300",
+        "fire": "$1350",
         "pinstripes": "$30",
         "camo": "$60",
         "embroidery_text": "$30",

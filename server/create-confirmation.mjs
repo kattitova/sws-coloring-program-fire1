@@ -7,6 +7,21 @@ const dirname = path.resolve();
 const posJSON = fs.readFileSync("server/confirmation-position.json", "utf8");
 const positions = JSON.parse(posJSON)[0];
 
+const cellFill = {
+  blk : {
+    type: "pattern",
+    pattern: "solid",
+    fgColor: {
+      argb: "000000"
+    },
+  },
+  red: {
+    type: "pattern",
+    pattern: "solid",
+    fgColor: { argb: 'FFFF0000' },
+  },
+};
+
 function recalc(workbook) {
   const worksheet = workbook.getWorksheet("PriceList");
   const arr = [10, 4, 5, 1, 6, 7];
@@ -26,6 +41,29 @@ function setCamoOption(worksheet) {
   const row = worksheet.getRow(32);
   row.getCell(13).value = "x";
   row.commit();
+}
+
+function recolor(workbook) {
+  const worksheet = workbook.getWorksheet(1);
+  ['F14',
+    'H15',
+    'G16',
+    'F17'].map(key => {
+      worksheet.getCell(key).fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: '96C8FB' },
+        bgColor: { argb: '96C8FB' }
+      };
+});
+//   for (let i = 14; i <= 30; i += 1) {
+//     // const row = worksheet.getRow(i);
+//     const val = worksheet.getCell(`F${i}`).value.toLowerCase();
+//     console.log(val, cellFill[val]);
+//     worksheet.getCell(`F${i}`).fill = cellFill[val];
+//     //row.commit();
+//   }
+//  // worksheet.commit();
 }
 
 function createConfirmation(data, lang, fileName) {
@@ -61,6 +99,13 @@ function createConfirmation(data, lang, fileName) {
                 const row = worksheet.getRow(pos.row);
                 const txt = item === "color" ? `${subItem.text[0].toUpperCase()}${subItem.text.slice(1)}` : subItem.text;
                 row.getCell(pos.cell).value = txt;
+                
+                // ????????????????
+                // if (item === "color") {
+                //   console.log(item, pos, subItem.text, cellFill[subItem.text]);
+                //   row.getCell(pos.cell).fill = cellFill[subItem.text];
+                //   // row.getCell(pos.cell).font = {color: {argb: 'FFFF0000'}}
+                // }
                 row.commit();
               }
               if (item === "color") {
@@ -188,6 +233,7 @@ function createConfirmation(data, lang, fileName) {
         .then(() => {
           book.calcProperties.fullCalcOnLoad = true;
           recalc(book);
+          recolor(book);
           return book.xlsx.writeFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`);
         });
     });

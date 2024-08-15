@@ -6,6 +6,22 @@ const dirname = path.resolve();
 const posJSON = fs.readFileSync("server/order-form-position.json", "utf8");
 const positions = JSON.parse(posJSON)[0];
 
+const cellFill = {
+  // blk : {
+  //   type: "pattern",
+  //   pattern: "solid",
+  //   fgColor: {
+  //     argb: "000000"
+  //   },
+  // },
+  red: {
+    type: "pattern",
+    pattern: "solid",
+    fgColor: { argb: 'FF0000' },
+    bgColor: { argb: 'FF0000' }
+  },
+};
+
 function spliceData(data) {
   const obj = {
     info: [],
@@ -99,6 +115,8 @@ function createOrderForm(data, lang, fileName) {
               if (flagColor) {
                 const row = worksheet.getRow(pos.row);
                 row.getCell(pos.cell).value = color.text;
+                // console.log(pos, color.text);
+                row.getCell(pos.cell).fill = cellFill[color.value];
                 row.commit();
               }
             });

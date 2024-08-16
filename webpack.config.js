@@ -28,7 +28,7 @@ module.exports = {
     open: true,
     compress: true,
     hot: true,
-    port: 8080,
+    port: process.env.PORT || 8080,
   },
 
   plugins: [

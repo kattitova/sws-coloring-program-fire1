@@ -12,7 +12,8 @@
     "build:watch": "webpack --watch --mode development",
     "node": "npm run build:watch & nodemon",
     "node:prod": "npm run build:prod & nodemon",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "heroku-postbuild": "npm run build"
   },
   "author": "Kateryna Tytova",
   "license": "ISC",

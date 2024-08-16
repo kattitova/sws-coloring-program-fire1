@@ -12,7 +12,7 @@
     "build:watch": "webpack --watch --mode development",
     "node": "concurrently \"npm run build:watch\" \"nodemon\"",
     "node:prod": "npm run build:prod & nodemon",
-    "start": "node src/index.js"
+    "start": "node"
     
   },
   "author": "Kateryna Tytova",

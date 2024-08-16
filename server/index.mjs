@@ -12,7 +12,7 @@ const dirname = path.resolve();
 const app = express();
 const jsonParser = express.json();
 const urlencodedParser = express.urlencoded({ extended: false });
-app.use(express.static(`${dirname}\\dist`));
+app.use(express.static(`${dirname}/dist`));
 
 const port = process.env.PORT || 3000;
 

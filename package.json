@@ -13,7 +13,7 @@
     "node": "npm run build:watch & nodemon",
     "node:prod": "npm run build:prod & nodemon",
     "start": "node src/index.js",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build:prod"
   },
   "author": "Kateryna Tytova",
   "license": "ISC",

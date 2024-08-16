@@ -52,7 +52,8 @@ function spliceData(data) {
 function createOrderForm(data, lang, fileName) {
   const workbook = new Excel.Workbook();
 
-  workbook.xlsx.readFile(`${dirname}\\server\\orders\\OrderFormTmp${lang}.xlsx`)
+  //FOR LOCAL workbook.xlsx.readFile(`${dirname}\\server\\orders\\OrderFormTmp${lang}.xlsx`)
+  workbook.xlsx.readFile(`${dirname}/server/orders/OrderFormTmp${lang}.xlsx`)
     .then(() => {
       const worksheet = workbook.getWorksheet(1);
 
@@ -215,7 +216,8 @@ function createOrderForm(data, lang, fileName) {
           default: break;
         }
       });
-      workbook.xlsx.writeFile(`${dirname}\\server\\orders\\Fire1_OrderForm${lang}_${fileName}.xlsx`);
+      //FOR LOCAL workbook.xlsx.writeFile(`${dirname}\\server\\orders\\Fire1_OrderForm${lang}_${fileName}.xlsx`);
+      workbook.xlsx.writeFile(`${dirname}/server/orders/Fire1_OrderForm${lang}_${fileName}.xlsx`);
     });
 }
 

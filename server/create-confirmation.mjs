@@ -69,7 +69,8 @@ function recolor(workbook) {
 function createConfirmation(data, lang, fileName) {
   const workbook = new Excel.Workbook();
 
-  workbook.xlsx.readFile(`${dirname}\\server\\orders\\OrderConfirmationTmp${lang}.xlsx`)
+  //FOR LOCAL workbook.xlsx.readFile(`${dirname}\\server\\orders\\OrderConfirmationTmp${lang}.xlsx`)
+  workbook.xlsx.readFile(`${dirname}/server/orders/OrderConfirmationTmp${lang}.xlsx`)
     .then(() => {
       const worksheet = workbook.getWorksheet(1);
 
@@ -225,16 +226,19 @@ function createConfirmation(data, lang, fileName) {
       });
       // --------------------
 
-      return workbook.xlsx.writeFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`);
+      //FOR LOCAL return workbook.xlsx.writeFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`);
+      return workbook.xlsx.writeFile(`${dirname}/server/orders/Fire1_OrderConfirmation${lang}_${fileName}.xlsx`);
     })
     .then(() => {
       const book = new Excel.Workbook();
-      book.xlsx.readFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`)
+      //FOR LOCAL book.xlsx.readFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`)
+      book.xlsx.readFile(`${dirname}/server/orders/Fire1_OrderConfirmation${lang}_${fileName}.xlsx`)
         .then(() => {
           book.calcProperties.fullCalcOnLoad = true;
           recalc(book);
           recolor(book);
-          return book.xlsx.writeFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`);
+          //FOR LOCAL return book.xlsx.writeFile(`${dirname}\\server\\orders\\Fire1_OrderConfirmation${lang}_${fileName}.xlsx`);
+          return book.xlsx.writeFile(`${dirname}/server/orders/Fire1_OrderConfirmation${lang}_${fileName}.xlsx`);
         });
     });
 }

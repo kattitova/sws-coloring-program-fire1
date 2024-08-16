@@ -10,7 +10,8 @@
     "stylelint:fix": "stylelint src/**/*.scss --fix",
     "build:prod": "webpack --mode production",
     "build:watch": "webpack --watch --mode development",
-    "node": "concurrently \"npm run build:watch\" \"nodemon\""
+
+    "node": "npm run build:watch & nodemon"
   },
   "author": "Kateryna Tytova",
   "license": "ISC",

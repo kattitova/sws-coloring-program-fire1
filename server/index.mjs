@@ -14,7 +14,7 @@ const jsonParser = express.json();
 const urlencodedParser = express.urlencoded({ extended: false });
 app.use(express.static(`${dirname}\\dist`));
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get("/", urlencodedParser, (request, response) => {
   response.send("Hello from Express!");

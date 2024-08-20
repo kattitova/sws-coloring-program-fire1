@@ -72,9 +72,9 @@ async function sendOrderMail(fileName, name, email, phone) {
     from: `"${fromName}" <${adminEmail}>`,
     to: adminEmail,
     // bcc: copyEmail, // hidden email copy
-    subject: "Fire1: Оформлен новый заказ",
-    html: `Вы получили заказ на ранец Fire1<br>
-    Заказчик: ${name}<br>
+    subject: "Fire1: Оформлено нове замовлення",
+    html: `Ви отримали замовлення на ранець Fire1<br>
+    Замовник: ${name}<br>
     E-mail: ${email}<br>
     Телефон: ${phone}`,
     attachments: arrAttach,
@@ -91,10 +91,10 @@ async function sendClientMail(name, email) {
     from: `"${fromName}" <${adminEmail}>`,
     to: email,
     // bcc: copyEmail, // hidden email copy
-    subject: "Fire1: Оформлен новый заказ",
-    html: `Здравствуйте, ${name}!<br><br>
-    Благодарим за заказ. Менеджер SWS свяжется с вами в ближайшее время.<br><br>
-    С уважением, компания SWS<br><br><br>
+    subject: "Fire1: Оформлено нове замовлення",
+    html: `Вітаємо, ${name}!<br><br>
+    Дякуємо за замовлення. Менеджер SWS зв'яжеться з вами найближчим часом.<br><br>
+    З повагою, компанія SWS<br><br><br>
     Hello, ${name}!<br><br>
     Thanks for your order. SWS manager will contact you shortly.<br><br>
     Have a good day,<br>
